@@ -32,30 +32,3 @@ jobs:
       with:
         name: maven-target
         path: target/
-
-  sonarqube:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-
-      - name: Download Build Artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: maven-target
-          path: target/
-
-
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@master
-        with:
-          args: >
-            -Dsonar.projectKey=gabrielzdenekes_seek-with-sight-server
-            -Dsonar.organization=seek-with-sight-server
-            -Dsonar.java.binaries=target/classes
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
