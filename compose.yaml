@@ -8,6 +8,6 @@ services:
     ports:
       - '5432'
   redis:
-    image: 'redis:8.2'
+    image: 'redis:8.6'
     ports:
       - '6379'
