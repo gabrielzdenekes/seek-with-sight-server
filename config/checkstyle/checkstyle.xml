@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="error"/>
+    <property name="fileExtensions" value="java"/>
+
+    <module name="LineLength">
+        <property name="max" value="120"/>
+        <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+    </module>
+
+    <module name="BeforeExecutionExclusionFileFilter">
+        <property name="fileNamePattern" value="module\-info\.java$"/>
+    </module>
+
+    <module name="TreeWalker">
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+        </module>
+        <module name="TypeName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="LocalVariableName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+
+        <module name="AvoidStarImport">
+            <property name="allowStaticMemberImports" value="true"/>
+        </module>
+        <module name="UnusedImports"/>
+        <module name="RedundantImport"/>
+
+        <module name="LeftCurly"/>
+        <module name="RightCurly"/>
+        <module name="NeedBraces"/>
+        <module name="WhitespaceAround"/>
+        <module name="WhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+
+        <module name="EmptyBlock">
+            <property name="option" value="text"/>
+        </module>
+
+        <module name="UpperEll"/>
+        <module name="DefaultComesLast"/>
+        <module name="MissingSwitchDefault"/>
+        <module name="MultipleVariableDeclarations"/>
+
+        <module name="InvalidJavadocPosition"/>
+        <module name="JavadocStyle">
+            <property name="checkFirstSentence" value="false"/>
+        </module>
+
+        <module name="Indentation">
+            <property name="basicOffset" value="4"/>
+            <property name="braceAdjustment" value="0"/>
+            <property name="caseIndent" value="4"/>
+            <property name="throwsIndent" value="4"/>
+            <property name="arrayInitIndent" value="4"/>
+            <property name="lineWrappingIndentation" value="8"/>
+        </module>
+
+    </module>
+</module>
