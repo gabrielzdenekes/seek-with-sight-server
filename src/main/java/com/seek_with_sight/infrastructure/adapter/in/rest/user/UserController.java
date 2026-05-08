@@ -4,6 +4,7 @@ import com.seek_with_sight.domain.port.in.user.CreateUserUseCase;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.mapper.UserRestMapper;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +21,9 @@ public class UserController {
     private final UserRestMapper mapper;
 
     @PostMapping
-    public ResponseEntity<UserResponse> createUser(@RequestBody UserRequest userRequest) {
-        var userToCreate = mapper.fromRequest(userRequest);
-        var createdUser = createUserUseCase.execute(userToCreate);
+    public ResponseEntity<UserResponse> createUser(@Valid @RequestBody UserRequest userRequest) {
+        var createUserCommand = mapper.fromRequestToCreateCommand(userRequest);
+        var createdUser = createUserUseCase.execute(createUserCommand);
         var responseUser = mapper.toResponse(createdUser);
 
         return new ResponseEntity<>(responseUser, HttpStatus.CREATED);

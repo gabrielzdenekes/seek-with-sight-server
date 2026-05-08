@@ -6,7 +6,6 @@
 
 # Build Files
 target/
-out/
 
 # System Files
 .DS_Store

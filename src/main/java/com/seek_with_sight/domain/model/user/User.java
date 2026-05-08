@@ -7,7 +7,7 @@ public class User {
 
     private String email;
 
-    private String passhash;
+    private String passHash;
 
     public UUID getId() {
         return id;
@@ -25,11 +25,11 @@ public class User {
         this.email = email;
     }
 
-    public String getPasshash() {
-        return passhash;
+    public String getPassHash() {
+        return passHash;
     }
 
-    public void setPasshash(String passhash) {
-        this.passhash = passhash;
+    public void setPassHash(String passHash) {
+        this.passHash = passHash;
     }
 }
