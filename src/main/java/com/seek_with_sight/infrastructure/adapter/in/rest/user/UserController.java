@@ -21,7 +21,7 @@ public class UserController {
     private final UserRestMapper mapper;
 
     @PostMapping
-    @ApiResponseDetails(message = "User created successfully.", status =  HttpStatus.CREATED)
+    @ApiResponseDetails(messageCode = "user.created", status =  HttpStatus.CREATED)
     public UserResponse createUser(@Valid @RequestBody UserRequest userRequest) {
         var createUserCommand = mapper.fromRequestToCreateCommand(userRequest);
         var createdUser = createUserUseCase.execute(createUserCommand);

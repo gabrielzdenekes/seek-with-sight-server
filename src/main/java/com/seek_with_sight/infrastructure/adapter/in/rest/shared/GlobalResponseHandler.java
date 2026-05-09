@@ -2,8 +2,11 @@ package com.seek_with_sight.infrastructure.adapter.in.rest.shared;
 
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.annotation.ApiResponseDetails;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
+import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
 import jakarta.annotation.Nullable;
+import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.NonNull;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,7 +18,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
+    private final LocalizedMessageService messageService;
+
     @Override
     public boolean supports(@NonNull MethodParameter returnType,
                             @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
@@ -36,7 +42,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
         var responseDetails = returnType.getMethodAnnotation(ApiResponseDetails.class);
         if (responseDetails != null) {
-            responseMessage = responseDetails.message();
+            responseMessage = this.messageService.getMessage(responseDetails.messageCode(), LocaleContextHolder.getLocale());
             status = responseDetails.status();
         }
 
