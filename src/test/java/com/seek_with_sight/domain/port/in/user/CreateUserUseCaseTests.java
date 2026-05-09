@@ -4,6 +4,7 @@ import com.seek_with_sight.application.service.user.UserService;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
 import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.utils.TestDataUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,10 @@ public class CreateUserUseCaseTests {
 
     @Test
     void execute_shouldCreateUserWithHashedPassword() {
-        var createCommand = new CreateUserCommand("user1@email.com", "password1@P");
+        var createCommand = new CreateUserCommand(
+                TestDataUtils.generateRandomEmail(),
+                TestDataUtils.generateRandomPassword()
+        );
         var encodedPassword = "$2a$12$i3.NLpVj8XPD4YvX6SIoqezFm/Q6Fq3Vz35yX0nGegUu4TlCYXDvW";
 
         when(passwordEncoderPort.encode(createCommand.rawPassword())).thenReturn(encodedPassword);
