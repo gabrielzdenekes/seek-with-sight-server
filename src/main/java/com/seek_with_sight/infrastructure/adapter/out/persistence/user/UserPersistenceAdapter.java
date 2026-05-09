@@ -5,9 +5,9 @@ import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.user.mapper.UserPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.user.repository.UserJpaRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 
-@Component
+import java.util.Optional;
+
 @RequiredArgsConstructor
 public class UserPersistenceAdapter implements UserRepositoryPort {
     private final UserJpaRepository userRepository;
@@ -19,5 +19,10 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
         var createdUser = userRepository.save(entity);
 
         return mapper.toDomain(createdUser);
+    }
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email).map(mapper::toDomain);
     }
 }
