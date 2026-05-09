@@ -2,6 +2,9 @@ package com.seek_with_sight.infrastructure.adapter.in.rest.shared;
 
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ValidationErrorDto;
+import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -9,7 +12,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
+@RequiredArgsConstructor
 public class GlobalExceptionHandler {
+    private final LocalizedMessageService messageService;
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<ValidationErrorDto[]>> handleValidationException(
             MethodArgumentNotValidException ex
@@ -21,7 +27,9 @@ public class GlobalExceptionHandler {
                 .toArray(ValidationErrorDto[]::new);
 
         var status = HttpStatus.BAD_REQUEST;
-        var apiResponse = ApiResponse.error("Validation Failed", errors);
+        var locale = LocaleContextHolder.getLocale();
+        var validationFailedMessage = messageService.getMessage("validation.failed", locale);
+        var apiResponse = ApiResponse.error(validationFailedMessage, errors);
 
         return new ResponseEntity<>(apiResponse, status);
     }

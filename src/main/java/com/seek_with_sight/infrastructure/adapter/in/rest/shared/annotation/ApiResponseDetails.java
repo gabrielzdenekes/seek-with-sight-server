@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ApiResponseDetails {
-    String message();
+    String messageCode();
     HttpStatus status() default HttpStatus.OK;
 }
 

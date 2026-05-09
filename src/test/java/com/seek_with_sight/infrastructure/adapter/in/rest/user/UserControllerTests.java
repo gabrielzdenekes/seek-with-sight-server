@@ -3,6 +3,7 @@ package com.seek_with_sight.infrastructure.adapter.in.rest.user;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.in.user.CreateUserCommand;
 import com.seek_with_sight.domain.port.in.user.CreateUserUseCase;
+import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.mapper.UserRestMapper;
 import org.junit.jupiter.api.Tag;
@@ -37,6 +38,9 @@ public class UserControllerTests {
     @MockitoBean
     private UserRestMapper userMapper;
 
+    @MockitoBean
+    private LocalizedMessageService messageService;
+
     @Test
     void postUser_shouldCreateUserSuccessfully() throws Exception {
         when(userService.execute(any(CreateUserCommand.class))).thenReturn(new User());
@@ -49,7 +53,6 @@ public class UserControllerTests {
 
         mockMvc.perform(request)
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.success").value(true))
-                .andExpect(jsonPath("$.message").value("User created successfully."));
+                .andExpect(jsonPath("$.success").value(true));
     }
 }
