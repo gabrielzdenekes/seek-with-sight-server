@@ -42,7 +42,9 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
 
         var responseDetails = returnType.getMethodAnnotation(ApiResponseDetails.class);
         if (responseDetails != null) {
-            responseMessage = this.messageService.getMessage(responseDetails.messageCode(), LocaleContextHolder.getLocale());
+            var messageCode = responseDetails.messageCode();
+            var locale = LocaleContextHolder.getLocale();
+            responseMessage = this.messageService.getMessage(messageCode, locale);
             status = responseDetails.status();
         }
 
