@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import tools.jackson.databind.ObjectMapper;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
@@ -57,6 +58,25 @@ public class UserIntegrationTests {
 
         mockMvc.perform(request)
                 .andExpect(jsonPath("$.message").value(expectedMessageInSpanish));
+    }
+
+    @Test
+    void whenPasswordHasInvalidFormat_ValidationMessageShouldBeDisplayedInCorrectLanguage() throws Exception {
+        var invalidFormatPassword = "password";
+        var userRequest = new UserRequest(UUID.randomUUID() + "@mail.com", invalidFormatPassword);
+        var jsonPayload = objectMapper.writeValueAsString(userRequest);
+        var locales = List.of(Locale.forLanguageTag("es"),  Locale.forLanguageTag("en"));
+
+        for (var loc : locales) {
+            var request = createUserHttpRequest(jsonPayload, loc.toLanguageTag());
+            var globalValidationMessage = messageService.getMessage("validation.failed", loc);
+            var expectedFieldErrorMessage = messageService.getMessage("user.validation.password.validFormat", loc);
+
+            mockMvc.perform(request)
+                    .andExpect(jsonPath("$.message").value(globalValidationMessage))
+                    .andExpect(jsonPath("$.data[0].fieldName").value("password"))
+                    .andExpect(jsonPath("$.data[0].errorMessage").value(expectedFieldErrorMessage));
+        }
     }
 
     private MockHttpServletRequestBuilder createUserHttpRequest(String jsonPayload, String language) {

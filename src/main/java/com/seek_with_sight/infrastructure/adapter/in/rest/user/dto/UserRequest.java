@@ -1,21 +1,29 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.user.dto;
 
+import com.seek_with_sight.domain.model.user.UserValidationConstants;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 public record UserRequest(
-        @NotBlank(message = "Email is required")
-        @Email(message = "Email must be a valid email address")
-        @Size(max = 255, message = "Email must not exceed 255 characters")
+        @NotBlank(message = "{user.validation.email.required}")
+        @Email(message = "{user.validation.email.validFormat}")
+        @Size(
+                max = UserValidationConstants.EMAIL_MAX_LENGTH,
+                message = "{user.validation.email.maxLength}"
+        )
         String email,
 
-        @NotBlank(message = "Password is required")
-        @Size(min = 8, max = 64, message = "Password must be between 8 and 64 characters")
+        @NotBlank(message = "{user.validation.password.required}")
+        @Size(
+                min = UserValidationConstants.PASSWORD_MIN_LENGTH,
+                max = UserValidationConstants.PASSWORD_MAX_LENGTH,
+                message = "{user.validation.password.size}"
+        )
         @Pattern(
-                regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$",
-                message = "Invalid password."
+                regexp = UserValidationConstants.PASSWORD_VALID_PATTERN,
+                message = "{user.validation.password.validFormat}"
         )
         String password
 ) {
