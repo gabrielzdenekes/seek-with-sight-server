@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 import java.util.Locale;
 
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.hasEntry;
+import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -57,10 +60,18 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
             var passwordMessage = messageService.getMessage(PASSWORD_REQUIRED_KEY, loc);
 
             mockMvc.perform(request)
-                    .andExpect(jsonPath("$.data[0].fieldName").value("password"))
-                    .andExpect(jsonPath("$.data[0].errorMessage").value(passwordMessage))
-                    .andExpect(jsonPath("$.data[1].fieldName").value("email"))
-                    .andExpect(jsonPath("$.data[1].errorMessage").value(emailMessage));
+                    .andExpect(jsonPath("$.data", hasItem(
+                            allOf(
+                                    hasEntry("fieldName", "email"),
+                                    hasEntry("errorMessage", emailMessage)
+                            )
+                    )))
+                    .andExpect(jsonPath("$.data", hasItem(
+                            allOf(
+                                    hasEntry("fieldName", "password"),
+                                    hasEntry("errorMessage", passwordMessage)
+                            )
+                    )));
         }
     }
 }
