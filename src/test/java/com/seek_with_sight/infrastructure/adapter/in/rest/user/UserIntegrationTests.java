@@ -13,6 +13,10 @@ import java.util.Locale;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 public class UserIntegrationTests extends IntegrationTestsBase {
+    private static final String USER_CREATED_KEY = "user.created";
+    private static final String PASSWORD_VALID_FORMAT_KEY = "user.validation.password.validFormat";
+    private static final String VALIDATION_FAILED_KEY = "validation.failed";
+
     @Autowired
     private LocalizedMessageService messageService;
 
@@ -25,7 +29,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
         var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
-        var expectedMessageInSpanish = messageService.getMessage("user.created", locale);
+        var expectedMessageInSpanish = messageService.getMessage(USER_CREATED_KEY, locale);
 
         mockMvc.perform(request).andExpect(
                 jsonPath("$.message").value(expectedMessageInSpanish)
@@ -41,7 +45,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, Locale.forLanguageTag("bg"));
-        var expectedMessageInDefaultLang = messageService.getMessage("user.created", Locale.forLanguageTag("en"));
+        var expectedMessageInDefaultLang = messageService.getMessage(USER_CREATED_KEY, Locale.forLanguageTag("en"));
 
         mockMvc.perform(request).andExpect(
                 jsonPath("$.message").value(expectedMessageInDefaultLang)
@@ -59,8 +63,8 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
         for (var loc : locales) {
             var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, loc);
-            var globalValidationMessage = messageService.getMessage("validation.failed", loc);
-            var expectedFieldErrorMessage = messageService.getMessage("user.validation.password.validFormat", loc);
+            var globalValidationMessage = messageService.getMessage(VALIDATION_FAILED_KEY, loc);
+            var expectedFieldErrorMessage = messageService.getMessage(PASSWORD_VALID_FORMAT_KEY, loc);
 
             mockMvc.perform(request)
                     .andExpect(jsonPath("$.message").value(globalValidationMessage))
