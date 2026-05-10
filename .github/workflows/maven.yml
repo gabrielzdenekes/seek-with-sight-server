@@ -66,6 +66,8 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Run Integration Tests
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
         run: mvn test -Dgroups="integration-tests"
 
   build:
@@ -85,8 +87,6 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        env:
-          JWT_SECRET: ${{ secrets.JWT_SECRET }}
         run: mvn -B -DskipTests package --file pom.xml
 
       - name: Upload Build Artifacts
