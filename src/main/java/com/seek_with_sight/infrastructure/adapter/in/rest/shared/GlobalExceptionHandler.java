@@ -1,5 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.shared;
 
+import com.seek_with_sight.domain.exception.BusinessException;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ValidationErrorDto;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
@@ -15,6 +16,16 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RequiredArgsConstructor
 public class GlobalExceptionHandler {
     private final LocalizedMessageService messageService;
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ApiResponse<?>> handleBusinessException(BusinessException ex) {
+        var status = HttpStatus.BAD_REQUEST;
+        var locale = LocaleContextHolder.getLocale();
+        var message = messageService.getMessage(ex.getLocalizedMessageCode(), locale);
+        var apiResponse = ApiResponse.error(message, status);
+
+        return new ResponseEntity<>(apiResponse, status);
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiResponse<ValidationErrorDto[]>> handleValidationException(
