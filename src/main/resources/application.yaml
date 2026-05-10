@@ -4,8 +4,8 @@ spring:
     security:
       jwt:
         secret-key: ${JWT_SECRET}
-        # 1 day in ms
-        access-token-expiration: 86400000
+        # 30 min in ms
+        access-token-expiration: 1800000
         # 7 days in ms
         refresh-token-expiration: 604800000
         refresh-cookie-path: /api/v1/auth/refresh

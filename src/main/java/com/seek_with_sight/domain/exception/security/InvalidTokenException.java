@@ -1,7 +1,9 @@
 package com.seek_with_sight.domain.exception.security;
 
-public class InvalidTokenException extends RuntimeException {
+import com.seek_with_sight.domain.exception.BusinessException;
+
+public class InvalidTokenException extends BusinessException {
     public InvalidTokenException(String message) {
-        super(message);
+        super(message, "auth.error.jwt.invalid-credentials");
     }
 }
