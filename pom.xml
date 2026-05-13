@@ -30,7 +30,7 @@
 		<java.version>25</java.version>
 		<datasource-micrometer.version>2.2.1</datasource-micrometer.version>
 		<org.mapstruct.version>1.6.3</org.mapstruct.version>
-		<io.jsonwebtoken.version>0.12.6</io.jsonwebtoken.version>
+		<io.jsonwebtoken.version>0.13.0</io.jsonwebtoken.version>
 		<org.springdoc.version>3.0.3</org.springdoc.version>
 	</properties>
 	<dependencies>
