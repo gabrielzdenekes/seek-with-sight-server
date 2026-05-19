@@ -25,21 +25,21 @@ public class AuthController {
     private final RefreshTokenCookieService cookieService;
 
     @PostMapping("/login")
-    public LoginResponse login(@Valid @RequestBody LoginRequest loginRequest) {
+    public LoginResponse login(
+            @Valid @RequestBody LoginRequest loginRequest,
+            HttpServletResponse response
+    ) {
         var loginCommand = authMapper.fromLoginRequestToLoginCommand(loginRequest);
         var loginData = loginUseCase.login(loginCommand);
+
+        cookieService.addRefreshToken(response, loginData.getRefreshToken());
 
         return authMapper.fromJwtLoginDataToLoginResponse(loginData);
     }
 
     @PostMapping("/refresh")
-    public LoginResponse refresh(
-            @CookieValue(name = "refresh_token") String refreshToken,
-            HttpServletResponse response) {
+    public LoginResponse refresh(@CookieValue(name = "refresh_token") String refreshToken) {
         var loginData = refreshTokenUseCase.refreshToken(refreshToken);
-
-        cookieService.addRefreshToken(response, loginData.getRefreshToken());
-
         return authMapper.fromJwtLoginDataToLoginResponse(loginData);
     }
 }

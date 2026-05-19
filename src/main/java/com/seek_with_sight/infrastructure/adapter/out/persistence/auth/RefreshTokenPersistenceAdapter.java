@@ -20,12 +20,15 @@ public class RefreshTokenPersistenceAdapter implements RefreshTokenPort {
     }
 
     @Override
-    public void deleteById(UUID id) {
-        repository.deleteById(id);
+    public Optional<RefreshToken> findByUserId(UUID userId) {
+        return repository.findByUserId(userId).map(mapper::fromEntity);
     }
 
     @Override
-    public void deleteByUserId(UUID userId) {
-        repository.deleteByUserId(userId);
+    public RefreshToken save(RefreshToken refreshToken) {
+        var newToken = mapper.toEntity(refreshToken);
+        var savedToken = repository.save(newToken);
+
+        return mapper.fromEntity(savedToken);
     }
 }

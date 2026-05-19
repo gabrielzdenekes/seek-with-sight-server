@@ -17,7 +17,7 @@ public class RefreshTokenCookieService {
         var cookie = ResponseCookie.from(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, refreshToken)
                 .httpOnly(true)
                 .secure(false) // TRUE in production HTTPS
-                .path("/api/auth/refresh")
+                .path("/api/v1/auth/refresh")
                 .maxAge(jwtConfig.refreshTokenExpiration())
                 .sameSite("Strict")
                 .build();

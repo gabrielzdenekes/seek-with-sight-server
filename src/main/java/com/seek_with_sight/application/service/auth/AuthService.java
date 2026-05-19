@@ -3,7 +3,7 @@ package com.seek_with_sight.application.service.auth;
 import com.seek_with_sight.domain.exception.security.InvalidTokenException;
 import com.seek_with_sight.domain.exception.user.UserNotFoundException;
 import com.seek_with_sight.domain.model.auth.JwtLoginData;
-import com.seek_with_sight.domain.model.user.User;
+import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.domain.port.in.auth.LoginCommand;
 import com.seek_with_sight.domain.port.in.auth.LoginUseCase;
 import com.seek_with_sight.domain.port.in.auth.RefreshTokenUseCase;
@@ -33,9 +33,17 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase {
             throw new InvalidTokenException("Invalid login credentials");
         }
 
-        refreshTokenPort.deleteByUserId(user.getId());
+        var accessToken = jwtTokenPort.generateAccessToken(user);
+        var refreshToken = jwtTokenPort.generateRefreshToken(user);
+        var loginData = new JwtLoginData(
+                accessToken,
+                refreshToken,
+                user
+        );
 
-        return createLoginData(user);
+        handleRefreshTokenPersistence(loginData);
+
+        return loginData;
     }
 
     @Override
@@ -47,19 +55,33 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase {
             throw new InvalidTokenException("Refresh token has expired");
         }
 
-        refreshTokenPort.deleteById(token.getId());
-
-        return createLoginData(token.getUser());
-    }
-
-    private JwtLoginData createLoginData(User user) {
-        var accessToken = jwtTokenPort.generateAccessToken(user);
-        var refreshToken = jwtTokenPort.generateRefreshToken(user);
+        var user = token.getUser();
+        var newAccessToken = jwtTokenPort.generateAccessToken(user);
 
         return new JwtLoginData(
-                accessToken,
+                newAccessToken,
                 refreshToken,
                 user
         );
+    }
+
+    private void handleRefreshTokenPersistence(JwtLoginData jwtLoginData) {
+        var user = jwtLoginData.getUser();
+        var refreshToken = refreshTokenPort.findByUserId(user.getId())
+                .orElseGet(() -> {
+                    var newRefreshToken = new RefreshToken();
+
+                    newRefreshToken.setUser(user);
+
+                    return newRefreshToken;
+                });
+
+        var refreshTokenString = jwtLoginData.getRefreshToken();
+        var expiresAt = jwtTokenPort.extractExpiration(refreshTokenString);
+
+        refreshToken.setToken(refreshTokenString);
+        refreshToken.setExpiresAt(expiresAt);
+
+        refreshTokenPort.save(refreshToken);
     }
 }

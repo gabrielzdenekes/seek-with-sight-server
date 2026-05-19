@@ -4,6 +4,7 @@ import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
 import com.seek_with_sight.infrastructure.config.security.JwtConfig;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
@@ -41,7 +43,24 @@ public class JwtTokenAdapter implements JwtTokenPort {
 
     @Override
     public boolean isValidRefreshToken(RefreshToken refreshToken) {
-        return LocalDateTime.now().isAfter(refreshToken.getExpiresAt());
+        return LocalDateTime.now().isBefore(refreshToken.getExpiresAt());
+    }
+
+    @Override
+    public LocalDateTime extractExpiration(String token) {
+        Date expiration = extractAllClaims(token).getExpiration();
+
+        return expiration.toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDateTime();
+    }
+
+    private Claims extractAllClaims(String token) {
+        return Jwts.parser()
+                .verifyWith(getSignInKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
     }
 
     private String buildToken(User user, long expiration, Map<String, Object> extraClaims) {

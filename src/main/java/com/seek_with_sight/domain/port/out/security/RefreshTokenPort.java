@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface RefreshTokenPort {
     Optional<RefreshToken> findByToken(String token);
 
-    void deleteById(UUID id);
+    Optional<RefreshToken> findByUserId(UUID userId);
 
-    void deleteByUserId(UUID userId);
+    RefreshToken save(RefreshToken refreshToken);
 }
