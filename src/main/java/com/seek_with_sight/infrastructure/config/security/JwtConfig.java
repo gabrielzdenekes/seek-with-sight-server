@@ -6,8 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public record JwtConfig(
         String secretKey,
         int accessTokenExpiration,
-        int refreshTokenExpiration,
-        String refreshCookiePath,
-        String refreshCookieSameSite
+        int refreshTokenExpiration
 ) {
 }

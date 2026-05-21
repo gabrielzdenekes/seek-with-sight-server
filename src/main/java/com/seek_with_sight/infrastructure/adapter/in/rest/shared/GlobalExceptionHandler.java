@@ -1,9 +1,12 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.shared;
 
 import com.seek_with_sight.domain.exception.BusinessException;
+import com.seek_with_sight.domain.exception.security.UnauthorizedException;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ValidationErrorDto;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
@@ -20,9 +23,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ApiResponse<?>> handleBusinessException(BusinessException ex) {
         var status = HttpStatus.BAD_REQUEST;
-        var locale = LocaleContextHolder.getLocale();
-        var message = messageService.getMessage(ex.getLocalizedMessageCode(), locale);
-        var apiResponse = ApiResponse.error(message, status);
+
+        if (ex instanceof UnauthorizedException) {
+            status = HttpStatus.UNAUTHORIZED;
+        }
+
+        var apiResponse = ApiResponse.error(getLocalizedErrorMessage(ex.getLocalizedMessageCode()), status);
 
         return new ResponseEntity<>(apiResponse, status);
     }
@@ -38,10 +44,39 @@ public class GlobalExceptionHandler {
                 .toArray(ValidationErrorDto[]::new);
 
         var status = HttpStatus.BAD_REQUEST;
-        var locale = LocaleContextHolder.getLocale();
-        var validationFailedMessage = messageService.getMessage("validation.failed", locale);
-        var apiResponse = ApiResponse.error(validationFailedMessage, errors);
+        var apiResponse = ApiResponse.error(getLocalizedErrorMessage("validation.failed"), errors);
 
         return new ResponseEntity<>(apiResponse, status);
+    }
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ApiResponse<?>> handleConstraintViolation(
+            ConstraintViolationException ex,
+            HttpServletRequest request
+    ) {
+        var details = ex.getConstraintViolations()
+                .stream()
+                .map(fe -> new ValidationErrorDto(fe.getPropertyPath().toString(), fe.getMessage()))
+                .toArray(ValidationErrorDto[]::new);
+        var apiResponse = ApiResponse.error(getLocalizedErrorMessage("validation.failed"), details);
+        var status = HttpStatus.BAD_REQUEST;
+
+        return new ResponseEntity<>(apiResponse, status);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ApiResponse<?>> handleGenericException(
+            Exception ex,
+            HttpServletRequest request
+    ) {
+        var  status = HttpStatus.INTERNAL_SERVER_ERROR;
+        var apiResponse = ApiResponse.error(getLocalizedErrorMessage("generic.error"), null);
+
+        return new ResponseEntity<>(apiResponse, status);
+    }
+
+    private String getLocalizedErrorMessage(String key) {
+        var locale = LocaleContextHolder.getLocale();
+        return messageService.getMessage(key, locale);
     }
 }
