@@ -1,7 +1,7 @@
 package com.seek_with_sight.domain.port.in.auth;
 
 import com.seek_with_sight.application.service.auth.AuthService;
-import com.seek_with_sight.domain.exception.security.InvalidTokenException;
+import com.seek_with_sight.domain.exception.security.UnauthorizedException;
 import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
 import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
@@ -51,17 +51,17 @@ public class RefreshTokenUseCaseTests {
     }
 
     @Test
-    void whenRefreshTokenDoesntExistInTheDatabase_ShouldThrowInvalidTokenException() {
+    void whenRefreshTokenDoesntExistInTheDatabase_ShouldThrowUnauthorizedException() {
         when(refreshTokenPort.findByToken(any()))
                 .thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> refreshTokenUseCase.refreshToken(REFRESH_TOKEN_STR))
-                .isInstanceOf(InvalidTokenException.class)
+                .isInstanceOf(UnauthorizedException.class)
                 .hasMessage("Refresh token not found");
     }
 
     @Test
-    void whenRefreshTokenIsInvalid_ShouldThrowInvalidTokenException() {
+    void whenRefreshTokenIsInvalid_ShouldThrowUnauthorizedException() {
         when(jwtTokenPort.isValidRefreshToken(any()))
                 .thenReturn(false);
 
@@ -69,7 +69,7 @@ public class RefreshTokenUseCaseTests {
                 .thenReturn(Optional.of(new RefreshToken()));
 
         assertThatThrownBy(() -> refreshTokenUseCase.refreshToken(REFRESH_TOKEN_STR))
-                .isInstanceOf(InvalidTokenException.class)
+                .isInstanceOf(UnauthorizedException.class)
                 .hasMessage("Refresh token has expired");
     }
 }

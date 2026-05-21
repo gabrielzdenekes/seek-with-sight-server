@@ -18,10 +18,11 @@ public class UserService implements CreateUserUseCase {
 
     @Override
     public User execute(CreateUserCommand createUserCommand) {
-        var user = new  User();
+        var user = new User();
         var encodedPassword = passwordEncoderPort.encode(createUserCommand.rawPassword());
+        var normalizedEmail = createUserCommand.email().toLowerCase();
 
-        user.setEmail(createUserCommand.email());
+        user.setEmail(normalizedEmail);
         user.setPassHash(encodedPassword);
 
         return this.userRepository.save(user);

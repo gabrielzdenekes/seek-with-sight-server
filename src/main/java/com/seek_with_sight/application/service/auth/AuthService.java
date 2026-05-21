@@ -1,7 +1,6 @@
 package com.seek_with_sight.application.service.auth;
 
-import com.seek_with_sight.domain.exception.security.InvalidTokenException;
-import com.seek_with_sight.domain.exception.user.UserNotFoundException;
+import com.seek_with_sight.domain.exception.security.UnauthorizedException;
 import com.seek_with_sight.domain.model.auth.JwtLoginData;
 import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.domain.port.in.auth.LoginCommand;
@@ -14,6 +13,7 @@ import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 @RequiredArgsConstructor
@@ -26,11 +26,11 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase {
 
     @Override
     public JwtLoginData login(LoginCommand loginCommand) {
-        var user = userRepository.findByEmail(loginCommand.email())
-                .orElseThrow(() -> new UserNotFoundException(loginCommand.email()));
+        var user = userRepository.findByEmailIgnoreCase(loginCommand.email())
+                .orElseThrow(() -> new UnauthorizedException(loginCommand.email()));
 
         if (!passwordEncoder.matches(loginCommand.password(), user.getPassHash())) {
-            throw new InvalidTokenException("Invalid login credentials");
+            throw new UnauthorizedException("Invalid login credentials");
         }
 
         var accessToken = jwtTokenPort.generateAccessToken(user);
@@ -48,11 +48,15 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase {
 
     @Override
     public JwtLoginData refreshToken(String refreshToken) {
+        if (!StringUtils.hasLength(refreshToken)) {
+            throw new UnauthorizedException("Empty token.");
+        }
+
         var token = refreshTokenPort.findByToken(refreshToken)
-                .orElseThrow(() -> new InvalidTokenException("Refresh token not found"));
+                .orElseThrow(() -> new UnauthorizedException("Refresh token not found"));
 
         if (!jwtTokenPort.isValidRefreshToken(token)) {
-            throw new InvalidTokenException("Refresh token has expired");
+            throw new UnauthorizedException("Refresh token has expired");
         }
 
         var user = token.getUser();

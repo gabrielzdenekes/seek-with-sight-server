@@ -1,7 +1,7 @@
 package com.seek_with_sight.domain.port.in.auth;
 
 import com.seek_with_sight.application.service.auth.AuthService;
-import com.seek_with_sight.domain.exception.security.InvalidTokenException;
+import com.seek_with_sight.domain.exception.security.UnauthorizedException;
 import com.seek_with_sight.domain.exception.user.UserNotFoundException;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
@@ -51,7 +51,7 @@ public class LoginUseCaseTests {
 
     @Test
     void login_shouldThrowUserNotFoundException_whenUserDoesntExist() {
-        when(userRepositoryPort.findByEmail(any(String.class)))
+        when(userRepositoryPort.findByEmailIgnoreCase(any(String.class)))
                 .thenReturn(Optional.empty());
 
         var loginCommand = new LoginCommand(
@@ -65,8 +65,8 @@ public class LoginUseCaseTests {
     }
 
     @Test
-    void login_shouldThrowInvalidTokenException_whenPasswordAndPasswordHashDontMatch() {
-        when(userRepositoryPort.findByEmail(any(String.class)))
+    void login_shouldThrowUnauthorizedException_whenPasswordAndPasswordHashDontMatch() {
+        when(userRepositoryPort.findByEmailIgnoreCase(any(String.class)))
                 .thenReturn(Optional.of(new User()));
 
         when(passwordEncoderPort.matches(any(), any()))
@@ -78,7 +78,7 @@ public class LoginUseCaseTests {
         );
 
         assertThatThrownBy(() -> loginUseCase.login(loginCommand))
-                .isInstanceOf(InvalidTokenException.class)
+                .isInstanceOf(UnauthorizedException.class)
                 .hasMessage("Invalid login credentials");
     }
 }
