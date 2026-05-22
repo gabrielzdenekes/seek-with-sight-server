@@ -16,7 +16,7 @@ public class RefreshTokenCookieService {
     public void addRefreshToken(HttpServletResponse response, String refreshToken) {
         var cookie = ResponseCookie.from(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, refreshToken)
                 .httpOnly(true)
-                .secure(false) // TRUE in production HTTPS
+                .secure(true)
                 .path(jwtConfig.refreshCookiePath())
                 .maxAge(jwtConfig.refreshTokenExpiration())
                 .sameSite("Strict")
@@ -28,7 +28,7 @@ public class RefreshTokenCookieService {
     public void logout(HttpServletResponse response) {
         var cookie = ResponseCookie.from(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, "")
                 .httpOnly(true)
-                .secure(false)
+                .secure(true)
                 .path(jwtConfig.refreshCookiePath())
                 .maxAge(0)
                 .sameSite("Strict")
