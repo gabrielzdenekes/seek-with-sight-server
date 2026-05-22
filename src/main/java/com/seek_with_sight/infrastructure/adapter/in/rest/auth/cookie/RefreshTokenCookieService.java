@@ -17,8 +17,20 @@ public class RefreshTokenCookieService {
         var cookie = ResponseCookie.from(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, refreshToken)
                 .httpOnly(true)
                 .secure(false) // TRUE in production HTTPS
-                .path("/api/v1/auth/refresh")
+                .path(jwtConfig.refreshCookiePath())
                 .maxAge(jwtConfig.refreshTokenExpiration())
+                .sameSite("Strict")
+                .build();
+
+        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+    }
+
+    public void logout(HttpServletResponse response) {
+        var cookie = ResponseCookie.from(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, "")
+                .httpOnly(true)
+                .secure(false)
+                .path(jwtConfig.refreshCookiePath())
+                .maxAge(0)
                 .sameSite("Strict")
                 .build();
 

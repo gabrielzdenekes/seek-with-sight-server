@@ -5,6 +5,7 @@ import com.seek_with_sight.domain.model.auth.JwtLoginData;
 import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.domain.port.in.auth.LoginCommand;
 import com.seek_with_sight.domain.port.in.auth.LoginUseCase;
+import com.seek_with_sight.domain.port.in.auth.LogoutUseCase;
 import com.seek_with_sight.domain.port.in.auth.RefreshTokenUseCase;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
 import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
@@ -18,7 +19,7 @@ import org.springframework.util.StringUtils;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class AuthService implements LoginUseCase, RefreshTokenUseCase {
+public class AuthService implements LoginUseCase, RefreshTokenUseCase, LogoutUseCase {
     private final JwtTokenPort jwtTokenPort;
     private final UserRepositoryPort userRepository;
     private final PasswordEncoderPort passwordEncoder;
@@ -67,6 +68,15 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase {
                 refreshToken,
                 user
         );
+    }
+
+    @Override
+    public void logout(String refreshToken) {
+        if (!StringUtils.hasLength(refreshToken)) {
+            return;
+        }
+
+        refreshTokenPort.deleteByToken(refreshToken);
     }
 
     private void handleRefreshTokenPersistence(JwtLoginData jwtLoginData) {

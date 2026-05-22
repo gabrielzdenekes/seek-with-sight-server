@@ -10,5 +10,7 @@ public interface RefreshTokenPort {
 
     Optional<RefreshToken> findByUserId(UUID userId);
 
+    void deleteByToken(String token);
+
     RefreshToken save(RefreshToken refreshToken);
 }

@@ -25,6 +25,11 @@ public class RefreshTokenPersistenceAdapter implements RefreshTokenPort {
     }
 
     @Override
+    public void deleteByToken(String token) {
+        repository.deleteByToken(token);
+    }
+
+    @Override
     public RefreshToken save(RefreshToken refreshToken) {
         var newToken = mapper.toEntity(refreshToken);
         var savedToken = repository.save(newToken);

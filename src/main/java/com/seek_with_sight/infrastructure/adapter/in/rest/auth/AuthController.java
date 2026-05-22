@@ -1,6 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.auth;
 
 import com.seek_with_sight.domain.port.in.auth.LoginUseCase;
+import com.seek_with_sight.domain.port.in.auth.LogoutUseCase;
 import com.seek_with_sight.domain.port.in.auth.RefreshTokenUseCase;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.cookie.RefreshTokenCookieService;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.dto.LoginRequest;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     private final LoginUseCase loginUseCase;
     private final RefreshTokenUseCase refreshTokenUseCase;
+    private final LogoutUseCase logoutUseCase;
     private final AuthRestMapper authMapper;
     private final RefreshTokenCookieService cookieService;
 
@@ -41,5 +43,14 @@ public class AuthController {
     public LoginResponse refresh(@CookieValue(name = "refresh_token") String refreshToken) {
         var loginData = refreshTokenUseCase.refreshToken(refreshToken);
         return authMapper.fromJwtLoginDataToLoginResponse(loginData);
+    }
+
+    @PostMapping("/logout")
+    public void logout(
+            @CookieValue(name = "refresh_token") String refreshToken,
+            HttpServletResponse response
+    ) {
+        logoutUseCase.logout(refreshToken);
+        cookieService.logout(response);
     }
 }
