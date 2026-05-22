@@ -46,7 +46,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
                 .andExpect(jsonPath("$.data.user.id").isNotEmpty())
                 .andExpect(jsonPath("$.data.user.email").value(userRequest.email()))
                 .andExpect(cookie().exists(AuthConstants.REFRESH_TOKEN_COOKIE_NAME))
-                .andExpect(cookie().path(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, "/api/v1/auth/refresh"))
+                .andExpect(cookie().path(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, "/api/v1/auth"))
                 .andExpect(cookie().httpOnly(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, true));
     }
 
