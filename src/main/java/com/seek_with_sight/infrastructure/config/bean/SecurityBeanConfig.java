@@ -2,6 +2,7 @@ package com.seek_with_sight.infrastructure.config.bean;
 
 import com.seek_with_sight.application.service.auth.AuthService;
 import com.seek_with_sight.domain.port.in.auth.LoginUseCase;
+import com.seek_with_sight.domain.port.in.auth.LogoutUseCase;
 import com.seek_with_sight.domain.port.in.auth.RefreshTokenUseCase;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
 import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
@@ -42,6 +43,15 @@ public class SecurityBeanConfig {
 
     @Bean
     public RefreshTokenUseCase refreshTokenUseCase(
+            JwtTokenPort jwtTokenPort,
+            UserRepositoryPort userRepositoryPort,
+            PasswordEncoderPort passwordEncoderPort,
+            RefreshTokenPort refreshTokenPort) {
+        return createAuthService(jwtTokenPort,  userRepositoryPort, passwordEncoderPort, refreshTokenPort);
+    }
+
+    @Bean
+    public LogoutUseCase logoutUseCase(
             JwtTokenPort jwtTokenPort,
             UserRepositoryPort userRepositoryPort,
             PasswordEncoderPort passwordEncoderPort,

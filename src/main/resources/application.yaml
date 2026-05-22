@@ -8,7 +8,7 @@ spring:
         access-token-expiration: 1800000
         # 7 days in ms
         refresh-token-expiration: 604800000
-        refresh-cookie-path: /api/v1/auth/refresh
+        refresh-cookie-path: /api/v1/auth
         refresh-cookie-same-site: Strict
 
   datasource:
