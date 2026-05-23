@@ -13,12 +13,14 @@ import com.seek_with_sight.domain.port.out.security.RefreshTokenPort;
 import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
+@Slf4j
 public class AuthService implements LoginUseCase, RefreshTokenUseCase, LogoutUseCase {
     private final JwtTokenPort jwtTokenPort;
     private final UserRepositoryPort userRepository;
@@ -27,12 +29,20 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase, LogoutUse
 
     @Override
     public JwtLoginData login(LoginCommand loginCommand) {
+        log.info("Login attempt for email={}", loginCommand.email());
+
         var user = userRepository.findByEmailIgnoreCase(loginCommand.email())
-                .orElseThrow(() -> new UnauthorizedException(loginCommand.email()));
+                .orElseThrow(() -> {
+                    log.warn("User not found for email={}", loginCommand.email());
+                    return new UnauthorizedException(loginCommand.email());
+                });
 
         if (!passwordEncoder.matches(loginCommand.password(), user.getPassHash())) {
+            log.warn("Passwords do not match: userId={}", user.getId());
             throw new UnauthorizedException("Invalid login credentials");
         }
+
+        log.info("Token generation started for userId: {}", user.getId());
 
         var accessToken = jwtTokenPort.generateAccessToken(user);
         var refreshToken = jwtTokenPort.generateRefreshToken(user);
@@ -44,24 +54,34 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase, LogoutUse
 
         handleRefreshTokenPersistence(loginData);
 
+        log.info("Login successful: userId={}",  user.getId());
         return loginData;
     }
 
     @Override
     public JwtLoginData refreshToken(String refreshToken) {
+        log.info("Refresh attempt started");
+
         if (!StringUtils.hasLength(refreshToken)) {
+            log.warn("Refresh token attempt failed. Refresh token is null or empty.");
             throw new UnauthorizedException("Empty token.");
         }
 
         var token = refreshTokenPort.findByToken(refreshToken)
-                .orElseThrow(() -> new UnauthorizedException("Refresh token not found"));
+                .orElseThrow(() -> {
+                    log.warn("Persisted refresh token not found");
+                    return new UnauthorizedException("Refresh token not found");
+                });
 
-        if (!jwtTokenPort.isValidRefreshToken(token)) {
+        if (!jwtTokenPort.isExpiredRefreshToken(token)) {
+            log.warn("Refresh token has expired.");
             throw new UnauthorizedException("Refresh token has expired");
         }
 
         var user = token.getUser();
         var newAccessToken = jwtTokenPort.generateAccessToken(user);
+
+        log.info("Refresh token successful. New access token generated for userId={}", user.getId());
 
         return new JwtLoginData(
                 newAccessToken,
@@ -96,6 +116,7 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase, LogoutUse
         refreshToken.setToken(refreshTokenString);
         refreshToken.setExpiresAt(expiresAt);
 
+        log.info("Refresh token persisted for userId={}", user.getId());
         refreshTokenPort.save(refreshToken);
     }
 }
