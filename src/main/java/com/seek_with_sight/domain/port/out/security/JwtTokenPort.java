@@ -10,7 +10,7 @@ public interface JwtTokenPort {
 
     String generateRefreshToken(User user);
 
-    boolean isValidRefreshToken(RefreshToken refreshToken);
+    boolean isExpiredRefreshToken(RefreshToken refreshToken);
 
     LocalDateTime extractExpiration(String token);
 }

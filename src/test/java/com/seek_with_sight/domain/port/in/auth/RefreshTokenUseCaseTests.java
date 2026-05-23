@@ -62,7 +62,7 @@ public class RefreshTokenUseCaseTests {
 
     @Test
     void whenRefreshTokenIsInvalid_ShouldThrowUnauthorizedException() {
-        when(jwtTokenPort.isValidRefreshToken(any()))
+        when(jwtTokenPort.isExpiredRefreshToken(any()))
                 .thenReturn(false);
 
         when(refreshTokenPort.findByToken(any()))

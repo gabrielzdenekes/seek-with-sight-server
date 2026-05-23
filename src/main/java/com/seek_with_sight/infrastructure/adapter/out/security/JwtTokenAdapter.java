@@ -42,7 +42,7 @@ public class JwtTokenAdapter implements JwtTokenPort {
     }
 
     @Override
-    public boolean isValidRefreshToken(RefreshToken refreshToken) {
+    public boolean isExpiredRefreshToken(RefreshToken refreshToken) {
         return LocalDateTime.now().isBefore(refreshToken.getExpiresAt());
     }
 
