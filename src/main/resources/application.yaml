@@ -1,4 +1,8 @@
 spring:
+  data:
+    auditing:
+      enabled: true
+
   application:
     name: seek-with-sight
     security:

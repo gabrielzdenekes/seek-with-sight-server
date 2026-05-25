@@ -4,7 +4,6 @@ import com.seek_with_sight.application.service.auth.AuthService;
 import com.seek_with_sight.domain.exception.security.UnauthorizedException;
 import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
-import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
 import com.seek_with_sight.domain.port.out.security.RefreshTokenPort;
 import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.authentication.AuthenticationManager;
 
 import java.util.Optional;
 
@@ -33,10 +33,10 @@ public class RefreshTokenUseCaseTests {
     private UserRepositoryPort userRepositoryPort;
 
     @Mock
-    private PasswordEncoderPort passwordEncoderPort;
+    private RefreshTokenPort refreshTokenPort;
 
     @Mock
-    private RefreshTokenPort refreshTokenPort;
+    private AuthenticationManager authenticationManager;
 
     private RefreshTokenUseCase refreshTokenUseCase;
 
@@ -45,8 +45,8 @@ public class RefreshTokenUseCaseTests {
         refreshTokenUseCase = new AuthService(
                 jwtTokenPort,
                 userRepositoryPort,
-                passwordEncoderPort,
-                refreshTokenPort
+                refreshTokenPort,
+                authenticationManager
         );
     }
 

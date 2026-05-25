@@ -1,26 +1,16 @@
 package com.seek_with_sight.domain.model.auth;
 
+import com.seek_with_sight.domain.model.BaseDomainModel;
 import com.seek_with_sight.domain.model.user.User;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
-public class RefreshToken {
-    private UUID id;
-
+public class RefreshToken extends BaseDomainModel {
     private String token;
 
     private User user;
 
     private LocalDateTime expiresAt;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getToken() {
         return token;

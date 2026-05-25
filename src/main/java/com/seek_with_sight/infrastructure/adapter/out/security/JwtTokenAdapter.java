@@ -1,6 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.out.security;
 
 import com.seek_with_sight.domain.model.auth.RefreshToken;
+import com.seek_with_sight.domain.model.permission.Permission;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
 import com.seek_with_sight.infrastructure.config.security.JwtConfig;
@@ -17,6 +18,7 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -28,7 +30,7 @@ public class JwtTokenAdapter implements JwtTokenPort {
         return buildToken(
                 user,
                 jwtConfig.accessTokenExpiration(),
-                new HashMap<>()
+                getUserClaims(user)
         );
     }
 
@@ -37,7 +39,7 @@ public class JwtTokenAdapter implements JwtTokenPort {
         return buildToken(
                 user,
                 jwtConfig.refreshTokenExpiration(),
-                new HashMap<>()
+                getUserClaims(user)
         );
     }
 
@@ -53,6 +55,24 @@ public class JwtTokenAdapter implements JwtTokenPort {
         return expiration.toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDateTime();
+    }
+
+    private Map<String, Object> getUserClaims(User user) {
+        var roles = user.getRoles().stream()
+                .map(r -> r.getName().name())
+                .collect(Collectors.toSet());
+
+        var permissions = user.getRoles().stream()
+                .flatMap(role -> role.getPermissions().stream())
+                .map(Permission::getName)
+                .collect(Collectors.toSet());
+
+        var claims = new  HashMap<String, Object>();
+
+        claims.put("roles", roles);
+        claims.put("permissions", permissions);
+
+        return claims;
     }
 
     private Claims extractAllClaims(String token) {

@@ -1,0 +1,22 @@
+package com.seek_with_sight.infrastructure.adapter.out.persistence.role;
+
+import com.seek_with_sight.domain.model.role.Role;
+import com.seek_with_sight.domain.model.role.RoleName;
+import com.seek_with_sight.domain.port.out.role.RoleRepositoryPort;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.role.mapper.RolePersistenceMapper;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.role.repository.RoleJpaRepository;
+import lombok.RequiredArgsConstructor;
+
+import java.util.Optional;
+
+@RequiredArgsConstructor
+public class RolePersistenceAdapter implements RoleRepositoryPort {
+    private final RoleJpaRepository roleRepository;
+    private final RolePersistenceMapper roleMapper;
+
+    @Override
+    public Optional<Role> findByName(RoleName name) {
+        return roleRepository.findByName(name)
+                .map(roleMapper::toDomain);
+    }
+}
