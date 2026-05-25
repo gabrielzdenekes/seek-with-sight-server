@@ -2,9 +2,7 @@ package com.seek_with_sight.domain.port.in.auth;
 
 import com.seek_with_sight.application.service.auth.AuthService;
 import com.seek_with_sight.domain.exception.security.UnauthorizedException;
-import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
-import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
 import com.seek_with_sight.domain.port.out.security.RefreshTokenPort;
 import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
 import com.seek_with_sight.utils.TestDataUtils;
@@ -14,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.authentication.AuthenticationManager;
 
 import java.util.Optional;
 
@@ -31,10 +30,10 @@ public class LoginUseCaseTests {
     private UserRepositoryPort userRepositoryPort;
 
     @Mock
-    private PasswordEncoderPort passwordEncoderPort;
+    private RefreshTokenPort refreshTokenPort;
 
     @Mock
-    private RefreshTokenPort refreshTokenPort;
+    private AuthenticationManager authenticationManager;
 
     private LoginUseCase loginUseCase;
 
@@ -43,8 +42,8 @@ public class LoginUseCaseTests {
         loginUseCase = new AuthService(
                 jwtTokenPort,
                 userRepositoryPort,
-                passwordEncoderPort,
-                refreshTokenPort
+                refreshTokenPort,
+                authenticationManager
         );
     }
 
@@ -61,23 +60,5 @@ public class LoginUseCaseTests {
         assertThatThrownBy(() -> loginUseCase.login(loginCommand))
                 .isInstanceOf(UnauthorizedException.class)
                 .hasMessage(loginCommand.email());
-    }
-
-    @Test
-    void login_shouldThrowUnauthorizedException_whenPasswordAndPasswordHashDontMatch() {
-        when(userRepositoryPort.findByEmailIgnoreCase(any(String.class)))
-                .thenReturn(Optional.of(new User()));
-
-        when(passwordEncoderPort.matches(any(), any()))
-                .thenReturn(false);
-
-        var loginCommand = new LoginCommand(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
-        );
-
-        assertThatThrownBy(() -> loginUseCase.login(loginCommand))
-                .isInstanceOf(UnauthorizedException.class)
-                .hasMessage("Invalid login credentials");
     }
 }
