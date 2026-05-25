@@ -2,7 +2,6 @@ package com.seek_with_sight.domain.port.in.auth;
 
 import com.seek_with_sight.application.service.auth.AuthService;
 import com.seek_with_sight.domain.exception.security.UnauthorizedException;
-import com.seek_with_sight.domain.exception.user.UserNotFoundException;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
 import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
@@ -60,8 +59,8 @@ public class LoginUseCaseTests {
         );
 
         assertThatThrownBy(() -> loginUseCase.login(loginCommand))
-                .isInstanceOf(UserNotFoundException.class)
-                .hasMessage("User not found with email: " + loginCommand.email());
+                .isInstanceOf(UnauthorizedException.class)
+                .hasMessage(loginCommand.email());
     }
 
     @Test
