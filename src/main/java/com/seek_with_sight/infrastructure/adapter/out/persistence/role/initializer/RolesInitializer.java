@@ -48,7 +48,7 @@ public class RolesInitializer implements ApplicationRunner {
 
         // Seller role
         createRole(RoleName.ROLE_SELLER, Set.of(
-            productWrite, productDelete, productRead
+                productWrite, productDelete, productRead
         ));
 
         // Admin role
