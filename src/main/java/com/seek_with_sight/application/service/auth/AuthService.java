@@ -8,12 +8,13 @@ import com.seek_with_sight.domain.port.in.auth.LoginUseCase;
 import com.seek_with_sight.domain.port.in.auth.LogoutUseCase;
 import com.seek_with_sight.domain.port.in.auth.RefreshTokenUseCase;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
-import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
 import com.seek_with_sight.domain.port.out.security.RefreshTokenPort;
 import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -24,23 +25,25 @@ import org.springframework.util.StringUtils;
 public class AuthService implements LoginUseCase, RefreshTokenUseCase, LogoutUseCase {
     private final JwtTokenPort jwtTokenPort;
     private final UserRepositoryPort userRepository;
-    private final PasswordEncoderPort passwordEncoder;
     private final RefreshTokenPort refreshTokenPort;
+    private final AuthenticationManager authenticationManager;
 
     @Override
     public JwtLoginData login(LoginCommand loginCommand) {
         log.info("Login attempt for email={}", loginCommand.email());
+
+        authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(
+                        loginCommand.email(),
+                        loginCommand.password()
+                )
+        );
 
         var user = userRepository.findByEmailIgnoreCase(loginCommand.email())
                 .orElseThrow(() -> {
                     log.warn("User not found for email={}", loginCommand.email());
                     return new UnauthorizedException(loginCommand.email());
                 });
-
-        if (!passwordEncoder.matches(loginCommand.password(), user.getPassHash())) {
-            log.warn("Passwords do not match: userId={}", user.getId());
-            throw new UnauthorizedException("Invalid login credentials");
-        }
 
         log.info("Token generation started for userId: {}", user.getId());
 
