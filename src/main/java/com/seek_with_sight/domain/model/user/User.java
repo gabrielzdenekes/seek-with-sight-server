@@ -12,6 +12,10 @@ public class User extends BaseDomainModel {
 
     private Set<Role> roles;
 
+    private boolean enabled;
+
+    private boolean emailVerified;
+
     public String getEmail() {
         return email;
     }
@@ -34,5 +38,21 @@ public class User extends BaseDomainModel {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isEmailVerified() {
+        return emailVerified;
+    }
+
+    public void setEmailVerified(boolean emailVerified) {
+        this.emailVerified = emailVerified;
     }
 }
