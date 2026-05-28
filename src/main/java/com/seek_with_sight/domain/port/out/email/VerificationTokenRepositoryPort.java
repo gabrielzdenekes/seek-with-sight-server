@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface VerificationTokenRepositoryPort {
     EmailVerificationToken save(EmailVerificationToken token);
 
-    Optional<EmailVerificationToken> findByTokenHash(String tokenHash);
+    Optional<EmailVerificationToken> findByToken(String tokenHash);
 
     void invalidateUserTokens(UUID userId);
 }

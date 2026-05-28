@@ -1,5 +1,8 @@
 package com.seek_with_sight.application.service.email;
 
+import com.seek_with_sight.domain.exception.email.EmailTokenAlreadyUsedException;
+import com.seek_with_sight.domain.exception.email.EmailTokenExpiredException;
+import com.seek_with_sight.domain.exception.email.EmailTokenNotFoundException;
 import com.seek_with_sight.domain.model.email.EmailVerificationToken;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.in.email.ResendVerificationUseCase;
@@ -19,7 +22,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 @Slf4j
 public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCase, SendVerificationEmailUseCase {
@@ -29,8 +31,26 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
     private final ApplicationProperties appProperties;
 
     @Override
+    @Transactional
     public void verify(String rawToken) {
+        var token = tokenRepository.findByToken(rawToken)
+                .orElseThrow(EmailTokenNotFoundException::new);
 
+        if (token.isUsed()) {
+            throw new EmailTokenAlreadyUsedException();
+        }
+
+        var isExpired = token.getExpiresAt().isBefore(Instant.now());
+        if (isExpired) {
+            throw new EmailTokenExpiredException();
+        }
+
+        var user = userRepository.findById(token.getUserId()).orElseThrow();
+        user.setEmailVerified(true);
+        userRepository.save(user);
+
+        token.setUsed(true);
+        tokenRepository.save(token);
     }
 
     @Override

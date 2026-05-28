@@ -16,7 +16,6 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class UserService implements CreateUserUseCase {
     private final UserRepositoryPort userRepository;
     private final PasswordEncoderPort passwordEncoderPort;
@@ -24,6 +23,7 @@ public class UserService implements CreateUserUseCase {
     private final EmailService emailService;
 
     @Override
+    @Transactional
     public User execute(CreateUserCommand createUserCommand) {
         var customerRole = roleRepository.findByName(RoleName.ROLE_CUSTOMER)
                 .orElseThrow(() -> new RuntimeException("Default Role Not Found"));
