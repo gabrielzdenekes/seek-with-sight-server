@@ -7,6 +7,7 @@ import com.seek_with_sight.infrastructure.adapter.out.persistence.user.repositor
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 public class UserPersistenceAdapter implements UserRepositoryPort {
@@ -24,5 +25,10 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
     @Override
     public Optional<User> findByEmailIgnoreCase(String email) {
         return userRepository.findByEmailIgnoreCase(email).map(mapper::toDomain);
+    }
+
+    @Override
+    public Optional<User> findById(UUID id) {
+        return userRepository.findById(id).map(mapper::toDomain);
     }
 }

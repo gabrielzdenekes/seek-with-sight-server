@@ -6,7 +6,7 @@ import java.util.UUID;
 public class EmailVerificationToken {
     private UUID id;
     private UUID userId;
-    private String tokenHash;
+    private String token;
     private Instant expiresAt;
     private boolean used;
 
@@ -26,12 +26,12 @@ public class EmailVerificationToken {
         this.userId = userId;
     }
 
-    public String getTokenHash() {
-        return tokenHash;
+    public String getToken() {
+        return token;
     }
 
-    public void setTokenHash(String tokenHash) {
-        this.tokenHash = tokenHash;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public Instant getExpiresAt() {
