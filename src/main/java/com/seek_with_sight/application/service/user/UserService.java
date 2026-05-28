@@ -1,5 +1,6 @@
 package com.seek_with_sight.application.service.user;
 
+import com.seek_with_sight.application.service.email.EmailService;
 import com.seek_with_sight.domain.model.role.RoleName;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.in.user.CreateUserCommand;
@@ -15,13 +16,14 @@ import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class UserService implements CreateUserUseCase {
     private final UserRepositoryPort userRepository;
     private final PasswordEncoderPort passwordEncoderPort;
     private final RoleRepositoryPort roleRepository;
+    private final EmailService emailService;
 
     @Override
+    @Transactional
     public User execute(CreateUserCommand createUserCommand) {
         var customerRole = roleRepository.findByName(RoleName.ROLE_CUSTOMER)
                 .orElseThrow(() -> new RuntimeException("Default Role Not Found"));
@@ -34,6 +36,10 @@ public class UserService implements CreateUserUseCase {
         user.setPassHash(encodedPassword);
         user.setRoles(Set.of(customerRole));
 
-        return this.userRepository.save(user);
+        var createdUser = this.userRepository.save(user);
+
+        emailService.sendVerificationEmail(createdUser);
+
+        return createdUser;
     }
 }

@@ -38,4 +38,10 @@ public class UserEntity extends BaseEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<RoleEntity> roles = new HashSet<>();
+
+    @Column
+    private boolean enabled;
+
+    @Column(name = "email_verified")
+    private boolean emailVerified;
 }

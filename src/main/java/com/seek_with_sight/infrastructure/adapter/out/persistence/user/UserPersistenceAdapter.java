@@ -2,11 +2,13 @@ package com.seek_with_sight.infrastructure.adapter.out.persistence.user;
 
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserEntity;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.user.mapper.UserPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.user.repository.UserJpaRepository;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 public class UserPersistenceAdapter implements UserRepositoryPort {
@@ -15,14 +17,23 @@ public class UserPersistenceAdapter implements UserRepositoryPort {
 
     @Override
     public User save(User user) {
-        var entity =  mapper.toEntity(user);
-        var createdUser = userRepository.save(entity);
+        var userEntity = user.getId() != null ?
+                userRepository.findById(user.getId()).orElseThrow() :
+                new UserEntity();
 
-        return mapper.toDomain(createdUser);
+        mapper.updateEntityFromDomain(user, userEntity);
+
+        var savedEntity = userRepository.save(userEntity);
+        return mapper.toDomain(savedEntity);
     }
 
     @Override
     public Optional<User> findByEmailIgnoreCase(String email) {
         return userRepository.findByEmailIgnoreCase(email).map(mapper::toDomain);
+    }
+
+    @Override
+    public Optional<User> findById(UUID id) {
+        return userRepository.findById(id).map(mapper::toDomain);
     }
 }

@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.auth.cookie;
 
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.constants.AuthConstants;
-import com.seek_with_sight.infrastructure.config.security.JwtConfig;
+import com.seek_with_sight.infrastructure.config.security.JwtProperties;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
@@ -11,14 +11,14 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class RefreshTokenCookieService {
-    private final JwtConfig jwtConfig;
+    private final JwtProperties jwtProperties;
 
     public void addRefreshToken(HttpServletResponse response, String refreshToken) {
         var cookie = ResponseCookie.from(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, refreshToken)
                 .httpOnly(true)
                 .secure(true)
-                .path(jwtConfig.refreshCookiePath())
-                .maxAge(jwtConfig.refreshTokenExpiration())
+                .path(jwtProperties.refreshCookiePath())
+                .maxAge(jwtProperties.refreshTokenExpiration())
                 .sameSite("Strict")
                 .build();
 
@@ -29,7 +29,7 @@ public class RefreshTokenCookieService {
         var cookie = ResponseCookie.from(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, "")
                 .httpOnly(true)
                 .secure(true)
-                .path(jwtConfig.refreshCookiePath())
+                .path(jwtProperties.refreshCookiePath())
                 .maxAge(0)
                 .sameSite("Strict")
                 .build();
