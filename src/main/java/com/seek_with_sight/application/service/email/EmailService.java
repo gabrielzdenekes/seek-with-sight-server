@@ -11,6 +11,7 @@ import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.config.application.ApplicationProperties;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
@@ -20,6 +21,7 @@ import java.util.UUID;
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Slf4j
 public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCase, SendVerificationEmailUseCase {
     private final VerificationTokenRepositoryPort tokenRepository;
     private final UserRepositoryPort userRepository;
@@ -41,7 +43,11 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
         var token = createToken(user);
         var url = appProperties.baseUrl() + "/api/v1/email/verify?token=" + token.getToken();
 
-        emailSender.sendVerificationEmail(user.getEmail(), url);
+        try {
+            emailSender.sendVerificationEmail(user.getEmail(), url);
+        } catch (Exception e) {
+            log.warn("Failed to send verification email", e);
+        }
     }
 
     private EmailVerificationToken createToken(User user) {
