@@ -16,6 +16,7 @@ public class EmailSenderAdapter implements EmailSenderPort {
     @Override
     @Async
     public void sendVerificationEmail(String to, String verificationUrl) {
+        // TODO: use template engine
         var message = new SimpleMailMessage();
         var loc = LocaleContextHolder.getLocale();
 

@@ -4,7 +4,7 @@ import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.domain.model.permission.Permission;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
-import com.seek_with_sight.infrastructure.config.security.JwtConfig;
+import com.seek_with_sight.infrastructure.config.security.JwtProperties;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -23,13 +23,13 @@ import java.util.stream.Collectors;
 @Component
 @RequiredArgsConstructor
 public class JwtTokenAdapter implements JwtTokenPort {
-    private final JwtConfig jwtConfig;
+    private final JwtProperties jwtProperties;
 
     @Override
     public String generateAccessToken(User user) {
         return buildToken(
                 user,
-                jwtConfig.accessTokenExpiration(),
+                jwtProperties.accessTokenExpiration(),
                 getUserClaims(user)
         );
     }
@@ -38,7 +38,7 @@ public class JwtTokenAdapter implements JwtTokenPort {
     public String generateRefreshToken(User user) {
         return buildToken(
                 user,
-                jwtConfig.refreshTokenExpiration(),
+                jwtProperties.refreshTokenExpiration(),
                 getUserClaims(user)
         );
     }
@@ -96,7 +96,7 @@ public class JwtTokenAdapter implements JwtTokenPort {
     }
 
     private SecretKey getSignInKey() {
-        byte[] keyBytes = Base64.getDecoder().decode(jwtConfig.secretKey());
+        byte[] keyBytes = Base64.getDecoder().decode(jwtProperties.secretKey());
         return Keys.hmacShaKeyFor(keyBytes);
     }
 }

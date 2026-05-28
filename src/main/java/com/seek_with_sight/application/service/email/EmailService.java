@@ -8,6 +8,7 @@ import com.seek_with_sight.domain.port.in.email.VerifyEmailUseCase;
 import com.seek_with_sight.domain.port.out.email.EmailSenderPort;
 import com.seek_with_sight.domain.port.out.email.VerificationTokenRepositoryPort;
 import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.infrastructure.config.application.ApplicationProperties;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,6 +24,7 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
     private final VerificationTokenRepositoryPort tokenRepository;
     private final UserRepositoryPort userRepository;
     private final EmailSenderPort emailSender;
+    private final ApplicationProperties appProperties;
 
     @Override
     public void verify(String rawToken) {
@@ -37,8 +39,7 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
     @Override
     public void sendVerificationEmail(User user) {
         var token = createToken(user);
-        // TODO: refactor
-        var url = "https://localhost:8443/api/v1/email/verify?token=" + token.getToken();
+        var url = appProperties.baseUrl() + "/api/v1/email/verify?token=" + token.getToken();
 
         emailSender.sendVerificationEmail(user.getEmail(), url);
     }

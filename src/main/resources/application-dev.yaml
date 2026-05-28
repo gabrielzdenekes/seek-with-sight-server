@@ -19,3 +19,6 @@ server:
 logging:
   level:
     root: INFO
+
+app:
+  base-url: "https://localhost:8443"

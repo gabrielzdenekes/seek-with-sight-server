@@ -12,6 +12,7 @@ import com.seek_with_sight.infrastructure.adapter.out.email.EmailSenderAdapter;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.VerificationTokenRepositoryAdapter;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.mapper.VerificationTokenPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.repository.VerificationTokenJpaRepository;
+import com.seek_with_sight.infrastructure.config.application.ApplicationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -22,27 +23,30 @@ public class EmailBeanConfig {
     public VerifyEmailUseCase verifyEmailUseCase(
             VerificationTokenRepositoryPort verificationTokenRepositoryPort,
             UserRepositoryPort userRepository,
-            EmailSenderPort emailSenderPort
+            EmailSenderPort emailSenderPort,
+            ApplicationProperties appProps
     ) {
-        return new EmailService(verificationTokenRepositoryPort, userRepository, emailSenderPort);
+        return new EmailService(verificationTokenRepositoryPort, userRepository, emailSenderPort, appProps);
     }
 
     @Bean
     public ResendVerificationUseCase resendVerificationUseCase(
             VerificationTokenRepositoryPort verificationTokenRepositoryPort,
             UserRepositoryPort userRepository,
-            EmailSenderPort emailSenderPort
+            EmailSenderPort emailSenderPort,
+            ApplicationProperties appProps
     ) {
-        return new EmailService(verificationTokenRepositoryPort, userRepository, emailSenderPort);
+        return new EmailService(verificationTokenRepositoryPort, userRepository, emailSenderPort, appProps);
     }
 
     @Bean
     public SendVerificationEmailUseCase sendVerificationEmailUseCase(
             VerificationTokenRepositoryPort verificationTokenRepositoryPort,
             UserRepositoryPort userRepository,
-            EmailSenderPort emailSenderPort
+            EmailSenderPort emailSenderPort,
+            ApplicationProperties appProps
     ) {
-        return new EmailService(verificationTokenRepositoryPort, userRepository, emailSenderPort);
+        return new EmailService(verificationTokenRepositoryPort, userRepository, emailSenderPort, appProps);
     }
 
     @Bean

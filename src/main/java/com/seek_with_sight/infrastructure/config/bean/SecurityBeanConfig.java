@@ -13,7 +13,7 @@ import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.mapper.Re
 import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.repository.RefreshTokenJpaRepository;
 import com.seek_with_sight.infrastructure.adapter.out.security.JwtTokenAdapter;
 import com.seek_with_sight.infrastructure.adapter.out.security.PasswordEncoderAdapter;
-import com.seek_with_sight.infrastructure.config.security.JwtConfig;
+import com.seek_with_sight.infrastructure.config.security.JwtProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +21,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableConfigurationProperties(JwtConfig.class)
+@EnableConfigurationProperties(JwtProperties.class)
 public class SecurityBeanConfig {
     @Bean
     public PasswordEncoderPort passwordEncoderPort(PasswordEncoder passwordEncoder) {
@@ -29,8 +29,8 @@ public class SecurityBeanConfig {
     }
 
     @Bean
-    public JwtTokenPort jwtTokenPort(JwtConfig jwtConfig) {
-        return new JwtTokenAdapter(jwtConfig);
+    public JwtTokenPort jwtTokenPort(JwtProperties jwtProperties) {
+        return new JwtTokenAdapter(jwtProperties);
     }
 
     @Bean
