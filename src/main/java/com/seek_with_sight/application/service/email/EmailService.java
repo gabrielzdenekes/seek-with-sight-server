@@ -62,6 +62,8 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
             return;
         }
 
+        tokenRepository.invalidateUserTokens(user.getId());
+
         sendVerificationEmail(user);
     }
 

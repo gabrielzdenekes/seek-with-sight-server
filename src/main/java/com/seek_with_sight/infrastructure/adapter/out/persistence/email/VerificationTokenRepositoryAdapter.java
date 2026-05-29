@@ -35,6 +35,12 @@ public class VerificationTokenRepositoryAdapter implements VerificationTokenRepo
 
     @Override
     public void invalidateUserTokens(UUID userId) {
+        var tokens = repo.findAllByUserId(userId);
 
+        for (var tok : tokens) {
+            tok.setUsed(true);
+        }
+
+        repo.saveAll(tokens);
     }
 }
