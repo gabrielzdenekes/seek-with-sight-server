@@ -1,7 +1,9 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto;
 
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
+@Getter
 public class ApiErrorResponse<T> extends ApiResponse<T> {
     private final String errorCode;
 

@@ -2,7 +2,6 @@ package com.seek_with_sight.infrastructure.adapter.in.rest.shared;
 
 import com.seek_with_sight.domain.exception.BusinessException;
 import com.seek_with_sight.domain.exception.ErrorType;
-import com.seek_with_sight.domain.exception.security.UnauthorizedException;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiErrorResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ValidationErrorDto;

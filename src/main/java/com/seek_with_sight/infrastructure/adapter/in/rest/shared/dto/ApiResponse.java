@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @AllArgsConstructor
+@Getter
 public class ApiResponse<T> {
     private final String message;
     private final T data;
