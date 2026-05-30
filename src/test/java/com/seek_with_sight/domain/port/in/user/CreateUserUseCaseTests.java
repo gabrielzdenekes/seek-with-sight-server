@@ -1,5 +1,6 @@
 package com.seek_with_sight.domain.port.in.user;
 
+import com.seek_with_sight.application.service.email.EmailService;
 import com.seek_with_sight.application.service.user.UserService;
 import com.seek_with_sight.domain.model.role.Role;
 import com.seek_with_sight.domain.model.role.RoleName;
@@ -34,6 +35,9 @@ public class CreateUserUseCaseTests {
 
     @Mock
     private RoleRepositoryPort roleRepository;
+
+    @Mock
+    private EmailService emailService;
 
     @InjectMocks
     private UserService userService;

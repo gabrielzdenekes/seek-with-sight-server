@@ -55,7 +55,16 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
 
     @Override
     public void resend(String email) {
+        var user = userRepository.findByEmailIgnoreCase(email)
+                .orElseThrow();
 
+        if (user.isEmailVerified()) {
+            return;
+        }
+
+        tokenRepository.invalidateUserTokens(user.getId());
+
+        sendVerificationEmail(user);
     }
 
     @Override

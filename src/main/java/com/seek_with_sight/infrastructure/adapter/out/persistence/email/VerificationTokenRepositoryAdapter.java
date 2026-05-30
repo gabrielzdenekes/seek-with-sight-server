@@ -18,7 +18,7 @@ public class VerificationTokenRepositoryAdapter implements VerificationTokenRepo
     @Override
     public EmailVerificationToken save(EmailVerificationToken token) {
         var tokenEntity = token.getId() != null ?
-                repo.findById(token.getId()).orElseThrow():
+                repo.findById(token.getId()).orElseThrow() :
                 new EmailVerificationTokenEntity();
 
         mapper.updateEntityFromDomain(token, tokenEntity);
@@ -35,6 +35,12 @@ public class VerificationTokenRepositoryAdapter implements VerificationTokenRepo
 
     @Override
     public void invalidateUserTokens(UUID userId) {
+        var tokens = repo.findAllByUserId(userId);
 
+        for (var tok : tokens) {
+            tok.setUsed(true);
+        }
+
+        repo.saveAll(tokens);
     }
 }
