@@ -1,5 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.auth;
 
+import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.constants.AuthConstants;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.UserTestConstants;
@@ -24,6 +25,9 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
     private static final String PASSWORD_REQUIRED_KEY = "user.validation.password.required";
 
     @Autowired
+    private UserRepositoryPort userRepo;
+
+    @Autowired
     private LocalizedMessageService messageService;
 
     @Test
@@ -37,6 +41,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
         var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
 
         mockMvc.perform(createUserRequest).andExpect(status().isCreated());
+        makeUserVerified(userRequest.email());
 
         var loginRequest = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload, locale);
 
@@ -78,5 +83,12 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
                             )
                     )));
         }
+    }
+
+    private void makeUserVerified(String email) {
+        var user = userRepo.findByEmailIgnoreCase(email).orElseThrow();
+
+        user.setEmailVerified(true);
+        userRepo.save(user);
     }
 }
