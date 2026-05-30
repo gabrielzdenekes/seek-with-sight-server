@@ -1,7 +1,9 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.shared;
 
 import com.seek_with_sight.domain.exception.BusinessException;
+import com.seek_with_sight.domain.exception.ErrorType;
 import com.seek_with_sight.domain.exception.security.UnauthorizedException;
+import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiErrorResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ValidationErrorDto;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
@@ -27,25 +29,32 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<?>> handleBadCredentials(BadCredentialsException ex) {
+        var errorResponse = ApiErrorResponse.create(
+                getLocalizedErrorMessage("auth.error.unauthorized"),
+                null,
+                ErrorType.UNAUTHORIZED.name(),
+                HttpStatus.UNAUTHORIZED
+        );
+
         return ResponseEntity
                 .status(HttpStatus.UNAUTHORIZED)
-                .body(ApiResponse.error(getLocalizedErrorMessage("auth.error.unauthorized"), HttpStatus.UNAUTHORIZED));
+                .body(errorResponse);
     }
 
     @ExceptionHandler(BusinessException.class)
     public ResponseEntity<ApiResponse<?>> handleBusinessException(BusinessException ex) {
-        var status = HttpStatus.BAD_REQUEST;
+        var status = mapErrorTypeToHttpStatus(ex.getErrorType());
 
-        if (ex instanceof UnauthorizedException) {
-            log.warn("Unauthorized access: {}", ex.getMessage());
-            status = HttpStatus.UNAUTHORIZED;
-        } else {
-            log.warn("Bussiness rule violation: {}", ex.getMessage());
-        }
+        log.warn(ex.toString());
 
-        var apiResponse = ApiResponse.error(getLocalizedErrorMessage(ex.getLocalizedMessageCode()), status);
+        var errorResponse = ApiErrorResponse.create(
+                getLocalizedErrorMessage(ex.getLocalizedMessageCode()),
+                null,
+                ex.getErrorCode(),
+                status
+        );
 
-        return new ResponseEntity<>(apiResponse, status);
+        return new ResponseEntity<>(errorResponse, status);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -61,9 +70,14 @@ public class GlobalExceptionHandler {
         log.warn("Validation failed: fields={}", Arrays.toString(errors));
 
         var status = HttpStatus.BAD_REQUEST;
-        var apiResponse = ApiResponse.error(getLocalizedErrorMessage("validation.failed"), errors);
+        var errorResponse = ApiErrorResponse.create(
+                getLocalizedErrorMessage("validation.failed"),
+                errors,
+                ErrorType.VALIDATION.name(),
+                status
+        );
 
-        return new ResponseEntity<>(apiResponse, status);
+        return new ResponseEntity<>(errorResponse, status);
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
@@ -78,10 +92,15 @@ public class GlobalExceptionHandler {
 
         log.warn("Constraint violation failed: constraints={}", Arrays.toString(details));
 
-        var apiResponse = ApiResponse.error(getLocalizedErrorMessage("validation.failed"), details);
         var status = HttpStatus.BAD_REQUEST;
+        var errorResponse = ApiErrorResponse.create(
+                getLocalizedErrorMessage("validation.failed"),
+                details,
+                ErrorType.VALIDATION.name(),
+                status
+        );
 
-        return new ResponseEntity<>(apiResponse, status);
+        return new ResponseEntity<>(errorResponse, status);
     }
 
     @ExceptionHandler(Exception.class)
@@ -89,16 +108,34 @@ public class GlobalExceptionHandler {
             Exception ex,
             HttpServletRequest request
     ) {
-        var  status = HttpStatus.INTERNAL_SERVER_ERROR;
-        var apiResponse = ApiResponse.error(getLocalizedErrorMessage("generic.error"), null);
+        var status = HttpStatus.INTERNAL_SERVER_ERROR;
+        var errorResponse = ApiErrorResponse.create(
+                getLocalizedErrorMessage("generic.error"),
+                null,
+                ErrorType.INTERNAL.name(),
+                status
+        );
+
         log.error("Unhandled exception: method={} path={}",
                 request.getMethod(), request.getRequestURI(), ex);
 
-        return new ResponseEntity<>(apiResponse, status);
+        return new ResponseEntity<>(errorResponse, status);
     }
 
     private String getLocalizedErrorMessage(String key) {
         var locale = LocaleContextHolder.getLocale();
         return messageService.getMessage(key, locale);
+    }
+
+    private HttpStatus mapErrorTypeToHttpStatus(ErrorType errorType) {
+        return switch (errorType) {
+            case VALIDATION -> HttpStatus.BAD_REQUEST;
+            case NOT_FOUND -> HttpStatus.NOT_FOUND;
+            case CONFLICT -> HttpStatus.CONFLICT;
+            case FORBIDDEN -> HttpStatus.FORBIDDEN;
+            case UNAUTHORIZED -> HttpStatus.UNAUTHORIZED;
+            case BUSINESS_RULE -> HttpStatus.UNPROCESSABLE_CONTENT;
+            default -> HttpStatus.INTERNAL_SERVER_ERROR;
+        };
     }
 }
