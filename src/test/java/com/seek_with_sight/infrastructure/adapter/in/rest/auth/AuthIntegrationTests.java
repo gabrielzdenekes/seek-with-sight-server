@@ -9,6 +9,7 @@ import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.TestDataUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 
 import java.util.List;
 import java.util.Locale;
@@ -53,6 +54,27 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
                 .andExpect(cookie().exists(AuthConstants.REFRESH_TOKEN_COOKIE_NAME))
                 .andExpect(cookie().path(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, "/api/v1/auth"))
                 .andExpect(cookie().httpOnly(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, true));
+    }
+
+    @Test
+    void whenUserIsNotVerified_loginIsNotPermitted() throws Exception {
+        var userRequest = new UserRequest(
+                TestDataUtils.generateRandomEmail(),
+                TestDataUtils.generateRandomPassword()
+        );
+        var jsonPayload = objectMapper.writeValueAsString(userRequest);
+        var locale = Locale.forLanguageTag("es");
+        var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
+
+        mockMvc.perform(createUserRequest).andExpect(status().isCreated());
+
+        var loginRequest = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload, locale);
+
+        mockMvc.perform(loginRequest)
+                .andExpect(status().isForbidden())
+                .andExpect(jsonPath("$.errorCode").value("EMAIL_NOT_VERIFIED"))
+                .andExpect(jsonPath("$.status").value(HttpStatus.FORBIDDEN.value()))
+                .andExpect(jsonPath("$.success").value(false));
     }
 
     @Test
