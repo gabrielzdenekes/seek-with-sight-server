@@ -1,23 +1,23 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto;
 
-public record ApiResponse<T>(
-        String message,
-        T data,
-        boolean success
-) {
-    public static <T> ApiResponse<T> success(String message, T bodyData) {
-        return createApiResponse(message, bodyData, true);
-    }
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import org.springframework.http.HttpStatus;
 
-    public static <T> ApiResponse<T> error(String message, T bodyData) {
-        return createApiResponse(message, bodyData, false);
-    }
+@AllArgsConstructor
+@Getter
+public class ApiResponse<T> {
+    private final String message;
+    private final T data;
+    private final boolean success;
+    private final int status;
 
-    private static <T> ApiResponse<T> createApiResponse(String message, T bodyData, boolean success) {
+    public static <T> ApiResponse<T> create(String message, T bodyData, HttpStatus status) {
         return new ApiResponse<>(
                 message,
                 bodyData,
-                success
+                true,
+                status.value()
         );
     }
 }

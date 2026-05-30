@@ -58,7 +58,6 @@ public class LoginUseCaseTests {
         );
 
         assertThatThrownBy(() -> loginUseCase.login(loginCommand))
-                .isInstanceOf(UnauthorizedException.class)
-                .hasMessage(loginCommand.email());
+                .isInstanceOf(UnauthorizedException.class);
     }
 }

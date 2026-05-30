@@ -1,9 +1,10 @@
 package com.seek_with_sight.domain.exception.email;
 
 import com.seek_with_sight.domain.exception.BusinessException;
+import com.seek_with_sight.domain.exception.ErrorType;
 
 public class EmailTokenAlreadyUsedException extends BusinessException {
-    public EmailTokenAlreadyUsedException() {
-        super("Email verification token already used", "email.error.token-already-used");
+    public EmailTokenAlreadyUsedException(Object... args) {
+        super("EMAIL_TOKEN_ALREADY_USED", "email.error.token-already-used", ErrorType.BUSINESS_RULE, args);
     }
 }

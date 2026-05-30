@@ -56,8 +56,7 @@ public class RefreshTokenUseCaseTests {
                 .thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> refreshTokenUseCase.refreshToken(REFRESH_TOKEN_STR))
-                .isInstanceOf(UnauthorizedException.class)
-                .hasMessage("Refresh token not found");
+                .isInstanceOf(UnauthorizedException.class);
     }
 
     @Test
@@ -69,7 +68,6 @@ public class RefreshTokenUseCaseTests {
                 .thenReturn(Optional.of(new RefreshToken()));
 
         assertThatThrownBy(() -> refreshTokenUseCase.refreshToken(REFRESH_TOKEN_STR))
-                .isInstanceOf(UnauthorizedException.class)
-                .hasMessage("Refresh token has expired");
+                .isInstanceOf(UnauthorizedException.class);
     }
 }

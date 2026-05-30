@@ -48,7 +48,7 @@ public class User extends BaseDomainModel {
         this.enabled = enabled;
     }
 
-    public boolean isEmailVerified() {
+    public boolean getEmailVerified() {
         return emailVerified;
     }
 

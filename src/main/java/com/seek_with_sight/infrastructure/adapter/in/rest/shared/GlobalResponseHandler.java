@@ -50,7 +50,7 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         }
 
         response.setStatusCode(status);
-        return ApiResponse.success(responseMessage, body);
+        return ApiResponse.create(responseMessage, body, status);
     }
 
     private boolean isSpringDocPackage(MethodParameter returnType) {

@@ -1,6 +1,7 @@
 package com.seek_with_sight.application.service.auth;
 
 import com.seek_with_sight.domain.exception.security.UnauthorizedException;
+import com.seek_with_sight.domain.exception.user.EmailNotVerifiedException;
 import com.seek_with_sight.domain.model.auth.JwtLoginData;
 import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.domain.port.in.auth.LoginCommand;
@@ -44,6 +45,10 @@ public class AuthService implements LoginUseCase, RefreshTokenUseCase, LogoutUse
                     log.warn("User not found for email={}", loginCommand.email());
                     return new UnauthorizedException(loginCommand.email());
                 });
+
+        if (!user.getEmailVerified()) {
+            throw new EmailNotVerifiedException();
+        }
 
         log.info("Token generation started for userId: {}", user.getId());
 
