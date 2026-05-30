@@ -10,14 +10,14 @@ public class ApiResponse<T> {
     private final String message;
     private final T data;
     private final boolean success;
-    private final HttpStatus status;
+    private final int status;
 
     public static <T> ApiResponse<T> create(String message, T bodyData, HttpStatus status) {
         return new ApiResponse<>(
                 message,
                 bodyData,
                 true,
-                status
+                status.value()
         );
     }
 }

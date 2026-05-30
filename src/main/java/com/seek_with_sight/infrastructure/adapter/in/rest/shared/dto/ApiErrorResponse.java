@@ -8,7 +8,7 @@ public class ApiErrorResponse<T> extends ApiResponse<T> {
     private final String errorCode;
 
     public ApiErrorResponse(String message, T data, String errorCode, HttpStatus status) {
-        super(message, data, false, status);
+        super(message, data, false, status.value());
         this.errorCode = errorCode;
     }
 
