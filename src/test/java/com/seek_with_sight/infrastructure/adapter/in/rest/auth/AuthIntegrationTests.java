@@ -42,7 +42,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
         var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
 
         mockMvc.perform(createUserRequest).andExpect(status().isCreated());
-        makeUserVerified(userRequest.email());
+        makeUserVerified(userRequest.getEmail());
 
         var loginRequest = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload, locale);
 
@@ -50,7 +50,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.accessToken").isNotEmpty())
                 .andExpect(jsonPath("$.data.user.id").isNotEmpty())
-                .andExpect(jsonPath("$.data.user.email").value(userRequest.email()))
+                .andExpect(jsonPath("$.data.user.email").value(userRequest.getEmail()))
                 .andExpect(cookie().exists(AuthConstants.REFRESH_TOKEN_COOKIE_NAME))
                 .andExpect(cookie().path(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, "/api/v1/auth"))
                 .andExpect(cookie().httpOnly(AuthConstants.REFRESH_TOKEN_COOKIE_NAME, true));
