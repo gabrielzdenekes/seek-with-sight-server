@@ -1,4 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.profile;
 
-public class SellerProfilePersistenceAdapter {
+import com.seek_with_sight.domain.port.out.profile.SellerProfileRepositoryPort;
+
+public class SellerProfilePersistenceAdapter implements SellerProfileRepositoryPort {
 }
