@@ -10,4 +10,8 @@ public class CreateSellerRequest extends UserRequest {
     private String businessName;
     private String businessAddress;
     private String taxId;
+
+    public CreateSellerRequest(String email, String password) {
+        super(email, password);
+    }
 }

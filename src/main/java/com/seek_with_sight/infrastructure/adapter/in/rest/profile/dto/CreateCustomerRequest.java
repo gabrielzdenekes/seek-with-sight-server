@@ -10,4 +10,8 @@ public class CreateCustomerRequest extends UserRequest {
     private String firstName;
     private String lastName;
     private String phone;
+
+    public CreateCustomerRequest(String email, String password) {
+        super(email, password);
+    }
 }
