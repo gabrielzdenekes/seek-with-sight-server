@@ -5,15 +5,19 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-public record UserRequest(
+@Getter
+@Setter
+public class UserRequest {
         @NotBlank(message = "{user.validation.email.required}")
         @Email(message = "{user.validation.email.validFormat}")
         @Size(
                 max = UserValidationConstants.EMAIL_MAX_LENGTH,
                 message = "{user.validation.email.maxLength}"
         )
-        String email,
+        private String email;
 
         @NotBlank(message = "{user.validation.password.required}")
         @Size(
@@ -25,6 +29,5 @@ public record UserRequest(
                 regexp = UserValidationConstants.PASSWORD_VALID_PATTERN,
                 message = "{user.validation.password.validFormat}"
         )
-        String password
-) {
+        private String password;
 }
