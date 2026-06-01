@@ -1,21 +1,28 @@
 package com.seek_with_sight.infrastructure.config.bean.profile;
 
+import com.seek_with_sight.application.port.in.user.CreateUserUseCase;
 import com.seek_with_sight.application.service.profile.CreateCustomerProfileService;
 import com.seek_with_sight.application.service.profile.CreateSellerProfileService;
 import com.seek_with_sight.application.port.in.profile.CreateCustomerProfileUseCase;
 import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCase;
 import com.seek_with_sight.application.port.out.profile.CustomerProfileRepositoryPort;
 import com.seek_with_sight.application.port.out.profile.SellerProfileRepositoryPort;
+import com.seek_with_sight.application.service.profile.mapper.CustomerProfileAppMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.CustomerProfilePersistenceAdapter;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.SellerProfilePersistenceAdapter;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.mapper.CustomerProfilePersistenceMapper;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.repository.CustomerProfileJpaRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ProfileBeanConfig {
     @Bean
-    public CustomerProfileRepositoryPort customerProfileRepositoryPort() {
-        return new CustomerProfilePersistenceAdapter();
+    public CustomerProfileRepositoryPort customerProfileRepositoryPort(
+            CustomerProfileJpaRepository repo,
+            CustomerProfilePersistenceMapper mapper
+    ) {
+        return new CustomerProfilePersistenceAdapter(repo, mapper);
     }
 
     @Bean
@@ -29,7 +36,11 @@ public class ProfileBeanConfig {
     }
 
     @Bean
-    public CreateCustomerProfileUseCase createCustomerProfileUseCase() {
-        return  new CreateCustomerProfileService();
+    public CreateCustomerProfileUseCase createCustomerProfileUseCase(
+            CreateUserUseCase createUserUseCase,
+            CustomerProfileAppMapper mapper,
+            CustomerProfileRepositoryPort repo
+    ) {
+        return  new CreateCustomerProfileService(createUserUseCase, mapper, repo);
     }
 }
