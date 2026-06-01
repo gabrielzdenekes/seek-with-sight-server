@@ -24,7 +24,7 @@ public class UserController {
     @ApiResponseDetails(messageCode = "user.created", status =  HttpStatus.CREATED)
     public UserResponse createUser(@Valid @RequestBody CreateUserRequest userRequest) {
         var createUserCommand = mapper.fromRequestToCreateCommand(userRequest);
-        var createdUser = createUserUseCase.execute(createUserCommand);
+        var createdUser = createUserUseCase.createUser(createUserCommand);
 
         return mapper.toResponse(createdUser);
     }
