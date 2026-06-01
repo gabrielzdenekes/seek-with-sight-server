@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.auth.mapper;
 
 import com.seek_with_sight.domain.model.auth.JwtLoginData;
-import com.seek_with_sight.domain.port.in.auth.LoginCommand;
+import com.seek_with_sight.application.port.in.auth.LoginCommand;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.dto.LoginRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.dto.LoginResponse;
 import org.mapstruct.Mapper;

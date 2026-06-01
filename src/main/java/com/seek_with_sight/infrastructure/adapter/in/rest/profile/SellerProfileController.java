@@ -1,6 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.profile;
 
-import com.seek_with_sight.domain.port.in.profile.CreateSellerProfileUseCase;
+import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCase;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateSellerRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.mapper.SellerProfileRestMapper;
 import jakarta.validation.Valid;

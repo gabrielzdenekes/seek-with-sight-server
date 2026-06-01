@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.auth;
 
 import com.seek_with_sight.domain.model.auth.RefreshToken;
-import com.seek_with_sight.domain.port.out.security.RefreshTokenPort;
+import com.seek_with_sight.application.port.out.security.RefreshTokenPort;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.mapper.RefreshTokenPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.repository.RefreshTokenJpaRepository;
 import lombok.RequiredArgsConstructor;

@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.email;
 
 import com.seek_with_sight.domain.model.email.EmailVerificationToken;
-import com.seek_with_sight.domain.port.out.email.VerificationTokenRepositoryPort;
+import com.seek_with_sight.application.port.out.email.VerificationTokenRepositoryPort;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.entity.EmailVerificationTokenEntity;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.mapper.VerificationTokenPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.repository.VerificationTokenJpaRepository;

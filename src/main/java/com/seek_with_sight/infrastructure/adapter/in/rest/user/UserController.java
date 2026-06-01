@@ -1,8 +1,8 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.user;
 
-import com.seek_with_sight.domain.port.in.user.CreateUserUseCase;
+import com.seek_with_sight.application.port.in.user.CreateUserUseCase;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.annotation.ApiResponseDetails;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserRequest;
+import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.mapper.UserRestMapper;
 import jakarta.validation.Valid;
@@ -22,7 +22,7 @@ public class UserController {
 
     @PostMapping
     @ApiResponseDetails(messageCode = "user.created", status =  HttpStatus.CREATED)
-    public UserResponse createUser(@Valid @RequestBody UserRequest userRequest) {
+    public UserResponse createUser(@Valid @RequestBody CreateUserRequest userRequest) {
         var createUserCommand = mapper.fromRequestToCreateCommand(userRequest);
         var createdUser = createUserUseCase.execute(createUserCommand);
 

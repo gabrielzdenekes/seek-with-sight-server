@@ -1,18 +1,17 @@
 package com.seek_with_sight.domain.port.in.auth;
 
-import com.seek_with_sight.application.service.auth.AuthService;
+import com.seek_with_sight.application.port.in.auth.RefreshTokenUseCase;
+import com.seek_with_sight.application.service.auth.RefreshTokenService;
 import com.seek_with_sight.domain.exception.security.UnauthorizedException;
 import com.seek_with_sight.domain.model.auth.RefreshToken;
-import com.seek_with_sight.domain.port.out.security.JwtTokenPort;
-import com.seek_with_sight.domain.port.out.security.RefreshTokenPort;
-import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.application.port.out.security.JwtTokenPort;
+import com.seek_with_sight.application.port.out.security.RefreshTokenPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.authentication.AuthenticationManager;
 
 import java.util.Optional;
 
@@ -30,23 +29,15 @@ public class RefreshTokenUseCaseTests {
     private JwtTokenPort jwtTokenPort;
 
     @Mock
-    private UserRepositoryPort userRepositoryPort;
-
-    @Mock
     private RefreshTokenPort refreshTokenPort;
-
-    @Mock
-    private AuthenticationManager authenticationManager;
 
     private RefreshTokenUseCase refreshTokenUseCase;
 
     @BeforeEach
     void setUp() {
-        refreshTokenUseCase = new AuthService(
-                jwtTokenPort,
-                userRepositoryPort,
+        refreshTokenUseCase = new RefreshTokenService(
                 refreshTokenPort,
-                authenticationManager
+                jwtTokenPort
         );
     }
 

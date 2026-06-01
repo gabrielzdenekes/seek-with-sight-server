@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.auth.cookie;
 
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.constants.AuthConstants;
-import com.seek_with_sight.infrastructure.config.security.JwtProperties;
+import com.seek_with_sight.infrastructure.config.bean.auth.JwtProperties;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;

@@ -1,8 +1,8 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.auth;
 
-import com.seek_with_sight.domain.port.in.auth.LoginUseCase;
-import com.seek_with_sight.domain.port.in.auth.LogoutUseCase;
-import com.seek_with_sight.domain.port.in.auth.RefreshTokenUseCase;
+import com.seek_with_sight.application.port.in.auth.LoginUseCase;
+import com.seek_with_sight.application.port.in.auth.LogoutUseCase;
+import com.seek_with_sight.application.port.in.auth.RefreshTokenUseCase;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.cookie.RefreshTokenCookieService;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.dto.LoginRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.dto.LoginResponse;

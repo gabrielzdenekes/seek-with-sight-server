@@ -1,13 +1,14 @@
 package com.seek_with_sight.domain.port.in.user;
 
+import com.seek_with_sight.application.port.in.user.CreateUserCommand;
 import com.seek_with_sight.application.service.email.EmailService;
-import com.seek_with_sight.application.service.user.UserService;
+import com.seek_with_sight.application.service.user.CreateUserService;
 import com.seek_with_sight.domain.model.role.Role;
 import com.seek_with_sight.domain.model.role.RoleName;
 import com.seek_with_sight.domain.model.user.User;
-import com.seek_with_sight.domain.port.out.role.RoleRepositoryPort;
-import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
-import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.application.port.out.role.RoleRepositoryPort;
+import com.seek_with_sight.application.port.out.security.PasswordEncoderPort;
+import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
 import com.seek_with_sight.utils.TestDataUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -40,7 +41,7 @@ public class CreateUserUseCaseTests {
     private EmailService emailService;
 
     @InjectMocks
-    private UserService userService;
+    private CreateUserService createUserService;
 
     @Test
     void execute_shouldCreateUserWithHashedPassword() {
@@ -57,7 +58,7 @@ public class CreateUserUseCaseTests {
         when(passwordEncoderPort.encode(createCommand.rawPassword())).thenReturn(encodedPassword);
         when(userRepository.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
 
-        var createdUser = userService.execute(createCommand);
+        var createdUser = createUserService.execute(createCommand);
 
         assertThat(createdUser.getEmail()).isEqualTo(createCommand.email());
         assertThat(createdUser.getPassHash()).isEqualTo(encodedPassword);
