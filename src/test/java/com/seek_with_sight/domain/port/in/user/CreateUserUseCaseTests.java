@@ -44,7 +44,7 @@ public class CreateUserUseCaseTests {
     private CreateUserService createUserService;
 
     @Test
-    void execute_shouldCreateUserWithHashedPassword() {
+    void createUser_shouldCreateUserWithHashedPassword() {
         var createCommand = new CreateUserCommand(
                 TestDataUtils.generateRandomEmail(),
                 TestDataUtils.generateRandomPassword()
@@ -58,7 +58,7 @@ public class CreateUserUseCaseTests {
         when(passwordEncoderPort.encode(createCommand.rawPassword())).thenReturn(encodedPassword);
         when(userRepository.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
 
-        var createdUser = createUserService.execute(createCommand);
+        var createdUser = createUserService.createUser(createCommand);
 
         assertThat(createdUser.getEmail()).isEqualTo(createCommand.email());
         assertThat(createdUser.getPassHash()).isEqualTo(encodedPassword);

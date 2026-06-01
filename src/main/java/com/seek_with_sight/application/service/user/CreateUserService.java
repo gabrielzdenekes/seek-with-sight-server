@@ -24,7 +24,7 @@ public class CreateUserService implements CreateUserUseCase {
 
     @Override
     @Transactional
-    public User execute(CreateUserCommand createUserCommand) {
+    public User createUser(CreateUserCommand createUserCommand) {
         var customerRole = roleRepository.findByName(RoleName.ROLE_CUSTOMER)
                 .orElseThrow(() -> new RuntimeException("Default Role Not Found"));
 
