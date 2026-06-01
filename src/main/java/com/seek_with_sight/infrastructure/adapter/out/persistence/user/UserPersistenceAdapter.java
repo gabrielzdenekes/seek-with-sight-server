@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.user;
 
 import com.seek_with_sight.domain.model.user.User;
-import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserJpaEntity;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.user.mapper.UserPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.user.repository.UserJpaRepository;

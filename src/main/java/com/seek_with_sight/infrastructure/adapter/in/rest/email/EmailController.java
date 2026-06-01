@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.email;
 
-import com.seek_with_sight.domain.port.in.email.ResendVerificationUseCase;
-import com.seek_with_sight.domain.port.in.email.VerifyEmailUseCase;
+import com.seek_with_sight.application.port.in.email.ResendVerificationUseCase;
+import com.seek_with_sight.application.port.in.email.VerifyEmailUseCase;
 import com.seek_with_sight.infrastructure.adapter.in.rest.email.dto.ResendRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,10 +1,10 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.auth;
 
-import com.seek_with_sight.domain.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.constants.AuthConstants;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.UserTestConstants;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserRequest;
+import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.TestDataUtils;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenValidLoginDataIsProvided_userShouldReceiveJWTTokenAndRefreshTokenCookie() throws Exception {
-        var userRequest = new UserRequest(
+        var userRequest = new CreateUserRequest(
                 TestDataUtils.generateRandomEmail(),
                 TestDataUtils.generateRandomPassword()
         );
@@ -58,7 +58,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenUserIsNotVerified_loginIsNotPermitted() throws Exception {
-        var userRequest = new UserRequest(
+        var userRequest = new CreateUserRequest(
                 TestDataUtils.generateRandomEmail(),
                 TestDataUtils.generateRandomPassword()
         );
@@ -79,7 +79,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenEmptyEmailAndPassword_shouldTriggerValidation() throws Exception {
-        var userRequest = new UserRequest(
+        var userRequest = new CreateUserRequest(
                 "",
                 ""
         );

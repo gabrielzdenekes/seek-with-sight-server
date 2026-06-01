@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.profile;
 
-import com.seek_with_sight.domain.port.in.profile.CreateSellerProfileUseCase;
-import com.seek_with_sight.domain.port.in.profile.command.CreateCustomerProfileCommand;
+import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCase;
+import com.seek_with_sight.application.port.in.profile.command.CreateCustomerProfileCommand;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.mapper.CustomerProfileRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

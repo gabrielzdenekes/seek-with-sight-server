@@ -1,6 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.out.email;
 
-import com.seek_with_sight.domain.port.out.email.EmailSenderPort;
+import com.seek_with_sight.application.port.out.email.EmailSenderPort;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
