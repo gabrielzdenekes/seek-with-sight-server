@@ -12,6 +12,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -24,7 +25,7 @@ public class CreateUserService implements CreateUserUseCase {
 
     @Override
     @Transactional
-    public User createUser(CreateUserCommand createUserCommand) {
+    public User createUser(CreateUserCommand createUserCommand, List<RoleName> roles) {
         var customerRole = roleRepository.findByName(RoleName.ROLE_CUSTOMER)
                 .orElseThrow(() -> new RuntimeException("Default Role Not Found"));
 
