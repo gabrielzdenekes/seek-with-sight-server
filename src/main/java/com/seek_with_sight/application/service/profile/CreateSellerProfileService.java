@@ -4,6 +4,7 @@ import com.seek_with_sight.application.port.in.user.CreateUserCommand;
 import com.seek_with_sight.application.port.in.user.CreateUserUseCase;
 import com.seek_with_sight.application.port.out.profile.SellerProfileRepositoryPort;
 import com.seek_with_sight.application.service.profile.mapper.SellerProfileAppMapper;
+import com.seek_with_sight.domain.model.profile.SellerStatus;
 import com.seek_with_sight.domain.model.role.RoleName;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCase;
@@ -30,9 +31,10 @@ public class CreateSellerProfileService implements CreateSellerProfileUseCase {
         var profile =  mapper.fromCreateSellerProfileCommand(createSellerProfileCommand);
 
         profile.setUser(user);
+        profile.setStatus(SellerStatus.PENDING_REVIEW);
 
         repo.save(profile);
 
-        return
+        return user;
     }
 }
