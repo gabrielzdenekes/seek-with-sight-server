@@ -8,10 +8,13 @@ import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCas
 import com.seek_with_sight.application.port.out.profile.CustomerProfileRepositoryPort;
 import com.seek_with_sight.application.port.out.profile.SellerProfileRepositoryPort;
 import com.seek_with_sight.application.service.profile.mapper.CustomerProfileAppMapper;
+import com.seek_with_sight.application.service.profile.mapper.SellerProfileAppMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.CustomerProfilePersistenceAdapter;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.SellerProfilePersistenceAdapter;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.mapper.CustomerProfilePersistenceMapper;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.mapper.SellerProfilePersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.repository.CustomerProfileJpaRepository;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.repository.SellerProfileJpaRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,13 +29,23 @@ public class ProfileBeanConfig {
     }
 
     @Bean
-    public SellerProfileRepositoryPort sellerProfileRepositoryPort() {
-        return new SellerProfilePersistenceAdapter();
+    public SellerProfileRepositoryPort sellerProfileRepositoryPort(
+            SellerProfileJpaRepository repo,
+            SellerProfilePersistenceMapper mapper
+    ) {
+        return new SellerProfilePersistenceAdapter(
+                repo,
+                mapper
+        );
     }
 
     @Bean
-    public CreateSellerProfileUseCase createSellerProfileUseCase() {
-        return new CreateSellerProfileService();
+    public CreateSellerProfileUseCase createSellerProfileUseCase(
+            CreateUserUseCase createUserUseCase,
+            SellerProfileAppMapper mapper,
+            SellerProfileRepositoryPort repo
+    ) {
+        return new CreateSellerProfileService(createUserUseCase, mapper, repo);
     }
 
     @Bean
