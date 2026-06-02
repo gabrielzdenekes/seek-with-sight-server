@@ -7,6 +7,7 @@ import com.seek_with_sight.infrastructure.adapter.out.persistence.role.mapper.Ro
 import com.seek_with_sight.infrastructure.adapter.out.persistence.role.repository.RoleJpaRepository;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -18,5 +19,13 @@ public class RolePersistenceAdapter implements RoleRepositoryPort {
     public Optional<Role> findByName(RoleName name) {
         return roleRepository.findByName(name)
                 .map(roleMapper::toDomain);
+    }
+
+    @Override
+    public List<Role> findByNameIn(List<RoleName> roleNames) {
+        return roleRepository
+                .findByNameIn(roleNames).stream()
+                .map(roleMapper::toDomain)
+                .toList();
     }
 }

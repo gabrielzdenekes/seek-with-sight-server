@@ -12,6 +12,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -26,16 +27,14 @@ public class CreateUserService implements CreateUserUseCase {
     @Override
     @Transactional
     public User createUser(CreateUserCommand createUserCommand, List<RoleName> roles) {
-        var customerRole = roleRepository.findByName(RoleName.ROLE_CUSTOMER)
-                .orElseThrow(() -> new RuntimeException("Default Role Not Found"));
-
         var user = new User();
         var encodedPassword = passwordEncoderPort.encode(createUserCommand.rawPassword());
         var normalizedEmail = createUserCommand.email().toLowerCase();
+        var userRoles = roleRepository.findByNameIn(roles);
 
         user.setEmail(normalizedEmail);
         user.setPassHash(encodedPassword);
-        user.setRoles(Set.of(customerRole));
+        user.setRoles(new HashSet<>(userRoles));
 
         var createdUser = this.userRepository.save(user);
 
