@@ -1,6 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.out.security;
 
-import com.seek_with_sight.domain.port.out.security.PasswordEncoderPort;
+import com.seek_with_sight.application.port.out.security.PasswordEncoderPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -11,10 +11,5 @@ public class PasswordEncoderAdapter implements PasswordEncoderPort {
     @Override
     public String encode(String rawPassword) {
         return passwordEncoder.encode(rawPassword);
-    }
-
-    @Override
-    public boolean matches(String rawPassword, String encodedPassword) {
-        return passwordEncoder.matches(rawPassword, encodedPassword);
     }
 }

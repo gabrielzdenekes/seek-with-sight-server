@@ -26,7 +26,8 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
     public boolean supports(@NonNull MethodParameter returnType,
                             @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
         return !returnType.getParameterType().equals(ApiResponse.class) &&
-                !returnType.getParameterType().equals(ResponseEntity.class);
+                !returnType.getParameterType().equals(ResponseEntity.class) &&
+                !isSpringDocPackage(returnType);
     }
 
     @Override
@@ -49,6 +50,12 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
         }
 
         response.setStatusCode(status);
-        return ApiResponse.success(responseMessage, body);
+        return ApiResponse.create(responseMessage, body, status);
+    }
+
+    private boolean isSpringDocPackage(MethodParameter returnType) {
+        return returnType.getContainingClass()
+                .getName()
+                .startsWith("org.springdoc");
     }
 }

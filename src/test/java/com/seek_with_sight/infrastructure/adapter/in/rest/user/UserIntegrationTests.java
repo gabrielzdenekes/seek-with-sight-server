@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.user;
 
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserRequest;
+import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.TestDataUtils;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenSpanishLanguageIsRequired_userCreatedMessageShouldBeInSpanish() throws Exception {
-        var userRequest = new UserRequest(
+        var userRequest = new CreateUserRequest(
                 TestDataUtils.generateRandomEmail(),
                 TestDataUtils.generateRandomPassword()
         );
@@ -38,7 +38,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenNonExistingLanguageIsRequired_userCreatedMessageShouldFallbackToDefaultEN() throws Exception {
-        var userRequest = new UserRequest(
+        var userRequest = new CreateUserRequest(
                 TestDataUtils.generateRandomEmail(),
                 TestDataUtils.generateRandomPassword()
         );
@@ -54,7 +54,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenPasswordHasInvalidFormat_ValidationMessageShouldBeDisplayedInCorrectLanguage() throws Exception {
-        var userRequest = new UserRequest(
+        var userRequest = new CreateUserRequest(
                 TestDataUtils.generateRandomEmail(),
                 TestDataUtils.INVALID_PASSWORD_FORMAT
         );

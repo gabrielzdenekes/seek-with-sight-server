@@ -1,8 +1,24 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
 
   flyway:
     enabled: false
+
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: "classpath:keystore.p12"
+    key-store-password: "password"
+    key-store-type: PKCS12
+    key-alias: "keystoreDev"
+
+logging:
+  level:
+    root: INFO
+
+app:
+  base-url: "https://localhost:8443"
