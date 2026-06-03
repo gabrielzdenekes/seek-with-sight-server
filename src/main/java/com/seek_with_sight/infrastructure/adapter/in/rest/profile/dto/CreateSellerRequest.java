@@ -13,7 +13,10 @@ public class CreateSellerRequest extends CreateUserRequest {
     @Size(max = 200, message = "{seller.business-name.max-length}")
     private String businessName;
 
+    @NotBlank(message = "{seller.business-address.required}")
+    @Size(max = 500, message = "{seller.business-address.max-length}")
     private String businessAddress;
+
     private String taxId;
 
     public CreateSellerRequest(String email, String password) {
