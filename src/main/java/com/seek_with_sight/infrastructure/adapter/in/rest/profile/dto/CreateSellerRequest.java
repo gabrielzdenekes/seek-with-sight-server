@@ -17,6 +17,8 @@ public class CreateSellerRequest extends CreateUserRequest {
     @Size(max = 500, message = "{seller.business-address.max-length}")
     private String businessAddress;
 
+    @NotBlank(message = "{seller.tax-id.required}")
+    @Size(max = 50, message = "{seller.tax-id.max-length}")
     private String taxId;
 
     public CreateSellerRequest(String email, String password) {
