@@ -18,7 +18,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Optional;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -54,11 +54,12 @@ public class CreateUserUseCaseTests {
 
         role.setName(RoleName.ROLE_CUSTOMER);
 
-        when(roleRepository.findByName(any())).thenReturn(Optional.of(role));
+        when(roleRepository.findByNameIn(any())).thenReturn(List.of(role));
         when(passwordEncoderPort.encode(createCommand.rawPassword())).thenReturn(encodedPassword);
         when(userRepository.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
 
-        var createdUser = createUserService.createUser(createCommand);
+        var roles = List.of(RoleName.ROLE_CUSTOMER);
+        var createdUser = createUserService.createUser(createCommand, roles);
 
         assertThat(createdUser.getEmail()).isEqualTo(createCommand.email());
         assertThat(createdUser.getPassHash()).isEqualTo(encodedPassword);
