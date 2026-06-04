@@ -13,4 +13,8 @@ public interface JwtTokenPort {
     boolean isExpiredRefreshToken(RefreshToken refreshToken);
 
     LocalDateTime extractExpiration(String token);
+
+    String extractUsername(String token);
+
+    boolean isJwtExpired(String token);
 }

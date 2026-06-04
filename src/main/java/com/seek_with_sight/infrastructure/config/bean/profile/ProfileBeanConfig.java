@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.config.bean.profile;
 
 import com.seek_with_sight.application.port.in.profile.FindCustomerProfileByUserIdUseCase;
-import com.seek_with_sight.application.port.in.profile.FindSellerProfileByUserIdUseCase;
+import com.seek_with_sight.application.port.in.profile.FindSellerProfileByEmailUseCase;
 import com.seek_with_sight.application.port.in.user.CreateUserUseCase;
 import com.seek_with_sight.application.service.profile.CreateCustomerProfileService;
 import com.seek_with_sight.application.service.profile.CreateSellerProfileService;
@@ -10,7 +10,7 @@ import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCas
 import com.seek_with_sight.application.port.out.profile.CustomerProfileRepositoryPort;
 import com.seek_with_sight.application.port.out.profile.SellerProfileRepositoryPort;
 import com.seek_with_sight.application.service.profile.FindCustomerProfileByUserIdService;
-import com.seek_with_sight.application.service.profile.FindSellerProfileByUserIdService;
+import com.seek_with_sight.application.service.profile.FindSellerProfileByEmailService;
 import com.seek_with_sight.application.service.profile.mapper.CustomerProfileAppMapper;
 import com.seek_with_sight.application.service.profile.mapper.SellerProfileAppMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.CustomerProfilePersistenceAdapter;
@@ -69,9 +69,9 @@ public class ProfileBeanConfig {
     }
 
     @Bean
-    public FindSellerProfileByUserIdUseCase findSellerProfileByUserIdUseCase(
+    public FindSellerProfileByEmailUseCase findSellerProfileByUserIdUseCase(
             SellerProfileRepositoryPort repo
     ) {
-        return new FindSellerProfileByUserIdService(repo);
+        return new FindSellerProfileByEmailService(repo);
     }
 }
