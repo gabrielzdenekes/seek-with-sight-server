@@ -2,6 +2,7 @@ package com.seek_with_sight.infrastructure.adapter.out.persistence.auth;
 
 import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.application.port.out.security.RefreshTokenPort;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.entity.RefreshTokenEntity;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.mapper.RefreshTokenPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.repository.RefreshTokenJpaRepository;
 import lombok.RequiredArgsConstructor;
@@ -31,9 +32,13 @@ public class RefreshTokenPersistenceAdapter implements RefreshTokenPort {
 
     @Override
     public RefreshToken save(RefreshToken refreshToken) {
-        var newToken = mapper.toEntity(refreshToken);
-        var savedToken = repository.save(newToken);
+        var tokenEntity = refreshToken.getId() != null ?
+                repository.findById(refreshToken.getId()).orElseThrow() :
+                new RefreshTokenEntity();
 
-        return mapper.fromEntity(savedToken);
+        mapper.updateEntityFromDomain(refreshToken, tokenEntity);
+
+        var savedEntity = repository.save(tokenEntity);
+        return mapper.fromEntity(savedEntity);
     }
 }

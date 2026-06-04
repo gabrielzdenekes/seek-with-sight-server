@@ -8,6 +8,7 @@ import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateSell
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.mapper.SellerProfileRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,8 +32,10 @@ public class SellerProfileController {
         return createSellerProfileUseCase.createSellerProfile(createSellerCommand);
     }
 
-    @GetMapping("/{userId}")
-    public SellerProfile getById(@PathVariable UUID userId) {
-        return findSellerProfileByUserIdUseCase.find(userId);
+    @GetMapping("/me")
+    public SellerProfile getById(Authentication authentication) {
+        var idStr = authentication.getName();
+        var currentUserId = UUID.fromString(idStr);
+        return findSellerProfileByUserIdUseCase.find(currentUserId);
     }
 }

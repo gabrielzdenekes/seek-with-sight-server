@@ -8,6 +8,7 @@ import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateCust
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.mapper.CustomerProfileRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,8 +32,9 @@ public class CustomerProfileController {
         return createCustomerProfileUseCase.createCustomerProfile(command);
     }
 
-    @GetMapping("/{userId}")
-    public CustomerProfile getById(@PathVariable UUID userId) {
-        return findCustomerProfileByUserIdUseCase.find(userId);
+    @GetMapping("/me")
+    public CustomerProfile getById(Authentication authentication) {
+        var currentUserId = UUID.fromString(authentication.getName());
+        return findCustomerProfileByUserIdUseCase.find(currentUserId);
     }
 }

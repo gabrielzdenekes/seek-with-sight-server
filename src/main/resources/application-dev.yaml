@@ -1,7 +1,7 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
 
   flyway:
@@ -19,6 +19,13 @@ server:
 logging:
   level:
     root: INFO
+    org:
+      springframework:
+        security:
+          web:
+            authentication: DEBUG
+
+
 
 app:
   base-url: "https://localhost:8443"
