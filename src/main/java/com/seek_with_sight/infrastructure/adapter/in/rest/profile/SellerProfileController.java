@@ -31,7 +31,7 @@ public class SellerProfileController {
         return createSellerProfileUseCase.createSellerProfile(createSellerCommand);
     }
 
-    @GetMapping
+    @GetMapping("/{userId}")
     public SellerProfile getById(@PathVariable UUID userId) {
         return findSellerProfileByUserIdUseCase.find(userId);
     }

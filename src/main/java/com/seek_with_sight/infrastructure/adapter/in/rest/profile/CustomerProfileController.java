@@ -31,7 +31,7 @@ public class CustomerProfileController {
         return createCustomerProfileUseCase.createCustomerProfile(command);
     }
 
-    @GetMapping
+    @GetMapping("/{userId}")
     public CustomerProfile getById(@PathVariable UUID userId) {
         return findCustomerProfileByUserIdUseCase.find(userId);
     }
