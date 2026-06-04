@@ -1,6 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.profile;
 
 import com.seek_with_sight.application.port.in.profile.CreateCustomerProfileUseCase;
+import com.seek_with_sight.application.port.in.profile.FindCustomerProfileByUserIdUseCase;
 import com.seek_with_sight.domain.model.profile.CustomerProfile;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateCustomerRequest;
@@ -22,6 +23,7 @@ import java.util.UUID;
 public class CustomerProfileController {
     private final CustomerProfileRestMapper mapper;
     private final CreateCustomerProfileUseCase createCustomerProfileUseCase;
+    private final FindCustomerProfileByUserIdUseCase findCustomerProfileByUserIdUseCase;
 
     @PostMapping
     public User createCustomerProfile(@Valid @RequestBody CreateCustomerRequest createCustomerRequest) {
@@ -31,6 +33,6 @@ public class CustomerProfileController {
 
     @GetMapping
     public CustomerProfile getById(@PathVariable UUID userId) {
-
+        return findCustomerProfileByUserIdUseCase.find(userId);
     }
 }

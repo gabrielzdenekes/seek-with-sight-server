@@ -1,6 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.profile;
 
 import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCase;
+import com.seek_with_sight.application.port.in.profile.FindSellerProfileByUserIdUseCase;
 import com.seek_with_sight.domain.model.profile.SellerProfile;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateSellerRequest;
@@ -22,6 +23,7 @@ import java.util.UUID;
 public class SellerProfileController {
     private final SellerProfileRestMapper mapper;
     private final CreateSellerProfileUseCase createSellerProfileUseCase;
+    private final FindSellerProfileByUserIdUseCase findSellerProfileByUserIdUseCase;
 
     @PostMapping
     public User createSellerProfile(@Valid @RequestBody CreateSellerRequest createSellerRequest) {
@@ -31,6 +33,6 @@ public class SellerProfileController {
 
     @GetMapping
     public SellerProfile getById(@PathVariable UUID userId) {
-
+        return findSellerProfileByUserIdUseCase.find(userId);
     }
 }

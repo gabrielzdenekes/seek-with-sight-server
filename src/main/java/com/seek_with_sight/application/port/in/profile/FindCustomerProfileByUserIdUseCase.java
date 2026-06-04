@@ -5,5 +5,5 @@ import com.seek_with_sight.domain.model.profile.CustomerProfile;
 import java.util.UUID;
 
 public interface FindCustomerProfileByUserIdUseCase {
-    CustomerProfile findCustomerProfileByUserId(UUID userId);
+    CustomerProfile find(UUID userId);
 }
