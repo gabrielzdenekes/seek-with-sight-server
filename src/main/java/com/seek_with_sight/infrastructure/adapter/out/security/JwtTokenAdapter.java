@@ -48,6 +48,12 @@ public class JwtTokenAdapter implements JwtTokenPort {
         return LocalDateTime.now().isBefore(refreshToken.getExpiresAt());
     }
 
+    public boolean isJwtExpired(String token) {
+        var expiration = extractExpiration(token);
+
+        return LocalDateTime.now().isAfter(expiration);
+    }
+
     @Override
     public LocalDateTime extractExpiration(String token) {
         Date expiration = extractAllClaims(token).getExpiration();
@@ -55,6 +61,11 @@ public class JwtTokenAdapter implements JwtTokenPort {
         return expiration.toInstant()
                 .atZone(ZoneId.systemDefault())
                 .toLocalDateTime();
+    }
+
+    @Override
+    public String extractUsername(String token) {
+        return extractAllClaims(token).getSubject();
     }
 
     private Map<String, Object> getUserClaims(User user) {
@@ -67,7 +78,7 @@ public class JwtTokenAdapter implements JwtTokenPort {
                 .map(Permission::getName)
                 .collect(Collectors.toSet());
 
-        var claims = new  HashMap<String, Object>();
+        var claims = new HashMap<String, Object>();
 
         claims.put("roles", roles);
         claims.put("permissions", permissions);

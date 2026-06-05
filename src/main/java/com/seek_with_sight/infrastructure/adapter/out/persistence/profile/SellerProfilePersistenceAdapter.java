@@ -7,6 +7,8 @@ import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.mapper
 import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.repository.SellerProfileJpaRepository;
 import lombok.AllArgsConstructor;
 
+import java.util.Optional;
+
 @AllArgsConstructor
 public class SellerProfilePersistenceAdapter implements SellerProfileRepositoryPort {
     private final SellerProfileJpaRepository repo;
@@ -22,5 +24,10 @@ public class SellerProfilePersistenceAdapter implements SellerProfileRepositoryP
 
         var savedEntity = repo.save(profileEntity);
         return mapper.fromEntity(savedEntity);
+    }
+
+    @Override
+    public Optional<SellerProfile> findByUserEmail(String email) {
+        return repo.findByUserEmail(email).map(mapper::fromEntity);
     }
 }
