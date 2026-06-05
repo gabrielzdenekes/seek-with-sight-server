@@ -8,7 +8,6 @@ import com.seek_with_sight.infrastructure.adapter.out.persistence.profile.reposi
 import lombok.AllArgsConstructor;
 
 import java.util.Optional;
-import java.util.UUID;
 
 @AllArgsConstructor
 public class CustomerProfilePersistenceAdapter implements CustomerProfileRepositoryPort {
@@ -28,7 +27,7 @@ public class CustomerProfilePersistenceAdapter implements CustomerProfileReposit
     }
 
     @Override
-    public Optional<CustomerProfile> findByUserId(UUID id) {
-        return repo.findById(id).map(mapper::fromEntity);
+    public Optional<CustomerProfile> findByUserEmail(String email) {
+        return repo.findByUserEmail(email).map(mapper::fromEntity);
     }
 }
