@@ -25,12 +25,12 @@ public class VerificationTokenRepositoryAdapter implements VerificationTokenRepo
 
         var savedEntity = repo.save(tokenEntity);
 
-        return mapper.fromEntity(savedEntity);
+        return mapper.toDomain(savedEntity);
     }
 
     @Override
     public Optional<EmailVerificationToken> findByToken(String rawToken) {
-        return repo.findByToken(rawToken).map(mapper::fromEntity);
+        return repo.findByToken(rawToken).map(mapper::toDomain);
     }
 
     @Override

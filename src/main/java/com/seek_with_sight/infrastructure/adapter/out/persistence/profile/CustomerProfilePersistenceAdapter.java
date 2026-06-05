@@ -23,11 +23,11 @@ public class CustomerProfilePersistenceAdapter implements CustomerProfileReposit
         mapper.updateEntityFromDomain(profile, profileEntity);
 
         var savedEntity = repo.save(profileEntity);
-        return mapper.fromEntity(savedEntity);
+        return mapper.toDomain(savedEntity);
     }
 
     @Override
     public Optional<CustomerProfile> findByUserEmail(String email) {
-        return repo.findByUserEmail(email).map(mapper::fromEntity);
+        return repo.findByUserEmail(email).map(mapper::toDomain);
     }
 }

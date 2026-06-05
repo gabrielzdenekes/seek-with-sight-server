@@ -17,12 +17,12 @@ public class RefreshTokenPersistenceAdapter implements RefreshTokenPort {
 
     @Override
     public Optional<RefreshToken> findByToken(String token) {
-        return repository.findByToken(token).map(mapper::fromEntity);
+        return repository.findByToken(token).map(mapper::toDomain);
     }
 
     @Override
     public Optional<RefreshToken> findByUserId(UUID userId) {
-        return repository.findByUserId(userId).map(mapper::fromEntity);
+        return repository.findByUserId(userId).map(mapper::toDomain);
     }
 
     @Override
@@ -39,6 +39,6 @@ public class RefreshTokenPersistenceAdapter implements RefreshTokenPort {
         mapper.updateEntityFromDomain(refreshToken, tokenEntity);
 
         var savedEntity = repository.save(tokenEntity);
-        return mapper.fromEntity(savedEntity);
+        return mapper.toDomain(savedEntity);
     }
 }
