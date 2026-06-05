@@ -2,9 +2,9 @@ package com.seek_with_sight.infrastructure.adapter.in.rest.profile;
 
 import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCase;
 import com.seek_with_sight.application.port.in.profile.FindSellerProfileByEmailUseCase;
-import com.seek_with_sight.domain.model.profile.SellerProfile;
 import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateSellerRequest;
+import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.SellerProfileResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.mapper.SellerProfileRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -30,8 +30,10 @@ public class SellerProfileController {
     }
 
     @GetMapping("/me")
-    public SellerProfile getById(Authentication authentication) {
+    public SellerProfileResponse getById(Authentication authentication) {
         var email = authentication.getName();
-        return findSellerProfileByEmailUseCase.find(email);
+        var profile = findSellerProfileByEmailUseCase.find(email);
+
+        return mapper.toSellerProfileResponse(profile);
     }
 }
