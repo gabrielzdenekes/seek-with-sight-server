@@ -1,24 +1,14 @@
 package com.seek_with_sight.domain.model.profile;
 
+import com.seek_with_sight.domain.model.BaseDomainModel;
 import com.seek_with_sight.domain.model.user.User;
 
-import java.util.UUID;
-
-public class SellerProfile {
-    private UUID id;
+public class SellerProfile extends BaseDomainModel {
     private String businessName;
     private String businessAddress;
     private String taxId;
     private User user;
     private SellerStatus status;
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getBusinessName() {
         return businessName;

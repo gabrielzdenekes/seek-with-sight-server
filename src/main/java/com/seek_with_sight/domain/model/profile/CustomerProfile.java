@@ -1,11 +1,9 @@
 package com.seek_with_sight.domain.model.profile;
 
+import com.seek_with_sight.domain.model.BaseDomainModel;
 import com.seek_with_sight.domain.model.user.User;
 
-import java.util.UUID;
-
-public class CustomerProfile {
-    private UUID id;
+public class CustomerProfile extends BaseDomainModel {
     private String firstName;
     private String lastName;
     private String phone;
@@ -41,13 +39,5 @@ public class CustomerProfile {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
     }
 }
