@@ -3,42 +3,36 @@ package com.seek_with_sight.infrastructure.adapter.out.persistence.auth;
 import com.seek_with_sight.domain.model.auth.RefreshToken;
 import com.seek_with_sight.application.port.out.security.RefreshTokenPort;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.entity.RefreshTokenEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.mapper.RefreshTokenPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.auth.repository.RefreshTokenJpaRepository;
-import lombok.RequiredArgsConstructor;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BasePersistenceAdapter;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.PersistenceMapper;
 
 import java.util.Optional;
 import java.util.UUID;
 
-@RequiredArgsConstructor
-public class RefreshTokenPersistenceAdapter implements RefreshTokenPort {
-    private final RefreshTokenJpaRepository repository;
-    private final RefreshTokenPersistenceMapper mapper;
+public class RefreshTokenPersistenceAdapter
+        extends BasePersistenceAdapter<RefreshToken, RefreshTokenEntity, RefreshTokenJpaRepository>
+        implements RefreshTokenPort {
+
+    public RefreshTokenPersistenceAdapter(
+            RefreshTokenJpaRepository repository,
+            PersistenceMapper<RefreshToken, RefreshTokenEntity> mapper
+    ) {
+        super(repository, mapper, RefreshTokenEntity::new);
+    }
 
     @Override
     public Optional<RefreshToken> findByToken(String token) {
-        return repository.findByToken(token).map(mapper::fromEntity);
+        return repository.findByToken(token).map(mapper::toDomain);
     }
 
     @Override
     public Optional<RefreshToken> findByUserId(UUID userId) {
-        return repository.findByUserId(userId).map(mapper::fromEntity);
+        return repository.findByUserId(userId).map(mapper::toDomain);
     }
 
     @Override
     public void deleteByToken(String token) {
         repository.deleteByToken(token);
-    }
-
-    @Override
-    public RefreshToken save(RefreshToken refreshToken) {
-        var tokenEntity = refreshToken.getId() != null ?
-                repository.findById(refreshToken.getId()).orElseThrow() :
-                new RefreshTokenEntity();
-
-        mapper.updateEntityFromDomain(refreshToken, tokenEntity);
-
-        var savedEntity = repository.save(tokenEntity);
-        return mapper.fromEntity(savedEntity);
     }
 }
