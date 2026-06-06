@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/seller-profile")
+@RequestMapping("/api/seller-profile")
 public class SellerProfileController {
     private final SellerProfileRestMapper mapper;
     private final CreateSellerProfileUseCase createSellerProfileUseCase;
