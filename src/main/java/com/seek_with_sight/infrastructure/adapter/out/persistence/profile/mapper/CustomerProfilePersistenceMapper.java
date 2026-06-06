@@ -9,7 +9,8 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 @Mapper(componentModel = "spring")
-public interface CustomerProfilePersistenceMapper extends PersistenceMapper<CustomerProfile,  CustomerProfileJpaEntity> {
+public interface CustomerProfilePersistenceMapper
+        extends PersistenceMapper<CustomerProfile,  CustomerProfileJpaEntity> {
     @Override
     CustomerProfile toDomain(CustomerProfileJpaEntity entity);
 

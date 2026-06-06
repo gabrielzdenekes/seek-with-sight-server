@@ -9,12 +9,17 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 @Mapper(componentModel = "spring")
-public interface VerificationTokenPersistenceMapper extends PersistenceMapper<EmailVerificationToken, EmailVerificationTokenEntity> {
+public interface VerificationTokenPersistenceMapper
+        extends PersistenceMapper<EmailVerificationToken, EmailVerificationTokenEntity> {
     @Override
     EmailVerificationToken toDomain(EmailVerificationTokenEntity entity);
 
     @Override
     @BeanMapping(nullValuePropertyMappingStrategy =
             NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDomain(EmailVerificationToken domain, @MappingTarget EmailVerificationTokenEntity entity);
+    void updateEntityFromDomain(
+            EmailVerificationToken domain,
+            @MappingTarget EmailVerificationTokenEntity
+                    entity
+    );
 }
