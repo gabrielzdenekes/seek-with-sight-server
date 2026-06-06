@@ -11,7 +11,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class VerificationTokenRepositoryAdapter
-        extends BasePersistenceAdapter<EmailVerificationToken, EmailVerificationTokenEntity, VerificationTokenJpaRepository>
+        extends BasePersistenceAdapter<
+        EmailVerificationToken,
+        EmailVerificationTokenEntity,
+        VerificationTokenJpaRepository>
         implements VerificationTokenRepositoryPort {
 
     public VerificationTokenRepositoryAdapter(
