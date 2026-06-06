@@ -3,44 +3,37 @@ package com.seek_with_sight.infrastructure.adapter.out.persistence.email;
 import com.seek_with_sight.domain.model.email.EmailVerificationToken;
 import com.seek_with_sight.application.port.out.email.VerificationTokenRepositoryPort;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.entity.EmailVerificationTokenEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.email.mapper.VerificationTokenPersistenceMapper;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.repository.VerificationTokenJpaRepository;
-import lombok.AllArgsConstructor;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BasePersistenceAdapter;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.PersistenceMapper;
 
 import java.util.Optional;
 import java.util.UUID;
 
-@AllArgsConstructor
-public class VerificationTokenRepositoryAdapter implements VerificationTokenRepositoryPort {
-    private final VerificationTokenJpaRepository repo;
-    private final VerificationTokenPersistenceMapper mapper;
+public class VerificationTokenRepositoryAdapter
+        extends BasePersistenceAdapter<EmailVerificationToken, EmailVerificationTokenEntity, VerificationTokenJpaRepository>
+        implements VerificationTokenRepositoryPort {
 
-    @Override
-    public EmailVerificationToken save(EmailVerificationToken token) {
-        var tokenEntity = token.getId() != null ?
-                repo.findById(token.getId()).orElseThrow() :
-                new EmailVerificationTokenEntity();
-
-        mapper.updateEntityFromDomain(token, tokenEntity);
-
-        var savedEntity = repo.save(tokenEntity);
-
-        return mapper.toDomain(savedEntity);
+    public VerificationTokenRepositoryAdapter(
+            VerificationTokenJpaRepository repository,
+            PersistenceMapper<EmailVerificationToken, EmailVerificationTokenEntity> mapper
+    ) {
+        super(repository, mapper, EmailVerificationTokenEntity::new);
     }
 
     @Override
     public Optional<EmailVerificationToken> findByToken(String rawToken) {
-        return repo.findByToken(rawToken).map(mapper::toDomain);
+        return repository.findByToken(rawToken).map(mapper::toDomain);
     }
 
     @Override
     public void invalidateUserTokens(UUID userId) {
-        var tokens = repo.findAllByUserId(userId);
+        var tokens = repository.findAllByUserId(userId);
 
         for (var tok : tokens) {
             tok.setUsed(true);
         }
 
-        repo.saveAll(tokens);
+        repository.saveAll(tokens);
     }
 }
