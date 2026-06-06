@@ -70,7 +70,7 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
     @Override
     public void sendVerificationEmail(User user) {
         var token = createToken(user);
-        var url = appProperties.baseUrl() + "/api/v1/email/verify?token=" + token.getToken();
+        var url = appProperties.baseUrl() + "/api/email/verify?token=" + token.getToken();
 
         try {
             emailSender.sendVerificationEmail(user.getEmail(), url);

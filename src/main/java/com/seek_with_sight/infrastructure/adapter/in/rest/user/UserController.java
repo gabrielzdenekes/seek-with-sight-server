@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/user")
 public class UserController {
     private final CreateUserUseCase createUserUseCase;
     private final UserRestMapper mapper;
