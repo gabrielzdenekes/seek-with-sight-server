@@ -4,6 +4,7 @@ import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.Lo
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.data.TestDataUtils;
+import com.seek_with_sight.utils.factory.UserTestDataFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,10 +23,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenSpanishLanguageIsRequired_userCreatedMessageShouldBeInSpanish() throws Exception {
-        var userRequest = new CreateUserRequest(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
-        );
+        var userRequest = UserTestDataFactory.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
         var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
@@ -38,11 +36,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenNonExistingLanguageIsRequired_userCreatedMessageShouldFallbackToDefaultEN() throws Exception {
-        var userRequest = new CreateUserRequest(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
-        );
-
+        var userRequest = UserTestDataFactory.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, Locale.forLanguageTag("bg"));
         var expectedMessageInDefaultLang = messageService.getMessage(USER_CREATED_KEY, Locale.forLanguageTag("en"));
@@ -54,10 +48,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenPasswordHasInvalidFormat_ValidationMessageShouldBeDisplayedInCorrectLanguage() throws Exception {
-        var userRequest = new CreateUserRequest(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.INVALID_PASSWORD_FORMAT
-        );
+        var userRequest = UserTestDataFactory.createUserRequestInvalidPassword();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locales = List.of(Locale.forLanguageTag("es"),  Locale.forLanguageTag("en"));
 

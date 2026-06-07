@@ -46,8 +46,8 @@ public class CreateUserUseCaseTests {
     @Test
     void createUser_shouldCreateUserWithHashedPassword() {
         var createCommand = new CreateUserCommand(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
+                TestDataUtils.email(),
+                TestDataUtils.validPassword()
         );
         var encodedPassword = "$2a$12$i3.NLpVj8XPD4YvX6SIoqezFm/Q6Fq3Vz35yX0nGegUu4TlCYXDvW";
         var role = new Role();

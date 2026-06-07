@@ -55,8 +55,8 @@ public class LoginUseCaseTests {
                 .thenReturn(Optional.empty());
 
         var loginCommand = new LoginCommand(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
+                TestDataUtils.email(),
+                TestDataUtils.validPassword()
         );
 
         assertThatThrownBy(() -> loginUseCase.login(loginCommand))

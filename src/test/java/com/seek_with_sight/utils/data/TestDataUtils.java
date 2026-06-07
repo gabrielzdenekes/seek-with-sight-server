@@ -17,7 +17,10 @@ public class TestDataUtils {
     }
 
     public static String invalidPassword() {
-        return faker.credentials().password();
+        return faker.credentials().password(
+                UserValidationConstants.PASSWORD_MIN_LENGTH,
+                UserValidationConstants.PASSWORD_MAX_LENGTH
+        );
     }
 
     public static String email() {

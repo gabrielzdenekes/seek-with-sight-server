@@ -7,6 +7,7 @@ import com.seek_with_sight.infrastructure.adapter.in.rest.user.UserTestConstants
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.data.TestDataUtils;
+import com.seek_with_sight.utils.factory.UserTestDataFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,10 +34,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenValidLoginDataIsProvided_userShouldReceiveJWTTokenAndRefreshTokenCookie() throws Exception {
-        var userRequest = new CreateUserRequest(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
-        );
+        var userRequest = UserTestDataFactory.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
         var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
@@ -58,10 +56,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenUserIsNotVerified_loginIsNotPermitted() throws Exception {
-        var userRequest = new CreateUserRequest(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
-        );
+        var userRequest = UserTestDataFactory.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
         var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
