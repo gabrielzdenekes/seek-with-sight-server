@@ -17,4 +17,11 @@ public class UserTestDataFactory {
                 TestDataUtils.invalidPassword()
         );
     }
+
+    public static CreateUserRequest createUserRequestEmptyFields() {
+        return new CreateUserRequest(
+                "",
+                ""
+        );
+    }
 }

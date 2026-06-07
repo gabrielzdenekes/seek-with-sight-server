@@ -4,9 +4,7 @@ import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.adapter.in.rest.auth.constants.AuthConstants;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.UserTestConstants;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
 import com.seek_with_sight.utils.IntegrationTestsBase;
-import com.seek_with_sight.utils.data.TestDataUtils;
 import com.seek_with_sight.utils.factory.UserTestDataFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,10 +72,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenEmptyEmailAndPassword_shouldTriggerValidation() throws Exception {
-        var userRequest = new CreateUserRequest(
-                "",
-                ""
-        );
+        var userRequest = UserTestDataFactory.createUserRequestEmptyFields();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locales = List.of(Locale.forLanguageTag("es"),  Locale.forLanguageTag("en"));
 
