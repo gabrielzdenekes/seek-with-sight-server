@@ -9,7 +9,7 @@ import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.application.port.out.role.RoleRepositoryPort;
 import com.seek_with_sight.application.port.out.security.PasswordEncoderPort;
 import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
-import com.seek_with_sight.utils.TestDataUtils;
+import com.seek_with_sight.utils.data.TestDataUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
