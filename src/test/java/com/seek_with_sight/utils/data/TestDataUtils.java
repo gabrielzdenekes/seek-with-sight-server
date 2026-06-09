@@ -36,7 +36,9 @@ public class TestDataUtils {
     }
 
     public static String phoneNumber() {
-        return faker.phoneNumber().phoneNumber();
+        return faker.phoneNumber()
+                .phoneNumberInternational()
+                .replaceAll("\\D", "");
     }
 
     public static String businessName() {
