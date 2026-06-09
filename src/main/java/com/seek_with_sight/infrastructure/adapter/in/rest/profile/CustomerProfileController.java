@@ -2,10 +2,11 @@ package com.seek_with_sight.infrastructure.adapter.in.rest.profile;
 
 import com.seek_with_sight.application.port.in.profile.CreateCustomerProfileUseCase;
 import com.seek_with_sight.application.port.in.profile.FindCustomerProfileByEmailUseCase;
-import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateCustomerRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CustomerProfileResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.mapper.CustomerProfileRestMapper;
+import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserResponse;
+import com.seek_with_sight.infrastructure.adapter.in.rest.user.mapper.UserRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -22,11 +23,14 @@ public class CustomerProfileController {
     private final CustomerProfileRestMapper mapper;
     private final CreateCustomerProfileUseCase createCustomerProfileUseCase;
     private final FindCustomerProfileByEmailUseCase findCustomerProfileByEmailUseCase;
+    private final UserRestMapper userRestMapper;
 
     @PostMapping
-    public User createCustomerProfile(@Valid @RequestBody CreateCustomerRequest createCustomerRequest) {
+    public UserResponse createCustomerProfile(@Valid @RequestBody CreateCustomerRequest createCustomerRequest) {
         var command = mapper.toCreateCustomerProfileCommand(createCustomerRequest);
-        return createCustomerProfileUseCase.createCustomerProfile(command);
+        var createdUser = createCustomerProfileUseCase.createCustomerProfile(command);
+
+        return userRestMapper.toResponse(createdUser);
     }
 
     @GetMapping("/me")

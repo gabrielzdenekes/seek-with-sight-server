@@ -5,9 +5,11 @@ import com.seek_with_sight.infrastructure.adapter.in.rest.auth.constants.AuthCon
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.UserTestConstants;
 import com.seek_with_sight.utils.IntegrationTestsBase;
-import com.seek_with_sight.utils.factory.UserTestDataFactory;
+import com.seek_with_sight.utils.fixture.UserTestFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
+import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
@@ -20,6 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@Import({UserTestFixture.class})
+@AutoConfigureMockMvc
 public class AuthIntegrationTests extends IntegrationTestsBase {
     private static final String EMAIL_REQUIRED_KEY = "user.validation.email.required";
     private static final String PASSWORD_REQUIRED_KEY = "user.validation.password.required";
@@ -30,9 +34,12 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
     @Autowired
     private LocalizedMessageService messageService;
 
+    @Autowired
+    private UserTestFixture userFixture;
+
     @Test
     void whenValidLoginDataIsProvided_userShouldReceiveJWTTokenAndRefreshTokenCookie() throws Exception {
-        var userRequest = UserTestDataFactory.createUserRequest();
+        var userRequest = userFixture.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
         var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
@@ -54,7 +61,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenUserIsNotVerified_loginIsNotPermitted() throws Exception {
-        var userRequest = UserTestDataFactory.createUserRequest();
+        var userRequest = userFixture.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
         var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
@@ -72,7 +79,7 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenEmptyEmailAndPassword_shouldTriggerValidation() throws Exception {
-        var userRequest = UserTestDataFactory.createUserRequestEmptyFields();
+        var userRequest = userFixture.createUserRequestEmptyFields();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locales = List.of(Locale.forLanguageTag("es"),  Locale.forLanguageTag("en"));
 
