@@ -16,7 +16,7 @@ public class CreateCustomerRequest extends CreateUserRequest {
 
     @NotBlank(message = "{customer.phone-number.required}")
     @Pattern(
-            regexp = "^\\+[1-9]\\d{1,14}$",
+            regexp = "^\\d{1,16}$",
             message = "{customer.phone-number.invalid-format}"
     )
     private String phone;
