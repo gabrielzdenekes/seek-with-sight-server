@@ -1,6 +1,7 @@
 package com.seek_with_sight.utils.fixture;
 
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateCustomerRequest;
+import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CustomerProfileResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserResponse;
 import com.seek_with_sight.utils.data.TestDataUtils;
@@ -11,6 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @TestComponent
@@ -46,5 +48,18 @@ public class CustomerProfileTestFixture {
         userFixture.verifyUser(apiResponse.getData().id());
 
         return dto;
+    }
+
+    public CustomerProfileResponse getCurrentUserCustomerProfile(String accessToken) throws Exception {
+        var request = get("/api/customer-profile/me")
+                .header("Authorization", "Bearer " + accessToken);
+
+        var result = mockMvc.perform(request).andReturn();
+        var apiResponse = objectMapper.readValue(
+                result.getResponse().getContentAsString(),
+                new TypeReference<ApiResponse<CustomerProfileResponse>>() {}
+        );
+
+        return apiResponse.getData();
     }
 }
