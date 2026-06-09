@@ -5,22 +5,20 @@ import com.seek_with_sight.domain.model.BaseDomainModel;
 import java.util.List;
 import java.util.UUID;
 
-public class Category extends BaseDomainModel {
+public class Brand extends BaseDomainModel {
     private String name;
 
     private String slug;
 
     private String description;
 
-    private String imageUrl;
+    private String logoUrl;
 
-    private Category parent;
-
-    private List<Category> children;
-
-    private Integer sortOrder;
+    private String websiteUrl;
 
     private Boolean isActive;
+
+    private List<Product> products;
 
     public String getName() {
         return name;
@@ -46,36 +44,20 @@ public class Category extends BaseDomainModel {
         this.description = description;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getLogoUrl() {
+        return logoUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setLogoUrl(String logoUrl) {
+        this.logoUrl = logoUrl;
     }
 
-    public Category getParent() {
-        return parent;
+    public String getWebsiteUrl() {
+        return websiteUrl;
     }
 
-    public void setParent(Category parent) {
-        this.parent = parent;
-    }
-
-    public List<Category> getChildren() {
-        return children;
-    }
-
-    public void setChildren(List<Category> children) {
-        this.children = children;
-    }
-
-    public Integer getSortOrder() {
-        return sortOrder;
-    }
-
-    public void setSortOrder(Integer sortOrder) {
-        this.sortOrder = sortOrder;
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
     public Boolean getActive() {
@@ -84,5 +66,13 @@ public class Category extends BaseDomainModel {
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }
