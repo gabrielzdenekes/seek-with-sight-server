@@ -19,13 +19,6 @@ server:
 logging:
   level:
     root: INFO
-    org:
-      springframework:
-        security:
-          web:
-            authentication: DEBUG
-
-
 
 app:
   base-url: "https://localhost:8443"

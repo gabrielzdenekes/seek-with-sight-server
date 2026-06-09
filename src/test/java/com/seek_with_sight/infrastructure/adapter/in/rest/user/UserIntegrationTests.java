@@ -1,17 +1,18 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.user;
 
 import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
 import com.seek_with_sight.utils.IntegrationTestsBase;
-import com.seek_with_sight.utils.TestDataUtils;
+import com.seek_with_sight.utils.fixture.UserTestFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Import;
 
 import java.util.List;
 import java.util.Locale;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+@Import({UserTestFixture.class})
 public class UserIntegrationTests extends IntegrationTestsBase {
     private static final String USER_CREATED_KEY = "user.created";
     private static final String PASSWORD_VALID_FORMAT_KEY = "user.validation.password.validFormat";
@@ -20,12 +21,12 @@ public class UserIntegrationTests extends IntegrationTestsBase {
     @Autowired
     private LocalizedMessageService messageService;
 
+    @Autowired
+    private UserTestFixture userFixture;
+
     @Test
     void whenSpanishLanguageIsRequired_userCreatedMessageShouldBeInSpanish() throws Exception {
-        var userRequest = new CreateUserRequest(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
-        );
+        var userRequest = userFixture.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
         var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
@@ -38,11 +39,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenNonExistingLanguageIsRequired_userCreatedMessageShouldFallbackToDefaultEN() throws Exception {
-        var userRequest = new CreateUserRequest(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
-        );
-
+        var userRequest = userFixture.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, Locale.forLanguageTag("bg"));
         var expectedMessageInDefaultLang = messageService.getMessage(USER_CREATED_KEY, Locale.forLanguageTag("en"));
@@ -54,10 +51,7 @@ public class UserIntegrationTests extends IntegrationTestsBase {
 
     @Test
     void whenPasswordHasInvalidFormat_ValidationMessageShouldBeDisplayedInCorrectLanguage() throws Exception {
-        var userRequest = new CreateUserRequest(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.INVALID_PASSWORD_FORMAT
-        );
+        var userRequest = userFixture.createUserRequestInvalidPassword();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locales = List.of(Locale.forLanguageTag("es"),  Locale.forLanguageTag("en"));
 

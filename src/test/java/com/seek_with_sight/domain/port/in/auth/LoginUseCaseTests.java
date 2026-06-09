@@ -7,7 +7,7 @@ import com.seek_with_sight.domain.exception.security.UnauthorizedException;
 import com.seek_with_sight.application.port.out.security.JwtTokenPort;
 import com.seek_with_sight.application.port.out.security.RefreshTokenPort;
 import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
-import com.seek_with_sight.utils.TestDataUtils;
+import com.seek_with_sight.utils.data.TestDataUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -55,8 +55,8 @@ public class LoginUseCaseTests {
                 .thenReturn(Optional.empty());
 
         var loginCommand = new LoginCommand(
-                TestDataUtils.generateRandomEmail(),
-                TestDataUtils.generateRandomPassword()
+                TestDataUtils.email(),
+                TestDataUtils.validPassword()
         );
 
         assertThatThrownBy(() -> loginUseCase.login(loginCommand))
