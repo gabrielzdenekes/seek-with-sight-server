@@ -40,6 +40,10 @@ public class Product extends BaseDomainModel {
 
     private ProductSEO seo;
 
+    private BigDecimal basePrice;
+
+    private BigDecimal compareAtPrice;
+
     public String getName() {
         return name;
     }
@@ -174,5 +178,21 @@ public class Product extends BaseDomainModel {
 
     public void setSeo(ProductSEO seo) {
         this.seo = seo;
+    }
+
+    public BigDecimal getBasePrice() {
+        return basePrice;
+    }
+
+    public void setBasePrice(BigDecimal basePrice) {
+        this.basePrice = basePrice;
+    }
+
+    public BigDecimal getCompareAtPrice() {
+        return compareAtPrice;
+    }
+
+    public void setCompareAtPrice(BigDecimal compareAtPrice) {
+        this.compareAtPrice = compareAtPrice;
     }
 }
