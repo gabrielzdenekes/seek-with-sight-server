@@ -3,7 +3,6 @@ package com.seek_with_sight.domain.model.product;
 import com.seek_with_sight.domain.model.BaseDomainModel;
 
 import java.util.List;
-import java.util.UUID;
 
 public class Brand extends BaseDomainModel {
     private String name;

@@ -3,9 +3,8 @@ package com.seek_with_sight.domain.model.product;
 import com.seek_with_sight.domain.model.BaseDomainModel;
 
 import java.util.List;
-import java.util.UUID;
 
-public class Category extends BaseDomainModel {
+public class ProductCategory extends BaseDomainModel {
     private String name;
 
     private String slug;
@@ -14,9 +13,9 @@ public class Category extends BaseDomainModel {
 
     private String imageUrl;
 
-    private Category parent;
+    private ProductCategory parent;
 
-    private List<Category> children;
+    private List<ProductCategory> children;
 
     private Integer sortOrder;
 
@@ -54,19 +53,19 @@ public class Category extends BaseDomainModel {
         this.imageUrl = imageUrl;
     }
 
-    public Category getParent() {
+    public ProductCategory getParent() {
         return parent;
     }
 
-    public void setParent(Category parent) {
+    public void setParent(ProductCategory parent) {
         this.parent = parent;
     }
 
-    public List<Category> getChildren() {
+    public List<ProductCategory> getChildren() {
         return children;
     }
 
-    public void setChildren(List<Category> children) {
+    public void setChildren(List<ProductCategory> children) {
         this.children = children;
     }
 
