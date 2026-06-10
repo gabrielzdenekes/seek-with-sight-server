@@ -2,18 +2,18 @@ package com.seek_with_sight.domain.model.product;
 
 import com.seek_with_sight.domain.model.BaseDomainModel;
 
-public class VariantOptionValue extends BaseDomainModel {
-    private VariantOption option;
+public class ProductVariantOptionValue extends BaseDomainModel {
+    private ProductVariantOption option;
 
     private String value;
 
     private Integer sortOrder;
 
-    public VariantOption getOption() {
+    public ProductVariantOption getOption() {
         return option;
     }
 
-    public void setOption(VariantOption option) {
+    public void setOption(ProductVariantOption option) {
         this.option = option;
     }
 
