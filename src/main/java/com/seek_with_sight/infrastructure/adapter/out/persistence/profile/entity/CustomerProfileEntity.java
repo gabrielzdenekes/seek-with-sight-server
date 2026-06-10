@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.profile.entity;
 
 import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserJpaEntity;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class CustomerProfileJpaEntity extends BaseEntity {
+public class CustomerProfileEntity extends BaseEntity {
     private String firstName;
     private String lastName;
     private String phone;
@@ -24,5 +24,5 @@ public class CustomerProfileJpaEntity extends BaseEntity {
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
-    private UserJpaEntity user;
+    private UserEntity user;
 }
