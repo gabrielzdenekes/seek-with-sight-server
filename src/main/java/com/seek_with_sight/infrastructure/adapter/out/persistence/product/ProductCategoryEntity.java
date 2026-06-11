@@ -1,5 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.product;
 
+import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,7 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "product_categories")
-public class ProductCategoryEntity {
+public class ProductCategoryEntity extends BaseEntity {
     @Column(nullable = false, length = 150)
     private String name;
 
