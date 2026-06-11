@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.auth.entity;
 
 import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserJpaEntity;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
@@ -25,5 +25,5 @@ public class RefreshTokenEntity extends BaseEntity {
 
     @OneToOne()
     @JoinColumn(name = "user_id")
-    private UserJpaEntity user;
+    private UserEntity user;
 }

@@ -24,7 +24,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserJpaEntity extends BaseEntity {
+public class UserEntity extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String email;
 

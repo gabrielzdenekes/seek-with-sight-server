@@ -2,7 +2,7 @@ package com.seek_with_sight.infrastructure.adapter.out.persistence.profile.entit
 
 import com.seek_with_sight.domain.model.profile.SellerStatus;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserJpaEntity;
+import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -19,14 +19,14 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SellerProfileJpaEntity extends BaseEntity {
+public class SellerProfileEntity extends BaseEntity {
     private String businessName;
     private String businessAddress;
     private String taxId;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false, referencedColumnName = "id")
-    private UserJpaEntity user;
+    private UserEntity user;
 
     @Enumerated(EnumType.STRING)
     private SellerStatus status;

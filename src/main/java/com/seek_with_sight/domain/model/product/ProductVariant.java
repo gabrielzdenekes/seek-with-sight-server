@@ -34,7 +34,7 @@ public class ProductVariant extends BaseDomainModel {
 
     private BigDecimal height;
 
-    private List<VariantOptionValue> selectedOptions;
+    private List<ProductVariantOptionValue> selectedOptions;
 
     private List<ProductImage> images;
 
@@ -150,11 +150,11 @@ public class ProductVariant extends BaseDomainModel {
         this.height = height;
     }
 
-    public List<VariantOptionValue> getSelectedOptions() {
+    public List<ProductVariantOptionValue> getSelectedOptions() {
         return selectedOptions;
     }
 
-    public void setSelectedOptions(List<VariantOptionValue> selectedOptions) {
+    public void setSelectedOptions(List<ProductVariantOptionValue> selectedOptions) {
         this.selectedOptions = selectedOptions;
     }
 

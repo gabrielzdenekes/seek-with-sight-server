@@ -4,14 +4,14 @@ import com.seek_with_sight.domain.model.BaseDomainModel;
 
 import java.util.List;
 
-public class VariantOption extends BaseDomainModel {
+public class ProductVariantOption extends BaseDomainModel {
     private String name;
 
     private Product product;
 
     private Integer sortOrder;
 
-    private List<VariantOptionValue> values;
+    private List<ProductVariantOptionValue> values;
 
     public String getName() {
         return name;
@@ -37,11 +37,11 @@ public class VariantOption extends BaseDomainModel {
         this.sortOrder = sortOrder;
     }
 
-    public List<VariantOptionValue> getValues() {
+    public List<ProductVariantOptionValue> getValues() {
         return values;
     }
 
-    public void setValues(List<VariantOptionValue> values) {
+    public void setValues(List<ProductVariantOptionValue> values) {
         this.values = values;
     }
 }

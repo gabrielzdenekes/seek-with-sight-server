@@ -9,8 +9,6 @@ public class ProductSEO extends BaseDomainModel {
 
     private String metaDescription;
 
-    private String metaKeywords;
-
     private String canonicalUrl;
 
     private String ogTitle;
@@ -41,14 +39,6 @@ public class ProductSEO extends BaseDomainModel {
 
     public void setMetaDescription(String metaDescription) {
         this.metaDescription = metaDescription;
-    }
-
-    public String getMetaKeywords() {
-        return metaKeywords;
-    }
-
-    public void setMetaKeywords(String metaKeywords) {
-        this.metaKeywords = metaKeywords;
     }
 
     public String getCanonicalUrl() {
