@@ -1,6 +1,5 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.product;
 
-import com.seek_with_sight.domain.model.product.Product;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,5 +32,5 @@ public class ProductAttributeEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
+    private ProductEntity product;
 }
