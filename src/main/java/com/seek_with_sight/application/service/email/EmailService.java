@@ -1,15 +1,15 @@
 package com.seek_with_sight.application.service.email;
 
-import com.seek_with_sight.domain.exception.email.EmailTokenAlreadyUsedException;
-import com.seek_with_sight.domain.exception.email.EmailTokenExpiredException;
-import com.seek_with_sight.domain.exception.email.EmailTokenNotFoundException;
-import com.seek_with_sight.domain.model.email.EmailVerificationToken;
+import com.seek_with_sight.email.domain.exception.EmailTokenAlreadyUsedException;
+import com.seek_with_sight.email.domain.exception.EmailTokenExpiredException;
+import com.seek_with_sight.email.domain.exception.EmailTokenNotFoundException;
+import com.seek_with_sight.email.domain.model.EmailVerificationToken;
 import com.seek_with_sight.user.domain.model.User;
-import com.seek_with_sight.application.port.in.email.ResendVerificationUseCase;
-import com.seek_with_sight.application.port.in.email.SendVerificationEmailUseCase;
-import com.seek_with_sight.application.port.in.email.VerifyEmailUseCase;
-import com.seek_with_sight.application.port.out.email.EmailSenderPort;
-import com.seek_with_sight.application.port.out.email.VerificationTokenRepositoryPort;
+import com.seek_with_sight.email.application.port.in.ResendVerificationUseCase;
+import com.seek_with_sight.email.application.port.in.SendVerificationEmailUseCase;
+import com.seek_with_sight.email.application.port.in.VerifyEmailUseCase;
+import com.seek_with_sight.email.application.port.out.EmailSenderPort;
+import com.seek_with_sight.email.application.port.out.VerificationTokenRepositoryPort;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.config.application.ApplicationProperties;
 import jakarta.transaction.Transactional;
