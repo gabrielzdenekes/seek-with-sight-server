@@ -1,7 +1,7 @@
 package com.seek_with_sight.auth.application.port.out;
 
 import com.seek_with_sight.auth.domain.model.RefreshToken;
-import com.seek_with_sight.domain.model.user.User;
+import com.seek_with_sight.user.domain.model.User;
 
 import java.time.LocalDateTime;
 

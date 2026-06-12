@@ -1,6 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto;
 
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
+import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.CreateUserRequest;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;

@@ -1,6 +1,6 @@
 package com.seek_with_sight.application.port.in.email;
 
-import com.seek_with_sight.domain.model.user.User;
+import com.seek_with_sight.user.domain.model.User;
 
 public interface SendVerificationEmailUseCase {
     void sendVerificationEmail(User user);

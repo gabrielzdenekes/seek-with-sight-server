@@ -4,13 +4,13 @@ import com.seek_with_sight.domain.exception.email.EmailTokenAlreadyUsedException
 import com.seek_with_sight.domain.exception.email.EmailTokenExpiredException;
 import com.seek_with_sight.domain.exception.email.EmailTokenNotFoundException;
 import com.seek_with_sight.domain.model.email.EmailVerificationToken;
-import com.seek_with_sight.domain.model.user.User;
+import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.application.port.in.email.ResendVerificationUseCase;
 import com.seek_with_sight.application.port.in.email.SendVerificationEmailUseCase;
 import com.seek_with_sight.application.port.in.email.VerifyEmailUseCase;
 import com.seek_with_sight.application.port.out.email.EmailSenderPort;
 import com.seek_with_sight.application.port.out.email.VerificationTokenRepositoryPort;
-import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.config.application.ApplicationProperties;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

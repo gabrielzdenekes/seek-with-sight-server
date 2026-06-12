@@ -1,12 +1,12 @@
 package com.seek_with_sight.application.service.profile;
 
-import com.seek_with_sight.application.port.in.user.CreateUserCommand;
-import com.seek_with_sight.application.port.in.user.CreateUserUseCase;
+import com.seek_with_sight.user.application.port.in.CreateUserCommand;
+import com.seek_with_sight.user.application.port.in.CreateUserUseCase;
 import com.seek_with_sight.application.port.out.profile.SellerProfileRepositoryPort;
 import com.seek_with_sight.application.service.profile.mapper.SellerProfileAppMapper;
 import com.seek_with_sight.domain.model.profile.SellerStatus;
 import com.seek_with_sight.domain.model.role.RoleName;
-import com.seek_with_sight.domain.model.user.User;
+import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.application.port.in.profile.CreateSellerProfileUseCase;
 import com.seek_with_sight.application.port.in.profile.command.CreateSellerProfileCommand;
 import lombok.AllArgsConstructor;

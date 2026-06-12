@@ -5,8 +5,8 @@ import com.seek_with_sight.application.port.in.profile.FindCustomerProfileByEmai
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateCustomerRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CustomerProfileResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.mapper.CustomerProfileRestMapper;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserResponse;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.mapper.UserRestMapper;
+import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.UserResponse;
+import com.seek_with_sight.user.infrastructure.adapter.in.rest.mapper.UserRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

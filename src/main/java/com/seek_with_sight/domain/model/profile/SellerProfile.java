@@ -1,7 +1,7 @@
 package com.seek_with_sight.domain.model.profile;
 
 import com.seek_with_sight.domain.model.BaseDomainModel;
-import com.seek_with_sight.domain.model.user.User;
+import com.seek_with_sight.user.domain.model.User;
 
 public class SellerProfile extends BaseDomainModel {
     private String businessName;

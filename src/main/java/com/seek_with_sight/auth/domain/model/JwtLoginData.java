@@ -1,6 +1,6 @@
 package com.seek_with_sight.auth.domain.model;
 
-import com.seek_with_sight.domain.model.user.User;
+import com.seek_with_sight.user.domain.model.User;
 
 public class JwtLoginData {
     private String accessToken;

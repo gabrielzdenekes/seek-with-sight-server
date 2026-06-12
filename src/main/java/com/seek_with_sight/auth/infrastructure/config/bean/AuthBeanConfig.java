@@ -9,7 +9,7 @@ import com.seek_with_sight.auth.application.port.in.RefreshTokenUseCase;
 import com.seek_with_sight.auth.application.port.out.JwtTokenPort;
 import com.seek_with_sight.auth.application.port.out.PasswordEncoderPort;
 import com.seek_with_sight.auth.application.port.out.RefreshTokenPort;
-import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.auth.infrastructure.adapter.out.persistence.RefreshTokenPersistenceAdapter;
 import com.seek_with_sight.auth.infrastructure.adapter.out.persistence.mapper.RefreshTokenPersistenceMapper;
 import com.seek_with_sight.auth.infrastructure.adapter.out.persistence.repository.RefreshTokenJpaRepository;

@@ -2,7 +2,7 @@ package com.seek_with_sight.infrastructure.config.bean.profile;
 
 import com.seek_with_sight.application.port.in.profile.FindCustomerProfileByEmailUseCase;
 import com.seek_with_sight.application.port.in.profile.FindSellerProfileByEmailUseCase;
-import com.seek_with_sight.application.port.in.user.CreateUserUseCase;
+import com.seek_with_sight.user.application.port.in.CreateUserUseCase;
 import com.seek_with_sight.application.service.profile.CreateCustomerProfileService;
 import com.seek_with_sight.application.service.profile.CreateSellerProfileService;
 import com.seek_with_sight.application.port.in.profile.CreateCustomerProfileUseCase;

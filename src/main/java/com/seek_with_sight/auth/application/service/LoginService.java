@@ -1,14 +1,14 @@
 package com.seek_with_sight.auth.application.service;
 
 import com.seek_with_sight.auth.domain.exception.UnauthorizedException;
-import com.seek_with_sight.domain.exception.user.EmailNotVerifiedException;
+import com.seek_with_sight.user.domain.exception.EmailNotVerifiedException;
 import com.seek_with_sight.auth.domain.model.JwtLoginData;
 import com.seek_with_sight.auth.domain.model.RefreshToken;
 import com.seek_with_sight.auth.application.port.in.LoginCommand;
 import com.seek_with_sight.auth.application.port.in.LoginUseCase;
 import com.seek_with_sight.auth.application.port.out.JwtTokenPort;
 import com.seek_with_sight.auth.application.port.out.RefreshTokenPort;
-import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

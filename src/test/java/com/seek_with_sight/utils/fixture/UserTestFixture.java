@@ -1,7 +1,7 @@
 package com.seek_with_sight.utils.fixture;
 
-import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.CreateUserRequest;
+import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
+import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.CreateUserRequest;
 import com.seek_with_sight.utils.data.TestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;

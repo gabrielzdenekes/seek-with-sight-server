@@ -6,7 +6,7 @@ import com.seek_with_sight.application.port.in.email.SendVerificationEmailUseCas
 import com.seek_with_sight.application.port.in.email.VerifyEmailUseCase;
 import com.seek_with_sight.application.port.out.email.EmailSenderPort;
 import com.seek_with_sight.application.port.out.email.VerificationTokenRepositoryPort;
-import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
+import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.infrastructure.adapter.out.email.EmailSenderAdapter;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.VerificationTokenRepositoryAdapter;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.email.mapper.VerificationTokenPersistenceMapper;

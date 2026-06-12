@@ -2,7 +2,7 @@ package com.seek_with_sight.infrastructure.adapter.out.persistence.profile.entit
 
 import com.seek_with_sight.domain.model.profile.SellerStatus;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.user.entity.UserEntity;
+import com.seek_with_sight.user.infrastructure.adapter.out.persistence.entity.UserEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

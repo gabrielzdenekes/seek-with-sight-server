@@ -1,6 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto;
 
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserResponse;
+import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.UserResponse;
 
 import java.util.UUID;
 

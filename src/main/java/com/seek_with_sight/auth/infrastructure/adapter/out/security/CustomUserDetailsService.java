@@ -1,6 +1,6 @@
 package com.seek_with_sight.auth.infrastructure.adapter.out.security;
 
-import com.seek_with_sight.infrastructure.adapter.out.persistence.user.repository.UserJpaRepository;
+import com.seek_with_sight.user.infrastructure.adapter.out.persistence.repository.UserJpaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

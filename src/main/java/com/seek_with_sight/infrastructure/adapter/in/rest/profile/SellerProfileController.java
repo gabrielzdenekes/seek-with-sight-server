@@ -5,8 +5,8 @@ import com.seek_with_sight.application.port.in.profile.FindSellerProfileByEmailU
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateSellerRequest;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.SellerProfileResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.profile.mapper.SellerProfileRestMapper;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserResponse;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.mapper.UserRestMapper;
+import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.UserResponse;
+import com.seek_with_sight.user.infrastructure.adapter.in.rest.mapper.UserRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
