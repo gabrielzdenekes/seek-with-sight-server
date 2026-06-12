@@ -1,13 +1,9 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.product;
 
 import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -60,18 +56,9 @@ public class ProductVariantEntity extends BaseEntity {
     @Column(precision = 10, scale = 2)
     private BigDecimal height;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private ProductEntity product;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProductVariantOptionEntity> selectedOptions;
 
-    @ManyToMany
-    @JoinTable(
-            name = "variant_selected_options",
-            joinColumns = @JoinColumn(name = "product_variant_id"),
-            inverseJoinColumns = @JoinColumn(name = "variant_option_value_id")
-    )
-    private List<ProductVariantOptionValueEntity> selectedOptions;
-
-    @OneToMany(mappedBy = "variant")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductImageEntity> images;
 }
