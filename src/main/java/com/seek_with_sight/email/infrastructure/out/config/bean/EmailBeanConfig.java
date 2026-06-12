@@ -1,6 +1,6 @@
 package com.seek_with_sight.email.infrastructure.out.config.bean;
 
-import com.seek_with_sight.application.service.email.EmailService;
+import com.seek_with_sight.email.application.service.EmailService;
 import com.seek_with_sight.email.application.port.in.ResendVerificationUseCase;
 import com.seek_with_sight.email.application.port.in.SendVerificationEmailUseCase;
 import com.seek_with_sight.email.application.port.in.VerifyEmailUseCase;

@@ -1,0 +1,40 @@
+package com.seek_with_sight.profile.application.service;
+
+import com.seek_with_sight.user.application.port.in.CreateUserCommand;
+import com.seek_with_sight.user.application.port.in.CreateUserUseCase;
+import com.seek_with_sight.profile.application.port.out.SellerProfileRepositoryPort;
+import com.seek_with_sight.profile.application.service.mapper.SellerProfileAppMapper;
+import com.seek_with_sight.profile.domain.model.SellerStatus;
+import com.seek_with_sight.domain.model.role.RoleName;
+import com.seek_with_sight.user.domain.model.User;
+import com.seek_with_sight.profile.application.port.in.CreateSellerProfileUseCase;
+import com.seek_with_sight.profile.application.port.in.command.CreateSellerProfileCommand;
+import lombok.AllArgsConstructor;
+
+import java.util.List;
+
+@AllArgsConstructor
+public class CreateSellerProfileService implements CreateSellerProfileUseCase {
+    private final CreateUserUseCase createUserUseCase;
+    private final SellerProfileAppMapper mapper;
+    private final SellerProfileRepositoryPort repo;
+
+    @Override
+    public User createSellerProfile(CreateSellerProfileCommand createSellerProfileCommand) {
+        var createUserCommand = new CreateUserCommand(
+                createSellerProfileCommand.email(),
+                createSellerProfileCommand.password()
+        );
+
+        var sellerRoles = List.of(RoleName.ROLE_SELLER);
+        var user =  createUserUseCase.createUser(createUserCommand, sellerRoles);
+        var profile =  mapper.fromCreateSellerProfileCommand(createSellerProfileCommand);
+
+        profile.setUser(user);
+        profile.setStatus(SellerStatus.PENDING_REVIEW);
+
+        repo.save(profile);
+
+        return user;
+    }
+}

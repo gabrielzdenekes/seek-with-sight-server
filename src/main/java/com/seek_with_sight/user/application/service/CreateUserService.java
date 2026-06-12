@@ -1,6 +1,6 @@
 package com.seek_with_sight.user.application.service;
 
-import com.seek_with_sight.application.service.email.EmailService;
+import com.seek_with_sight.email.application.service.EmailService;
 import com.seek_with_sight.domain.model.role.RoleName;
 import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.user.application.port.in.CreateUserCommand;
