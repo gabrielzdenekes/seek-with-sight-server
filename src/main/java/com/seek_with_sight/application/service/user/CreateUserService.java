@@ -6,7 +6,7 @@ import com.seek_with_sight.domain.model.user.User;
 import com.seek_with_sight.application.port.in.user.CreateUserCommand;
 import com.seek_with_sight.application.port.in.user.CreateUserUseCase;
 import com.seek_with_sight.application.port.out.role.RoleRepositoryPort;
-import com.seek_with_sight.application.port.out.security.PasswordEncoderPort;
+import com.seek_with_sight.auth.application.port.out.PasswordEncoderPort;
 import com.seek_with_sight.application.port.out.user.UserRepositoryPort;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
