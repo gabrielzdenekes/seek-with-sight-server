@@ -2,16 +2,14 @@ package com.seek_with_sight.domain.model.product;
 
 import com.seek_with_sight.domain.model.BaseDomainModel;
 
-import java.util.List;
-
 public class ProductVariantOption extends BaseDomainModel {
     private String name;
+
+    private String value;
 
     private Product product;
 
     private Integer sortOrder;
-
-    private List<ProductVariantOptionValue> values;
 
     public String getName() {
         return name;
@@ -37,11 +35,11 @@ public class ProductVariantOption extends BaseDomainModel {
         this.sortOrder = sortOrder;
     }
 
-    public List<ProductVariantOptionValue> getValues() {
-        return values;
+    public String getValue() {
+        return value;
     }
 
-    public void setValues(List<ProductVariantOptionValue> values) {
-        this.values = values;
+    public void setValue(String value) {
+        this.value = value;
     }
 }
