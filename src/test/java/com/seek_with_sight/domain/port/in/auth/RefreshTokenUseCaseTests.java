@@ -1,11 +1,11 @@
 package com.seek_with_sight.domain.port.in.auth;
 
-import com.seek_with_sight.application.port.in.auth.RefreshTokenUseCase;
-import com.seek_with_sight.application.service.auth.RefreshTokenService;
-import com.seek_with_sight.domain.exception.security.UnauthorizedException;
-import com.seek_with_sight.domain.model.auth.RefreshToken;
-import com.seek_with_sight.application.port.out.security.JwtTokenPort;
-import com.seek_with_sight.application.port.out.security.RefreshTokenPort;
+import com.seek_with_sight.authentication.application.port.in.RefreshTokenUseCase;
+import com.seek_with_sight.authentication.application.service.RefreshTokenService;
+import com.seek_with_sight.authentication.domain.exception.UnauthorizedException;
+import com.seek_with_sight.authentication.domain.model.RefreshToken;
+import com.seek_with_sight.authentication.application.port.out.JwtTokenPort;
+import com.seek_with_sight.authentication.application.port.out.RefreshTokenPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

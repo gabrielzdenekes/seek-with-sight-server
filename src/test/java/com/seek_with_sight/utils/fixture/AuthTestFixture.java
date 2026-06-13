@@ -1,8 +1,8 @@
 package com.seek_with_sight.utils.fixture;
 
-import com.seek_with_sight.infrastructure.adapter.in.rest.auth.dto.LoginRequest;
-import com.seek_with_sight.infrastructure.adapter.in.rest.auth.dto.LoginResponse;
-import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
+import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.dto.LoginRequest;
+import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.dto.LoginResponse;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.UserTestConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

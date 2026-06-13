@@ -1,6 +1,6 @@
 package com.seek_with_sight.utils.data;
 
-import com.seek_with_sight.domain.model.user.UserValidationConstants;
+import com.seek_with_sight.user.domain.model.UserValidationConstants;
 import net.datafaker.Faker;
 
 public class TestDataUtils {

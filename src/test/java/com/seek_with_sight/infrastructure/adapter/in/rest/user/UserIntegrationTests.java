@@ -1,6 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.user;
 
-import com.seek_with_sight.infrastructure.adapter.in.rest.shared.service.base.LocalizedMessageService;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.service.base.LocalizedMessageService;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.fixture.UserTestFixture;
 import org.junit.jupiter.api.Test;

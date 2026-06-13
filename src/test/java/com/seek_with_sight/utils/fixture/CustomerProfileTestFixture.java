@@ -1,9 +1,9 @@
 package com.seek_with_sight.utils.fixture;
 
-import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CreateCustomerRequest;
-import com.seek_with_sight.infrastructure.adapter.in.rest.profile.dto.CustomerProfileResponse;
-import com.seek_with_sight.infrastructure.adapter.in.rest.shared.dto.ApiResponse;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.dto.UserResponse;
+import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CreateCustomerRequest;
+import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CustomerProfileResponse;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
+import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.UserResponse;
 import com.seek_with_sight.utils.data.TestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
