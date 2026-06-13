@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
+package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.Column;

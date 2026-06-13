@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
+package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.CascadeType;
@@ -20,7 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @Table(name = "product_categories")
-public class ProductCategoryEntity extends BaseEntity {
+public class CategoryEntity extends BaseEntity {
     @Column(nullable = false, length = 150)
     private String name;
 
@@ -35,11 +35,11 @@ public class ProductCategoryEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
-    private ProductCategoryEntity parent;
+    private CategoryEntity parent;
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
     @OrderBy("sortOrder ASC")
-    private List<ProductCategoryEntity> children = new ArrayList<>();
+    private List<CategoryEntity> children = new ArrayList<>();
 
     @Column(name = "sort_order")
     private Integer sortOrder = 0;

@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
+package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
@@ -76,7 +76,7 @@ public class ProductEntity extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
-    private ProductCategoryEntity category;
+    private CategoryEntity category;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "brand_id")
