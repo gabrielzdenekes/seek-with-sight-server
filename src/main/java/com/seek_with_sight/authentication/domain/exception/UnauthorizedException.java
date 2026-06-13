@@ -1,0 +1,10 @@
+package com.seek_with_sight.authentication.domain.exception;
+
+import com.seek_with_sight.shared.domain.exception.BusinessException;
+import com.seek_with_sight.shared.domain.exception.ErrorType;
+
+public class UnauthorizedException extends BusinessException {
+    public UnauthorizedException(Object... args) {
+        super("UNAUTHORIZED", "auth.error.unauthorized", ErrorType.UNAUTHORIZED, args);
+    }
+}

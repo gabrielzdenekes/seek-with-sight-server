@@ -1,7 +1,7 @@
 package com.seek_with_sight.infrastructure.adapter.in.rest.auth;
 
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
-import com.seek_with_sight.auth.infrastructure.adapter.in.rest.constants.AuthConstants;
+import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.constants.AuthConstants;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.service.base.LocalizedMessageService;
 import com.seek_with_sight.infrastructure.adapter.in.rest.user.UserTestConstants;
 import com.seek_with_sight.utils.IntegrationTestsBase;
