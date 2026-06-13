@@ -3,6 +3,7 @@ package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 public record CreateProductRequest(
@@ -30,6 +31,8 @@ public record CreateProductRequest(
 
         UUID categoryId,
 
-        UUID brandId
+        UUID brandId,
+
+        List<ProductImageDto> images
 ) {
 }
