@@ -1,6 +1,6 @@
-package com.seek_with_sight.infrastructure.adapter.out.persistence.product;
+package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
-import com.seek_with_sight.domain.model.product.ProductStatus;
+import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

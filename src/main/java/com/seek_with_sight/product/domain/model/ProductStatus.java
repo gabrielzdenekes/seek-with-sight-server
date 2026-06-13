@@ -1,4 +1,4 @@
-package com.seek_with_sight.domain.model.product;
+package com.seek_with_sight.product.domain.model;
 
 public enum ProductStatus {
     DRAFT,
