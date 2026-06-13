@@ -28,7 +28,7 @@ public class Product extends BaseDomainModel {
 
     private String taxClass;
 
-    private ProductCategory category;
+    private Category category;
 
     private Brand brand;
 
@@ -132,11 +132,11 @@ public class Product extends BaseDomainModel {
         this.taxClass = taxClass;
     }
 
-    public ProductCategory getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(ProductCategory category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 

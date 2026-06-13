@@ -4,7 +4,7 @@ import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.util.List;
 
-public class ProductCategory extends BaseDomainModel {
+public class Category extends BaseDomainModel {
     private String name;
 
     private String slug;
@@ -13,9 +13,9 @@ public class ProductCategory extends BaseDomainModel {
 
     private String imageUrl;
 
-    private ProductCategory parent;
+    private Category parent;
 
-    private List<ProductCategory> children;
+    private List<Category> children;
 
     private Integer sortOrder;
 
@@ -53,19 +53,19 @@ public class ProductCategory extends BaseDomainModel {
         this.imageUrl = imageUrl;
     }
 
-    public ProductCategory getParent() {
+    public Category getParent() {
         return parent;
     }
 
-    public void setParent(ProductCategory parent) {
+    public void setParent(Category parent) {
         this.parent = parent;
     }
 
-    public List<ProductCategory> getChildren() {
+    public List<Category> getChildren() {
         return children;
     }
 
-    public void setChildren(List<ProductCategory> children) {
+    public void setChildren(List<Category> children) {
         this.children = children;
     }
 
