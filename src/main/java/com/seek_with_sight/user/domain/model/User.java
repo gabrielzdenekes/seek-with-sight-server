@@ -1,7 +1,7 @@
 package com.seek_with_sight.user.domain.model;
 
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
-import com.seek_with_sight.domain.model.role.Role;
+import com.seek_with_sight.authorization.domain.model.role.Role;
 
 import java.util.Set;
 

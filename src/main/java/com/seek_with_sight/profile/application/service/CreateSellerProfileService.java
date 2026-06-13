@@ -5,7 +5,7 @@ import com.seek_with_sight.user.application.port.in.CreateUserUseCase;
 import com.seek_with_sight.profile.application.port.out.SellerProfileRepositoryPort;
 import com.seek_with_sight.profile.application.service.mapper.SellerProfileAppMapper;
 import com.seek_with_sight.profile.domain.model.SellerStatus;
-import com.seek_with_sight.domain.model.role.RoleName;
+import com.seek_with_sight.authorization.domain.model.role.RoleName;
 import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.profile.application.port.in.CreateSellerProfileUseCase;
 import com.seek_with_sight.profile.application.port.in.command.CreateSellerProfileCommand;

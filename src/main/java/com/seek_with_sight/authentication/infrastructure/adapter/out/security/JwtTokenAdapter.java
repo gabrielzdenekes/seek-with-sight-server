@@ -1,7 +1,7 @@
 package com.seek_with_sight.authentication.infrastructure.adapter.out.security;
 
 import com.seek_with_sight.authentication.domain.model.RefreshToken;
-import com.seek_with_sight.domain.model.permission.Permission;
+import com.seek_with_sight.authorization.domain.model.permission.Permission;
 import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.authentication.application.port.out.JwtTokenPort;
 import com.seek_with_sight.authentication.infrastructure.config.bean.JwtProperties;
