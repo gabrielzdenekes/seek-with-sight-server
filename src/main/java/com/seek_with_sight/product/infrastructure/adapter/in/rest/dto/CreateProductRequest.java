@@ -33,6 +33,8 @@ public record CreateProductRequest(
 
         UUID brandId,
 
-        List<ProductImageDto> images
+        List<ProductImageDto> images,
+
+        List<ProductAttributeDto> attributes
 ) {
 }

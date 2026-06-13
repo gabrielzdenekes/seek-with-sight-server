@@ -3,8 +3,6 @@ package com.seek_with_sight.product.domain.model;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 public class ProductAttribute extends BaseDomainModel {
-    private Product product;
-
     private String name;
 
     private String value;
@@ -14,14 +12,6 @@ public class ProductAttribute extends BaseDomainModel {
     private Boolean isFilterable;
 
     private Integer sortOrder;
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
 
     public String getName() {
         return name;

@@ -3,10 +3,6 @@ package com.seek_with_sight.product.domain.model;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 public class ProductImage extends BaseDomainModel {
-    private Product product;
-
-    private ProductVariant variant;
-
     private String url;
 
     private String thumbnailUrl;
@@ -20,22 +16,6 @@ public class ProductImage extends BaseDomainModel {
     private Integer width;
 
     private Integer height;
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public ProductVariant getVariant() {
-        return variant;
-    }
-
-    public void setVariant(ProductVariant variant) {
-        this.variant = variant;
-    }
 
     public String getThumbnailUrl() {
         return thumbnailUrl;
