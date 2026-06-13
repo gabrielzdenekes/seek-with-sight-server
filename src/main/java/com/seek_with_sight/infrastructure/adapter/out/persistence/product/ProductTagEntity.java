@@ -1,6 +1,6 @@
 package com.seek_with_sight.infrastructure.adapter.out.persistence.product;
 
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;

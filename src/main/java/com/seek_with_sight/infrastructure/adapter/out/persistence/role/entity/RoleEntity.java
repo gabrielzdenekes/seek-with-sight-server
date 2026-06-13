@@ -2,7 +2,7 @@ package com.seek_with_sight.infrastructure.adapter.out.persistence.role.entity;
 
 import com.seek_with_sight.domain.model.role.RoleName;
 import com.seek_with_sight.infrastructure.adapter.out.persistence.permission.entity.PermissionEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

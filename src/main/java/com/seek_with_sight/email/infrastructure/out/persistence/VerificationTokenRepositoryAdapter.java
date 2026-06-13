@@ -4,8 +4,8 @@ import com.seek_with_sight.email.domain.model.EmailVerificationToken;
 import com.seek_with_sight.email.application.port.out.VerificationTokenRepositoryPort;
 import com.seek_with_sight.email.infrastructure.out.persistence.entity.EmailVerificationTokenEntity;
 import com.seek_with_sight.email.infrastructure.out.persistence.repository.VerificationTokenJpaRepository;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BasePersistenceAdapter;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.PersistenceMapper;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 
 import java.util.Optional;
 import java.util.UUID;

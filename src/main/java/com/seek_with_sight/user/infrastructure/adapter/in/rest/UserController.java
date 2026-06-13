@@ -2,7 +2,7 @@ package com.seek_with_sight.user.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.user.application.port.in.CreateUserUseCase;
 import com.seek_with_sight.domain.model.role.RoleName;
-import com.seek_with_sight.infrastructure.adapter.in.rest.shared.annotation.ApiResponseDetails;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.annotation.ApiResponseDetails;
 import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.CreateUserRequest;
 import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.UserResponse;
 import com.seek_with_sight.user.infrastructure.adapter.in.rest.mapper.UserRestMapper;

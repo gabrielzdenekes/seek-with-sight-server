@@ -2,7 +2,7 @@ package com.seek_with_sight.profile.infrastructure.adapter.out.persistence.mappe
 
 import com.seek_with_sight.profile.domain.model.SellerProfile;
 import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.entity.SellerProfileEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.PersistenceMapper;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;

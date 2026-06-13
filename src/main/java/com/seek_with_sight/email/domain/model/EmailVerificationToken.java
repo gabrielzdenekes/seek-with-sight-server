@@ -1,6 +1,6 @@
 package com.seek_with_sight.email.domain.model;
 
-import com.seek_with_sight.domain.model.BaseDomainModel;
+import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.time.Instant;
 import java.util.UUID;

@@ -11,7 +11,7 @@ import com.seek_with_sight.email.infrastructure.out.EmailSenderAdapter;
 import com.seek_with_sight.email.infrastructure.out.persistence.VerificationTokenRepositoryAdapter;
 import com.seek_with_sight.email.infrastructure.out.persistence.mapper.VerificationTokenPersistenceMapper;
 import com.seek_with_sight.email.infrastructure.out.persistence.repository.VerificationTokenJpaRepository;
-import com.seek_with_sight.infrastructure.config.application.ApplicationProperties;
+import com.seek_with_sight.shared.infrastructure.config.application.ApplicationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;

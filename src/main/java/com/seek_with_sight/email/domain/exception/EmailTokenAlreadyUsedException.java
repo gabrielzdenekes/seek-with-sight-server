@@ -1,7 +1,7 @@
 package com.seek_with_sight.email.domain.exception;
 
-import com.seek_with_sight.domain.exception.BusinessException;
-import com.seek_with_sight.domain.exception.ErrorType;
+import com.seek_with_sight.shared.domain.exception.BusinessException;
+import com.seek_with_sight.shared.domain.exception.ErrorType;
 
 public class EmailTokenAlreadyUsedException extends BusinessException {
     public EmailTokenAlreadyUsedException(Object... args) {

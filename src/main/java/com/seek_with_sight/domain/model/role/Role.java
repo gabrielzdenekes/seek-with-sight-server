@@ -1,6 +1,6 @@
 package com.seek_with_sight.domain.model.role;
 
-import com.seek_with_sight.domain.model.BaseDomainModel;
+import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 import com.seek_with_sight.domain.model.permission.Permission;
 
 import java.util.HashSet;

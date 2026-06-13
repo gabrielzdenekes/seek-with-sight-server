@@ -1,7 +1,7 @@
 package com.seek_with_sight.user.infrastructure.adapter.out.persistence.entity;
 
 import com.seek_with_sight.infrastructure.adapter.out.persistence.role.entity.RoleEntity;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BaseEntity;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

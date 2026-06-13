@@ -11,7 +11,7 @@ import com.seek_with_sight.email.application.port.in.VerifyEmailUseCase;
 import com.seek_with_sight.email.application.port.out.EmailSenderPort;
 import com.seek_with_sight.email.application.port.out.VerificationTokenRepositoryPort;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
-import com.seek_with_sight.infrastructure.config.application.ApplicationProperties;
+import com.seek_with_sight.shared.infrastructure.config.application.ApplicationProperties;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

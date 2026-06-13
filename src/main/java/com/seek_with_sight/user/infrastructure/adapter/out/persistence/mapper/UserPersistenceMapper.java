@@ -1,7 +1,7 @@
 package com.seek_with_sight.user.infrastructure.adapter.out.persistence.mapper;
 
 import com.seek_with_sight.user.domain.model.User;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.PersistenceMapper;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.entity.UserEntity;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;

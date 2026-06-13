@@ -4,8 +4,8 @@ import com.seek_with_sight.profile.application.port.out.SellerProfileRepositoryP
 import com.seek_with_sight.profile.domain.model.SellerProfile;
 import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.entity.SellerProfileEntity;
 import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.repository.SellerProfileJpaRepository;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.BasePersistenceAdapter;
-import com.seek_with_sight.infrastructure.adapter.out.persistence.shared.PersistenceMapper;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 
 import java.util.Optional;
 

@@ -1,6 +1,6 @@
 package com.seek_with_sight.auth.domain.model;
 
-import com.seek_with_sight.domain.model.BaseDomainModel;
+import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 import com.seek_with_sight.user.domain.model.User;
 
 import java.time.LocalDateTime;
