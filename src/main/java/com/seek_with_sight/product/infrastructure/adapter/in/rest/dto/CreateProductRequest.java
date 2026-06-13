@@ -29,12 +29,18 @@ public record CreateProductRequest(
 
         String taxClass,
 
+        BigDecimal basePrice,
+
+        BigDecimal compareAtPrice,
+
         UUID categoryId,
 
         UUID brandId,
 
         List<ProductImageDto> images,
 
-        List<ProductAttributeDto> attributes
+        List<ProductAttributeDto> attributes,
+
+        ProductSeoDto seo
 ) {
 }
