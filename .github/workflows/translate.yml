@@ -2,11 +2,10 @@ name: Auto-translate messages.properties
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
     paths:
       - "src/main/resources/messages.properties"
-  workflow_dispatch: # Allow manual trigger from GitHub UI
+  workflow_dispatch: {}
 
 jobs:
   translate:
