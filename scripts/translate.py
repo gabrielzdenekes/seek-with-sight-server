@@ -9,6 +9,11 @@ LANGUAGES = {
     "es": "Spanish",
     "de": "German",
     "fr": "French",
+    "pt": "Portuguese",
+    "zh": "Chinese",
+    "ja": "Japanese",
+    "ar": "Arabic",
+    "ru": "Russian"
 }
 
 
