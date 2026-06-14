@@ -28,21 +28,21 @@ public class Product extends BaseDomainModel {
 
     private String taxClass;
 
+    private BigDecimal basePrice;
+
+    private BigDecimal compareAtPrice;
+
     private Category category;
 
     private Brand brand;
+
+    private ProductSEO seo;
 
     private List<ProductImage> images;
 
     private List<ProductVariant> variants;
 
     private List<ProductAttribute> attributes;
-
-    private ProductSEO seo;
-
-    private BigDecimal basePrice;
-
-    private BigDecimal compareAtPrice;
 
     public String getName() {
         return name;
