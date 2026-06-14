@@ -17,7 +17,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      LT_LOAD_ONLY: "en,de,fr,pt,zh,ja,ar,ru"
+      LT_LOAD_ONLY: "en,es,de,fr,pt,zh,ja,ar,ru"
     healthcheck:
       test: ["CMD-SHELL", "curl -sf http://localhost:5000/languages"]
       interval: 20s
