@@ -1,0 +1,60 @@
+name: Auto-translate messages.properties
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/main/resources/messages.properties"
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+
+    # ─── LibreTranslate as a service container ───────────────────────────────
+    services:
+      libretranslate:
+        image: libretranslate/libretranslate:latest
+        ports:
+          - 5000:5000
+        env:
+          LT_LOAD_ONLY: "en,es,de,fr"   # Only load needed languages (faster startup)
+          LT_UPDATE_MODELS: "true"
+        options: >-
+          --health-cmd "curl -sf http://localhost:5000/languages"
+          --health-interval 20s
+          --health-timeout 10s
+          --health-retries 30
+
+    # ─── Steps ───────────────────────────────────────────────────────────────
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Run translation script
+        run: python scripts/translate.py
+
+      - name: Commit and push translated files
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/main/resources/messages_*.properties
+
+          # Only commit if there are actual changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit — translations are up to date."
+          else
+            git commit -m "chore(i18n): auto-translate messages.properties [skip ci]"
+            git push
+          fi
