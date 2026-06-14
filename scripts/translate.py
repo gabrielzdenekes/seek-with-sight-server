@@ -4,7 +4,7 @@ import time
 import requests
 
 API_URL = "http://localhost:5000"
-INPUT_FILE = "src/main/resources/messages.properties"
+INPUT_FILE = "src/main/resources/i18n/messages.properties"
 LANGUAGES = {
     "es": "Spanish",
     "de": "German",
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     wait_for_libretranslate()
 
     for lang_code, lang_name in LANGUAGES.items():
-        output = f"src/main/resources/messages_{lang_code}.properties"
+        output = f"src/main/resources/i18n/messages_{lang_code}.properties"
         print(f"\n🌍 Translating to {lang_name} → {output}")
         translate_properties(lang_code, output)
         print(f"   ✅ Done")
