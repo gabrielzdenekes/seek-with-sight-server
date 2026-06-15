@@ -64,4 +64,12 @@ public class ProductImage extends BaseDomainModel {
     public void setHeight(Integer height) {
         this.height = height;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

@@ -5,6 +5,7 @@ import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.service.create.CreateProductService;
+import com.seek_with_sight.product.application.service.mapper.ProductAppMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.CategoryPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductPersistenceAdapter;
@@ -32,7 +33,10 @@ public class ProductBeanConfig {
     }
 
     @Bean
-    public CreateProductUseCase createProductUseCase() {
-        return new CreateProductService();
+    public CreateProductUseCase createProductUseCase(
+            ProductRepositoryPort productRepo,
+            ProductAppMapper mapper
+    ) {
+        return new CreateProductService(productRepo, mapper);
     }
 }
