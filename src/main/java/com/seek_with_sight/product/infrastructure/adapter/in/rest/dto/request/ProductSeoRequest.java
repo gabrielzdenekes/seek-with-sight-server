@@ -1,9 +1,9 @@
-package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto;
+package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request;
 
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-public record ProductSeoDto(
+public record ProductSeoRequest(
         @Size(max = 70, message = "{product.seo.meta-title.max-length}")
         String metaTitle,
 

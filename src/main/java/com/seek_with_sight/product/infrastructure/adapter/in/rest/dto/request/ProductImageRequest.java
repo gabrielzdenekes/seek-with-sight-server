@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto;
+package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
 
-public record ProductImageDto(
+public record ProductImageRequest(
         @NotBlank(message = "{product.images.required}")
         @Size(max = 2048, message = "{product.image.url.max-length}")
         @Pattern(
