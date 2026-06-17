@@ -26,6 +26,7 @@ public class CreateProductService implements CreateProductUseCase {
         // Handle:
         // Brand
         // Category
+        // Seo
 
         return product;
     }
