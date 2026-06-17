@@ -5,6 +5,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
@@ -12,6 +13,8 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 public interface CategoryPersistenceMapper
         extends PersistenceMapper<Category, CategoryEntity> {
     @Override
+    @Mapping(target = "parent", ignore = true)
+    @Mapping(target = "children", ignore = true)
     Category toDomain(CategoryEntity entity);
 
     @Override

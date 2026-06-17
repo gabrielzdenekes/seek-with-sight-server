@@ -28,6 +28,6 @@ public class CreateProductService implements CreateProductUseCase {
         // Category
         // Seo
 
-        return product;
+        return productRepo.create(product);
     }
 }
