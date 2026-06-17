@@ -81,6 +81,6 @@ public class LoginService implements LoginUseCase {
         refreshToken.setExpiresAt(expiresAt);
 
         log.info("Refresh token persisted for userId={}", user.getId());
-        refreshTokenPort.save(refreshToken);
+        refreshTokenPort.update(refreshToken);
     }
 }

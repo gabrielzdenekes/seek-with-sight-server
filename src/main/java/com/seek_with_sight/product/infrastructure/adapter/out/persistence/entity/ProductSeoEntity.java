@@ -32,8 +32,4 @@ public class ProductSeoEntity extends BaseEntity {
 
     @Column(name = "og_image_url", length = 2048)
     private String ogImageUrl;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private ProductEntity product;
 }

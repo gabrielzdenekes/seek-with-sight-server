@@ -10,6 +10,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandP
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.CategoryPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
@@ -31,8 +32,10 @@ public class ProductBeanConfig {
     }
 
     @Bean
-    public ProductRepositoryPort productRepositoryPort(ProductJpaRepository repo) {
-        return new ProductPersistenceAdapter(repo);
+    public ProductRepositoryPort productRepositoryPort(
+            ProductJpaRepository repo,
+            ProductPersistenceMapper mapper) {
+        return new ProductPersistenceAdapter(repo, mapper);
     }
 
     @Bean
