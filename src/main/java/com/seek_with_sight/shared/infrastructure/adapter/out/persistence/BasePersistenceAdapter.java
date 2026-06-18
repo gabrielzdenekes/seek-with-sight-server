@@ -13,7 +13,7 @@ public class BasePersistenceAdapter<
         D extends BaseDomainModel,
         E,
         R extends JpaRepository<E, UUID>>
-implements BaseRepositoryPort<D> {
+        implements BaseRepositoryPort<D> {
     protected final R repository;
     protected final PersistenceMapper<D, E> mapper;
     private final Supplier<E> entityFactory;
