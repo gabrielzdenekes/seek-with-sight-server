@@ -21,6 +21,7 @@ public class CategoriesInitializer implements ApplicationRunner {
     private final ObjectMapper objectMapper;
 
     @Override
+    @Transactional
     public void run(ApplicationArguments args) throws Exception {
         if (repo.count() > 0) {
             return;
@@ -36,7 +37,6 @@ public class CategoriesInitializer implements ApplicationRunner {
         saveCategories(serializedCategories, null);
     }
 
-    @Transactional
     private void saveCategories(List<Category> categories, CategoryEntity parent) {
         for (var cat : categories) {
             var categoryEntity = new CategoryEntity();
