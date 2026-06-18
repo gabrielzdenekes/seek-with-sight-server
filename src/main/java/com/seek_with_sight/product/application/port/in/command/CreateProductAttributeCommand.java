@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.application.port.in.create.command;
+package com.seek_with_sight.product.application.port.in.command;
 
 public record CreateProductAttributeCommand(
         String name,

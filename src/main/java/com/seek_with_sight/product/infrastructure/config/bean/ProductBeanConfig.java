@@ -1,6 +1,6 @@
 package com.seek_with_sight.product.infrastructure.config.bean;
 
-import com.seek_with_sight.product.application.port.in.create.CreateProductUseCase;
+import com.seek_with_sight.product.application.port.in.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
