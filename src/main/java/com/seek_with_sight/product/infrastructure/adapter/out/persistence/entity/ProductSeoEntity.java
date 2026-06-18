@@ -3,9 +3,6 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entit
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,8 +29,4 @@ public class ProductSeoEntity extends BaseEntity {
 
     @Column(name = "og_image_url", length = 2048)
     private String ogImageUrl;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private ProductEntity product;
 }

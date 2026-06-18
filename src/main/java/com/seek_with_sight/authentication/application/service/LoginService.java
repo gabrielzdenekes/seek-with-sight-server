@@ -71,7 +71,7 @@ public class LoginService implements LoginUseCase {
 
                     newRefreshToken.setUser(user);
 
-                    return newRefreshToken;
+                    return refreshTokenPort.create(newRefreshToken);
                 });
 
         var refreshTokenString = jwtLoginData.getRefreshToken();
@@ -81,6 +81,6 @@ public class LoginService implements LoginUseCase {
         refreshToken.setExpiresAt(expiresAt);
 
         log.info("Refresh token persisted for userId={}", user.getId());
-        refreshTokenPort.save(refreshToken);
+        refreshTokenPort.update(refreshToken);
     }
 }

@@ -1,9 +1,9 @@
-package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto;
+package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public record ProductAttributeDto(
+public record ProductAttributeRequest(
         @NotBlank(message = "{product.attribute.name.required}")
         @Size(max = 150, message = "{product.attribute.name.max-length}")
         String name,

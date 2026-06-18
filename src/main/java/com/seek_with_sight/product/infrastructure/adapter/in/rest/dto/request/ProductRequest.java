@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto;
+package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request;
 
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import jakarta.validation.Valid;
@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-public record CreateProductRequest(
+public record ProductRequest(
         @NotBlank(message = "{product.name.required}")
         @Size(
                 min = 2,
@@ -95,12 +95,12 @@ public record CreateProductRequest(
         UUID brandId,
 
         @Valid
-        List<@Valid ProductImageDto> images,
+        List<@Valid ProductImageRequest> images,
 
         @Valid
-        List<@Valid ProductAttributeDto> attributes,
+        List<@Valid ProductAttributeRequest> attributes,
 
         @Valid
-        ProductSeoDto seo
+        ProductSeoRequest seo
 ) {
 }
