@@ -17,10 +17,10 @@ import java.time.LocalDateTime;
 @Setter
 @Table(name = "refresh_tokens")
 public class RefreshTokenEntity extends BaseEntity {
-    @Column(unique = true, nullable = false, length = 512)
+    @Column(unique = true, length = 512)
     private String token;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime expiresAt;
 
     @OneToOne()

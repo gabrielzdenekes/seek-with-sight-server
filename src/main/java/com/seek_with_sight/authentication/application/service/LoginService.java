@@ -71,7 +71,7 @@ public class LoginService implements LoginUseCase {
 
                     newRefreshToken.setUser(user);
 
-                    return newRefreshToken;
+                    return refreshTokenPort.create(newRefreshToken);
                 });
 
         var refreshTokenString = jwtLoginData.getRefreshToken();
