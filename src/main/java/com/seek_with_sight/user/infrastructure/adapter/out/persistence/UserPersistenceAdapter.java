@@ -1,17 +1,14 @@
 package com.seek_with_sight.user.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
-import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.entity.UserEntity;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.mapper.UserPersistenceMapper;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.repository.UserJpaRepository;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 import java.util.UUID;
-import java.util.function.Supplier;
 
 public class UserPersistenceAdapter
         extends BasePersistenceAdapter<User, UserEntity, UserJpaRepository>

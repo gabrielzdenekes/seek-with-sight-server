@@ -6,10 +6,6 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
-import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
-import lombok.RequiredArgsConstructor;
-
-import java.util.function.Supplier;
 
 public class ProductPersistenceAdapter
     extends BasePersistenceAdapter<Product, ProductEntity, ProductJpaRepository>

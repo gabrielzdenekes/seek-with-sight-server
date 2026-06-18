@@ -6,11 +6,9 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
-import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
 import java.util.UUID;
-import java.util.function.Supplier;
 
 public class BrandPersistenceAdapter
         extends BasePersistenceAdapter<Brand, BrandEntity, BrandJpaRepository>
