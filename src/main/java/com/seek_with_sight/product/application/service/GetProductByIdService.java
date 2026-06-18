@@ -3,16 +3,18 @@ package com.seek_with_sight.product.application.service;
 import com.seek_with_sight.product.application.port.in.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.model.Product;
+import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
 
+@RequiredArgsConstructor
 public class GetProductByIdService implements GetProductByIdUseCase {
-    private ProductRepositoryPort productRepo;
+    private final ProductRepositoryPort productRepo;
 
     @Override
     public Product getById(UUID id) {
         return productRepo
-                .getById(id)
+                .findById(id)
                 .orElseThrow();
     }
 }

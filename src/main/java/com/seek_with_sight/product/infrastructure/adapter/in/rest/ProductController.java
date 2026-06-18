@@ -32,7 +32,7 @@ public class ProductController {
         return mapper.toResponse(createdProduct);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{productId}")
     public FullProductResponse getById(@PathVariable UUID productId) {
         var product = getProductByIdUseCase.getById(productId);
 

@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ProductRepositoryPort extends BaseRepositoryPort<Product> {
-    Optional<Product> getById(UUID id);
+    Optional<Product> findById(UUID id);
 }

@@ -54,7 +54,7 @@ public class ProductBeanConfig {
     }
 
     @Bean
-    public GetProductByIdUseCase getProductByIdUseCase() {
-        return new GetProductByIdService();
+    public GetProductByIdUseCase getProductByIdUseCase(ProductRepositoryPort repo) {
+        return new GetProductByIdService(repo);
     }
 }

@@ -13,13 +13,17 @@ import java.util.UUID;
 public class ProductPersistenceAdapter
         extends BasePersistenceAdapter<Product, ProductEntity, ProductJpaRepository>
         implements ProductRepositoryPort {
+    private final ProductPersistenceMapper mapper;
 
     public ProductPersistenceAdapter(ProductJpaRepository repository, ProductPersistenceMapper mapper) {
         super(repository, mapper, ProductEntity::new);
+        this.mapper = mapper;
     }
 
     @Override
-    public Optional<Product> getById(UUID id) {
-        return Optional.empty();
+    public Optional<Product> findById(UUID id) {
+        return repository
+                .findById(id)
+                .map(mapper::toDomainWithDetails);
     }
 }
