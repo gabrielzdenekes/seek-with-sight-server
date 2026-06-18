@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.application.service.create;
+package com.seek_with_sight.product.application.service;
 
 import com.seek_with_sight.product.application.port.in.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.command.CreateProductCommand;
