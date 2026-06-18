@@ -108,6 +108,6 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
         var user = userRepo.findByEmailIgnoreCase(email).orElseThrow();
 
         user.setEmailVerified(true);
-        userRepo.save(user);
+        userRepo.update(user);
     }
 }
