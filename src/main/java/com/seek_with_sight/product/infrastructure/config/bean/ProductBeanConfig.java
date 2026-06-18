@@ -9,6 +9,7 @@ import com.seek_with_sight.product.application.service.mapper.ProductAppMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.CategoryPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductPersistenceAdapter;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.BrandPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
@@ -20,8 +21,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ProductBeanConfig {
     @Bean
-    public BrandRepositoryPort brandRepositoryPort(BrandJpaRepository repo) {
-        return new BrandPersistenceAdapter(repo);
+    public BrandRepositoryPort brandRepositoryPort(
+            BrandJpaRepository repo,
+            BrandPersistenceMapper mapper) {
+        return new BrandPersistenceAdapter(repo, mapper);
     }
 
     @Bean
@@ -42,8 +45,9 @@ public class ProductBeanConfig {
     public CreateProductUseCase createProductUseCase(
             ProductRepositoryPort productRepo,
             CategoryRepositoryPort categoryRepo,
+            BrandRepositoryPort brandRepository,
             ProductAppMapper mapper
     ) {
-        return new CreateProductService(productRepo, categoryRepo, mapper);
+        return new CreateProductService(productRepo, categoryRepo, brandRepository, mapper);
     }
 }

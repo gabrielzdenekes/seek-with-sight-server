@@ -1,10 +1,26 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
+import com.seek_with_sight.product.domain.model.Brand;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.BrandEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor
-public class BrandPersistenceAdapter implements BrandRepositoryPort {
-    private final BrandJpaRepository repo;
+import java.util.Optional;
+import java.util.UUID;
+import java.util.function.Supplier;
+
+public class BrandPersistenceAdapter
+        extends BasePersistenceAdapter<Brand, BrandEntity, BrandJpaRepository>
+        implements BrandRepositoryPort {
+    public BrandPersistenceAdapter(BrandJpaRepository repository, PersistenceMapper<Brand, BrandEntity> mapper) {
+        super(repository, mapper, BrandEntity::new);
+    }
+
+    @Override
+    public Optional<Brand> findById(UUID id) {
+        return repository.findById(id).map(mapper::toDomain);
+    }
 }

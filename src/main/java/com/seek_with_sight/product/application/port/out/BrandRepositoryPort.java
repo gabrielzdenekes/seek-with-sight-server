@@ -1,4 +1,11 @@
 package com.seek_with_sight.product.application.port.out;
 
-public interface BrandRepositoryPort {
+import com.seek_with_sight.product.domain.model.Brand;
+import com.seek_with_sight.shared.application.port.out.BaseRepositoryPort;
+
+import java.util.Optional;
+import java.util.UUID;
+
+public interface BrandRepositoryPort extends BaseRepositoryPort<Brand> {
+    Optional<Brand> findById(UUID id);
 }
