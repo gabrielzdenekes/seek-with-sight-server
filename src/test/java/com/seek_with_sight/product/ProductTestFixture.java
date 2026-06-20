@@ -46,8 +46,8 @@ public class ProductTestFixture {
     @Autowired
     private ObjectMapper objectMapper;
 
-    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProduct() throws Exception {
-        var dto = createProductRequest();
+    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProductWithNumberOfRealtionships(int numberOfRelationships) throws Exception {
+        var dto = createProductRequest(numberOfRelationships);
         var payload = objectMapper.writeValueAsString(dto);
         var request = post("/api/product")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -61,6 +61,10 @@ public class ProductTestFixture {
         return new RequestResponseData<>(dto, apiResponse);
     }
 
+    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProduct() throws Exception {
+        return createProductWithNumberOfRealtionships(3);
+    }
+
     public ApiResponse<ProductResponseWithDetails> getProductById(UUID id) throws Exception {
         var request = get("/api/product/" + id);
         var result = mockMvc.perform(request).andReturn();
@@ -71,7 +75,7 @@ public class ProductTestFixture {
         );
     }
 
-    private ProductRequest createProductRequest() {
+    private ProductRequest createProductRequest(int numberOfRelationships) {
         var productName = ProductTestDataUtils.productName();
         var categories = categoryRepo
                 .findAll(Pageable.ofSize(1))
@@ -98,8 +102,8 @@ public class ProductTestFixture {
                 TestDataUtils.randomBigDecimal(4),
                 categories[0].getId(),
                 brand[0].getId(),
-                getImageRequests(3),
-                getAttributeRequests(5),
+                getImageRequests(numberOfRelationships),
+                getAttributeRequests(numberOfRelationships),
                 getProductSeoRequest()
         );
     }

@@ -1,10 +1,13 @@
 package com.seek_with_sight.product;
 
+import com.seek_with_sight.product.application.port.in.GetProductByIdUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductImageRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductImageResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.utils.IntegrationTestsBase;
+import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
@@ -12,11 +15,18 @@ import org.springframework.context.annotation.Import;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Import({
-        ProductTestFixture.class
+        ProductTestFixture.class,
+        SqlQueryCounterTestUtils.class
 })
 public class ProductIntegrationTests extends IntegrationTestsBase {
     @Autowired
     private ProductTestFixture productTestFixture;
+
+    @Autowired
+    private GetProductByIdUseCase getProductByIdUseCase;
+
+    @Autowired
+    private SqlQueryCounterTestUtils sqlCounterUtils;
 
     @Test
     public void withValidData_productShouldBeCreatedAndRetrievedSuccessfully() throws Exception {
@@ -31,6 +41,31 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         assertBrand(productResponse, requestData);
         assertSeo(productResponse, requestData);
         assertImages(productResponse, requestData);
+    }
+
+    @Test
+    @Transactional
+    public void getProductByIdUseCase_shouldMakeFetchAllRelationshipsWithOneQuery() throws Exception {
+        var createResult = productTestFixture.createProductWithNumberOfRealtionships(20);
+        var productId = createResult.response().getData().getId();
+
+        /*
+        Total relationships: more than 40
+        3 select queries are made:
+         - for the product
+         - for the tags
+         - for the images
+         */
+        sqlCounterUtils.assertSelectQueriesCount(
+                () -> {
+                    try {
+                        productTestFixture.getProductById(createResult.response().getData().getId());
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                },
+                3
+        );
     }
 
     private void assertBaseProperties(ProductResponseWithDetails result, ProductRequest request) {
