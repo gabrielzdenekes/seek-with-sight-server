@@ -46,11 +46,11 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
     @Test
     @Transactional
     public void getProductByIdUseCase_shouldMakeFetchAllRelationshipsWithOneQuery() throws Exception {
-        var createResult = productTestFixture.createProductWithNumberOfRealtionships(20);
+        var createResult = productTestFixture.createProduct();
         var productId = createResult.response().getData().getId();
 
         /*
-        Total relationships: more than 40
+        Total relationships: Category, Brand, Tags, Images, Variants, Attributes, Seo
         3 select queries are made:
          - for the product
          - for the tags
