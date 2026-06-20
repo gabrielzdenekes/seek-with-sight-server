@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.application.port.in.create.command;
+package com.seek_with_sight.product.application.port.in.command;
 
 import com.seek_with_sight.product.domain.model.ProductStatus;
 
@@ -16,8 +16,10 @@ public record CreateProductCommand(
         BigDecimal weight,
         String weightUnit,
         Boolean isDigital,
+        Boolean requiresShipping,
         String taxClass,
         BigDecimal basePrice,
+        BigDecimal compareAtPrice,
         UUID categoryId,
         UUID brandId,
         List<CreateImageCommand> images,

@@ -88,6 +88,18 @@ public record ProductRequest(
         )
         BigDecimal basePrice,
 
+        @NotNull(message = "{product.compare-at-price.required}")
+        @DecimalMin(
+                value = "0.00",
+                message = "{product.compare-at-price.positive-value}"
+        )
+        @Digits(
+                integer = 19,
+                fraction = 4,
+                message = "{product.compare-at-price.format}"
+        )
+        BigDecimal compareAtPrice,
+
         @NotNull(message = "{product.brand.required}")
         UUID categoryId,
 

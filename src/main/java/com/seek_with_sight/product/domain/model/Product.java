@@ -116,12 +116,12 @@ public class Product extends BaseDomainModel {
         this.requiresShipping = requiresShipping;
     }
 
-    public Boolean getDigital() {
+    public Boolean getIsDigital() {
         return isDigital;
     }
 
-    public void setDigital(Boolean digital) {
-        isDigital = digital;
+    public void setIsDigital(Boolean isDigital) {
+        this.isDigital = isDigital;
     }
 
     public String getTaxClass() {

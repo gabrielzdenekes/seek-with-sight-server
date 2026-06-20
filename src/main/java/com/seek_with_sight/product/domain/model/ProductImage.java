@@ -41,11 +41,11 @@ public class ProductImage extends BaseDomainModel {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getPrimary() {
+    public Boolean getIsPrimary() {
         return isPrimary;
     }
 
-    public void setPrimary(Boolean primary) {
+    public void setIsPrimary(Boolean primary) {
         isPrimary = primary;
     }
 

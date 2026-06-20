@@ -23,6 +23,12 @@ public interface ProductPersistenceMapper extends PersistenceMapper<Product, Pro
     @Mapping(target = "seo", ignore = true)
     Product toDomain(ProductEntity entity);
 
+    @Mapping(target = "category.parent", ignore = true)
+    @Mapping(target = "category.children", ignore = true)
+    @Mapping(target = "variants", ignore = true)
+    @Mapping(target = "brand.products", ignore = true)
+    Product toDomainWithDetails(ProductEntity entity);
+
     @Override
     @BeanMapping(nullValuePropertyMappingStrategy =
             NullValuePropertyMappingStrategy.IGNORE)

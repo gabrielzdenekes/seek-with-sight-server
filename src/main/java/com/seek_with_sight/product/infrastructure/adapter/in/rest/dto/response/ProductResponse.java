@@ -5,11 +5,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
-public class FullProductResponse {
+public class ProductResponse {
+    private UUID id;
+
     private String name;
 
     private String slug;
@@ -35,14 +37,4 @@ public class FullProductResponse {
     private BigDecimal basePrice;
 
     private BigDecimal compareAtPrice;
-
-    private CategoryResponse category;
-
-    private BrandResponse brand;
-
-    private ProductSeoResponse seo;
-
-    private List<ProductImageResponse> images;
-
-    private List<ProductAttributeResponse> attributes;
 }

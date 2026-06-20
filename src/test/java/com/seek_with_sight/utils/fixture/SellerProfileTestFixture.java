@@ -4,7 +4,7 @@ import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CreateSell
 import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.SellerProfileResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.UserResponse;
-import com.seek_with_sight.utils.data.TestDataUtils;
+import com.seek_with_sight.utils.data.ProfileTestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.http.MediaType;
@@ -29,13 +29,13 @@ public class SellerProfileTestFixture {
 
     public CreateSellerRequest createVerifiedSellerProfile() throws Exception {
         var dto = new CreateSellerRequest(
-                TestDataUtils.email(),
-                TestDataUtils.validPassword()
+                ProfileTestDataUtils.email(),
+                ProfileTestDataUtils.validPassword()
         );
 
-        dto.setBusinessName(TestDataUtils.businessName());
-        dto.setTaxId(TestDataUtils.taxId());
-        dto.setBusinessAddress(TestDataUtils.address());
+        dto.setBusinessName(ProfileTestDataUtils.businessName());
+        dto.setTaxId(ProfileTestDataUtils.taxId());
+        dto.setBusinessAddress(ProfileTestDataUtils.address());
 
         var jsonPayload = objectMapper.writeValueAsString(dto);
         var request = post("/api/seller-profile")

@@ -9,7 +9,7 @@ import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.authorization.application.port.out.RoleRepositoryPort;
 import com.seek_with_sight.authentication.application.port.out.PasswordEncoderPort;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
-import com.seek_with_sight.utils.data.TestDataUtils;
+import com.seek_with_sight.utils.data.ProfileTestDataUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -46,8 +46,8 @@ public class CreateUserUseCaseTests {
     @Test
     void createUser_shouldCreateUserWithHashedPassword() {
         var createCommand = new CreateUserCommand(
-                TestDataUtils.email(),
-                TestDataUtils.validPassword()
+                ProfileTestDataUtils.email(),
+                ProfileTestDataUtils.validPassword()
         );
         var encodedPassword = "$2a$12$i3.NLpVj8XPD4YvX6SIoqezFm/Q6Fq3Vz35yX0nGegUu4TlCYXDvW";
         var role = new Role();

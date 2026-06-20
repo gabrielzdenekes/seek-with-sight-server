@@ -3,8 +3,6 @@ package com.seek_with_sight.product.domain.model;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 public class ProductSEO extends BaseDomainModel {
-    private Product product;
-
     private String metaTitle;
 
     private String metaDescription;
@@ -16,14 +14,6 @@ public class ProductSEO extends BaseDomainModel {
     private String ogDescription;
 
     private String ogImageUrl;
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
 
     public String getMetaTitle() {
         return metaTitle;
