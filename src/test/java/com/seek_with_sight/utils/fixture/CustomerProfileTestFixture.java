@@ -4,7 +4,7 @@ import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CreateCust
 import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CustomerProfileResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.UserResponse;
-import com.seek_with_sight.utils.data.TestDataUtils;
+import com.seek_with_sight.utils.data.ProfileTestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.http.MediaType;
@@ -28,12 +28,12 @@ public class CustomerProfileTestFixture {
 
     public CreateCustomerRequest createVerifiedCustomerProfile() throws Exception {
         var dto = new CreateCustomerRequest(
-                TestDataUtils.email(),
-                TestDataUtils.validPassword()
+                ProfileTestDataUtils.email(),
+                ProfileTestDataUtils.validPassword()
         );
 
-        dto.setFirstName(TestDataUtils.firstName());
-        dto.setPhone(TestDataUtils.phoneNumber());
+        dto.setFirstName(ProfileTestDataUtils.firstName());
+        dto.setPhone(ProfileTestDataUtils.phoneNumber());
 
         var jsonPayload = objectMapper.writeValueAsString(dto);
         var request = post("/api/customer-profile")

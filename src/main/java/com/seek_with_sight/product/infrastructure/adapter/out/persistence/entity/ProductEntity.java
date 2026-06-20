@@ -57,16 +57,16 @@ public class ProductEntity extends BaseEntity {
     private BigDecimal weight;
 
     @Column(name = "weight_unit", length = 10)
-    private String weightUnit = "kg";
+    private String weightUnit;
 
     @Column(name = "requires_shipping")
-    private Boolean requiresShipping = true;
+    private Boolean requiresShipping;
 
     @Column(name = "is_digital")
-    private Boolean isDigital = false;
+    private Boolean isDigital;
 
     @Column(name = "tax_class", length = 50)
-    private String taxClass = "standard";
+    private String taxClass;
 
     @Column(name = "base_price", precision = 19, scale = 4)
     private BigDecimal basePrice;

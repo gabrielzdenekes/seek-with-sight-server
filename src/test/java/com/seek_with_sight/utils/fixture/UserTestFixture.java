@@ -2,7 +2,7 @@ package com.seek_with_sight.utils.fixture;
 
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.CreateUserRequest;
-import com.seek_with_sight.utils.data.TestDataUtils;
+import com.seek_with_sight.utils.data.ProfileTestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 
@@ -15,15 +15,15 @@ public class UserTestFixture {
 
     public CreateUserRequest createUserRequest() {
         return new CreateUserRequest(
-                TestDataUtils.email(),
-                TestDataUtils.validPassword()
+                ProfileTestDataUtils.email(),
+                ProfileTestDataUtils.validPassword()
         );
     }
 
     public CreateUserRequest createUserRequestInvalidPassword() {
         return new CreateUserRequest(
-                TestDataUtils.email(),
-                TestDataUtils.invalidPassword()
+                ProfileTestDataUtils.email(),
+                ProfileTestDataUtils.invalidPassword()
         );
     }
 
