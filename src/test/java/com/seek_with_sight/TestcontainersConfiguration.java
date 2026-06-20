@@ -35,7 +35,7 @@ public class TestcontainersConfiguration {
 					return ProxyDataSourceBuilder.create(originalDataSource)
 							.name("Hypersistence-Proxy")
 							.countQuery()
-//							.logQueryToSysOut()
+							.logQueryToSysOut()
 							.build();
 				}
 				return bean;
