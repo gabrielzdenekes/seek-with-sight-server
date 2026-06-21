@@ -41,7 +41,7 @@ public class BrandsInitializer implements ApplicationRunner {
                 }
         ).toArray(Brand[]::new);
 
-        for (var i = 0; i < serializedBrands.length; i ++) {
+        for (var i = 0; i < serializedBrands.length; i++) {
             var brand = serializedBrands[i];
             var brandEntity = new BrandEntity();
 
