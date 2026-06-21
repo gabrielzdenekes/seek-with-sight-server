@@ -2,7 +2,7 @@ package com.seek_with_sight.product.domain.model;
 
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
-public class ProductImage extends BaseDomainModel {
+public class Image extends BaseDomainModel {
     private String url;
 
     private String thumbnailUrl;

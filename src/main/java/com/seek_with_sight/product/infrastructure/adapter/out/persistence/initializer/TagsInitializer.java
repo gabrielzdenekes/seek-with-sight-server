@@ -1,7 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.initializer;
 
-import com.seek_with_sight.product.domain.model.Category;
-import com.seek_with_sight.product.domain.model.ProductTag;
+import com.seek_with_sight.product.domain.model.Tag;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductTagEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductTagJpaRepository;
 import jakarta.persistence.EntityManager;
@@ -15,7 +14,6 @@ import org.springframework.stereotype.Component;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -39,9 +37,9 @@ public class TagsInitializer implements ApplicationRunner {
         var resource = new ClassPathResource("seed/tags.json");
         var serializedTags = objectMapper.readValue(
                 resource.getInputStream(),
-                new TypeReference<List<ProductTag>>() {
+                new TypeReference<List<Tag>>() {
                 }
-        ).toArray(ProductTag[]::new);
+        ).toArray(Tag[]::new);
 
         for (var i = 0; i < serializedTags.length; i++) {
             var tag = serializedTags[i];

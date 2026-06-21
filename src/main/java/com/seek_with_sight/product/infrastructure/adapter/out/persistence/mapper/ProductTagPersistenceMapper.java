@@ -1,6 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper;
 
-import com.seek_with_sight.product.domain.model.ProductTag;
+import com.seek_with_sight.product.domain.model.Tag;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductTagEntity;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import org.mapstruct.BeanMapping;
@@ -9,12 +9,12 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 @Mapper(componentModel = "spring")
-public interface ProductTagPersistenceMapper extends PersistenceMapper<ProductTag, ProductTagEntity> {
+public interface ProductTagPersistenceMapper extends PersistenceMapper<Tag, ProductTagEntity> {
     @Override
-    ProductTag toDomain(ProductTagEntity entity);
+    Tag toDomain(ProductTagEntity entity);
 
     @Override
     @BeanMapping(nullValuePropertyMappingStrategy =
             NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDomain(ProductTag domain, @MappingTarget ProductTagEntity entity);
+    void updateEntityFromDomain(Tag domain, @MappingTarget ProductTagEntity entity);
 }

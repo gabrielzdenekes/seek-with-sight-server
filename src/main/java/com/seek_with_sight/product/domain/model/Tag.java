@@ -4,7 +4,7 @@ import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.util.List;
 
-public class ProductTag extends BaseDomainModel {
+public class Tag extends BaseDomainModel {
     private String name;
 
     private String slug;

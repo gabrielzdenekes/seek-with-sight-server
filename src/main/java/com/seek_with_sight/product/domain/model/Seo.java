@@ -2,7 +2,7 @@ package com.seek_with_sight.product.domain.model;
 
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
-public class ProductSEO extends BaseDomainModel {
+public class Seo extends BaseDomainModel {
     private String metaTitle;
 
     private String metaDescription;
