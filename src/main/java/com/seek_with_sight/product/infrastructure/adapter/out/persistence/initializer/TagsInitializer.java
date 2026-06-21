@@ -2,7 +2,7 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence.initi
 
 import com.seek_with_sight.product.domain.model.Tag;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.TagEntity;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductTagJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.TagJpaRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class TagsInitializer implements ApplicationRunner {
-    private final ProductTagJpaRepository repository;
+    private final TagJpaRepository repository;
     private final ObjectMapper objectMapper;
     private final EntityManager entityManager;
 

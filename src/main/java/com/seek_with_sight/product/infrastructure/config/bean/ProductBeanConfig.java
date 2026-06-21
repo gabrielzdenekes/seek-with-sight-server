@@ -5,14 +5,14 @@ import com.seek_with_sight.product.application.port.in.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
-import com.seek_with_sight.product.application.port.out.ProductTagRepositoryPort;
+import com.seek_with_sight.product.application.port.out.TagRepositoryPort;
 import com.seek_with_sight.product.application.service.CreateProductService;
 import com.seek_with_sight.product.application.service.GetProductByIdService;
 import com.seek_with_sight.product.application.service.mapper.ProductAppMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.CategoryPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductPersistenceAdapter;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductTagPersistenceAdapter;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.TagPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.BrandPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
@@ -20,7 +20,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductTagJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.TagJpaRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -63,10 +63,10 @@ public class ProductBeanConfig {
     }
 
     @Bean
-    public ProductTagRepositoryPort productTagRepositoryPort(
-            ProductTagJpaRepository repo,
+    public TagRepositoryPort productTagRepositoryPort(
+            TagJpaRepository repo,
             ProductTagPersistenceMapper mapper
     ) {
-        return new ProductTagPersistenceAdapter(repo, mapper);
+        return new TagPersistenceAdapter(repo, mapper);
     }
 }

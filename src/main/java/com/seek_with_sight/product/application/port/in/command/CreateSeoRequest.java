@@ -1,6 +1,6 @@
 package com.seek_with_sight.product.application.port.in.command;
 
-public record CreateProductSeoRequest(
+public record CreateSeoRequest(
         String metaTitle,
 
         String metaDescription,

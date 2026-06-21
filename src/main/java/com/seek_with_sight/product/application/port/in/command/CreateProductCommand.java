@@ -23,7 +23,7 @@ public record CreateProductCommand(
         UUID categoryId,
         UUID brandId,
         List<CreateImageCommand> images,
-        List<CreateProductAttributeCommand> attributes,
-        CreateProductSeoRequest seo
+        List<CreateAttributeCommand> attributes,
+        CreateSeoRequest seo
 ) {
 }

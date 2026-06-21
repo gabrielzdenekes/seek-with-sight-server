@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface ProductTagJpaRepository extends JpaRepository<TagEntity, UUID> {
+public interface TagJpaRepository extends JpaRepository<TagEntity, UUID> {
 }
