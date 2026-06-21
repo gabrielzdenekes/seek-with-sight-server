@@ -1,4 +1,4 @@
-package com.seek_with_sight.domain.port.in.user;
+package com.seek_with_sight.user;
 
 import com.seek_with_sight.user.application.port.in.CreateUserCommand;
 import com.seek_with_sight.email.application.service.EmailService;
@@ -9,7 +9,7 @@ import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.authorization.application.port.out.RoleRepositoryPort;
 import com.seek_with_sight.authentication.application.port.out.PasswordEncoderPort;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
-import com.seek_with_sight.utils.data.ProfileTestDataUtils;
+import com.seek_with_sight.profile.ProfileTestDataUtils;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;

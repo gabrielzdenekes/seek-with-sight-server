@@ -1,11 +1,11 @@
-package com.seek_with_sight.infrastructure.adapter.in.rest.auth;
+package com.seek_with_sight.auth;
 
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.constants.AuthConstants;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.service.base.LocalizedMessageService;
-import com.seek_with_sight.infrastructure.adapter.in.rest.user.UserTestConstants;
+import com.seek_with_sight.user.UserTestConstants;
 import com.seek_with_sight.utils.IntegrationTestsBase;
-import com.seek_with_sight.utils.fixture.UserTestFixture;
+import com.seek_with_sight.user.UserTestFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
