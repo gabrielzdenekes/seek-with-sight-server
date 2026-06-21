@@ -1,23 +1,22 @@
-package com.seek_with_sight.utils.fixture;
+package com.seek_with_sight.profile;
 
-import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CreateSellerRequest;
-import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.SellerProfileResponse;
+import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CreateCustomerRequest;
+import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CustomerProfileResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.UserResponse;
-import com.seek_with_sight.utils.data.ProfileTestDataUtils;
+import com.seek_with_sight.user.UserTestFixture;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
-import tools.jackson.core.type.TypeReference;
-import tools.jackson.databind.ObjectMapper;
-
 @TestComponent
-public class SellerProfileTestFixture {
+public class CustomerProfileTestFixture {
     @Autowired
     private MockMvc mockMvc;
 
@@ -27,18 +26,17 @@ public class SellerProfileTestFixture {
     @Autowired
     private ObjectMapper objectMapper;
 
-    public CreateSellerRequest createVerifiedSellerProfile() throws Exception {
-        var dto = new CreateSellerRequest(
+    public CreateCustomerRequest createVerifiedCustomerProfile() throws Exception {
+        var dto = new CreateCustomerRequest(
                 ProfileTestDataUtils.email(),
                 ProfileTestDataUtils.validPassword()
         );
 
-        dto.setBusinessName(ProfileTestDataUtils.businessName());
-        dto.setTaxId(ProfileTestDataUtils.taxId());
-        dto.setBusinessAddress(ProfileTestDataUtils.address());
+        dto.setFirstName(ProfileTestDataUtils.firstName());
+        dto.setPhone(ProfileTestDataUtils.phoneNumber());
 
         var jsonPayload = objectMapper.writeValueAsString(dto);
-        var request = post("/api/seller-profiles")
+        var request = post("/api/customer-profiles")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonPayload);
         var result = mockMvc.perform(request).andReturn();
@@ -52,14 +50,14 @@ public class SellerProfileTestFixture {
         return dto;
     }
 
-    public SellerProfileResponse getCurrentUserSellerProfile(String accessToken) throws Exception {
-        var request = get("/api/seller-profiles/me")
+    public CustomerProfileResponse getCurrentUserCustomerProfile(String accessToken) throws Exception {
+        var request = get("/api/customer-profiles/me")
                 .header("Authorization", "Bearer " + accessToken);
 
         var result = mockMvc.perform(request).andReturn();
         var apiResponse = objectMapper.readValue(
                 result.getResponse().getContentAsString(),
-                new TypeReference<ApiResponse<SellerProfileResponse>>() {}
+                new TypeReference<ApiResponse<CustomerProfileResponse>>() {}
         );
 
         return apiResponse.getData();

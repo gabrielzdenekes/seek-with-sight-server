@@ -1,4 +1,4 @@
-package com.seek_with_sight.utils.data;
+package com.seek_with_sight.profile;
 
 import com.seek_with_sight.user.domain.model.UserValidationConstants;
 import net.datafaker.Faker;

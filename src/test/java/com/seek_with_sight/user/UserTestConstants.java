@@ -1,4 +1,4 @@
-package com.seek_with_sight.infrastructure.adapter.in.rest.user;
+package com.seek_with_sight.user;
 
 public abstract class UserTestConstants {
     public static final String USER_ENDPOINT = "/api/users";

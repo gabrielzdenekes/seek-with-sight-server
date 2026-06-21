@@ -1,8 +1,8 @@
-package com.seek_with_sight.utils.fixture;
+package com.seek_with_sight.user;
 
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.user.infrastructure.adapter.in.rest.dto.CreateUserRequest;
-import com.seek_with_sight.utils.data.ProfileTestDataUtils;
+import com.seek_with_sight.profile.ProfileTestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 

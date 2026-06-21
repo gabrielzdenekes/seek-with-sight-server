@@ -1,4 +1,4 @@
-package com.seek_with_sight.domain.port.in.auth;
+package com.seek_with_sight.auth;
 
 import com.seek_with_sight.authentication.application.port.in.LoginCommand;
 import com.seek_with_sight.authentication.application.port.in.LoginUseCase;
@@ -7,7 +7,7 @@ import com.seek_with_sight.authentication.domain.exception.UnauthorizedException
 import com.seek_with_sight.authentication.application.port.out.JwtTokenPort;
 import com.seek_with_sight.authentication.application.port.out.RefreshTokenPort;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
-import com.seek_with_sight.utils.data.ProfileTestDataUtils;
+import com.seek_with_sight.profile.ProfileTestDataUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-package com.seek_with_sight.domain.port.in.auth;
+package com.seek_with_sight.auth;
 
 import com.seek_with_sight.authentication.application.port.in.RefreshTokenUseCase;
 import com.seek_with_sight.authentication.application.service.RefreshTokenService;

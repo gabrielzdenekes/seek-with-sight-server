@@ -1,8 +1,7 @@
-package com.seek_with_sight.infrastructure.adapter.in.rest.profile;
+package com.seek_with_sight.profile;
 
 import com.seek_with_sight.utils.IntegrationTestsBase;
-import com.seek_with_sight.utils.fixture.AuthTestFixture;
-import com.seek_with_sight.utils.fixture.SellerProfileTestFixture;
+import com.seek_with_sight.auth.AuthTestFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;

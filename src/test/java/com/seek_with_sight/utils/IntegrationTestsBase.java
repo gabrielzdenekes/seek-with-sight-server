@@ -2,10 +2,10 @@ package com.seek_with_sight.utils;
 
 import com.seek_with_sight.TestsConfiguration;
 import com.seek_with_sight.product.ProductTestFixture;
-import com.seek_with_sight.utils.fixture.AuthTestFixture;
-import com.seek_with_sight.utils.fixture.CustomerProfileTestFixture;
-import com.seek_with_sight.utils.fixture.SellerProfileTestFixture;
-import com.seek_with_sight.utils.fixture.UserTestFixture;
+import com.seek_with_sight.auth.AuthTestFixture;
+import com.seek_with_sight.profile.CustomerProfileTestFixture;
+import com.seek_with_sight.profile.SellerProfileTestFixture;
+import com.seek_with_sight.user.UserTestFixture;
 import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
 import org.junit.jupiter.api.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
