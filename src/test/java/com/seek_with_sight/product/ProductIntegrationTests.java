@@ -1,6 +1,6 @@
 package com.seek_with_sight.product;
 
-import com.seek_with_sight.product.application.port.in.GetProductByIdUseCase;
+import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductImageRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductImageResponse;
@@ -10,14 +10,9 @@ import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Import;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@Import({
-        ProductTestFixture.class,
-        SqlQueryCounterTestUtils.class
-})
 public class ProductIntegrationTests extends IntegrationTestsBase {
     @Autowired
     private ProductTestFixture productTestFixture;

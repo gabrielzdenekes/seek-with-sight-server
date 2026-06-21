@@ -9,7 +9,6 @@ import com.seek_with_sight.utils.fixture.UserTestFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
-import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
@@ -22,7 +21,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Import({UserTestFixture.class})
 @AutoConfigureMockMvc
 public class AuthIntegrationTests extends IntegrationTestsBase {
     private static final String EMAIL_REQUIRED_KEY = "user.validation.email.required";

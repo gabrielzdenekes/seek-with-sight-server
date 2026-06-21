@@ -49,7 +49,7 @@ public class ProductTestFixture {
     public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProductWithNumberOfRealtionships(int numberOfRelationships) throws Exception {
         var dto = createProductRequest(numberOfRelationships);
         var payload = objectMapper.writeValueAsString(dto);
-        var request = post("/api/product")
+        var request = post("/api/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(payload);
         var result = mockMvc.perform(request).andReturn();
@@ -66,7 +66,7 @@ public class ProductTestFixture {
     }
 
     public ApiResponse<ProductResponseWithDetails> getProductById(UUID id) throws Exception {
-        var request = get("/api/product/" + id);
+        var request = get("/api/products/" + id);
         var result = mockMvc.perform(request).andReturn();
         return objectMapper.readValue(
                 result.getResponse().getContentAsString(),

@@ -3,19 +3,12 @@ package com.seek_with_sight.infrastructure.adapter.in.rest.profile;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.fixture.AuthTestFixture;
 import com.seek_with_sight.utils.fixture.CustomerProfileTestFixture;
-import com.seek_with_sight.utils.fixture.UserTestFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
-import org.springframework.context.annotation.Import;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Import({
-        UserTestFixture.class,
-        AuthTestFixture.class,
-        CustomerProfileTestFixture.class
-})
 @AutoConfigureMockMvc()
 public class CustomerProfileIntegrationTests extends IntegrationTestsBase {
     @Autowired

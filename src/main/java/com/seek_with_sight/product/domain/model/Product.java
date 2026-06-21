@@ -36,13 +36,13 @@ public class Product extends BaseDomainModel {
 
     private Brand brand;
 
-    private ProductSEO seo;
+    private Seo seo;
 
-    private List<ProductImage> images;
+    private List<Image> images;
 
     private List<ProductVariant> variants;
 
-    private List<ProductAttribute> attributes;
+    private List<Attribute> attributes;
 
     public String getName() {
         return name;
@@ -148,11 +148,11 @@ public class Product extends BaseDomainModel {
         this.brand = brand;
     }
 
-    public List<ProductImage> getImages() {
+    public List<Image> getImages() {
         return images;
     }
 
-    public void setImages(List<ProductImage> images) {
+    public void setImages(List<Image> images) {
         this.images = images;
     }
 
@@ -164,19 +164,19 @@ public class Product extends BaseDomainModel {
         this.variants = variants;
     }
 
-    public List<ProductAttribute> getAttributes() {
+    public List<Attribute> getAttributes() {
         return attributes;
     }
 
-    public void setAttributes(List<ProductAttribute> attributes) {
+    public void setAttributes(List<Attribute> attributes) {
         this.attributes = attributes;
     }
 
-    public ProductSEO getSeo() {
+    public Seo getSeo() {
         return seo;
     }
 
-    public void setSeo(ProductSEO seo) {
+    public void setSeo(Seo seo) {
         this.seo = seo;
     }
 

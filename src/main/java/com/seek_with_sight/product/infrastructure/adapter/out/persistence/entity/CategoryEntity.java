@@ -19,7 +19,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "product_categories")
+@Table(name = "categories")
 public class CategoryEntity extends BaseEntity {
     @Column(nullable = false, length = 150)
     private String name;

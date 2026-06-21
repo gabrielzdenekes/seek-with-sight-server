@@ -65,6 +65,10 @@ jobs:
           java-version: '25'
           distribution: 'temurin'
           cache: maven
+      - name: Configure Testcontainers Reuse
+        run: |
+          mkdir -p ~/.testcontainers
+          echo "testcontainers.reuse.enable=true" > ~/.testcontainers/.testcontainers.properties
       - name: Run Integration Tests
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}

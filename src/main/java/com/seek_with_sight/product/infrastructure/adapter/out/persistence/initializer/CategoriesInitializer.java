@@ -5,6 +5,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.io.ClassPathResource;
@@ -16,14 +17,17 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class CategoriesInitializer implements ApplicationRunner {
     private final CategoryJpaRepository repo;
     private final ObjectMapper objectMapper;
 
     @Override
-    @Transactional
     public void run(ApplicationArguments args) throws Exception {
+        log.info("Seeding Categories started...");
+
         if (repo.count() > 0) {
+            log.info("Categories already seeded.");
             return;
         }
 
@@ -35,8 +39,10 @@ public class CategoriesInitializer implements ApplicationRunner {
         );
 
         saveCategories(serializedCategories, null);
+        log.info("Seeding Categories finished.");
     }
 
+    @Transactional
     private void saveCategories(List<Category> categories, CategoryEntity parent) {
         for (var cat : categories) {
             var categoryEntity = new CategoryEntity();

@@ -38,7 +38,7 @@ public class SellerProfileTestFixture {
         dto.setBusinessAddress(ProfileTestDataUtils.address());
 
         var jsonPayload = objectMapper.writeValueAsString(dto);
-        var request = post("/api/seller-profile")
+        var request = post("/api/seller-profiles")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonPayload);
         var result = mockMvc.perform(request).andReturn();
@@ -53,7 +53,7 @@ public class SellerProfileTestFixture {
     }
 
     public SellerProfileResponse getCurrentUserSellerProfile(String accessToken) throws Exception {
-        var request = get("/api/seller-profile/me")
+        var request = get("/api/seller-profiles/me")
                 .header("Authorization", "Bearer " + accessToken);
 
         var result = mockMvc.perform(request).andReturn();
