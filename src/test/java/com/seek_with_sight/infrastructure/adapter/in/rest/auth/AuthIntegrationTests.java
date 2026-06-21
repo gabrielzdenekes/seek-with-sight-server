@@ -22,7 +22,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Import({UserTestFixture.class})
 @AutoConfigureMockMvc
 public class AuthIntegrationTests extends IntegrationTestsBase {
     private static final String EMAIL_REQUIRED_KEY = "user.validation.email.required";

@@ -14,10 +14,6 @@ import org.springframework.context.annotation.Import;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@Import({
-        ProductTestFixture.class,
-        SqlQueryCounterTestUtils.class
-})
 public class ProductIntegrationTests extends IntegrationTestsBase {
     @Autowired
     private ProductTestFixture productTestFixture;
