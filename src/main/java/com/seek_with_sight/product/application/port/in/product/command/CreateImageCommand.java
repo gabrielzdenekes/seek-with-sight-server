@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.application.port.in.command;
+package com.seek_with_sight.product.application.port.in.product.command;
 
 public record CreateImageCommand(
         String url,

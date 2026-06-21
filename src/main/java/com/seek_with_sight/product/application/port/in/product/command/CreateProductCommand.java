@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.application.port.in.command;
+package com.seek_with_sight.product.application.port.in.product.command;
 
 import com.seek_with_sight.product.domain.model.ProductStatus;
 

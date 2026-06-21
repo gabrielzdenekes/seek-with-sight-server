@@ -1,11 +1,10 @@
-package com.seek_with_sight.product.application.service;
+package com.seek_with_sight.product.application.service.product;
 
-import com.seek_with_sight.product.application.port.in.CreateProductUseCase;
-import com.seek_with_sight.product.application.port.in.command.CreateProductCommand;
+import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
+import com.seek_with_sight.product.application.port.in.product.command.CreateProductCommand;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
-import com.seek_with_sight.product.application.service.mapper.ProductAppMapper;
 import com.seek_with_sight.product.domain.model.Product;
 import lombok.RequiredArgsConstructor;
 

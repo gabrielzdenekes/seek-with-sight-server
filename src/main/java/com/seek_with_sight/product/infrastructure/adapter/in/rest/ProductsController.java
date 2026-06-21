@@ -1,7 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 
-import com.seek_with_sight.product.application.port.in.CreateProductUseCase;
-import com.seek_with_sight.product.application.port.in.GetProductByIdUseCase;
+import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
+import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
