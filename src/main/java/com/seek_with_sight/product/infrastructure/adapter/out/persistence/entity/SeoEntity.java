@@ -10,8 +10,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "product_seo")
-public class ProductSeoEntity extends BaseEntity {
+@Table(name = "seo")
+public class SeoEntity extends BaseEntity {
     @Column(name = "meta_title", length = 70)
     private String metaTitle;
 

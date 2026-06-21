@@ -1,7 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.initializer;
 
 import com.seek_with_sight.product.domain.model.Tag;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductTagEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.TagEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductTagJpaRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -43,7 +43,7 @@ public class TagsInitializer implements ApplicationRunner {
 
         for (var i = 0; i < serializedTags.length; i++) {
             var tag = serializedTags[i];
-            var tagEntity = new ProductTagEntity();
+            var tagEntity = new TagEntity();
 
             tagEntity.setName(tag.getName());
             tagEntity.setSlug(tag.getSlug());

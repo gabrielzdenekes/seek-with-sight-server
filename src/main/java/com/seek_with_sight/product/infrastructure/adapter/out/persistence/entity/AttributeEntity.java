@@ -10,8 +10,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "product_attributes")
-public class ProductAttributeEntity extends BaseEntity {
+@Table(name = "attributes")
+public class AttributeEntity extends BaseEntity {
     @Column(nullable = false, length = 150)
     private String name;
 

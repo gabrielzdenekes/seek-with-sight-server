@@ -60,5 +60,5 @@ public class ProductVariantEntity extends BaseEntity {
     private List<ProductVariantOptionEntity> selectedOptions;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProductImageEntity> images;
+    private List<ImageEntity> images;
 }

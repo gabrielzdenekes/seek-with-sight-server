@@ -10,8 +10,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "product_images")
-public class ProductImageEntity extends BaseEntity {
+@Table(name = "images")
+public class ImageEntity extends BaseEntity {
     @Column(nullable = false, length = 2048)
     private String url;
 

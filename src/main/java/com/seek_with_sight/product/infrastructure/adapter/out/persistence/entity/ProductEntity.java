@@ -84,22 +84,22 @@ public class ProductEntity extends BaseEntity {
 
     @ManyToMany
     @JoinTable(
-            name = "product_product_tags",
+            name = "product_tags",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private List<ProductTagEntity> tags = new ArrayList<>();
+    private List<TagEntity> tags = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("sortOrder ASC")
-    private List<ProductImageEntity> images = new ArrayList<>();
+    private List<ImageEntity> images = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductVariantEntity> variants = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProductAttributeEntity> attributes = new ArrayList<>();
+    private List<AttributeEntity> attributes = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    private ProductSeoEntity seo;
+    private SeoEntity seo;
 }
