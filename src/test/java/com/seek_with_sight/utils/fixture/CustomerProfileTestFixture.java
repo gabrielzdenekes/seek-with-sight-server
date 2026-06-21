@@ -36,7 +36,7 @@ public class CustomerProfileTestFixture {
         dto.setPhone(ProfileTestDataUtils.phoneNumber());
 
         var jsonPayload = objectMapper.writeValueAsString(dto);
-        var request = post("/api/customer-profile")
+        var request = post("/api/customer-profiles")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(jsonPayload);
         var result = mockMvc.perform(request).andReturn();
@@ -51,7 +51,7 @@ public class CustomerProfileTestFixture {
     }
 
     public CustomerProfileResponse getCurrentUserCustomerProfile(String accessToken) throws Exception {
-        var request = get("/api/customer-profile/me")
+        var request = get("/api/customer-profiles/me")
                 .header("Authorization", "Bearer " + accessToken);
 
         var result = mockMvc.perform(request).andReturn();

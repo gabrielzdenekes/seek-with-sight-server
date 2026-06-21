@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/customer-profile")
-public class CustomerProfileController {
+@RequestMapping("/api/customer-profiles")
+public class CustomerProfilesController {
     private final CustomerProfileRestMapper mapper;
     private final CreateCustomerProfileUseCase createCustomerProfileUseCase;
     private final FindCustomerProfileByEmailUseCase findCustomerProfileByEmailUseCase;

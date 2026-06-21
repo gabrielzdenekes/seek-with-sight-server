@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/products")
 @RequiredArgsConstructor
-public class ProductController {
+public class ProductsController {
     private final CreateProductUseCase createProductUseCase;
     private final ProductRestMapper mapper;
     private final GetProductByIdUseCase getProductByIdUseCase;

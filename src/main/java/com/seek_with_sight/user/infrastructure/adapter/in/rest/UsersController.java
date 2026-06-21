@@ -18,8 +18,8 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/api/users")
+public class UsersController {
     private final CreateUserUseCase createUserUseCase;
     private final UserRestMapper mapper;
 
