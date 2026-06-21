@@ -1,1002 +1,4002 @@
 [
-  {"name": "Red T-Shirt", "slug": "red-t-shirt"},
-  {"name": "Red Jeans", "slug": "red-jeans"},
-  {"name": "Red Jacket", "slug": "red-jacket"},
-  {"name": "Red Dress", "slug": "red-dress"},
-  {"name": "Red Skirt", "slug": "red-skirt"},
-  {"name": "Red Pants", "slug": "red-pants"},
-  {"name": "Red Blouse", "slug": "red-blouse"},
-  {"name": "Red Sweater", "slug": "red-sweater"},
-  {"name": "Red Hoodie", "slug": "red-hoodie"},
-  {"name": "Red Coat", "slug": "red-coat"},
-  {"name": "Blue T-Shirt", "slug": "blue-t-shirt"},
-  {"name": "Blue Jeans", "slug": "blue-jeans"},
-  {"name": "Blue Jacket", "slug": "blue-jacket"},
-  {"name": "Blue Dress", "slug": "blue-dress"},
-  {"name": "Blue Skirt", "slug": "blue-skirt"},
-  {"name": "Blue Pants", "slug": "blue-pants"},
-  {"name": "Blue Blouse", "slug": "blue-blouse"},
-  {"name": "Blue Sweater", "slug": "blue-sweater"},
-  {"name": "Blue Hoodie", "slug": "blue-hoodie"},
-  {"name": "Blue Coat", "slug": "blue-coat"},
-  {"name": "Green T-Shirt", "slug": "green-t-shirt"},
-  {"name": "Green Jeans", "slug": "green-jeans"},
-  {"name": "Green Jacket", "slug": "green-jacket"},
-  {"name": "Green Dress", "slug": "green-dress"},
-  {"name": "Green Skirt", "slug": "green-skirt"},
-  {"name": "Green Pants", "slug": "green-pants"},
-  {"name": "Green Blouse", "slug": "green-blouse"},
-  {"name": "Green Sweater", "slug": "green-sweater"},
-  {"name": "Green Hoodie", "slug": "green-hoodie"},
-  {"name": "Green Coat", "slug": "green-coat"},
-  {"name": "Black T-Shirt", "slug": "black-t-shirt"},
-  {"name": "Black Jeans", "slug": "black-jeans"},
-  {"name": "Black Jacket", "slug": "black-jacket"},
-  {"name": "Black Dress", "slug": "black-dress"},
-  {"name": "Black Skirt", "slug": "black-skirt"},
-  {"name": "Black Pants", "slug": "black-pants"},
-  {"name": "Black Blouse", "slug": "black-blouse"},
-  {"name": "Black Sweater", "slug": "black-sweater"},
-  {"name": "Black Hoodie", "slug": "black-hoodie"},
-  {"name": "Black Coat", "slug": "black-coat"},
-  {"name": "White T-Shirt", "slug": "white-t-shirt"},
-  {"name": "White Jeans", "slug": "white-jeans"},
-  {"name": "White Jacket", "slug": "white-jacket"},
-  {"name": "White Dress", "slug": "white-dress"},
-  {"name": "White Skirt", "slug": "white-skirt"},
-  {"name": "White Pants", "slug": "white-pants"},
-  {"name": "White Blouse", "slug": "white-blouse"},
-  {"name": "White Sweater", "slug": "white-sweater"},
-  {"name": "White Hoodie", "slug": "white-hoodie"},
-  {"name": "White Coat", "slug": "white-coat"},
-  {"name": "Yellow T-Shirt", "slug": "yellow-t-shirt"},
-  {"name": "Yellow Jeans", "slug": "yellow-jeans"},
-  {"name": "Yellow Jacket", "slug": "yellow-jacket"},
-  {"name": "Yellow Dress", "slug": "yellow-dress"},
-  {"name": "Yellow Skirt", "slug": "yellow-skirt"},
-  {"name": "Yellow Pants", "slug": "yellow-pants"},
-  {"name": "Yellow Blouse", "slug": "yellow-blouse"},
-  {"name": "Yellow Sweater", "slug": "yellow-sweater"},
-  {"name": "Yellow Hoodie", "slug": "yellow-hoodie"},
-  {"name": "Yellow Coat", "slug": "yellow-coat"},
-  {"name": "Orange T-Shirt", "slug": "orange-t-shirt"},
-  {"name": "Orange Jeans", "slug": "orange-jeans"},
-  {"name": "Orange Jacket", "slug": "orange-jacket"},
-  {"name": "Orange Dress", "slug": "orange-dress"},
-  {"name": "Orange Skirt", "slug": "orange-skirt"},
-  {"name": "Orange Pants", "slug": "orange-pants"},
-  {"name": "Orange Blouse", "slug": "orange-blouse"},
-  {"name": "Orange Sweater", "slug": "orange-sweater"},
-  {"name": "Orange Hoodie", "slug": "orange-hoodie"},
-  {"name": "Orange Coat", "slug": "orange-coat"},
-  {"name": "Purple T-Shirt", "slug": "purple-t-shirt"},
-  {"name": "Purple Jeans", "slug": "purple-jeans"},
-  {"name": "Purple Jacket", "slug": "purple-jacket"},
-  {"name": "Purple Dress", "slug": "purple-dress"},
-  {"name": "Purple Skirt", "slug": "purple-skirt"},
-  {"name": "Purple Pants", "slug": "purple-pants"},
-  {"name": "Purple Blouse", "slug": "purple-blouse"},
-  {"name": "Purple Sweater", "slug": "purple-sweater"},
-  {"name": "Purple Hoodie", "slug": "purple-hoodie"},
-  {"name": "Purple Coat", "slug": "purple-coat"},
-  {"name": "Pink T-Shirt", "slug": "pink-t-shirt"},
-  {"name": "Pink Jeans", "slug": "pink-jeans"},
-  {"name": "Pink Jacket", "slug": "pink-jacket"},
-  {"name": "Pink Dress", "slug": "pink-dress"},
-  {"name": "Pink Skirt", "slug": "pink-skirt"},
-  {"name": "Pink Pants", "slug": "pink-pants"},
-  {"name": "Pink Blouse", "slug": "pink-blouse"},
-  {"name": "Pink Sweater", "slug": "pink-sweater"},
-  {"name": "Pink Hoodie", "slug": "pink-hoodie"},
-  {"name": "Pink Coat", "slug": "pink-coat"},
-  {"name": "Brown T-Shirt", "slug": "brown-t-shirt"},
-  {"name": "Brown Jeans", "slug": "brown-jeans"},
-  {"name": "Brown Jacket", "slug": "brown-jacket"},
-  {"name": "Brown Dress", "slug": "brown-dress"},
-  {"name": "Brown Skirt", "slug": "brown-skirt"},
-  {"name": "Brown Pants", "slug": "brown-pants"},
-  {"name": "Brown Blouse", "slug": "brown-blouse"},
-  {"name": "Brown Sweater", "slug": "brown-sweater"},
-  {"name": "Brown Hoodie", "slug": "brown-hoodie"},
-  {"name": "Brown Coat", "slug": "brown-coat"},
-  {"name": "Grey T-Shirt", "slug": "grey-t-shirt"},
-  {"name": "Grey Jeans", "slug": "grey-jeans"},
-  {"name": "Grey Jacket", "slug": "grey-jacket"},
-  {"name": "Grey Dress", "slug": "grey-dress"},
-  {"name": "Grey Skirt", "slug": "grey-skirt"},
-  {"name": "Grey Pants", "slug": "grey-pants"},
-  {"name": "Grey Blouse", "slug": "grey-blouse"},
-  {"name": "Grey Sweater", "slug": "grey-sweater"},
-  {"name": "Grey Hoodie", "slug": "grey-hoodie"},
-  {"name": "Grey Coat", "slug": "grey-coat"},
-  {"name": "Gold T-Shirt", "slug": "gold-t-shirt"},
-  {"name": "Gold Jeans", "slug": "gold-jeans"},
-  {"name": "Gold Jacket", "slug": "gold-jacket"},
-  {"name": "Gold Dress", "slug": "gold-dress"},
-  {"name": "Gold Skirt", "slug": "gold-skirt"},
-  {"name": "Gold Pants", "slug": "gold-pants"},
-  {"name": "Gold Blouse", "slug": "gold-blouse"},
-  {"name": "Gold Sweater", "slug": "gold-sweater"},
-  {"name": "Gold Hoodie", "slug": "gold-hoodie"},
-  {"name": "Gold Coat", "slug": "gold-coat"},
-  {"name": "Silver T-Shirt", "slug": "silver-t-shirt"},
-  {"name": "Silver Jeans", "slug": "silver-jeans"},
-  {"name": "Silver Jacket", "slug": "silver-jacket"},
-  {"name": "Silver Dress", "slug": "silver-dress"},
-  {"name": "Silver Skirt", "slug": "silver-skirt"},
-  {"name": "Silver Pants", "slug": "silver-pants"},
-  {"name": "Silver Blouse", "slug": "silver-blouse"},
-  {"name": "Silver Sweater", "slug": "silver-sweater"},
-  {"name": "Silver Hoodie", "slug": "silver-hoodie"},
-  {"name": "Silver Coat", "slug": "silver-coat"},
-  {"name": "Navy T-Shirt", "slug": "navy-t-shirt"},
-  {"name": "Navy Jeans", "slug": "navy-jeans"},
-  {"name": "Navy Jacket", "slug": "navy-jacket"},
-  {"name": "Navy Dress", "slug": "navy-dress"},
-  {"name": "Navy Skirt", "slug": "navy-skirt"},
-  {"name": "Navy Pants", "slug": "navy-pants"},
-  {"name": "Navy Blouse", "slug": "navy-blouse"},
-  {"name": "Navy Sweater", "slug": "navy-sweater"},
-  {"name": "Navy Hoodie", "slug": "navy-hoodie"},
-  {"name": "Navy Coat", "slug": "navy-coat"},
-  {"name": "Teal T-Shirt", "slug": "teal-t-shirt"},
-  {"name": "Teal Jeans", "slug": "teal-jeans"},
-  {"name": "Teal Jacket", "slug": "teal-jacket"},
-  {"name": "Teal Dress", "slug": "teal-dress"},
-  {"name": "Teal Skirt", "slug": "teal-skirt"},
-  {"name": "Teal Pants", "slug": "teal-pants"},
-  {"name": "Teal Blouse", "slug": "teal-blouse"},
-  {"name": "Teal Sweater", "slug": "teal-sweater"},
-  {"name": "Teal Hoodie", "slug": "teal-hoodie"},
-  {"name": "Teal Coat", "slug": "teal-coat"},
-  {"name": "Magenta T-Shirt", "slug": "magenta-t-shirt"},
-  {"name": "Magenta Jeans", "slug": "magenta-jeans"},
-  {"name": "Magenta Jacket", "slug": "magenta-jacket"},
-  {"name": "Magenta Dress", "slug": "magenta-dress"},
-  {"name": "Magenta Skirt", "slug": "magenta-skirt"},
-  {"name": "Magenta Pants", "slug": "magenta-pants"},
-  {"name": "Magenta Blouse", "slug": "magenta-blouse"},
-  {"name": "Magenta Sweater", "slug": "magenta-sweater"},
-  {"name": "Magenta Hoodie", "slug": "magenta-hoodie"},
-  {"name": "Magenta Coat", "slug": "magenta-coat"},
-  {"name": "Cyan T-Shirt", "slug": "cyan-t-shirt"},
-  {"name": "Cyan Jeans", "slug": "cyan-jeans"},
-  {"name": "Cyan Jacket", "slug": "cyan-jacket"},
-  {"name": "Cyan Dress", "slug": "cyan-dress"},
-  {"name": "Cyan Skirt", "slug": "cyan-skirt"},
-  {"name": "Cyan Pants", "slug": "cyan-pants"},
-  {"name": "Cyan Blouse", "slug": "cyan-blouse"},
-  {"name": "Cyan Sweater", "slug": "cyan-sweater"},
-  {"name": "Cyan Hoodie", "slug": "cyan-hoodie"},
-  {"name": "Cyan Coat", "slug": "cyan-coat"},
-  {"name": "Lime T-Shirt", "slug": "lime-t-shirt"},
-  {"name": "Lime Jeans", "slug": "lime-jeans"},
-  {"name": "Lime Jacket", "slug": "lime-jacket"},
-  {"name": "Lime Dress", "slug": "lime-dress"},
-  {"name": "Lime Skirt", "slug": "lime-skirt"},
-  {"name": "Lime Pants", "slug": "lime-pants"},
-  {"name": "Lime Blouse", "slug": "lime-blouse"},
-  {"name": "Lime Sweater", "slug": "lime-sweater"},
-  {"name": "Lime Hoodie", "slug": "lime-hoodie"},
-  {"name": "Lime Coat", "slug": "lime-coat"},
-  {"name": "Peach T-Shirt", "slug": "peach-t-shirt"},
-  {"name": "Peach Jeans", "slug": "peach-jeans"},
-  {"name": "Peach Jacket", "slug": "peach-jacket"},
-  {"name": "Peach Dress", "slug": "peach-dress"},
-  {"name": "Peach Skirt", "slug": "peach-skirt"},
-  {"name": "Peach Pants", "slug": "peach-pants"},
-  {"name": "Peach Blouse", "slug": "peach-blouse"},
-  {"name": "Peach Sweater", "slug": "peach-sweater"},
-  {"name": "Peach Hoodie", "slug": "peach-hoodie"},
-  {"name": "Peach Coat", "slug": "peach-coat"},
-  {"name": "Coral T-Shirt", "slug": "coral-t-shirt"},
-  {"name": "Coral Jeans", "slug": "coral-jeans"},
-  {"name": "Coral Jacket", "slug": "coral-jacket"},
-  {"name": "Coral Dress", "slug": "coral-dress"},
-  {"name": "Coral Skirt", "slug": "coral-skirt"},
-  {"name": "Coral Pants", "slug": "coral-pants"},
-  {"name": "Coral Blouse", "slug": "coral-blouse"},
-  {"name": "Coral Sweater", "slug": "coral-sweater"},
-  {"name": "Coral Hoodie", "slug": "coral-hoodie"},
-  {"name": "Coral Coat", "slug": "coral-coat"},
-  {"name": "Cotton T-Shirt", "slug": "cotton-t-shirt"},
-  {"name": "Cotton Jeans", "slug": "cotton-jeans"},
-  {"name": "Cotton Jacket", "slug": "cotton-jacket"},
-  {"name": "Cotton Dress", "slug": "cotton-dress"},
-  {"name": "Cotton Skirt", "slug": "cotton-skirt"},
-  {"name": "Cotton Pants", "slug": "cotton-pants"},
-  {"name": "Cotton Blouse", "slug": "cotton-blouse"},
-  {"name": "Cotton Sweater", "slug": "cotton-sweater"},
-  {"name": "Cotton Hoodie", "slug": "cotton-hoodie"},
-  {"name": "Cotton Coat", "slug": "cotton-coat"},
-  {"name": "Polyester T-Shirt", "slug": "polyester-t-shirt"},
-  {"name": "Polyester Jeans", "slug": "polyester-jeans"},
-  {"name": "Polyester Jacket", "slug": "polyester-jacket"},
-  {"name": "Polyester Dress", "slug": "polyester-dress"},
-  {"name": "Polyester Skirt", "slug": "polyester-skirt"},
-  {"name": "Polyester Pants", "slug": "polyester-pants"},
-  {"name": "Polyester Blouse", "slug": "polyester-blouse"},
-  {"name": "Polyester Sweater", "slug": "polyester-sweater"},
-  {"name": "Polyester Hoodie", "slug": "polyester-hoodie"},
-  {"name": "Polyester Coat", "slug": "polyester-coat"},
-  {"name": "Wool T-Shirt", "slug": "wool-t-shirt"},
-  {"name": "Wool Jeans", "slug": "wool-jeans"},
-  {"name": "Wool Jacket", "slug": "wool-jacket"},
-  {"name": "Wool Dress", "slug": "wool-dress"},
-  {"name": "Wool Skirt", "slug": "wool-skirt"},
-  {"name": "Wool Pants", "slug": "wool-pants"},
-  {"name": "Wool Blouse", "slug": "wool-blouse"},
-  {"name": "Wool Sweater", "slug": "wool-sweater"},
-  {"name": "Wool Hoodie", "slug": "wool-hoodie"},
-  {"name": "Wool Coat", "slug": "wool-coat"},
-  {"name": "Silk T-Shirt", "slug": "silk-t-shirt"},
-  {"name": "Silk Jeans", "slug": "silk-jeans"},
-  {"name": "Silk Jacket", "slug": "silk-jacket"},
-  {"name": "Silk Dress", "slug": "silk-dress"},
-  {"name": "Silk Skirt", "slug": "silk-skirt"},
-  {"name": "Silk Pants", "slug": "silk-pants"},
-  {"name": "Silk Blouse", "slug": "silk-blouse"},
-  {"name": "Silk Sweater", "slug": "silk-sweater"},
-  {"name": "Silk Hoodie", "slug": "silk-hoodie"},
-  {"name": "Silk Coat", "slug": "silk-coat"},
-  {"name": "Linen T-Shirt", "slug": "linen-t-shirt"},
-  {"name": "Linen Jeans", "slug": "linen-jeans"},
-  {"name": "Linen Jacket", "slug": "linen-jacket"},
-  {"name": "Linen Dress", "slug": "linen-dress"},
-  {"name": "Linen Skirt", "slug": "linen-skirt"},
-  {"name": "Linen Pants", "slug": "linen-pants"},
-  {"name": "Linen Blouse", "slug": "linen-blouse"},
-  {"name": "Linen Sweater", "slug": "linen-sweater"},
-  {"name": "Linen Hoodie", "slug": "linen-hoodie"},
-  {"name": "Linen Coat", "slug": "linen-coat"},
-  {"name": "Leather T-Shirt", "slug": "leather-t-shirt"},
-  {"name": "Leather Jeans", "slug": "leather-jeans"},
-  {"name": "Leather Jacket", "slug": "leather-jacket"},
-  {"name": "Leather Dress", "slug": "leather-dress"},
-  {"name": "Leather Skirt", "slug": "leather-skirt"},
-  {"name": "Leather Pants", "slug": "leather-pants"},
-  {"name": "Leather Blouse", "slug": "leather-blouse"},
-  {"name": "Leather Sweater", "slug": "leather-sweater"},
-  {"name": "Leather Hoodie", "slug": "leather-hoodie"},
-  {"name": "Leather Coat", "slug": "leather-coat"},
-  {"name": "Suede T-Shirt", "slug": "suede-t-shirt"},
-  {"name": "Suede Jeans", "slug": "suede-jeans"},
-  {"name": "Suede Jacket", "slug": "suede-jacket"},
-  {"name": "Suede Dress", "slug": "suede-dress"},
-  {"name": "Suede Skirt", "slug": "suede-skirt"},
-  {"name": "Suede Pants", "slug": "suede-pants"},
-  {"name": "Suede Blouse", "slug": "suede-blouse"},
-  {"name": "Suede Sweater", "slug": "suede-sweater"},
-  {"name": "Suede Hoodie", "slug": "suede-hoodie"},
-  {"name": "Suede Coat", "slug": "suede-coat"},
-  {"name": "Denim T-Shirt", "slug": "denim-t-shirt"},
-  {"name": "Denim Jeans", "slug": "denim-jeans"},
-  {"name": "Denim Jacket", "slug": "denim-jacket"},
-  {"name": "Denim Dress", "slug": "denim-dress"},
-  {"name": "Denim Skirt", "slug": "denim-skirt"},
-  {"name": "Denim Pants", "slug": "denim-pants"},
-  {"name": "Denim Blouse", "slug": "denim-blouse"},
-  {"name": "Denim Sweater", "slug": "denim-sweater"},
-  {"name": "Denim Hoodie", "slug": "denim-hoodie"},
-  {"name": "Denim Coat", "slug": "denim-coat"},
-  {"name": "Nylon T-Shirt", "slug": "nylon-t-shirt"},
-  {"name": "Nylon Jeans", "slug": "nylon-jeans"},
-  {"name": "Nylon Jacket", "slug": "nylon-jacket"},
-  {"name": "Nylon Dress", "slug": "nylon-dress"},
-  {"name": "Nylon Skirt", "slug": "nylon-skirt"},
-  {"name": "Nylon Pants", "slug": "nylon-pants"},
-  {"name": "Nylon Blouse", "slug": "nylon-blouse"},
-  {"name": "Nylon Sweater", "slug": "nylon-sweater"},
-  {"name": "Nylon Hoodie", "slug": "nylon-hoodie"},
-  {"name": "Nylon Coat", "slug": "nylon-coat"},
-  {"name": "Spandex T-Shirt", "slug": "spandex-t-shirt"},
-  {"name": "Spandex Jeans", "slug": "spandex-jeans"},
-  {"name": "Spandex Jacket", "slug": "spandex-jacket"},
-  {"name": "Spandex Dress", "slug": "spandex-dress"},
-  {"name": "Spandex Skirt", "slug": "spandex-skirt"},
-  {"name": "Spandex Pants", "slug": "spandex-pants"},
-  {"name": "Spandex Blouse", "slug": "spandex-blouse"},
-  {"name": "Spandex Sweater", "slug": "spandex-sweater"},
-  {"name": "Spandex Hoodie", "slug": "spandex-hoodie"},
-  {"name": "Spandex Coat", "slug": "spandex-coat"},
-  {"name": "Rayon T-Shirt", "slug": "rayon-t-shirt"},
-  {"name": "Rayon Jeans", "slug": "rayon-jeans"},
-  {"name": "Rayon Jacket", "slug": "rayon-jacket"},
-  {"name": "Rayon Dress", "slug": "rayon-dress"},
-  {"name": "Rayon Skirt", "slug": "rayon-skirt"},
-  {"name": "Rayon Pants", "slug": "rayon-pants"},
-  {"name": "Rayon Blouse", "slug": "rayon-blouse"},
-  {"name": "Rayon Sweater", "slug": "rayon-sweater"},
-  {"name": "Rayon Hoodie", "slug": "rayon-hoodie"},
-  {"name": "Rayon Coat", "slug": "rayon-coat"},
-  {"name": "Velvet T-Shirt", "slug": "velvet-t-shirt"},
-  {"name": "Velvet Jeans", "slug": "velvet-jeans"},
-  {"name": "Velvet Jacket", "slug": "velvet-jacket"},
-  {"name": "Velvet Dress", "slug": "velvet-dress"},
-  {"name": "Velvet Skirt", "slug": "velvet-skirt"},
-  {"name": "Velvet Pants", "slug": "velvet-pants"},
-  {"name": "Velvet Blouse", "slug": "velvet-blouse"},
-  {"name": "Velvet Sweater", "slug": "velvet-sweater"},
-  {"name": "Velvet Hoodie", "slug": "velvet-hoodie"},
-  {"name": "Velvet Coat", "slug": "velvet-coat"},
-  {"name": "Cashmere T-Shirt", "slug": "cashmere-t-shirt"},
-  {"name": "Cashmere Jeans", "slug": "cashmere-jeans"},
-  {"name": "Cashmere Jacket", "slug": "cashmere-jacket"},
-  {"name": "Cashmere Dress", "slug": "cashmere-dress"},
-  {"name": "Cashmere Skirt", "slug": "cashmere-skirt"},
-  {"name": "Cashmere Pants", "slug": "cashmere-pants"},
-  {"name": "Cashmere Blouse", "slug": "cashmere-blouse"},
-  {"name": "Cashmere Sweater", "slug": "cashmere-sweater"},
-  {"name": "Cashmere Hoodie", "slug": "cashmere-hoodie"},
-  {"name": "Cashmere Coat", "slug": "cashmere-coat"},
-  {"name": "Tweed T-Shirt", "slug": "tweed-t-shirt"},
-  {"name": "Tweed Jeans", "slug": "tweed-jeans"},
-  {"name": "Tweed Jacket", "slug": "tweed-jacket"},
-  {"name": "Tweed Dress", "slug": "tweed-dress"},
-  {"name": "Tweed Skirt", "slug": "tweed-skirt"},
-  {"name": "Tweed Pants", "slug": "tweed-pants"},
-  {"name": "Tweed Blouse", "slug": "tweed-blouse"},
-  {"name": "Tweed Sweater", "slug": "tweed-sweater"},
-  {"name": "Tweed Hoodie", "slug": "tweed-hoodie"},
-  {"name": "Tweed Coat", "slug": "tweed-coat"},
-  {"name": "Corduroy T-Shirt", "slug": "corduroy-t-shirt"},
-  {"name": "Corduroy Jeans", "slug": "corduroy-jeans"},
-  {"name": "Corduroy Jacket", "slug": "corduroy-jacket"},
-  {"name": "Corduroy Dress", "slug": "corduroy-dress"},
-  {"name": "Corduroy Skirt", "slug": "corduroy-skirt"},
-  {"name": "Corduroy Pants", "slug": "corduroy-pants"},
-  {"name": "Corduroy Blouse", "slug": "corduroy-blouse"},
-  {"name": "Corduroy Sweater", "slug": "corduroy-sweater"},
-  {"name": "Corduroy Hoodie", "slug": "corduroy-hoodie"},
-  {"name": "Corduroy Coat", "slug": "corduroy-coat"},
-  {"name": "Fleece T-Shirt", "slug": "fleece-t-shirt"},
-  {"name": "Fleece Jeans", "slug": "fleece-jeans"},
-  {"name": "Fleece Jacket", "slug": "fleece-jacket"},
-  {"name": "Fleece Dress", "slug": "fleece-dress"},
-  {"name": "Fleece Skirt", "slug": "fleece-skirt"},
-  {"name": "Fleece Pants", "slug": "fleece-pants"},
-  {"name": "Fleece Blouse", "slug": "fleece-blouse"},
-  {"name": "Fleece Sweater", "slug": "fleece-sweater"},
-  {"name": "Fleece Hoodie", "slug": "fleece-hoodie"},
-  {"name": "Fleece Coat", "slug": "fleece-coat"},
-  {"name": "Acrylic T-Shirt", "slug": "acrylic-t-shirt"},
-  {"name": "Acrylic Jeans", "slug": "acrylic-jeans"},
-  {"name": "Acrylic Jacket", "slug": "acrylic-jacket"},
-  {"name": "Acrylic Dress", "slug": "acrylic-dress"},
-  {"name": "Acrylic Skirt", "slug": "acrylic-skirt"},
-  {"name": "Acrylic Pants", "slug": "acrylic-pants"},
-  {"name": "Acrylic Blouse", "slug": "acrylic-blouse"},
-  {"name": "Acrylic Sweater", "slug": "acrylic-sweater"},
-  {"name": "Acrylic Hoodie", "slug": "acrylic-hoodie"},
-  {"name": "Acrylic Coat", "slug": "acrylic-coat"},
-  {"name": "Hemp T-Shirt", "slug": "hemp-t-shirt"},
-  {"name": "Hemp Jeans", "slug": "hemp-jeans"},
-  {"name": "Hemp Jacket", "slug": "hemp-jacket"},
-  {"name": "Hemp Dress", "slug": "hemp-dress"},
-  {"name": "Hemp Skirt", "slug": "hemp-skirt"},
-  {"name": "Hemp Pants", "slug": "hemp-pants"},
-  {"name": "Hemp Blouse", "slug": "hemp-blouse"},
-  {"name": "Hemp Sweater", "slug": "hemp-sweater"},
-  {"name": "Hemp Hoodie", "slug": "hemp-hoodie"},
-  {"name": "Hemp Coat", "slug": "hemp-coat"},
-  {"name": "Bamboo T-Shirt", "slug": "bamboo-t-shirt"},
-  {"name": "Bamboo Jeans", "slug": "bamboo-jeans"},
-  {"name": "Bamboo Jacket", "slug": "bamboo-jacket"},
-  {"name": "Bamboo Dress", "slug": "bamboo-dress"},
-  {"name": "Bamboo Skirt", "slug": "bamboo-skirt"},
-  {"name": "Bamboo Pants", "slug": "bamboo-pants"},
-  {"name": "Bamboo Blouse", "slug": "bamboo-blouse"},
-  {"name": "Bamboo Sweater", "slug": "bamboo-sweater"},
-  {"name": "Bamboo Hoodie", "slug": "bamboo-hoodie"},
-  {"name": "Bamboo Coat", "slug": "bamboo-coat"},
-  {"name": "Jute T-Shirt", "slug": "jute-t-shirt"},
-  {"name": "Jute Jeans", "slug": "jute-jeans"},
-  {"name": "Jute Jacket", "slug": "jute-jacket"},
-  {"name": "Jute Dress", "slug": "jute-dress"},
-  {"name": "Jute Skirt", "slug": "jute-skirt"},
-  {"name": "Jute Pants", "slug": "jute-pants"},
-  {"name": "Jute Blouse", "slug": "jute-blouse"},
-  {"name": "Jute Sweater", "slug": "jute-sweater"},
-  {"name": "Jute Hoodie", "slug": "jute-hoodie"},
-  {"name": "Jute Coat", "slug": "jute-coat"},
-  {"name": "Vintage T-Shirt", "slug": "vintage-t-shirt"},
-  {"name": "Vintage Jeans", "slug": "vintage-jeans"},
-  {"name": "Vintage Jacket", "slug": "vintage-jacket"},
-  {"name": "Vintage Dress", "slug": "vintage-dress"},
-  {"name": "Vintage Skirt", "slug": "vintage-skirt"},
-  {"name": "Vintage Pants", "slug": "vintage-pants"},
-  {"name": "Vintage Blouse", "slug": "vintage-blouse"},
-  {"name": "Vintage Sweater", "slug": "vintage-sweater"},
-  {"name": "Vintage Hoodie", "slug": "vintage-hoodie"},
-  {"name": "Vintage Coat", "slug": "vintage-coat"},
-  {"name": "Modern T-Shirt", "slug": "modern-t-shirt"},
-  {"name": "Modern Jeans", "slug": "modern-jeans"},
-  {"name": "Modern Jacket", "slug": "modern-jacket"},
-  {"name": "Modern Dress", "slug": "modern-dress"},
-  {"name": "Modern Skirt", "slug": "modern-skirt"},
-  {"name": "Modern Pants", "slug": "modern-pants"},
-  {"name": "Modern Blouse", "slug": "modern-blouse"},
-  {"name": "Modern Sweater", "slug": "modern-sweater"},
-  {"name": "Modern Hoodie", "slug": "modern-hoodie"},
-  {"name": "Modern Coat", "slug": "modern-coat"},
-  {"name": "Classic T-Shirt", "slug": "classic-t-shirt"},
-  {"name": "Classic Jeans", "slug": "classic-jeans"},
-  {"name": "Classic Jacket", "slug": "classic-jacket"},
-  {"name": "Classic Dress", "slug": "classic-dress"},
-  {"name": "Classic Skirt", "slug": "classic-skirt"},
-  {"name": "Classic Pants", "slug": "classic-pants"},
-  {"name": "Classic Blouse", "slug": "classic-blouse"},
-  {"name": "Classic Sweater", "slug": "classic-sweater"},
-  {"name": "Classic Hoodie", "slug": "classic-hoodie"},
-  {"name": "Classic Coat", "slug": "classic-coat"},
-  {"name": "Bohemian T-Shirt", "slug": "bohemian-t-shirt"},
-  {"name": "Bohemian Jeans", "slug": "bohemian-jeans"},
-  {"name": "Bohemian Jacket", "slug": "bohemian-jacket"},
-  {"name": "Bohemian Dress", "slug": "bohemian-dress"},
-  {"name": "Bohemian Skirt", "slug": "bohemian-skirt"},
-  {"name": "Bohemian Pants", "slug": "bohemian-pants"},
-  {"name": "Bohemian Blouse", "slug": "bohemian-blouse"},
-  {"name": "Bohemian Sweater", "slug": "bohemian-sweater"},
-  {"name": "Bohemian Hoodie", "slug": "bohemian-hoodie"},
-  {"name": "Bohemian Coat", "slug": "bohemian-coat"},
-  {"name": "Minimalist T-Shirt", "slug": "minimalist-t-shirt"},
-  {"name": "Minimalist Jeans", "slug": "minimalist-jeans"},
-  {"name": "Minimalist Jacket", "slug": "minimalist-jacket"},
-  {"name": "Minimalist Dress", "slug": "minimalist-dress"},
-  {"name": "Minimalist Skirt", "slug": "minimalist-skirt"},
-  {"name": "Minimalist Pants", "slug": "minimalist-pants"},
-  {"name": "Minimalist Blouse", "slug": "minimalist-blouse"},
-  {"name": "Minimalist Sweater", "slug": "minimalist-sweater"},
-  {"name": "Minimalist Hoodie", "slug": "minimalist-hoodie"},
-  {"name": "Minimalist Coat", "slug": "minimalist-coat"},
-  {"name": "Rustic T-Shirt", "slug": "rustic-t-shirt"},
-  {"name": "Rustic Jeans", "slug": "rustic-jeans"},
-  {"name": "Rustic Jacket", "slug": "rustic-jacket"},
-  {"name": "Rustic Dress", "slug": "rustic-dress"},
-  {"name": "Rustic Skirt", "slug": "rustic-skirt"},
-  {"name": "Rustic Pants", "slug": "rustic-pants"},
-  {"name": "Rustic Blouse", "slug": "rustic-blouse"},
-  {"name": "Rustic Sweater", "slug": "rustic-sweater"},
-  {"name": "Rustic Hoodie", "slug": "rustic-hoodie"},
-  {"name": "Rustic Coat", "slug": "rustic-coat"},
-  {"name": "Industrial T-Shirt", "slug": "industrial-t-shirt"},
-  {"name": "Industrial Jeans", "slug": "industrial-jeans"},
-  {"name": "Industrial Jacket", "slug": "industrial-jacket"},
-  {"name": "Industrial Dress", "slug": "industrial-dress"},
-  {"name": "Industrial Skirt", "slug": "industrial-skirt"},
-  {"name": "Industrial Pants", "slug": "industrial-pants"},
-  {"name": "Industrial Blouse", "slug": "industrial-blouse"},
-  {"name": "Industrial Sweater", "slug": "industrial-sweater"},
-  {"name": "Industrial Hoodie", "slug": "industrial-hoodie"},
-  {"name": "Industrial Coat", "slug": "industrial-coat"},
-  {"name": "Mid-Century T-Shirt", "slug": "mid-century-t-shirt"},
-  {"name": "Mid-Century Jeans", "slug": "mid-century-jeans"},
-  {"name": "Mid-Century Jacket", "slug": "mid-century-jacket"},
-  {"name": "Mid-Century Dress", "slug": "mid-century-dress"},
-  {"name": "Mid-Century Skirt", "slug": "mid-century-skirt"},
-  {"name": "Mid-Century Pants", "slug": "mid-century-pants"},
-  {"name": "Mid-Century Blouse", "slug": "mid-century-blouse"},
-  {"name": "Mid-Century Sweater", "slug": "mid-century-sweater"},
-  {"name": "Mid-Century Hoodie", "slug": "mid-century-hoodie"},
-  {"name": "Mid-Century Coat", "slug": "mid-century-coat"},
-  {"name": "Contemporary T-Shirt", "slug": "contemporary-t-shirt"},
-  {"name": "Contemporary Jeans", "slug": "contemporary-jeans"},
-  {"name": "Contemporary Jacket", "slug": "contemporary-jacket"},
-  {"name": "Contemporary Dress", "slug": "contemporary-dress"},
-  {"name": "Contemporary Skirt", "slug": "contemporary-skirt"},
-  {"name": "Contemporary Pants", "slug": "contemporary-pants"},
-  {"name": "Contemporary Blouse", "slug": "contemporary-blouse"},
-  {"name": "Contemporary Sweater", "slug": "contemporary-sweater"},
-  {"name": "Contemporary Hoodie", "slug": "contemporary-hoodie"},
-  {"name": "Contemporary Coat", "slug": "contemporary-coat"},
-  {"name": "Traditional T-Shirt", "slug": "traditional-t-shirt"},
-  {"name": "Traditional Jeans", "slug": "traditional-jeans"},
-  {"name": "Traditional Jacket", "slug": "traditional-jacket"},
-  {"name": "Traditional Dress", "slug": "traditional-dress"},
-  {"name": "Traditional Skirt", "slug": "traditional-skirt"},
-  {"name": "Traditional Pants", "slug": "traditional-pants"},
-  {"name": "Traditional Blouse", "slug": "traditional-blouse"},
-  {"name": "Traditional Sweater", "slug": "traditional-sweater"},
-  {"name": "Traditional Hoodie", "slug": "traditional-hoodie"},
-  {"name": "Traditional Coat", "slug": "traditional-coat"},
-  {"name": "Romantic T-Shirt", "slug": "romantic-t-shirt"},
-  {"name": "Romantic Jeans", "slug": "romantic-jeans"},
-  {"name": "Romantic Jacket", "slug": "romantic-jacket"},
-  {"name": "Romantic Dress", "slug": "romantic-dress"},
-  {"name": "Romantic Skirt", "slug": "romantic-skirt"},
-  {"name": "Romantic Pants", "slug": "romantic-pants"},
-  {"name": "Romantic Blouse", "slug": "romantic-blouse"},
-  {"name": "Romantic Sweater", "slug": "romantic-sweater"},
-  {"name": "Romantic Hoodie", "slug": "romantic-hoodie"},
-  {"name": "Romantic Coat", "slug": "romantic-coat"},
-  {"name": "Edgy T-Shirt", "slug": "edgy-t-shirt"},
-  {"name": "Edgy Jeans", "slug": "edgy-jeans"},
-  {"name": "Edgy Jacket", "slug": "edgy-jacket"},
-  {"name": "Edgy Dress", "slug": "edgy-dress"},
-  {"name": "Edgy Skirt", "slug": "edgy-skirt"},
-  {"name": "Edgy Pants", "slug": "edgy-pants"},
-  {"name": "Edgy Blouse", "slug": "edgy-blouse"},
-  {"name": "Edgy Sweater", "slug": "edgy-sweater"},
-  {"name": "Edgy Hoodie", "slug": "edgy-hoodie"},
-  {"name": "Edgy Coat", "slug": "edgy-coat"},
-  {"name": "Sporty T-Shirt", "slug": "sporty-t-shirt"},
-  {"name": "Sporty Jeans", "slug": "sporty-jeans"},
-  {"name": "Sporty Jacket", "slug": "sporty-jacket"},
-  {"name": "Sporty Dress", "slug": "sporty-dress"},
-  {"name": "Sporty Skirt", "slug": "sporty-skirt"},
-  {"name": "Sporty Pants", "slug": "sporty-pants"},
-  {"name": "Sporty Blouse", "slug": "sporty-blouse"},
-  {"name": "Sporty Sweater", "slug": "sporty-sweater"},
-  {"name": "Sporty Hoodie", "slug": "sporty-hoodie"},
-  {"name": "Sporty Coat", "slug": "sporty-coat"},
-  {"name": "Casual T-Shirt", "slug": "casual-t-shirt"},
-  {"name": "Casual Jeans", "slug": "casual-jeans"},
-  {"name": "Casual Jacket", "slug": "casual-jacket"},
-  {"name": "Casual Dress", "slug": "casual-dress"},
-  {"name": "Casual Skirt", "slug": "casual-skirt"},
-  {"name": "Casual Pants", "slug": "casual-pants"},
-  {"name": "Casual Blouse", "slug": "casual-blouse"},
-  {"name": "Casual Sweater", "slug": "casual-sweater"},
-  {"name": "Casual Hoodie", "slug": "casual-hoodie"},
-  {"name": "Casual Coat", "slug": "casual-coat"},
-  {"name": "Formal T-Shirt", "slug": "formal-t-shirt"},
-  {"name": "Formal Jeans", "slug": "formal-jeans"},
-  {"name": "Formal Jacket", "slug": "formal-jacket"},
-  {"name": "Formal Dress", "slug": "formal-dress"},
-  {"name": "Formal Skirt", "slug": "formal-skirt"},
-  {"name": "Formal Pants", "slug": "formal-pants"},
-  {"name": "Formal Blouse", "slug": "formal-blouse"},
-  {"name": "Formal Sweater", "slug": "formal-sweater"},
-  {"name": "Formal Hoodie", "slug": "formal-hoodie"},
-  {"name": "Formal Coat", "slug": "formal-coat"},
-  {"name": "Elegant T-Shirt", "slug": "elegant-t-shirt"},
-  {"name": "Elegant Jeans", "slug": "elegant-jeans"},
-  {"name": "Elegant Jacket", "slug": "elegant-jacket"},
-  {"name": "Elegant Dress", "slug": "elegant-dress"},
-  {"name": "Elegant Skirt", "slug": "elegant-skirt"},
-  {"name": "Elegant Pants", "slug": "elegant-pants"},
-  {"name": "Elegant Blouse", "slug": "elegant-blouse"},
-  {"name": "Elegant Sweater", "slug": "elegant-sweater"},
-  {"name": "Elegant Hoodie", "slug": "elegant-hoodie"},
-  {"name": "Elegant Coat", "slug": "elegant-coat"},
-  {"name": "Luxurious T-Shirt", "slug": "luxurious-t-shirt"},
-  {"name": "Luxurious Jeans", "slug": "luxurious-jeans"},
-  {"name": "Luxurious Jacket", "slug": "luxurious-jacket"},
-  {"name": "Luxurious Dress", "slug": "luxurious-dress"},
-  {"name": "Luxurious Skirt", "slug": "luxurious-skirt"},
-  {"name": "Luxurious Pants", "slug": "luxurious-pants"},
-  {"name": "Luxurious Blouse", "slug": "luxurious-blouse"},
-  {"name": "Luxurious Sweater", "slug": "luxurious-sweater"},
-  {"name": "Luxurious Hoodie", "slug": "luxurious-hoodie"},
-  {"name": "Luxurious Coat", "slug": "luxurious-coat"},
-  {"name": "Cozy T-Shirt", "slug": "cozy-t-shirt"},
-  {"name": "Cozy Jeans", "slug": "cozy-jeans"},
-  {"name": "Cozy Jacket", "slug": "cozy-jacket"},
-  {"name": "Cozy Dress", "slug": "cozy-dress"},
-  {"name": "Cozy Skirt", "slug": "cozy-skirt"},
-  {"name": "Cozy Pants", "slug": "cozy-pants"},
-  {"name": "Cozy Blouse", "slug": "cozy-blouse"},
-  {"name": "Cozy Sweater", "slug": "cozy-sweater"},
-  {"name": "Cozy Hoodie", "slug": "cozy-hoodie"},
-  {"name": "Cozy Coat", "slug": "cozy-coat"},
-  {"name": "Chic T-Shirt", "slug": "chic-t-shirt"},
-  {"name": "Chic Jeans", "slug": "chic-jeans"},
-  {"name": "Chic Jacket", "slug": "chic-jacket"},
-  {"name": "Chic Dress", "slug": "chic-dress"},
-  {"name": "Chic Skirt", "slug": "chic-skirt"},
-  {"name": "Chic Pants", "slug": "chic-pants"},
-  {"name": "Chic Blouse", "slug": "chic-blouse"},
-  {"name": "Chic Sweater", "slug": "chic-sweater"},
-  {"name": "Chic Hoodie", "slug": "chic-hoodie"},
-  {"name": "Chic Coat", "slug": "chic-coat"},
-  {"name": "Trendy T-Shirt", "slug": "trendy-t-shirt"},
-  {"name": "Trendy Jeans", "slug": "trendy-jeans"},
-  {"name": "Trendy Jacket", "slug": "trendy-jacket"},
-  {"name": "Trendy Dress", "slug": "trendy-dress"},
-  {"name": "Trendy Skirt", "slug": "trendy-skirt"},
-  {"name": "Trendy Pants", "slug": "trendy-pants"},
-  {"name": "Trendy Blouse", "slug": "trendy-blouse"},
-  {"name": "Trendy Sweater", "slug": "trendy-sweater"},
-  {"name": "Trendy Hoodie", "slug": "trendy-hoodie"},
-  {"name": "Trendy Coat", "slug": "trendy-coat"},
-  {"name": "Waterproof T-Shirt", "slug": "waterproof-t-shirt"},
-  {"name": "Waterproof Jeans", "slug": "waterproof-jeans"},
-  {"name": "Waterproof Jacket", "slug": "waterproof-jacket"},
-  {"name": "Waterproof Dress", "slug": "waterproof-dress"},
-  {"name": "Waterproof Skirt", "slug": "waterproof-skirt"},
-  {"name": "Waterproof Pants", "slug": "waterproof-pants"},
-  {"name": "Waterproof Blouse", "slug": "waterproof-blouse"},
-  {"name": "Waterproof Sweater", "slug": "waterproof-sweater"},
-  {"name": "Waterproof Hoodie", "slug": "waterproof-hoodie"},
-  {"name": "Waterproof Coat", "slug": "waterproof-coat"},
-  {"name": "Water-Resistant T-Shirt", "slug": "water-resistant-t-shirt"},
-  {"name": "Water-Resistant Jeans", "slug": "water-resistant-jeans"},
-  {"name": "Water-Resistant Jacket", "slug": "water-resistant-jacket"},
-  {"name": "Water-Resistant Dress", "slug": "water-resistant-dress"},
-  {"name": "Water-Resistant Skirt", "slug": "water-resistant-skirt"},
-  {"name": "Water-Resistant Pants", "slug": "water-resistant-pants"},
-  {"name": "Water-Resistant Blouse", "slug": "water-resistant-blouse"},
-  {"name": "Water-Resistant Sweater", "slug": "water-resistant-sweater"},
-  {"name": "Water-Resistant Hoodie", "slug": "water-resistant-hoodie"},
-  {"name": "Water-Resistant Coat", "slug": "water-resistant-coat"},
-  {"name": "Windproof T-Shirt", "slug": "windproof-t-shirt"},
-  {"name": "Windproof Jeans", "slug": "windproof-jeans"},
-  {"name": "Windproof Jacket", "slug": "windproof-jacket"},
-  {"name": "Windproof Dress", "slug": "windproof-dress"},
-  {"name": "Windproof Skirt", "slug": "windproof-skirt"},
-  {"name": "Windproof Pants", "slug": "windproof-pants"},
-  {"name": "Windproof Blouse", "slug": "windproof-blouse"},
-  {"name": "Windproof Sweater", "slug": "windproof-sweater"},
-  {"name": "Windproof Hoodie", "slug": "windproof-hoodie"},
-  {"name": "Windproof Coat", "slug": "windproof-coat"},
-  {"name": "Breathable T-Shirt", "slug": "breathable-t-shirt"},
-  {"name": "Breathable Jeans", "slug": "breathable-jeans"},
-  {"name": "Breathable Jacket", "slug": "breathable-jacket"},
-  {"name": "Breathable Dress", "slug": "breathable-dress"},
-  {"name": "Breathable Skirt", "slug": "breathable-skirt"},
-  {"name": "Breathable Pants", "slug": "breathable-pants"},
-  {"name": "Breathable Blouse", "slug": "breathable-blouse"},
-  {"name": "Breathable Sweater", "slug": "breathable-sweater"},
-  {"name": "Breathable Hoodie", "slug": "breathable-hoodie"},
-  {"name": "Breathable Coat", "slug": "breathable-coat"},
-  {"name": "Stretchable T-Shirt", "slug": "stretchable-t-shirt"},
-  {"name": "Stretchable Jeans", "slug": "stretchable-jeans"},
-  {"name": "Stretchable Jacket", "slug": "stretchable-jacket"},
-  {"name": "Stretchable Dress", "slug": "stretchable-dress"},
-  {"name": "Stretchable Skirt", "slug": "stretchable-skirt"},
-  {"name": "Stretchable Pants", "slug": "stretchable-pants"},
-  {"name": "Stretchable Blouse", "slug": "stretchable-blouse"},
-  {"name": "Stretchable Sweater", "slug": "stretchable-sweater"},
-  {"name": "Stretchable Hoodie", "slug": "stretchable-hoodie"},
-  {"name": "Stretchable Coat", "slug": "stretchable-coat"},
-  {"name": "Wrinkle-Free T-Shirt", "slug": "wrinkle-free-t-shirt"},
-  {"name": "Wrinkle-Free Jeans", "slug": "wrinkle-free-jeans"},
-  {"name": "Wrinkle-Free Jacket", "slug": "wrinkle-free-jacket"},
-  {"name": "Wrinkle-Free Dress", "slug": "wrinkle-free-dress"},
-  {"name": "Wrinkle-Free Skirt", "slug": "wrinkle-free-skirt"},
-  {"name": "Wrinkle-Free Pants", "slug": "wrinkle-free-pants"},
-  {"name": "Wrinkle-Free Blouse", "slug": "wrinkle-free-blouse"},
-  {"name": "Wrinkle-Free Sweater", "slug": "wrinkle-free-sweater"},
-  {"name": "Wrinkle-Free Hoodie", "slug": "wrinkle-free-hoodie"},
-  {"name": "Wrinkle-Free Coat", "slug": "wrinkle-free-coat"},
-  {"name": "Fade-Resistant T-Shirt", "slug": "fade-resistant-t-shirt"},
-  {"name": "Fade-Resistant Jeans", "slug": "fade-resistant-jeans"},
-  {"name": "Fade-Resistant Jacket", "slug": "fade-resistant-jacket"},
-  {"name": "Fade-Resistant Dress", "slug": "fade-resistant-dress"},
-  {"name": "Fade-Resistant Skirt", "slug": "fade-resistant-skirt"},
-  {"name": "Fade-Resistant Pants", "slug": "fade-resistant-pants"},
-  {"name": "Fade-Resistant Blouse", "slug": "fade-resistant-blouse"},
-  {"name": "Fade-Resistant Sweater", "slug": "fade-resistant-sweater"},
-  {"name": "Fade-Resistant Hoodie", "slug": "fade-resistant-hoodie"},
-  {"name": "Fade-Resistant Coat", "slug": "fade-resistant-coat"},
-  {"name": "Odor-Resistant T-Shirt", "slug": "odor-resistant-t-shirt"},
-  {"name": "Odor-Resistant Jeans", "slug": "odor-resistant-jeans"},
-  {"name": "Odor-Resistant Jacket", "slug": "odor-resistant-jacket"},
-  {"name": "Odor-Resistant Dress", "slug": "odor-resistant-dress"},
-  {"name": "Odor-Resistant Skirt", "slug": "odor-resistant-skirt"},
-  {"name": "Odor-Resistant Pants", "slug": "odor-resistant-pants"},
-  {"name": "Odor-Resistant Blouse", "slug": "odor-resistant-blouse"},
-  {"name": "Odor-Resistant Sweater", "slug": "odor-resistant-sweater"},
-  {"name": "Odor-Resistant Hoodie", "slug": "odor-resistant-hoodie"},
-  {"name": "Odor-Resistant Coat", "slug": "odor-resistant-coat"},
-  {"name": "Antibacterial T-Shirt", "slug": "antibacterial-t-shirt"},
-  {"name": "Antibacterial Jeans", "slug": "antibacterial-jeans"},
-  {"name": "Antibacterial Jacket", "slug": "antibacterial-jacket"},
-  {"name": "Antibacterial Dress", "slug": "antibacterial-dress"},
-  {"name": "Antibacterial Skirt", "slug": "antibacterial-skirt"},
-  {"name": "Antibacterial Pants", "slug": "antibacterial-pants"},
-  {"name": "Antibacterial Blouse", "slug": "antibacterial-blouse"},
-  {"name": "Antibacterial Sweater", "slug": "antibacterial-sweater"},
-  {"name": "Antibacterial Hoodie", "slug": "antibacterial-hoodie"},
-  {"name": "Antibacterial Coat", "slug": "antibacterial-coat"},
-  {"name": "Antimicrobial T-Shirt", "slug": "antimicrobial-t-shirt"},
-  {"name": "Antimicrobial Jeans", "slug": "antimicrobial-jeans"},
-  {"name": "Antimicrobial Jacket", "slug": "antimicrobial-jacket"},
-  {"name": "Antimicrobial Dress", "slug": "antimicrobial-dress"},
-  {"name": "Antimicrobial Skirt", "slug": "antimicrobial-skirt"},
-  {"name": "Antimicrobial Pants", "slug": "antimicrobial-pants"},
-  {"name": "Antimicrobial Blouse", "slug": "antimicrobial-blouse"},
-  {"name": "Antimicrobial Sweater", "slug": "antimicrobial-sweater"},
-  {"name": "Antimicrobial Hoodie", "slug": "antimicrobial-hoodie"},
-  {"name": "Antimicrobial Coat", "slug": "antimicrobial-coat"},
-  {"name": "Organic T-Shirt", "slug": "organic-t-shirt"},
-  {"name": "Organic Jeans", "slug": "organic-jeans"},
-  {"name": "Organic Jacket", "slug": "organic-jacket"},
-  {"name": "Organic Dress", "slug": "organic-dress"},
-  {"name": "Organic Skirt", "slug": "organic-skirt"},
-  {"name": "Organic Pants", "slug": "organic-pants"},
-  {"name": "Organic Blouse", "slug": "organic-blouse"},
-  {"name": "Organic Sweater", "slug": "organic-sweater"},
-  {"name": "Organic Hoodie", "slug": "organic-hoodie"},
-  {"name": "Organic Coat", "slug": "organic-coat"},
-  {"name": "Natural T-Shirt", "slug": "natural-t-shirt"},
-  {"name": "Natural Jeans", "slug": "natural-jeans"},
-  {"name": "Natural Jacket", "slug": "natural-jacket"},
-  {"name": "Natural Dress", "slug": "natural-dress"},
-  {"name": "Natural Skirt", "slug": "natural-skirt"},
-  {"name": "Natural Pants", "slug": "natural-pants"},
-  {"name": "Natural Blouse", "slug": "natural-blouse"},
-  {"name": "Natural Sweater", "slug": "natural-sweater"},
-  {"name": "Natural Hoodie", "slug": "natural-hoodie"},
-  {"name": "Natural Coat", "slug": "natural-coat"},
-  {"name": "Vegan T-Shirt", "slug": "vegan-t-shirt"},
-  {"name": "Vegan Jeans", "slug": "vegan-jeans"},
-  {"name": "Vegan Jacket", "slug": "vegan-jacket"},
-  {"name": "Vegan Dress", "slug": "vegan-dress"},
-  {"name": "Vegan Skirt", "slug": "vegan-skirt"},
-  {"name": "Vegan Pants", "slug": "vegan-pants"},
-  {"name": "Vegan Blouse", "slug": "vegan-blouse"},
-  {"name": "Vegan Sweater", "slug": "vegan-sweater"},
-  {"name": "Vegan Hoodie", "slug": "vegan-hoodie"},
-  {"name": "Vegan Coat", "slug": "vegan-coat"},
-  {"name": "Cruelty-Free T-Shirt", "slug": "cruelty-free-t-shirt"},
-  {"name": "Cruelty-Free Jeans", "slug": "cruelty-free-jeans"},
-  {"name": "Cruelty-Free Jacket", "slug": "cruelty-free-jacket"},
-  {"name": "Cruelty-Free Dress", "slug": "cruelty-free-dress"},
-  {"name": "Cruelty-Free Skirt", "slug": "cruelty-free-skirt"},
-  {"name": "Cruelty-Free Pants", "slug": "cruelty-free-pants"},
-  {"name": "Cruelty-Free Blouse", "slug": "cruelty-free-blouse"},
-  {"name": "Cruelty-Free Sweater", "slug": "cruelty-free-sweater"},
-  {"name": "Cruelty-Free Hoodie", "slug": "cruelty-free-hoodie"},
-  {"name": "Cruelty-Free Coat", "slug": "cruelty-free-coat"},
-  {"name": "Hypoallergenic T-Shirt", "slug": "hypoallergenic-t-shirt"},
-  {"name": "Hypoallergenic Jeans", "slug": "hypoallergenic-jeans"},
-  {"name": "Hypoallergenic Jacket", "slug": "hypoallergenic-jacket"},
-  {"name": "Hypoallergenic Dress", "slug": "hypoallergenic-dress"},
-  {"name": "Hypoallergenic Skirt", "slug": "hypoallergenic-skirt"},
-  {"name": "Hypoallergenic Pants", "slug": "hypoallergenic-pants"},
-  {"name": "Hypoallergenic Blouse", "slug": "hypoallergenic-blouse"},
-  {"name": "Hypoallergenic Sweater", "slug": "hypoallergenic-sweater"},
-  {"name": "Hypoallergenic Hoodie", "slug": "hypoallergenic-hoodie"},
-  {"name": "Hypoallergenic Coat", "slug": "hypoallergenic-coat"},
-  {"name": "Non-Toxic T-Shirt", "slug": "non-toxic-t-shirt"},
-  {"name": "Non-Toxic Jeans", "slug": "non-toxic-jeans"},
-  {"name": "Non-Toxic Jacket", "slug": "non-toxic-jacket"},
-  {"name": "Non-Toxic Dress", "slug": "non-toxic-dress"},
-  {"name": "Non-Toxic Skirt", "slug": "non-toxic-skirt"},
-  {"name": "Non-Toxic Pants", "slug": "non-toxic-pants"},
-  {"name": "Non-Toxic Blouse", "slug": "non-toxic-blouse"},
-  {"name": "Non-Toxic Sweater", "slug": "non-toxic-sweater"},
-  {"name": "Non-Toxic Hoodie", "slug": "non-toxic-hoodie"},
-  {"name": "Non-Toxic Coat", "slug": "non-toxic-coat"},
-  {"name": "Biodegradable T-Shirt", "slug": "biodegradable-t-shirt"},
-  {"name": "Biodegradable Jeans", "slug": "biodegradable-jeans"},
-  {"name": "Biodegradable Jacket", "slug": "biodegradable-jacket"},
-  {"name": "Biodegradable Dress", "slug": "biodegradable-dress"},
-  {"name": "Biodegradable Skirt", "slug": "biodegradable-skirt"},
-  {"name": "Biodegradable Pants", "slug": "biodegradable-pants"},
-  {"name": "Biodegradable Blouse", "slug": "biodegradable-blouse"},
-  {"name": "Biodegradable Sweater", "slug": "biodegradable-sweater"},
-  {"name": "Biodegradable Hoodie", "slug": "biodegradable-hoodie"},
-  {"name": "Biodegradable Coat", "slug": "biodegradable-coat"},
-  {"name": "Recyclable T-Shirt", "slug": "recyclable-t-shirt"},
-  {"name": "Recyclable Jeans", "slug": "recyclable-jeans"},
-  {"name": "Recyclable Jacket", "slug": "recyclable-jacket"},
-  {"name": "Recyclable Dress", "slug": "recyclable-dress"},
-  {"name": "Recyclable Skirt", "slug": "recyclable-skirt"},
-  {"name": "Recyclable Pants", "slug": "recyclable-pants"},
-  {"name": "Recyclable Blouse", "slug": "recyclable-blouse"},
-  {"name": "Recyclable Sweater", "slug": "recyclable-sweater"},
-  {"name": "Recyclable Hoodie", "slug": "recyclable-hoodie"},
-  {"name": "Recyclable Coat", "slug": "recyclable-coat"},
-  {"name": "Sustainable T-Shirt", "slug": "sustainable-t-shirt"},
-  {"name": "Sustainable Jeans", "slug": "sustainable-jeans"},
-  {"name": "Sustainable Jacket", "slug": "sustainable-jacket"},
-  {"name": "Sustainable Dress", "slug": "sustainable-dress"},
-  {"name": "Sustainable Skirt", "slug": "sustainable-skirt"},
-  {"name": "Sustainable Pants", "slug": "sustainable-pants"},
-  {"name": "Sustainable Blouse", "slug": "sustainable-blouse"},
-  {"name": "Sustainable Sweater", "slug": "sustainable-sweater"},
-  {"name": "Sustainable Hoodie", "slug": "sustainable-hoodie"},
-  {"name": "Sustainable Coat", "slug": "sustainable-coat"},
-  {"name": "Eco-Friendly T-Shirt", "slug": "eco-friendly-t-shirt"},
-  {"name": "Eco-Friendly Jeans", "slug": "eco-friendly-jeans"},
-  {"name": "Eco-Friendly Jacket", "slug": "eco-friendly-jacket"},
-  {"name": "Eco-Friendly Dress", "slug": "eco-friendly-dress"},
-  {"name": "Eco-Friendly Skirt", "slug": "eco-friendly-skirt"},
-  {"name": "Eco-Friendly Pants", "slug": "eco-friendly-pants"},
-  {"name": "Eco-Friendly Blouse", "slug": "eco-friendly-blouse"},
-  {"name": "Eco-Friendly Sweater", "slug": "eco-friendly-sweater"},
-  {"name": "Eco-Friendly Hoodie", "slug": "eco-friendly-hoodie"},
-  {"name": "Eco-Friendly Coat", "slug": "eco-friendly-coat"},
-  {"name": "Wedding T-Shirt", "slug": "wedding-t-shirt"},
-  {"name": "Wedding Jeans", "slug": "wedding-jeans"},
-  {"name": "Wedding Jacket", "slug": "wedding-jacket"},
-  {"name": "Wedding Dress", "slug": "wedding-dress"},
-  {"name": "Wedding Skirt", "slug": "wedding-skirt"},
-  {"name": "Wedding Pants", "slug": "wedding-pants"},
-  {"name": "Wedding Blouse", "slug": "wedding-blouse"},
-  {"name": "Wedding Sweater", "slug": "wedding-sweater"},
-  {"name": "Wedding Hoodie", "slug": "wedding-hoodie"},
-  {"name": "Wedding Coat", "slug": "wedding-coat"},
-  {"name": "Party T-Shirt", "slug": "party-t-shirt"},
-  {"name": "Party Jeans", "slug": "party-jeans"},
-  {"name": "Party Jacket", "slug": "party-jacket"},
-  {"name": "Party Dress", "slug": "party-dress"},
-  {"name": "Party Skirt", "slug": "party-skirt"},
-  {"name": "Party Pants", "slug": "party-pants"},
-  {"name": "Party Blouse", "slug": "party-blouse"},
-  {"name": "Party Sweater", "slug": "party-sweater"},
-  {"name": "Party Hoodie", "slug": "party-hoodie"},
-  {"name": "Party Coat", "slug": "party-coat"},
-  {"name": "Beach T-Shirt", "slug": "beach-t-shirt"},
-  {"name": "Beach Jeans", "slug": "beach-jeans"},
-  {"name": "Beach Jacket", "slug": "beach-jacket"},
-  {"name": "Beach Dress", "slug": "beach-dress"},
-  {"name": "Beach Skirt", "slug": "beach-skirt"},
-  {"name": "Beach Pants", "slug": "beach-pants"},
-  {"name": "Beach Blouse", "slug": "beach-blouse"},
-  {"name": "Beach Sweater", "slug": "beach-sweater"},
-  {"name": "Beach Hoodie", "slug": "beach-hoodie"},
-  {"name": "Beach Coat", "slug": "beach-coat"},
-  {"name": "Work T-Shirt", "slug": "work-t-shirt"},
-  {"name": "Work Jeans", "slug": "work-jeans"},
-  {"name": "Work Jacket", "slug": "work-jacket"},
-  {"name": "Work Dress", "slug": "work-dress"},
-  {"name": "Work Skirt", "slug": "work-skirt"},
-  {"name": "Work Pants", "slug": "work-pants"},
-  {"name": "Work Blouse", "slug": "work-blouse"},
-  {"name": "Work Sweater", "slug": "work-sweater"},
-  {"name": "Work Hoodie", "slug": "work-hoodie"},
-  {"name": "Work Coat", "slug": "work-coat"},
-  {"name": "School T-Shirt", "slug": "school-t-shirt"},
-  {"name": "School Jeans", "slug": "school-jeans"},
-  {"name": "School Jacket", "slug": "school-jacket"},
-  {"name": "School Dress", "slug": "school-dress"},
-  {"name": "School Skirt", "slug": "school-skirt"},
-  {"name": "School Pants", "slug": "school-pants"},
-  {"name": "School Blouse", "slug": "school-blouse"},
-  {"name": "School Sweater", "slug": "school-sweater"},
-  {"name": "School Hoodie", "slug": "school-hoodie"},
-  {"name": "School Coat", "slug": "school-coat"},
-  {"name": "Gym T-Shirt", "slug": "gym-t-shirt"},
-  {"name": "Gym Jeans", "slug": "gym-jeans"},
-  {"name": "Gym Jacket", "slug": "gym-jacket"},
-  {"name": "Gym Dress", "slug": "gym-dress"},
-  {"name": "Gym Skirt", "slug": "gym-skirt"},
-  {"name": "Gym Pants", "slug": "gym-pants"},
-  {"name": "Gym Blouse", "slug": "gym-blouse"},
-  {"name": "Gym Sweater", "slug": "gym-sweater"},
-  {"name": "Gym Hoodie", "slug": "gym-hoodie"},
-  {"name": "Gym Coat", "slug": "gym-coat"},
-  {"name": "Hiking T-Shirt", "slug": "hiking-t-shirt"},
-  {"name": "Hiking Jeans", "slug": "hiking-jeans"},
-  {"name": "Hiking Jacket", "slug": "hiking-jacket"},
-  {"name": "Hiking Dress", "slug": "hiking-dress"},
-  {"name": "Hiking Skirt", "slug": "hiking-skirt"},
-  {"name": "Hiking Pants", "slug": "hiking-pants"},
-  {"name": "Hiking Blouse", "slug": "hiking-blouse"},
-  {"name": "Hiking Sweater", "slug": "hiking-sweater"},
-  {"name": "Hiking Hoodie", "slug": "hiking-hoodie"},
-  {"name": "Hiking Coat", "slug": "hiking-coat"},
-  {"name": "Camping T-Shirt", "slug": "camping-t-shirt"},
-  {"name": "Camping Jeans", "slug": "camping-jeans"},
-  {"name": "Camping Jacket", "slug": "camping-jacket"},
-  {"name": "Camping Dress", "slug": "camping-dress"},
-  {"name": "Camping Skirt", "slug": "camping-skirt"},
-  {"name": "Camping Pants", "slug": "camping-pants"},
-  {"name": "Camping Blouse", "slug": "camping-blouse"},
-  {"name": "Camping Sweater", "slug": "camping-sweater"},
-  {"name": "Camping Hoodie", "slug": "camping-hoodie"},
-  {"name": "Camping Coat", "slug": "camping-coat"},
-  {"name": "Travel T-Shirt", "slug": "travel-t-shirt"},
-  {"name": "Travel Jeans", "slug": "travel-jeans"},
-  {"name": "Travel Jacket", "slug": "travel-jacket"},
-  {"name": "Travel Dress", "slug": "travel-dress"},
-  {"name": "Travel Skirt", "slug": "travel-skirt"},
-  {"name": "Travel Pants", "slug": "travel-pants"},
-  {"name": "Travel Blouse", "slug": "travel-blouse"},
-  {"name": "Travel Sweater", "slug": "travel-sweater"},
-  {"name": "Travel Hoodie", "slug": "travel-hoodie"},
-  {"name": "Travel Coat", "slug": "travel-coat"},
-  {"name": "Daily T-Shirt", "slug": "daily-t-shirt"},
-  {"name": "Daily Jeans", "slug": "daily-jeans"},
-  {"name": "Daily Jacket", "slug": "daily-jacket"},
-  {"name": "Daily Dress", "slug": "daily-dress"},
-  {"name": "Daily Skirt", "slug": "daily-skirt"},
-  {"name": "Daily Pants", "slug": "daily-pants"},
-  {"name": "Daily Blouse", "slug": "daily-blouse"},
-  {"name": "Daily Sweater", "slug": "daily-sweater"},
-  {"name": "Daily Hoodie", "slug": "daily-hoodie"},
-  {"name": "Daily Coat", "slug": "daily-coat"},
-  {"name": "Date T-Shirt", "slug": "date-t-shirt"},
-  {"name": "Date Jeans", "slug": "date-jeans"},
-  {"name": "Date Jacket", "slug": "date-jacket"},
-  {"name": "Date Dress", "slug": "date-dress"},
-  {"name": "Date Skirt", "slug": "date-skirt"},
-  {"name": "Date Pants", "slug": "date-pants"},
-  {"name": "Date Blouse", "slug": "date-blouse"},
-  {"name": "Date Sweater", "slug": "date-sweater"},
-  {"name": "Date Hoodie", "slug": "date-hoodie"},
-  {"name": "Date Coat", "slug": "date-coat"},
-  {"name": "Night-Out T-Shirt", "slug": "night-out-t-shirt"},
-  {"name": "Night-Out Jeans", "slug": "night-out-jeans"},
-  {"name": "Night-Out Jacket", "slug": "night-out-jacket"},
-  {"name": "Night-Out Dress", "slug": "night-out-dress"},
-  {"name": "Night-Out Skirt", "slug": "night-out-skirt"},
-  {"name": "Night-Out Pants", "slug": "night-out-pants"},
-  {"name": "Night-Out Blouse", "slug": "night-out-blouse"},
-  {"name": "Night-Out Sweater", "slug": "night-out-sweater"},
-  {"name": "Night-Out Hoodie", "slug": "night-out-hoodie"},
-  {"name": "Night-Out Coat", "slug": "night-out-coat"},
-  {"name": "Festival T-Shirt", "slug": "festival-t-shirt"},
-  {"name": "Festival Jeans", "slug": "festival-jeans"},
-  {"name": "Festival Jacket", "slug": "festival-jacket"},
-  {"name": "Festival Dress", "slug": "festival-dress"},
-  {"name": "Festival Skirt", "slug": "festival-skirt"},
-  {"name": "Festival Pants", "slug": "festival-pants"},
-  {"name": "Festival Blouse", "slug": "festival-blouse"},
-  {"name": "Festival Sweater", "slug": "festival-sweater"},
-  {"name": "Festival Hoodie", "slug": "festival-hoodie"},
-  {"name": "Festival Coat", "slug": "festival-coat"},
-  {"name": "Concert T-Shirt", "slug": "concert-t-shirt"},
-  {"name": "Concert Jeans", "slug": "concert-jeans"},
-  {"name": "Concert Jacket", "slug": "concert-jacket"},
-  {"name": "Concert Dress", "slug": "concert-dress"},
-  {"name": "Concert Skirt", "slug": "concert-skirt"},
-  {"name": "Concert Pants", "slug": "concert-pants"},
-  {"name": "Concert Blouse", "slug": "concert-blouse"},
-  {"name": "Concert Sweater", "slug": "concert-sweater"},
-  {"name": "Concert Hoodie", "slug": "concert-hoodie"},
-  {"name": "Concert Coat", "slug": "concert-coat"},
-  {"name": "Interview T-Shirt", "slug": "interview-t-shirt"},
-  {"name": "Interview Jeans", "slug": "interview-jeans"},
-  {"name": "Interview Jacket", "slug": "interview-jacket"},
-  {"name": "Interview Dress", "slug": "interview-dress"},
-  {"name": "Interview Skirt", "slug": "interview-skirt"},
-  {"name": "Interview Pants", "slug": "interview-pants"},
-  {"name": "Interview Blouse", "slug": "interview-blouse"},
-  {"name": "Interview Sweater", "slug": "interview-sweater"},
-  {"name": "Interview Hoodie", "slug": "interview-hoodie"},
-  {"name": "Interview Coat", "slug": "interview-coat"},
-  {"name": "Meeting T-Shirt", "slug": "meeting-t-shirt"},
-  {"name": "Meeting Jeans", "slug": "meeting-jeans"},
-  {"name": "Meeting Jacket", "slug": "meeting-jacket"},
-  {"name": "Meeting Dress", "slug": "meeting-dress"},
-  {"name": "Meeting Skirt", "slug": "meeting-skirt"},
-  {"name": "Meeting Pants", "slug": "meeting-pants"},
-  {"name": "Meeting Blouse", "slug": "meeting-blouse"},
-  {"name": "Meeting Sweater", "slug": "meeting-sweater"},
-  {"name": "Meeting Hoodie", "slug": "meeting-hoodie"},
-  {"name": "Meeting Coat", "slug": "meeting-coat"},
-  {"name": "Dinner T-Shirt", "slug": "dinner-t-shirt"},
-  {"name": "Dinner Jeans", "slug": "dinner-jeans"},
-  {"name": "Dinner Jacket", "slug": "dinner-jacket"},
-  {"name": "Dinner Dress", "slug": "dinner-dress"},
-  {"name": "Dinner Skirt", "slug": "dinner-skirt"},
-  {"name": "Dinner Pants", "slug": "dinner-pants"},
-  {"name": "Dinner Blouse", "slug": "dinner-blouse"},
-  {"name": "Dinner Sweater", "slug": "dinner-sweater"},
-  {"name": "Dinner Hoodie", "slug": "dinner-hoodie"},
-  {"name": "Dinner Coat", "slug": "dinner-coat"},
-  {"name": "Breakfast T-Shirt", "slug": "breakfast-t-shirt"},
-  {"name": "Breakfast Jeans", "slug": "breakfast-jeans"},
-  {"name": "Breakfast Jacket", "slug": "breakfast-jacket"},
-  {"name": "Breakfast Dress", "slug": "breakfast-dress"},
-  {"name": "Breakfast Skirt", "slug": "breakfast-skirt"},
-  {"name": "Breakfast Pants", "slug": "breakfast-pants"},
-  {"name": "Breakfast Blouse", "slug": "breakfast-blouse"},
-  {"name": "Breakfast Sweater", "slug": "breakfast-sweater"},
-  {"name": "Breakfast Hoodie", "slug": "breakfast-hoodie"},
-  {"name": "Breakfast Coat", "slug": "breakfast-coat"},
-  {"name": "Lunch T-Shirt", "slug": "lunch-t-shirt"},
-  {"name": "Lunch Jeans", "slug": "lunch-jeans"},
-  {"name": "Lunch Jacket", "slug": "lunch-jacket"},
-  {"name": "Lunch Dress", "slug": "lunch-dress"},
-  {"name": "Lunch Skirt", "slug": "lunch-skirt"},
-  {"name": "Lunch Pants", "slug": "lunch-pants"},
-  {"name": "Lunch Blouse", "slug": "lunch-blouse"},
-  {"name": "Lunch Sweater", "slug": "lunch-sweater"},
-  {"name": "Lunch Hoodie", "slug": "lunch-hoodie"},
-  {"name": "Lunch Coat", "slug": "lunch-coat"},
-  {"name": "Picnic T-Shirt", "slug": "picnic-t-shirt"},
-  {"name": "Picnic Jeans", "slug": "picnic-jeans"},
-  {"name": "Picnic Jacket", "slug": "picnic-jacket"},
-  {"name": "Picnic Dress", "slug": "picnic-dress"},
-  {"name": "Picnic Skirt", "slug": "picnic-skirt"},
-  {"name": "Picnic Pants", "slug": "picnic-pants"},
-  {"name": "Picnic Blouse", "slug": "picnic-blouse"},
-  {"name": "Picnic Sweater", "slug": "picnic-sweater"},
-  {"name": "Picnic Hoodie", "slug": "picnic-hoodie"},
-  {"name": "Picnic Coat", "slug": "picnic-coat"}
+  {
+    "name": "Electronics",
+    "slug": "electronics"
+  },
+  {
+    "name": "Smartphones",
+    "slug": "smartphones"
+  },
+  {
+    "name": "Android Phones",
+    "slug": "android-phones"
+  },
+  {
+    "name": "iPhones",
+    "slug": "iphones"
+  },
+  {
+    "name": "Feature Phones",
+    "slug": "feature-phones"
+  },
+  {
+    "name": "Phone Cases",
+    "slug": "phone-cases"
+  },
+  {
+    "name": "Screen Protectors",
+    "slug": "screen-protectors"
+  },
+  {
+    "name": "Wireless Chargers",
+    "slug": "wireless-chargers"
+  },
+  {
+    "name": "Power Banks",
+    "slug": "power-banks"
+  },
+  {
+    "name": "USB Chargers",
+    "slug": "usb-chargers"
+  },
+  {
+    "name": "USB-C Cables",
+    "slug": "usb-c-cables"
+  },
+  {
+    "name": "Lightning Cables",
+    "slug": "lightning-cables"
+  },
+  {
+    "name": "Micro USB Cables",
+    "slug": "micro-usb-cables"
+  },
+  {
+    "name": "Bluetooth Speakers",
+    "slug": "bluetooth-speakers"
+  },
+  {
+    "name": "Smart Speakers",
+    "slug": "smart-speakers"
+  },
+  {
+    "name": "Soundbars",
+    "slug": "soundbars"
+  },
+  {
+    "name": "Home Theater Systems",
+    "slug": "home-theater-systems"
+  },
+  {
+    "name": "Headphones",
+    "slug": "headphones"
+  },
+  {
+    "name": "Wireless Earbuds",
+    "slug": "wireless-earbuds"
+  },
+  {
+    "name": "Gaming Headsets",
+    "slug": "gaming-headsets"
+  },
+  {
+    "name": "Webcams",
+    "slug": "webcams"
+  },
+  {
+    "name": "Monitors",
+    "slug": "monitors"
+  },
+  {
+    "name": "4K Monitors",
+    "slug": "4k-monitors"
+  },
+  {
+    "name": "Ultrawide Monitors",
+    "slug": "ultrawide-monitors"
+  },
+  {
+    "name": "Mechanical Keyboards",
+    "slug": "mechanical-keyboards"
+  },
+  {
+    "name": "Wireless Keyboards",
+    "slug": "wireless-keyboards"
+  },
+  {
+    "name": "Gaming Mice",
+    "slug": "gaming-mice"
+  },
+  {
+    "name": "Mouse Pads",
+    "slug": "mouse-pads"
+  },
+  {
+    "name": "Printers",
+    "slug": "printers"
+  },
+  {
+    "name": "Ink Cartridges",
+    "slug": "ink-cartridges"
+  },
+  {
+    "name": "Laser Printers",
+    "slug": "laser-printers"
+  },
+  {
+    "name": "Scanners",
+    "slug": "scanners"
+  },
+  {
+    "name": "Routers",
+    "slug": "routers"
+  },
+  {
+    "name": "Wi-Fi Extenders",
+    "slug": "wi-fi-extenders"
+  },
+  {
+    "name": "Network Switches",
+    "slug": "network-switches"
+  },
+  {
+    "name": "NAS Storage",
+    "slug": "nas-storage"
+  },
+  {
+    "name": "External SSDs",
+    "slug": "external-ssds"
+  },
+  {
+    "name": "External HDDs",
+    "slug": "external-hdds"
+  },
+  {
+    "name": "USB Flash Drives",
+    "slug": "usb-flash-drives"
+  },
+  {
+    "name": "Memory Cards",
+    "slug": "memory-cards"
+  },
+  {
+    "name": "Graphics Cards",
+    "slug": "graphics-cards"
+  },
+  {
+    "name": "Motherboards",
+    "slug": "motherboards"
+  },
+  {
+    "name": "Processors",
+    "slug": "processors"
+  },
+  {
+    "name": "RAM Memory",
+    "slug": "ram-memory"
+  },
+  {
+    "name": "Computer Cases",
+    "slug": "computer-cases"
+  },
+  {
+    "name": "CPU Coolers",
+    "slug": "cpu-coolers"
+  },
+  {
+    "name": "Laptop Bags",
+    "slug": "laptop-bags"
+  },
+  {
+    "name": "Projectors",
+    "slug": "projectors"
+  },
+  {
+    "name": "Smart TVs",
+    "slug": "smart-tvs"
+  },
+  {
+    "name": "Streaming Devices",
+    "slug": "streaming-devices"
+  },
+  {
+    "name": "T-Shirts",
+    "slug": "t-shirts"
+  },
+  {
+    "name": "Shirts",
+    "slug": "shirts"
+  },
+  {
+    "name": "Dress Shirts",
+    "slug": "dress-shirts"
+  },
+  {
+    "name": "Polo Shirts",
+    "slug": "polo-shirts"
+  },
+  {
+    "name": "Tank Tops",
+    "slug": "tank-tops"
+  },
+  {
+    "name": "Hoodies",
+    "slug": "hoodies"
+  },
+  {
+    "name": "Sweatshirts",
+    "slug": "sweatshirts"
+  },
+  {
+    "name": "Jackets",
+    "slug": "jackets"
+  },
+  {
+    "name": "Winter Coats",
+    "slug": "winter-coats"
+  },
+  {
+    "name": "Rain Jackets",
+    "slug": "rain-jackets"
+  },
+  {
+    "name": "Blazers",
+    "slug": "blazers"
+  },
+  {
+    "name": "Suits",
+    "slug": "suits"
+  },
+  {
+    "name": "Jeans",
+    "slug": "jeans"
+  },
+  {
+    "name": "Chinos",
+    "slug": "chinos"
+  },
+  {
+    "name": "Cargo Pants",
+    "slug": "cargo-pants"
+  },
+  {
+    "name": "Shorts",
+    "slug": "shorts"
+  },
+  {
+    "name": "Leggings",
+    "slug": "leggings"
+  },
+  {
+    "name": "Yoga Pants",
+    "slug": "yoga-pants"
+  },
+  {
+    "name": "Skirts",
+    "slug": "skirts"
+  },
+  {
+    "name": "Maxi Dresses",
+    "slug": "maxi-dresses"
+  },
+  {
+    "name": "Cocktail Dresses",
+    "slug": "cocktail-dresses"
+  },
+  {
+    "name": "Evening Gowns",
+    "slug": "evening-gowns"
+  },
+  {
+    "name": "Sweaters",
+    "slug": "sweaters"
+  },
+  {
+    "name": "Cardigans",
+    "slug": "cardigans"
+  },
+  {
+    "name": "Swimwear",
+    "slug": "swimwear"
+  },
+  {
+    "name": "Bikinis",
+    "slug": "bikinis"
+  },
+  {
+    "name": "Underwear",
+    "slug": "underwear"
+  },
+  {
+    "name": "Bras",
+    "slug": "bras"
+  },
+  {
+    "name": "Socks",
+    "slug": "socks"
+  },
+  {
+    "name": "Sleepwear",
+    "slug": "sleepwear"
+  },
+  {
+    "name": "Slippers",
+    "slug": "slippers"
+  },
+  {
+    "name": "Sneakers",
+    "slug": "sneakers"
+  },
+  {
+    "name": "Running Shoes",
+    "slug": "running-shoes"
+  },
+  {
+    "name": "Boots",
+    "slug": "boots"
+  },
+  {
+    "name": "Sandals",
+    "slug": "sandals"
+  },
+  {
+    "name": "Loafers",
+    "slug": "loafers"
+  },
+  {
+    "name": "High Heels",
+    "slug": "high-heels"
+  },
+  {
+    "name": "Belts",
+    "slug": "belts"
+  },
+  {
+    "name": "Wallets",
+    "slug": "wallets"
+  },
+  {
+    "name": "Handbags",
+    "slug": "handbags"
+  },
+  {
+    "name": "Backpacks",
+    "slug": "backpacks"
+  },
+  {
+    "name": "Luggage",
+    "slug": "luggage"
+  },
+  {
+    "name": "Scarves",
+    "slug": "scarves"
+  },
+  {
+    "name": "Gloves",
+    "slug": "gloves"
+  },
+  {
+    "name": "Hats",
+    "slug": "hats"
+  },
+  {
+    "name": "Caps",
+    "slug": "caps"
+  },
+  {
+    "name": "Sunglasses",
+    "slug": "sunglasses"
+  },
+  {
+    "name": "Watches",
+    "slug": "watches"
+  },
+  {
+    "name": "Jewelry",
+    "slug": "jewelry"
+  },
+  {
+    "name": "Necklaces",
+    "slug": "necklaces"
+  },
+  {
+    "name": "Sofas",
+    "slug": "sofas"
+  },
+  {
+    "name": "Sectional Sofas",
+    "slug": "sectional-sofas"
+  },
+  {
+    "name": "Recliners",
+    "slug": "recliners"
+  },
+  {
+    "name": "Coffee Tables",
+    "slug": "coffee-tables"
+  },
+  {
+    "name": "Dining Tables",
+    "slug": "dining-tables"
+  },
+  {
+    "name": "Dining Chairs",
+    "slug": "dining-chairs"
+  },
+  {
+    "name": "Office Chairs",
+    "slug": "office-chairs"
+  },
+  {
+    "name": "Standing Desks",
+    "slug": "standing-desks"
+  },
+  {
+    "name": "Bookshelves",
+    "slug": "bookshelves"
+  },
+  {
+    "name": "TV Stands",
+    "slug": "tv-stands"
+  },
+  {
+    "name": "Beds",
+    "slug": "beds"
+  },
+  {
+    "name": "Mattresses",
+    "slug": "mattresses"
+  },
+  {
+    "name": "Wardrobes",
+    "slug": "wardrobes"
+  },
+  {
+    "name": "Dressers",
+    "slug": "dressers"
+  },
+  {
+    "name": "Nightstands",
+    "slug": "nightstands"
+  },
+  {
+    "name": "Cabinets",
+    "slug": "cabinets"
+  },
+  {
+    "name": "Storage Shelves",
+    "slug": "storage-shelves"
+  },
+  {
+    "name": "Curtains",
+    "slug": "curtains"
+  },
+  {
+    "name": "Blinds",
+    "slug": "blinds"
+  },
+  {
+    "name": "Rugs",
+    "slug": "rugs"
+  },
+  {
+    "name": "Carpets",
+    "slug": "carpets"
+  },
+  {
+    "name": "Wall Art",
+    "slug": "wall-art"
+  },
+  {
+    "name": "Picture Frames",
+    "slug": "picture-frames"
+  },
+  {
+    "name": "Mirrors",
+    "slug": "mirrors"
+  },
+  {
+    "name": "Table Lamps",
+    "slug": "table-lamps"
+  },
+  {
+    "name": "Floor Lamps",
+    "slug": "floor-lamps"
+  },
+  {
+    "name": "Ceiling Lights",
+    "slug": "ceiling-lights"
+  },
+  {
+    "name": "LED Bulbs",
+    "slug": "led-bulbs"
+  },
+  {
+    "name": "Candles",
+    "slug": "candles"
+  },
+  {
+    "name": "Vases",
+    "slug": "vases"
+  },
+  {
+    "name": "Planters",
+    "slug": "planters"
+  },
+  {
+    "name": "Cookware",
+    "slug": "cookware"
+  },
+  {
+    "name": "Frying Pans",
+    "slug": "frying-pans"
+  },
+  {
+    "name": "Saucepans",
+    "slug": "saucepans"
+  },
+  {
+    "name": "Pressure Cookers",
+    "slug": "pressure-cookers"
+  },
+  {
+    "name": "Air Fryers",
+    "slug": "air-fryers"
+  },
+  {
+    "name": "Blenders",
+    "slug": "blenders"
+  },
+  {
+    "name": "Coffee Makers",
+    "slug": "coffee-makers"
+  },
+  {
+    "name": "Electric Kettles",
+    "slug": "electric-kettles"
+  },
+  {
+    "name": "Microwaves",
+    "slug": "microwaves"
+  },
+  {
+    "name": "Refrigerators",
+    "slug": "refrigerators"
+  },
+  {
+    "name": "Dishwashers",
+    "slug": "dishwashers"
+  },
+  {
+    "name": "Vacuum Cleaners",
+    "slug": "vacuum-cleaners"
+  },
+  {
+    "name": "Robot Vacuums",
+    "slug": "robot-vacuums"
+  },
+  {
+    "name": "Air Purifiers",
+    "slug": "air-purifiers"
+  },
+  {
+    "name": "Humidifiers",
+    "slug": "humidifiers"
+  },
+  {
+    "name": "Fans",
+    "slug": "fans"
+  },
+  {
+    "name": "Heaters",
+    "slug": "heaters"
+  },
+  {
+    "name": "Laundry Baskets",
+    "slug": "laundry-baskets"
+  },
+  {
+    "name": "Storage Boxes",
+    "slug": "storage-boxes"
+  },
+  {
+    "name": "Rice",
+    "slug": "rice"
+  },
+  {
+    "name": "Pasta",
+    "slug": "pasta"
+  },
+  {
+    "name": "Noodles",
+    "slug": "noodles"
+  },
+  {
+    "name": "Flour",
+    "slug": "flour"
+  },
+  {
+    "name": "Sugar",
+    "slug": "sugar"
+  },
+  {
+    "name": "Salt",
+    "slug": "salt"
+  },
+  {
+    "name": "Pepper",
+    "slug": "pepper"
+  },
+  {
+    "name": "Spices",
+    "slug": "spices"
+  },
+  {
+    "name": "Herbs",
+    "slug": "herbs"
+  },
+  {
+    "name": "Olive Oil",
+    "slug": "olive-oil"
+  },
+  {
+    "name": "Cooking Oil",
+    "slug": "cooking-oil"
+  },
+  {
+    "name": "Vinegar",
+    "slug": "vinegar"
+  },
+  {
+    "name": "Sauces",
+    "slug": "sauces"
+  },
+  {
+    "name": "Ketchup",
+    "slug": "ketchup"
+  },
+  {
+    "name": "Mustard",
+    "slug": "mustard"
+  },
+  {
+    "name": "Mayonnaise",
+    "slug": "mayonnaise"
+  },
+  {
+    "name": "Honey",
+    "slug": "honey"
+  },
+  {
+    "name": "Jam",
+    "slug": "jam"
+  },
+  {
+    "name": "Peanut Butter",
+    "slug": "peanut-butter"
+  },
+  {
+    "name": "Breakfast Cereal",
+    "slug": "breakfast-cereal"
+  },
+  {
+    "name": "Oats",
+    "slug": "oats"
+  },
+  {
+    "name": "Coffee",
+    "slug": "coffee"
+  },
+  {
+    "name": "Tea",
+    "slug": "tea"
+  },
+  {
+    "name": "Green Tea",
+    "slug": "green-tea"
+  },
+  {
+    "name": "Hot Chocolate",
+    "slug": "hot-chocolate"
+  },
+  {
+    "name": "Bottled Water",
+    "slug": "bottled-water"
+  },
+  {
+    "name": "Sparkling Water",
+    "slug": "sparkling-water"
+  },
+  {
+    "name": "Soft Drinks",
+    "slug": "soft-drinks"
+  },
+  {
+    "name": "Fruit Juice",
+    "slug": "fruit-juice"
+  },
+  {
+    "name": "Energy Drinks",
+    "slug": "energy-drinks"
+  },
+  {
+    "name": "Chocolate",
+    "slug": "chocolate"
+  },
+  {
+    "name": "Candy",
+    "slug": "candy"
+  },
+  {
+    "name": "Cookies",
+    "slug": "cookies"
+  },
+  {
+    "name": "Crackers",
+    "slug": "crackers"
+  },
+  {
+    "name": "Chips",
+    "slug": "chips"
+  },
+  {
+    "name": "Popcorn",
+    "slug": "popcorn"
+  },
+  {
+    "name": "Nuts",
+    "slug": "nuts"
+  },
+  {
+    "name": "Almonds",
+    "slug": "almonds"
+  },
+  {
+    "name": "Cashews",
+    "slug": "cashews"
+  },
+  {
+    "name": "Walnuts",
+    "slug": "walnuts"
+  },
+  {
+    "name": "Dried Fruit",
+    "slug": "dried-fruit"
+  },
+  {
+    "name": "Fresh Fruit",
+    "slug": "fresh-fruit"
+  },
+  {
+    "name": "Fresh Vegetables",
+    "slug": "fresh-vegetables"
+  },
+  {
+    "name": "Frozen Vegetables",
+    "slug": "frozen-vegetables"
+  },
+  {
+    "name": "Frozen Pizza",
+    "slug": "frozen-pizza"
+  },
+  {
+    "name": "Ice Cream",
+    "slug": "ice-cream"
+  },
+  {
+    "name": "Cheese",
+    "slug": "cheese"
+  },
+  {
+    "name": "Yogurt",
+    "slug": "yogurt"
+  },
+  {
+    "name": "Milk",
+    "slug": "milk"
+  },
+  {
+    "name": "Eggs",
+    "slug": "eggs"
+  },
+  {
+    "name": "Building Blocks",
+    "slug": "building-blocks"
+  },
+  {
+    "name": "Action Figures",
+    "slug": "action-figures"
+  },
+  {
+    "name": "Dolls",
+    "slug": "dolls"
+  },
+  {
+    "name": "Doll Houses",
+    "slug": "doll-houses"
+  },
+  {
+    "name": "Toy Cars",
+    "slug": "toy-cars"
+  },
+  {
+    "name": "RC Cars",
+    "slug": "rc-cars"
+  },
+  {
+    "name": "Toy Trains",
+    "slug": "toy-trains"
+  },
+  {
+    "name": "Toy Airplanes",
+    "slug": "toy-airplanes"
+  },
+  {
+    "name": "Toy Boats",
+    "slug": "toy-boats"
+  },
+  {
+    "name": "Stuffed Animals",
+    "slug": "stuffed-animals"
+  },
+  {
+    "name": "Educational Toys",
+    "slug": "educational-toys"
+  },
+  {
+    "name": "STEM Toys",
+    "slug": "stem-toys"
+  },
+  {
+    "name": "Science Kits",
+    "slug": "science-kits"
+  },
+  {
+    "name": "Chemistry Sets",
+    "slug": "chemistry-sets"
+  },
+  {
+    "name": "Board Games",
+    "slug": "board-games"
+  },
+  {
+    "name": "Card Games",
+    "slug": "card-games"
+  },
+  {
+    "name": "Puzzles",
+    "slug": "puzzles"
+  },
+  {
+    "name": "Jigsaw Puzzles",
+    "slug": "jigsaw-puzzles"
+  },
+  {
+    "name": "Toy Kitchens",
+    "slug": "toy-kitchens"
+  },
+  {
+    "name": "Toy Tools",
+    "slug": "toy-tools"
+  },
+  {
+    "name": "Musical Toys",
+    "slug": "musical-toys"
+  },
+  {
+    "name": "Baby Rattles",
+    "slug": "baby-rattles"
+  },
+  {
+    "name": "Ride On Toys",
+    "slug": "ride-on-toys"
+  },
+  {
+    "name": "Scooters",
+    "slug": "scooters"
+  },
+  {
+    "name": "Skateboards",
+    "slug": "skateboards"
+  },
+  {
+    "name": "Kites",
+    "slug": "kites"
+  },
+  {
+    "name": "Water Guns",
+    "slug": "water-guns"
+  },
+  {
+    "name": "Pool Toys",
+    "slug": "pool-toys"
+  },
+  {
+    "name": "Play Tents",
+    "slug": "play-tents"
+  },
+  {
+    "name": "Robotic Toys",
+    "slug": "robotic-toys"
+  },
+  {
+    "name": "Footballs",
+    "slug": "footballs"
+  },
+  {
+    "name": "Basketballs",
+    "slug": "basketballs"
+  },
+  {
+    "name": "Soccer Cleats",
+    "slug": "soccer-cleats"
+  },
+  {
+    "name": "Tennis Rackets",
+    "slug": "tennis-rackets"
+  },
+  {
+    "name": "Badminton Rackets",
+    "slug": "badminton-rackets"
+  },
+  {
+    "name": "Baseball Gloves",
+    "slug": "baseball-gloves"
+  },
+  {
+    "name": "Golf Clubs",
+    "slug": "golf-clubs"
+  },
+  {
+    "name": "Yoga Mats",
+    "slug": "yoga-mats"
+  },
+  {
+    "name": "Dumbbells",
+    "slug": "dumbbells"
+  },
+  {
+    "name": "Kettlebells",
+    "slug": "kettlebells"
+  },
+  {
+    "name": "Resistance Bands",
+    "slug": "resistance-bands"
+  },
+  {
+    "name": "Treadmills",
+    "slug": "treadmills"
+  },
+  {
+    "name": "Exercise Bikes",
+    "slug": "exercise-bikes"
+  },
+  {
+    "name": "Camping Tents",
+    "slug": "camping-tents"
+  },
+  {
+    "name": "Sleeping Bags",
+    "slug": "sleeping-bags"
+  },
+  {
+    "name": "Hiking Backpacks",
+    "slug": "hiking-backpacks"
+  },
+  {
+    "name": "Fishing Reels",
+    "slug": "fishing-reels"
+  },
+  {
+    "name": "Kayaks",
+    "slug": "kayaks"
+  },
+  {
+    "name": "Bike Helmets",
+    "slug": "bike-helmets"
+  },
+  {
+    "name": "Boxing Gloves",
+    "slug": "boxing-gloves"
+  },
+  {
+    "name": "Face Cleanser",
+    "slug": "face-cleanser"
+  },
+  {
+    "name": "Moisturizer",
+    "slug": "moisturizer"
+  },
+  {
+    "name": "Face Serum",
+    "slug": "face-serum"
+  },
+  {
+    "name": "Sunscreen",
+    "slug": "sunscreen"
+  },
+  {
+    "name": "Lip Balm",
+    "slug": "lip-balm"
+  },
+  {
+    "name": "Foundation",
+    "slug": "foundation"
+  },
+  {
+    "name": "Concealer",
+    "slug": "concealer"
+  },
+  {
+    "name": "Mascara",
+    "slug": "mascara"
+  },
+  {
+    "name": "Lipstick",
+    "slug": "lipstick"
+  },
+  {
+    "name": "Eyeshadow",
+    "slug": "eyeshadow"
+  },
+  {
+    "name": "Makeup Brushes",
+    "slug": "makeup-brushes"
+  },
+  {
+    "name": "Perfume",
+    "slug": "perfume"
+  },
+  {
+    "name": "Shampoo",
+    "slug": "shampoo"
+  },
+  {
+    "name": "Conditioner",
+    "slug": "conditioner"
+  },
+  {
+    "name": "Hair Oil",
+    "slug": "hair-oil"
+  },
+  {
+    "name": "Hair Dryer",
+    "slug": "hair-dryer"
+  },
+  {
+    "name": "Hair Straightener",
+    "slug": "hair-straightener"
+  },
+  {
+    "name": "Electric Shaver",
+    "slug": "electric-shaver"
+  },
+  {
+    "name": "Body Wash",
+    "slug": "body-wash"
+  },
+  {
+    "name": "Toothbrush",
+    "slug": "toothbrush"
+  },
+  {
+    "name": "Car Tires",
+    "slug": "car-tires"
+  },
+  {
+    "name": "Motorcycle Tires",
+    "slug": "motorcycle-tires"
+  },
+  {
+    "name": "Engine Oil",
+    "slug": "engine-oil"
+  },
+  {
+    "name": "Brake Pads",
+    "slug": "brake-pads"
+  },
+  {
+    "name": "Car Batteries",
+    "slug": "car-batteries"
+  },
+  {
+    "name": "Seat Covers",
+    "slug": "seat-covers"
+  },
+  {
+    "name": "Floor Mats",
+    "slug": "floor-mats"
+  },
+  {
+    "name": "Dash Cameras",
+    "slug": "dash-cameras"
+  },
+  {
+    "name": "GPS Navigators",
+    "slug": "gps-navigators"
+  },
+  {
+    "name": "Car Chargers",
+    "slug": "car-chargers"
+  },
+  {
+    "name": "Spark Plugs",
+    "slug": "spark-plugs"
+  },
+  {
+    "name": "Air Filters",
+    "slug": "air-filters"
+  },
+  {
+    "name": "Wiper Blades",
+    "slug": "wiper-blades"
+  },
+  {
+    "name": "Car Wax",
+    "slug": "car-wax"
+  },
+  {
+    "name": "Coolant",
+    "slug": "coolant"
+  },
+  {
+    "name": "Jump Starters",
+    "slug": "jump-starters"
+  },
+  {
+    "name": "Roof Racks",
+    "slug": "roof-racks"
+  },
+  {
+    "name": "Tow Straps",
+    "slug": "tow-straps"
+  },
+  {
+    "name": "Tool Kits",
+    "slug": "tool-kits"
+  },
+  {
+    "name": "Pressure Washers",
+    "slug": "pressure-washers"
+  },
+  {
+    "name": "Dog Food",
+    "slug": "dog-food"
+  },
+  {
+    "name": "Cat Food",
+    "slug": "cat-food"
+  },
+  {
+    "name": "Bird Food",
+    "slug": "bird-food"
+  },
+  {
+    "name": "Fish Food",
+    "slug": "fish-food"
+  },
+  {
+    "name": "Dog Beds",
+    "slug": "dog-beds"
+  },
+  {
+    "name": "Cat Trees",
+    "slug": "cat-trees"
+  },
+  {
+    "name": "Dog Collars",
+    "slug": "dog-collars"
+  },
+  {
+    "name": "Dog Leashes",
+    "slug": "dog-leashes"
+  },
+  {
+    "name": "Pet Carriers",
+    "slug": "pet-carriers"
+  },
+  {
+    "name": "Aquariums",
+    "slug": "aquariums"
+  },
+  {
+    "name": "Bird Cages",
+    "slug": "bird-cages"
+  },
+  {
+    "name": "Litter Boxes",
+    "slug": "litter-boxes"
+  },
+  {
+    "name": "Pet Toys",
+    "slug": "pet-toys"
+  },
+  {
+    "name": "Pet Grooming",
+    "slug": "pet-grooming"
+  },
+  {
+    "name": "Pet Bowls",
+    "slug": "pet-bowls"
+  },
+  {
+    "name": "Cat Litter",
+    "slug": "cat-litter"
+  },
+  {
+    "name": "Pet Shampoo",
+    "slug": "pet-shampoo"
+  },
+  {
+    "name": "Pet Treats",
+    "slug": "pet-treats"
+  },
+  {
+    "name": "Reptile Tanks",
+    "slug": "reptile-tanks"
+  },
+  {
+    "name": "Hamster Cages",
+    "slug": "hamster-cages"
+  },
+  {
+    "name": "Premium Kitchen Accessories",
+    "slug": "premium-kitchen-accessories"
+  },
+  {
+    "name": "Premium Kitchen Supplies",
+    "slug": "premium-kitchen-supplies"
+  },
+  {
+    "name": "Premium Kitchen Equipment",
+    "slug": "premium-kitchen-equipment"
+  },
+  {
+    "name": "Premium Kitchen Essentials",
+    "slug": "premium-kitchen-essentials"
+  },
+  {
+    "name": "Premium Kitchen Kits",
+    "slug": "premium-kitchen-kits"
+  },
+  {
+    "name": "Premium Kitchen Bundles",
+    "slug": "premium-kitchen-bundles"
+  },
+  {
+    "name": "Premium Kitchen Replacement Parts",
+    "slug": "premium-kitchen-replacement-parts"
+  },
+  {
+    "name": "Premium Kitchen Refills",
+    "slug": "premium-kitchen-refills"
+  },
+  {
+    "name": "Premium Kitchen Storage",
+    "slug": "premium-kitchen-storage"
+  },
+  {
+    "name": "Premium Kitchen Organizers",
+    "slug": "premium-kitchen-organizers"
+  },
+  {
+    "name": "Premium Kitchen Tools",
+    "slug": "premium-kitchen-tools"
+  },
+  {
+    "name": "Premium Kitchen Components",
+    "slug": "premium-kitchen-components"
+  },
+  {
+    "name": "Premium Kitchen Collections",
+    "slug": "premium-kitchen-collections"
+  },
+  {
+    "name": "Premium Kitchen Solutions",
+    "slug": "premium-kitchen-solutions"
+  },
+  {
+    "name": "Premium Kitchen Gear",
+    "slug": "premium-kitchen-gear"
+  },
+  {
+    "name": "Premium Kitchen Sets",
+    "slug": "premium-kitchen-sets"
+  },
+  {
+    "name": "Premium Kitchen Products",
+    "slug": "premium-kitchen-products"
+  },
+  {
+    "name": "Premium Kitchen Items",
+    "slug": "premium-kitchen-items"
+  },
+  {
+    "name": "Premium Kitchen Goods",
+    "slug": "premium-kitchen-goods"
+  },
+  {
+    "name": "Premium Kitchen Materials",
+    "slug": "premium-kitchen-materials"
+  },
+  {
+    "name": "Budget Kitchen Accessories",
+    "slug": "budget-kitchen-accessories"
+  },
+  {
+    "name": "Budget Kitchen Supplies",
+    "slug": "budget-kitchen-supplies"
+  },
+  {
+    "name": "Budget Kitchen Equipment",
+    "slug": "budget-kitchen-equipment"
+  },
+  {
+    "name": "Budget Kitchen Essentials",
+    "slug": "budget-kitchen-essentials"
+  },
+  {
+    "name": "Budget Kitchen Kits",
+    "slug": "budget-kitchen-kits"
+  },
+  {
+    "name": "Budget Kitchen Bundles",
+    "slug": "budget-kitchen-bundles"
+  },
+  {
+    "name": "Budget Kitchen Replacement Parts",
+    "slug": "budget-kitchen-replacement-parts"
+  },
+  {
+    "name": "Budget Kitchen Refills",
+    "slug": "budget-kitchen-refills"
+  },
+  {
+    "name": "Budget Kitchen Storage",
+    "slug": "budget-kitchen-storage"
+  },
+  {
+    "name": "Budget Kitchen Organizers",
+    "slug": "budget-kitchen-organizers"
+  },
+  {
+    "name": "Budget Kitchen Tools",
+    "slug": "budget-kitchen-tools"
+  },
+  {
+    "name": "Budget Kitchen Components",
+    "slug": "budget-kitchen-components"
+  },
+  {
+    "name": "Budget Kitchen Collections",
+    "slug": "budget-kitchen-collections"
+  },
+  {
+    "name": "Budget Kitchen Solutions",
+    "slug": "budget-kitchen-solutions"
+  },
+  {
+    "name": "Budget Kitchen Gear",
+    "slug": "budget-kitchen-gear"
+  },
+  {
+    "name": "Budget Kitchen Sets",
+    "slug": "budget-kitchen-sets"
+  },
+  {
+    "name": "Budget Kitchen Products",
+    "slug": "budget-kitchen-products"
+  },
+  {
+    "name": "Budget Kitchen Items",
+    "slug": "budget-kitchen-items"
+  },
+  {
+    "name": "Budget Kitchen Goods",
+    "slug": "budget-kitchen-goods"
+  },
+  {
+    "name": "Budget Kitchen Materials",
+    "slug": "budget-kitchen-materials"
+  },
+  {
+    "name": "Professional Kitchen Accessories",
+    "slug": "professional-kitchen-accessories"
+  },
+  {
+    "name": "Professional Kitchen Supplies",
+    "slug": "professional-kitchen-supplies"
+  },
+  {
+    "name": "Professional Kitchen Equipment",
+    "slug": "professional-kitchen-equipment"
+  },
+  {
+    "name": "Professional Kitchen Essentials",
+    "slug": "professional-kitchen-essentials"
+  },
+  {
+    "name": "Professional Kitchen Kits",
+    "slug": "professional-kitchen-kits"
+  },
+  {
+    "name": "Professional Kitchen Bundles",
+    "slug": "professional-kitchen-bundles"
+  },
+  {
+    "name": "Professional Kitchen Replacement Parts",
+    "slug": "professional-kitchen-replacement-parts"
+  },
+  {
+    "name": "Professional Kitchen Refills",
+    "slug": "professional-kitchen-refills"
+  },
+  {
+    "name": "Professional Kitchen Storage",
+    "slug": "professional-kitchen-storage"
+  },
+  {
+    "name": "Professional Kitchen Organizers",
+    "slug": "professional-kitchen-organizers"
+  },
+  {
+    "name": "Professional Kitchen Tools",
+    "slug": "professional-kitchen-tools"
+  },
+  {
+    "name": "Professional Kitchen Components",
+    "slug": "professional-kitchen-components"
+  },
+  {
+    "name": "Professional Kitchen Collections",
+    "slug": "professional-kitchen-collections"
+  },
+  {
+    "name": "Professional Kitchen Solutions",
+    "slug": "professional-kitchen-solutions"
+  },
+  {
+    "name": "Professional Kitchen Gear",
+    "slug": "professional-kitchen-gear"
+  },
+  {
+    "name": "Professional Kitchen Sets",
+    "slug": "professional-kitchen-sets"
+  },
+  {
+    "name": "Professional Kitchen Products",
+    "slug": "professional-kitchen-products"
+  },
+  {
+    "name": "Professional Kitchen Items",
+    "slug": "professional-kitchen-items"
+  },
+  {
+    "name": "Professional Kitchen Goods",
+    "slug": "professional-kitchen-goods"
+  },
+  {
+    "name": "Professional Kitchen Materials",
+    "slug": "professional-kitchen-materials"
+  },
+  {
+    "name": "Compact Kitchen Accessories",
+    "slug": "compact-kitchen-accessories"
+  },
+  {
+    "name": "Compact Kitchen Supplies",
+    "slug": "compact-kitchen-supplies"
+  },
+  {
+    "name": "Compact Kitchen Equipment",
+    "slug": "compact-kitchen-equipment"
+  },
+  {
+    "name": "Compact Kitchen Essentials",
+    "slug": "compact-kitchen-essentials"
+  },
+  {
+    "name": "Compact Kitchen Kits",
+    "slug": "compact-kitchen-kits"
+  },
+  {
+    "name": "Compact Kitchen Bundles",
+    "slug": "compact-kitchen-bundles"
+  },
+  {
+    "name": "Compact Kitchen Replacement Parts",
+    "slug": "compact-kitchen-replacement-parts"
+  },
+  {
+    "name": "Compact Kitchen Refills",
+    "slug": "compact-kitchen-refills"
+  },
+  {
+    "name": "Compact Kitchen Storage",
+    "slug": "compact-kitchen-storage"
+  },
+  {
+    "name": "Compact Kitchen Organizers",
+    "slug": "compact-kitchen-organizers"
+  },
+  {
+    "name": "Compact Kitchen Tools",
+    "slug": "compact-kitchen-tools"
+  },
+  {
+    "name": "Compact Kitchen Components",
+    "slug": "compact-kitchen-components"
+  },
+  {
+    "name": "Compact Kitchen Collections",
+    "slug": "compact-kitchen-collections"
+  },
+  {
+    "name": "Compact Kitchen Solutions",
+    "slug": "compact-kitchen-solutions"
+  },
+  {
+    "name": "Compact Kitchen Gear",
+    "slug": "compact-kitchen-gear"
+  },
+  {
+    "name": "Compact Kitchen Sets",
+    "slug": "compact-kitchen-sets"
+  },
+  {
+    "name": "Compact Kitchen Products",
+    "slug": "compact-kitchen-products"
+  },
+  {
+    "name": "Compact Kitchen Items",
+    "slug": "compact-kitchen-items"
+  },
+  {
+    "name": "Compact Kitchen Goods",
+    "slug": "compact-kitchen-goods"
+  },
+  {
+    "name": "Compact Kitchen Materials",
+    "slug": "compact-kitchen-materials"
+  },
+  {
+    "name": "Portable Kitchen Accessories",
+    "slug": "portable-kitchen-accessories"
+  },
+  {
+    "name": "Portable Kitchen Supplies",
+    "slug": "portable-kitchen-supplies"
+  },
+  {
+    "name": "Portable Kitchen Equipment",
+    "slug": "portable-kitchen-equipment"
+  },
+  {
+    "name": "Portable Kitchen Essentials",
+    "slug": "portable-kitchen-essentials"
+  },
+  {
+    "name": "Portable Kitchen Kits",
+    "slug": "portable-kitchen-kits"
+  },
+  {
+    "name": "Portable Kitchen Bundles",
+    "slug": "portable-kitchen-bundles"
+  },
+  {
+    "name": "Portable Kitchen Replacement Parts",
+    "slug": "portable-kitchen-replacement-parts"
+  },
+  {
+    "name": "Portable Kitchen Refills",
+    "slug": "portable-kitchen-refills"
+  },
+  {
+    "name": "Portable Kitchen Storage",
+    "slug": "portable-kitchen-storage"
+  },
+  {
+    "name": "Portable Kitchen Organizers",
+    "slug": "portable-kitchen-organizers"
+  },
+  {
+    "name": "Portable Kitchen Tools",
+    "slug": "portable-kitchen-tools"
+  },
+  {
+    "name": "Portable Kitchen Components",
+    "slug": "portable-kitchen-components"
+  },
+  {
+    "name": "Portable Kitchen Collections",
+    "slug": "portable-kitchen-collections"
+  },
+  {
+    "name": "Portable Kitchen Solutions",
+    "slug": "portable-kitchen-solutions"
+  },
+  {
+    "name": "Portable Kitchen Gear",
+    "slug": "portable-kitchen-gear"
+  },
+  {
+    "name": "Portable Kitchen Sets",
+    "slug": "portable-kitchen-sets"
+  },
+  {
+    "name": "Portable Kitchen Products",
+    "slug": "portable-kitchen-products"
+  },
+  {
+    "name": "Portable Kitchen Items",
+    "slug": "portable-kitchen-items"
+  },
+  {
+    "name": "Portable Kitchen Goods",
+    "slug": "portable-kitchen-goods"
+  },
+  {
+    "name": "Portable Kitchen Materials",
+    "slug": "portable-kitchen-materials"
+  },
+  {
+    "name": "Mini Kitchen Accessories",
+    "slug": "mini-kitchen-accessories"
+  },
+  {
+    "name": "Mini Kitchen Supplies",
+    "slug": "mini-kitchen-supplies"
+  },
+  {
+    "name": "Mini Kitchen Equipment",
+    "slug": "mini-kitchen-equipment"
+  },
+  {
+    "name": "Mini Kitchen Essentials",
+    "slug": "mini-kitchen-essentials"
+  },
+  {
+    "name": "Mini Kitchen Kits",
+    "slug": "mini-kitchen-kits"
+  },
+  {
+    "name": "Mini Kitchen Bundles",
+    "slug": "mini-kitchen-bundles"
+  },
+  {
+    "name": "Mini Kitchen Replacement Parts",
+    "slug": "mini-kitchen-replacement-parts"
+  },
+  {
+    "name": "Mini Kitchen Refills",
+    "slug": "mini-kitchen-refills"
+  },
+  {
+    "name": "Mini Kitchen Storage",
+    "slug": "mini-kitchen-storage"
+  },
+  {
+    "name": "Mini Kitchen Organizers",
+    "slug": "mini-kitchen-organizers"
+  },
+  {
+    "name": "Mini Kitchen Tools",
+    "slug": "mini-kitchen-tools"
+  },
+  {
+    "name": "Mini Kitchen Components",
+    "slug": "mini-kitchen-components"
+  },
+  {
+    "name": "Mini Kitchen Collections",
+    "slug": "mini-kitchen-collections"
+  },
+  {
+    "name": "Mini Kitchen Solutions",
+    "slug": "mini-kitchen-solutions"
+  },
+  {
+    "name": "Mini Kitchen Gear",
+    "slug": "mini-kitchen-gear"
+  },
+  {
+    "name": "Mini Kitchen Sets",
+    "slug": "mini-kitchen-sets"
+  },
+  {
+    "name": "Mini Kitchen Products",
+    "slug": "mini-kitchen-products"
+  },
+  {
+    "name": "Mini Kitchen Items",
+    "slug": "mini-kitchen-items"
+  },
+  {
+    "name": "Mini Kitchen Goods",
+    "slug": "mini-kitchen-goods"
+  },
+  {
+    "name": "Mini Kitchen Materials",
+    "slug": "mini-kitchen-materials"
+  },
+  {
+    "name": "Large Kitchen Accessories",
+    "slug": "large-kitchen-accessories"
+  },
+  {
+    "name": "Large Kitchen Supplies",
+    "slug": "large-kitchen-supplies"
+  },
+  {
+    "name": "Large Kitchen Equipment",
+    "slug": "large-kitchen-equipment"
+  },
+  {
+    "name": "Large Kitchen Essentials",
+    "slug": "large-kitchen-essentials"
+  },
+  {
+    "name": "Large Kitchen Kits",
+    "slug": "large-kitchen-kits"
+  },
+  {
+    "name": "Large Kitchen Bundles",
+    "slug": "large-kitchen-bundles"
+  },
+  {
+    "name": "Large Kitchen Replacement Parts",
+    "slug": "large-kitchen-replacement-parts"
+  },
+  {
+    "name": "Large Kitchen Refills",
+    "slug": "large-kitchen-refills"
+  },
+  {
+    "name": "Large Kitchen Storage",
+    "slug": "large-kitchen-storage"
+  },
+  {
+    "name": "Large Kitchen Organizers",
+    "slug": "large-kitchen-organizers"
+  },
+  {
+    "name": "Large Kitchen Tools",
+    "slug": "large-kitchen-tools"
+  },
+  {
+    "name": "Large Kitchen Components",
+    "slug": "large-kitchen-components"
+  },
+  {
+    "name": "Large Kitchen Collections",
+    "slug": "large-kitchen-collections"
+  },
+  {
+    "name": "Large Kitchen Solutions",
+    "slug": "large-kitchen-solutions"
+  },
+  {
+    "name": "Large Kitchen Gear",
+    "slug": "large-kitchen-gear"
+  },
+  {
+    "name": "Large Kitchen Sets",
+    "slug": "large-kitchen-sets"
+  },
+  {
+    "name": "Large Kitchen Products",
+    "slug": "large-kitchen-products"
+  },
+  {
+    "name": "Large Kitchen Items",
+    "slug": "large-kitchen-items"
+  },
+  {
+    "name": "Large Kitchen Goods",
+    "slug": "large-kitchen-goods"
+  },
+  {
+    "name": "Large Kitchen Materials",
+    "slug": "large-kitchen-materials"
+  },
+  {
+    "name": "Eco Kitchen Accessories",
+    "slug": "eco-kitchen-accessories"
+  },
+  {
+    "name": "Eco Kitchen Supplies",
+    "slug": "eco-kitchen-supplies"
+  },
+  {
+    "name": "Eco Kitchen Equipment",
+    "slug": "eco-kitchen-equipment"
+  },
+  {
+    "name": "Eco Kitchen Essentials",
+    "slug": "eco-kitchen-essentials"
+  },
+  {
+    "name": "Eco Kitchen Kits",
+    "slug": "eco-kitchen-kits"
+  },
+  {
+    "name": "Eco Kitchen Bundles",
+    "slug": "eco-kitchen-bundles"
+  },
+  {
+    "name": "Eco Kitchen Replacement Parts",
+    "slug": "eco-kitchen-replacement-parts"
+  },
+  {
+    "name": "Eco Kitchen Refills",
+    "slug": "eco-kitchen-refills"
+  },
+  {
+    "name": "Eco Kitchen Storage",
+    "slug": "eco-kitchen-storage"
+  },
+  {
+    "name": "Eco Kitchen Organizers",
+    "slug": "eco-kitchen-organizers"
+  },
+  {
+    "name": "Eco Kitchen Tools",
+    "slug": "eco-kitchen-tools"
+  },
+  {
+    "name": "Eco Kitchen Components",
+    "slug": "eco-kitchen-components"
+  },
+  {
+    "name": "Eco Kitchen Collections",
+    "slug": "eco-kitchen-collections"
+  },
+  {
+    "name": "Eco Kitchen Solutions",
+    "slug": "eco-kitchen-solutions"
+  },
+  {
+    "name": "Eco Kitchen Gear",
+    "slug": "eco-kitchen-gear"
+  },
+  {
+    "name": "Eco Kitchen Sets",
+    "slug": "eco-kitchen-sets"
+  },
+  {
+    "name": "Eco Kitchen Products",
+    "slug": "eco-kitchen-products"
+  },
+  {
+    "name": "Eco Kitchen Items",
+    "slug": "eco-kitchen-items"
+  },
+  {
+    "name": "Eco Kitchen Goods",
+    "slug": "eco-kitchen-goods"
+  },
+  {
+    "name": "Eco Kitchen Materials",
+    "slug": "eco-kitchen-materials"
+  },
+  {
+    "name": "Organic Kitchen Accessories",
+    "slug": "organic-kitchen-accessories"
+  },
+  {
+    "name": "Organic Kitchen Supplies",
+    "slug": "organic-kitchen-supplies"
+  },
+  {
+    "name": "Organic Kitchen Equipment",
+    "slug": "organic-kitchen-equipment"
+  },
+  {
+    "name": "Organic Kitchen Essentials",
+    "slug": "organic-kitchen-essentials"
+  },
+  {
+    "name": "Organic Kitchen Kits",
+    "slug": "organic-kitchen-kits"
+  },
+  {
+    "name": "Organic Kitchen Bundles",
+    "slug": "organic-kitchen-bundles"
+  },
+  {
+    "name": "Organic Kitchen Replacement Parts",
+    "slug": "organic-kitchen-replacement-parts"
+  },
+  {
+    "name": "Organic Kitchen Refills",
+    "slug": "organic-kitchen-refills"
+  },
+  {
+    "name": "Organic Kitchen Storage",
+    "slug": "organic-kitchen-storage"
+  },
+  {
+    "name": "Organic Kitchen Organizers",
+    "slug": "organic-kitchen-organizers"
+  },
+  {
+    "name": "Organic Kitchen Tools",
+    "slug": "organic-kitchen-tools"
+  },
+  {
+    "name": "Organic Kitchen Components",
+    "slug": "organic-kitchen-components"
+  },
+  {
+    "name": "Organic Kitchen Collections",
+    "slug": "organic-kitchen-collections"
+  },
+  {
+    "name": "Organic Kitchen Solutions",
+    "slug": "organic-kitchen-solutions"
+  },
+  {
+    "name": "Organic Kitchen Gear",
+    "slug": "organic-kitchen-gear"
+  },
+  {
+    "name": "Organic Kitchen Sets",
+    "slug": "organic-kitchen-sets"
+  },
+  {
+    "name": "Organic Kitchen Products",
+    "slug": "organic-kitchen-products"
+  },
+  {
+    "name": "Organic Kitchen Items",
+    "slug": "organic-kitchen-items"
+  },
+  {
+    "name": "Organic Kitchen Goods",
+    "slug": "organic-kitchen-goods"
+  },
+  {
+    "name": "Organic Kitchen Materials",
+    "slug": "organic-kitchen-materials"
+  },
+  {
+    "name": "Luxury Kitchen Accessories",
+    "slug": "luxury-kitchen-accessories"
+  },
+  {
+    "name": "Luxury Kitchen Supplies",
+    "slug": "luxury-kitchen-supplies"
+  },
+  {
+    "name": "Luxury Kitchen Equipment",
+    "slug": "luxury-kitchen-equipment"
+  },
+  {
+    "name": "Luxury Kitchen Essentials",
+    "slug": "luxury-kitchen-essentials"
+  },
+  {
+    "name": "Luxury Kitchen Kits",
+    "slug": "luxury-kitchen-kits"
+  },
+  {
+    "name": "Luxury Kitchen Bundles",
+    "slug": "luxury-kitchen-bundles"
+  },
+  {
+    "name": "Luxury Kitchen Replacement Parts",
+    "slug": "luxury-kitchen-replacement-parts"
+  },
+  {
+    "name": "Luxury Kitchen Refills",
+    "slug": "luxury-kitchen-refills"
+  },
+  {
+    "name": "Luxury Kitchen Storage",
+    "slug": "luxury-kitchen-storage"
+  },
+  {
+    "name": "Luxury Kitchen Organizers",
+    "slug": "luxury-kitchen-organizers"
+  },
+  {
+    "name": "Luxury Kitchen Tools",
+    "slug": "luxury-kitchen-tools"
+  },
+  {
+    "name": "Luxury Kitchen Components",
+    "slug": "luxury-kitchen-components"
+  },
+  {
+    "name": "Luxury Kitchen Collections",
+    "slug": "luxury-kitchen-collections"
+  },
+  {
+    "name": "Luxury Kitchen Solutions",
+    "slug": "luxury-kitchen-solutions"
+  },
+  {
+    "name": "Luxury Kitchen Gear",
+    "slug": "luxury-kitchen-gear"
+  },
+  {
+    "name": "Luxury Kitchen Sets",
+    "slug": "luxury-kitchen-sets"
+  },
+  {
+    "name": "Luxury Kitchen Products",
+    "slug": "luxury-kitchen-products"
+  },
+  {
+    "name": "Luxury Kitchen Items",
+    "slug": "luxury-kitchen-items"
+  },
+  {
+    "name": "Luxury Kitchen Goods",
+    "slug": "luxury-kitchen-goods"
+  },
+  {
+    "name": "Luxury Kitchen Materials",
+    "slug": "luxury-kitchen-materials"
+  },
+  {
+    "name": "Smart Kitchen Accessories",
+    "slug": "smart-kitchen-accessories"
+  },
+  {
+    "name": "Smart Kitchen Supplies",
+    "slug": "smart-kitchen-supplies"
+  },
+  {
+    "name": "Smart Kitchen Equipment",
+    "slug": "smart-kitchen-equipment"
+  },
+  {
+    "name": "Smart Kitchen Essentials",
+    "slug": "smart-kitchen-essentials"
+  },
+  {
+    "name": "Smart Kitchen Kits",
+    "slug": "smart-kitchen-kits"
+  },
+  {
+    "name": "Smart Kitchen Bundles",
+    "slug": "smart-kitchen-bundles"
+  },
+  {
+    "name": "Smart Kitchen Replacement Parts",
+    "slug": "smart-kitchen-replacement-parts"
+  },
+  {
+    "name": "Smart Kitchen Refills",
+    "slug": "smart-kitchen-refills"
+  },
+  {
+    "name": "Smart Kitchen Storage",
+    "slug": "smart-kitchen-storage"
+  },
+  {
+    "name": "Smart Kitchen Organizers",
+    "slug": "smart-kitchen-organizers"
+  },
+  {
+    "name": "Smart Kitchen Tools",
+    "slug": "smart-kitchen-tools"
+  },
+  {
+    "name": "Smart Kitchen Components",
+    "slug": "smart-kitchen-components"
+  },
+  {
+    "name": "Smart Kitchen Collections",
+    "slug": "smart-kitchen-collections"
+  },
+  {
+    "name": "Smart Kitchen Solutions",
+    "slug": "smart-kitchen-solutions"
+  },
+  {
+    "name": "Smart Kitchen Gear",
+    "slug": "smart-kitchen-gear"
+  },
+  {
+    "name": "Smart Kitchen Sets",
+    "slug": "smart-kitchen-sets"
+  },
+  {
+    "name": "Smart Kitchen Products",
+    "slug": "smart-kitchen-products"
+  },
+  {
+    "name": "Smart Kitchen Items",
+    "slug": "smart-kitchen-items"
+  },
+  {
+    "name": "Smart Kitchen Goods",
+    "slug": "smart-kitchen-goods"
+  },
+  {
+    "name": "Smart Kitchen Materials",
+    "slug": "smart-kitchen-materials"
+  },
+  {
+    "name": "Wireless Kitchen Accessories",
+    "slug": "wireless-kitchen-accessories"
+  },
+  {
+    "name": "Wireless Kitchen Supplies",
+    "slug": "wireless-kitchen-supplies"
+  },
+  {
+    "name": "Wireless Kitchen Equipment",
+    "slug": "wireless-kitchen-equipment"
+  },
+  {
+    "name": "Wireless Kitchen Essentials",
+    "slug": "wireless-kitchen-essentials"
+  },
+  {
+    "name": "Wireless Kitchen Kits",
+    "slug": "wireless-kitchen-kits"
+  },
+  {
+    "name": "Wireless Kitchen Bundles",
+    "slug": "wireless-kitchen-bundles"
+  },
+  {
+    "name": "Wireless Kitchen Replacement Parts",
+    "slug": "wireless-kitchen-replacement-parts"
+  },
+  {
+    "name": "Wireless Kitchen Refills",
+    "slug": "wireless-kitchen-refills"
+  },
+  {
+    "name": "Wireless Kitchen Storage",
+    "slug": "wireless-kitchen-storage"
+  },
+  {
+    "name": "Wireless Kitchen Organizers",
+    "slug": "wireless-kitchen-organizers"
+  },
+  {
+    "name": "Wireless Kitchen Tools",
+    "slug": "wireless-kitchen-tools"
+  },
+  {
+    "name": "Wireless Kitchen Components",
+    "slug": "wireless-kitchen-components"
+  },
+  {
+    "name": "Wireless Kitchen Collections",
+    "slug": "wireless-kitchen-collections"
+  },
+  {
+    "name": "Wireless Kitchen Solutions",
+    "slug": "wireless-kitchen-solutions"
+  },
+  {
+    "name": "Wireless Kitchen Gear",
+    "slug": "wireless-kitchen-gear"
+  },
+  {
+    "name": "Wireless Kitchen Sets",
+    "slug": "wireless-kitchen-sets"
+  },
+  {
+    "name": "Wireless Kitchen Products",
+    "slug": "wireless-kitchen-products"
+  },
+  {
+    "name": "Wireless Kitchen Items",
+    "slug": "wireless-kitchen-items"
+  },
+  {
+    "name": "Wireless Kitchen Goods",
+    "slug": "wireless-kitchen-goods"
+  },
+  {
+    "name": "Wireless Kitchen Materials",
+    "slug": "wireless-kitchen-materials"
+  },
+  {
+    "name": "Rechargeable Kitchen Accessories",
+    "slug": "rechargeable-kitchen-accessories"
+  },
+  {
+    "name": "Rechargeable Kitchen Supplies",
+    "slug": "rechargeable-kitchen-supplies"
+  },
+  {
+    "name": "Rechargeable Kitchen Equipment",
+    "slug": "rechargeable-kitchen-equipment"
+  },
+  {
+    "name": "Rechargeable Kitchen Essentials",
+    "slug": "rechargeable-kitchen-essentials"
+  },
+  {
+    "name": "Rechargeable Kitchen Kits",
+    "slug": "rechargeable-kitchen-kits"
+  },
+  {
+    "name": "Rechargeable Kitchen Bundles",
+    "slug": "rechargeable-kitchen-bundles"
+  },
+  {
+    "name": "Rechargeable Kitchen Replacement Parts",
+    "slug": "rechargeable-kitchen-replacement-parts"
+  },
+  {
+    "name": "Rechargeable Kitchen Refills",
+    "slug": "rechargeable-kitchen-refills"
+  },
+  {
+    "name": "Rechargeable Kitchen Storage",
+    "slug": "rechargeable-kitchen-storage"
+  },
+  {
+    "name": "Rechargeable Kitchen Organizers",
+    "slug": "rechargeable-kitchen-organizers"
+  },
+  {
+    "name": "Rechargeable Kitchen Tools",
+    "slug": "rechargeable-kitchen-tools"
+  },
+  {
+    "name": "Rechargeable Kitchen Components",
+    "slug": "rechargeable-kitchen-components"
+  },
+  {
+    "name": "Rechargeable Kitchen Collections",
+    "slug": "rechargeable-kitchen-collections"
+  },
+  {
+    "name": "Rechargeable Kitchen Solutions",
+    "slug": "rechargeable-kitchen-solutions"
+  },
+  {
+    "name": "Rechargeable Kitchen Gear",
+    "slug": "rechargeable-kitchen-gear"
+  },
+  {
+    "name": "Rechargeable Kitchen Sets",
+    "slug": "rechargeable-kitchen-sets"
+  },
+  {
+    "name": "Rechargeable Kitchen Products",
+    "slug": "rechargeable-kitchen-products"
+  },
+  {
+    "name": "Rechargeable Kitchen Items",
+    "slug": "rechargeable-kitchen-items"
+  },
+  {
+    "name": "Rechargeable Kitchen Goods",
+    "slug": "rechargeable-kitchen-goods"
+  },
+  {
+    "name": "Rechargeable Kitchen Materials",
+    "slug": "rechargeable-kitchen-materials"
+  },
+  {
+    "name": "Heavy Duty Kitchen Accessories",
+    "slug": "heavy-duty-kitchen-accessories"
+  },
+  {
+    "name": "Heavy Duty Kitchen Supplies",
+    "slug": "heavy-duty-kitchen-supplies"
+  },
+  {
+    "name": "Heavy Duty Kitchen Equipment",
+    "slug": "heavy-duty-kitchen-equipment"
+  },
+  {
+    "name": "Heavy Duty Kitchen Essentials",
+    "slug": "heavy-duty-kitchen-essentials"
+  },
+  {
+    "name": "Heavy Duty Kitchen Kits",
+    "slug": "heavy-duty-kitchen-kits"
+  },
+  {
+    "name": "Heavy Duty Kitchen Bundles",
+    "slug": "heavy-duty-kitchen-bundles"
+  },
+  {
+    "name": "Heavy Duty Kitchen Replacement Parts",
+    "slug": "heavy-duty-kitchen-replacement-parts"
+  },
+  {
+    "name": "Heavy Duty Kitchen Refills",
+    "slug": "heavy-duty-kitchen-refills"
+  },
+  {
+    "name": "Heavy Duty Kitchen Storage",
+    "slug": "heavy-duty-kitchen-storage"
+  },
+  {
+    "name": "Heavy Duty Kitchen Organizers",
+    "slug": "heavy-duty-kitchen-organizers"
+  },
+  {
+    "name": "Heavy Duty Kitchen Tools",
+    "slug": "heavy-duty-kitchen-tools"
+  },
+  {
+    "name": "Heavy Duty Kitchen Components",
+    "slug": "heavy-duty-kitchen-components"
+  },
+  {
+    "name": "Heavy Duty Kitchen Collections",
+    "slug": "heavy-duty-kitchen-collections"
+  },
+  {
+    "name": "Heavy Duty Kitchen Solutions",
+    "slug": "heavy-duty-kitchen-solutions"
+  },
+  {
+    "name": "Heavy Duty Kitchen Gear",
+    "slug": "heavy-duty-kitchen-gear"
+  },
+  {
+    "name": "Heavy Duty Kitchen Sets",
+    "slug": "heavy-duty-kitchen-sets"
+  },
+  {
+    "name": "Heavy Duty Kitchen Products",
+    "slug": "heavy-duty-kitchen-products"
+  },
+  {
+    "name": "Heavy Duty Kitchen Items",
+    "slug": "heavy-duty-kitchen-items"
+  },
+  {
+    "name": "Heavy Duty Kitchen Goods",
+    "slug": "heavy-duty-kitchen-goods"
+  },
+  {
+    "name": "Heavy Duty Kitchen Materials",
+    "slug": "heavy-duty-kitchen-materials"
+  },
+  {
+    "name": "Classic Kitchen Accessories",
+    "slug": "classic-kitchen-accessories"
+  },
+  {
+    "name": "Classic Kitchen Supplies",
+    "slug": "classic-kitchen-supplies"
+  },
+  {
+    "name": "Classic Kitchen Equipment",
+    "slug": "classic-kitchen-equipment"
+  },
+  {
+    "name": "Classic Kitchen Essentials",
+    "slug": "classic-kitchen-essentials"
+  },
+  {
+    "name": "Classic Kitchen Kits",
+    "slug": "classic-kitchen-kits"
+  },
+  {
+    "name": "Classic Kitchen Bundles",
+    "slug": "classic-kitchen-bundles"
+  },
+  {
+    "name": "Classic Kitchen Replacement Parts",
+    "slug": "classic-kitchen-replacement-parts"
+  },
+  {
+    "name": "Classic Kitchen Refills",
+    "slug": "classic-kitchen-refills"
+  },
+  {
+    "name": "Classic Kitchen Storage",
+    "slug": "classic-kitchen-storage"
+  },
+  {
+    "name": "Classic Kitchen Organizers",
+    "slug": "classic-kitchen-organizers"
+  },
+  {
+    "name": "Classic Kitchen Tools",
+    "slug": "classic-kitchen-tools"
+  },
+  {
+    "name": "Classic Kitchen Components",
+    "slug": "classic-kitchen-components"
+  },
+  {
+    "name": "Classic Kitchen Collections",
+    "slug": "classic-kitchen-collections"
+  },
+  {
+    "name": "Classic Kitchen Solutions",
+    "slug": "classic-kitchen-solutions"
+  },
+  {
+    "name": "Classic Kitchen Gear",
+    "slug": "classic-kitchen-gear"
+  },
+  {
+    "name": "Classic Kitchen Sets",
+    "slug": "classic-kitchen-sets"
+  },
+  {
+    "name": "Classic Kitchen Products",
+    "slug": "classic-kitchen-products"
+  },
+  {
+    "name": "Classic Kitchen Items",
+    "slug": "classic-kitchen-items"
+  },
+  {
+    "name": "Classic Kitchen Goods",
+    "slug": "classic-kitchen-goods"
+  },
+  {
+    "name": "Classic Kitchen Materials",
+    "slug": "classic-kitchen-materials"
+  },
+  {
+    "name": "Modern Kitchen Accessories",
+    "slug": "modern-kitchen-accessories"
+  },
+  {
+    "name": "Modern Kitchen Supplies",
+    "slug": "modern-kitchen-supplies"
+  },
+  {
+    "name": "Modern Kitchen Equipment",
+    "slug": "modern-kitchen-equipment"
+  },
+  {
+    "name": "Modern Kitchen Essentials",
+    "slug": "modern-kitchen-essentials"
+  },
+  {
+    "name": "Modern Kitchen Kits",
+    "slug": "modern-kitchen-kits"
+  },
+  {
+    "name": "Modern Kitchen Bundles",
+    "slug": "modern-kitchen-bundles"
+  },
+  {
+    "name": "Modern Kitchen Replacement Parts",
+    "slug": "modern-kitchen-replacement-parts"
+  },
+  {
+    "name": "Modern Kitchen Refills",
+    "slug": "modern-kitchen-refills"
+  },
+  {
+    "name": "Modern Kitchen Storage",
+    "slug": "modern-kitchen-storage"
+  },
+  {
+    "name": "Modern Kitchen Organizers",
+    "slug": "modern-kitchen-organizers"
+  },
+  {
+    "name": "Modern Kitchen Tools",
+    "slug": "modern-kitchen-tools"
+  },
+  {
+    "name": "Modern Kitchen Components",
+    "slug": "modern-kitchen-components"
+  },
+  {
+    "name": "Modern Kitchen Collections",
+    "slug": "modern-kitchen-collections"
+  },
+  {
+    "name": "Modern Kitchen Solutions",
+    "slug": "modern-kitchen-solutions"
+  },
+  {
+    "name": "Modern Kitchen Gear",
+    "slug": "modern-kitchen-gear"
+  },
+  {
+    "name": "Modern Kitchen Sets",
+    "slug": "modern-kitchen-sets"
+  },
+  {
+    "name": "Modern Kitchen Products",
+    "slug": "modern-kitchen-products"
+  },
+  {
+    "name": "Modern Kitchen Items",
+    "slug": "modern-kitchen-items"
+  },
+  {
+    "name": "Modern Kitchen Goods",
+    "slug": "modern-kitchen-goods"
+  },
+  {
+    "name": "Modern Kitchen Materials",
+    "slug": "modern-kitchen-materials"
+  },
+  {
+    "name": "Vintage Kitchen Accessories",
+    "slug": "vintage-kitchen-accessories"
+  },
+  {
+    "name": "Vintage Kitchen Supplies",
+    "slug": "vintage-kitchen-supplies"
+  },
+  {
+    "name": "Vintage Kitchen Equipment",
+    "slug": "vintage-kitchen-equipment"
+  },
+  {
+    "name": "Vintage Kitchen Essentials",
+    "slug": "vintage-kitchen-essentials"
+  },
+  {
+    "name": "Vintage Kitchen Kits",
+    "slug": "vintage-kitchen-kits"
+  },
+  {
+    "name": "Vintage Kitchen Bundles",
+    "slug": "vintage-kitchen-bundles"
+  },
+  {
+    "name": "Vintage Kitchen Replacement Parts",
+    "slug": "vintage-kitchen-replacement-parts"
+  },
+  {
+    "name": "Vintage Kitchen Refills",
+    "slug": "vintage-kitchen-refills"
+  },
+  {
+    "name": "Vintage Kitchen Storage",
+    "slug": "vintage-kitchen-storage"
+  },
+  {
+    "name": "Vintage Kitchen Organizers",
+    "slug": "vintage-kitchen-organizers"
+  },
+  {
+    "name": "Vintage Kitchen Tools",
+    "slug": "vintage-kitchen-tools"
+  },
+  {
+    "name": "Vintage Kitchen Components",
+    "slug": "vintage-kitchen-components"
+  },
+  {
+    "name": "Vintage Kitchen Collections",
+    "slug": "vintage-kitchen-collections"
+  },
+  {
+    "name": "Vintage Kitchen Solutions",
+    "slug": "vintage-kitchen-solutions"
+  },
+  {
+    "name": "Vintage Kitchen Gear",
+    "slug": "vintage-kitchen-gear"
+  },
+  {
+    "name": "Vintage Kitchen Sets",
+    "slug": "vintage-kitchen-sets"
+  },
+  {
+    "name": "Vintage Kitchen Products",
+    "slug": "vintage-kitchen-products"
+  },
+  {
+    "name": "Vintage Kitchen Items",
+    "slug": "vintage-kitchen-items"
+  },
+  {
+    "name": "Vintage Kitchen Goods",
+    "slug": "vintage-kitchen-goods"
+  },
+  {
+    "name": "Vintage Kitchen Materials",
+    "slug": "vintage-kitchen-materials"
+  },
+  {
+    "name": "Digital Kitchen Accessories",
+    "slug": "digital-kitchen-accessories"
+  },
+  {
+    "name": "Digital Kitchen Supplies",
+    "slug": "digital-kitchen-supplies"
+  },
+  {
+    "name": "Digital Kitchen Equipment",
+    "slug": "digital-kitchen-equipment"
+  },
+  {
+    "name": "Digital Kitchen Essentials",
+    "slug": "digital-kitchen-essentials"
+  },
+  {
+    "name": "Digital Kitchen Kits",
+    "slug": "digital-kitchen-kits"
+  },
+  {
+    "name": "Digital Kitchen Bundles",
+    "slug": "digital-kitchen-bundles"
+  },
+  {
+    "name": "Digital Kitchen Replacement Parts",
+    "slug": "digital-kitchen-replacement-parts"
+  },
+  {
+    "name": "Digital Kitchen Refills",
+    "slug": "digital-kitchen-refills"
+  },
+  {
+    "name": "Digital Kitchen Storage",
+    "slug": "digital-kitchen-storage"
+  },
+  {
+    "name": "Digital Kitchen Organizers",
+    "slug": "digital-kitchen-organizers"
+  },
+  {
+    "name": "Digital Kitchen Tools",
+    "slug": "digital-kitchen-tools"
+  },
+  {
+    "name": "Digital Kitchen Components",
+    "slug": "digital-kitchen-components"
+  },
+  {
+    "name": "Digital Kitchen Collections",
+    "slug": "digital-kitchen-collections"
+  },
+  {
+    "name": "Digital Kitchen Solutions",
+    "slug": "digital-kitchen-solutions"
+  },
+  {
+    "name": "Digital Kitchen Gear",
+    "slug": "digital-kitchen-gear"
+  },
+  {
+    "name": "Digital Kitchen Sets",
+    "slug": "digital-kitchen-sets"
+  },
+  {
+    "name": "Digital Kitchen Products",
+    "slug": "digital-kitchen-products"
+  },
+  {
+    "name": "Digital Kitchen Items",
+    "slug": "digital-kitchen-items"
+  },
+  {
+    "name": "Digital Kitchen Goods",
+    "slug": "digital-kitchen-goods"
+  },
+  {
+    "name": "Digital Kitchen Materials",
+    "slug": "digital-kitchen-materials"
+  },
+  {
+    "name": "Electric Kitchen Accessories",
+    "slug": "electric-kitchen-accessories"
+  },
+  {
+    "name": "Electric Kitchen Supplies",
+    "slug": "electric-kitchen-supplies"
+  },
+  {
+    "name": "Electric Kitchen Equipment",
+    "slug": "electric-kitchen-equipment"
+  },
+  {
+    "name": "Electric Kitchen Essentials",
+    "slug": "electric-kitchen-essentials"
+  },
+  {
+    "name": "Electric Kitchen Kits",
+    "slug": "electric-kitchen-kits"
+  },
+  {
+    "name": "Electric Kitchen Bundles",
+    "slug": "electric-kitchen-bundles"
+  },
+  {
+    "name": "Electric Kitchen Replacement Parts",
+    "slug": "electric-kitchen-replacement-parts"
+  },
+  {
+    "name": "Electric Kitchen Refills",
+    "slug": "electric-kitchen-refills"
+  },
+  {
+    "name": "Electric Kitchen Storage",
+    "slug": "electric-kitchen-storage"
+  },
+  {
+    "name": "Electric Kitchen Organizers",
+    "slug": "electric-kitchen-organizers"
+  },
+  {
+    "name": "Electric Kitchen Tools",
+    "slug": "electric-kitchen-tools"
+  },
+  {
+    "name": "Electric Kitchen Components",
+    "slug": "electric-kitchen-components"
+  },
+  {
+    "name": "Electric Kitchen Collections",
+    "slug": "electric-kitchen-collections"
+  },
+  {
+    "name": "Electric Kitchen Solutions",
+    "slug": "electric-kitchen-solutions"
+  },
+  {
+    "name": "Electric Kitchen Gear",
+    "slug": "electric-kitchen-gear"
+  },
+  {
+    "name": "Electric Kitchen Sets",
+    "slug": "electric-kitchen-sets"
+  },
+  {
+    "name": "Electric Kitchen Products",
+    "slug": "electric-kitchen-products"
+  },
+  {
+    "name": "Electric Kitchen Items",
+    "slug": "electric-kitchen-items"
+  },
+  {
+    "name": "Electric Kitchen Goods",
+    "slug": "electric-kitchen-goods"
+  },
+  {
+    "name": "Electric Kitchen Materials",
+    "slug": "electric-kitchen-materials"
+  },
+  {
+    "name": "Foldable Kitchen Accessories",
+    "slug": "foldable-kitchen-accessories"
+  },
+  {
+    "name": "Foldable Kitchen Supplies",
+    "slug": "foldable-kitchen-supplies"
+  },
+  {
+    "name": "Foldable Kitchen Equipment",
+    "slug": "foldable-kitchen-equipment"
+  },
+  {
+    "name": "Foldable Kitchen Essentials",
+    "slug": "foldable-kitchen-essentials"
+  },
+  {
+    "name": "Foldable Kitchen Kits",
+    "slug": "foldable-kitchen-kits"
+  },
+  {
+    "name": "Foldable Kitchen Bundles",
+    "slug": "foldable-kitchen-bundles"
+  },
+  {
+    "name": "Foldable Kitchen Replacement Parts",
+    "slug": "foldable-kitchen-replacement-parts"
+  },
+  {
+    "name": "Foldable Kitchen Refills",
+    "slug": "foldable-kitchen-refills"
+  },
+  {
+    "name": "Foldable Kitchen Storage",
+    "slug": "foldable-kitchen-storage"
+  },
+  {
+    "name": "Foldable Kitchen Organizers",
+    "slug": "foldable-kitchen-organizers"
+  },
+  {
+    "name": "Foldable Kitchen Tools",
+    "slug": "foldable-kitchen-tools"
+  },
+  {
+    "name": "Foldable Kitchen Components",
+    "slug": "foldable-kitchen-components"
+  },
+  {
+    "name": "Foldable Kitchen Collections",
+    "slug": "foldable-kitchen-collections"
+  },
+  {
+    "name": "Foldable Kitchen Solutions",
+    "slug": "foldable-kitchen-solutions"
+  },
+  {
+    "name": "Foldable Kitchen Gear",
+    "slug": "foldable-kitchen-gear"
+  },
+  {
+    "name": "Foldable Kitchen Sets",
+    "slug": "foldable-kitchen-sets"
+  },
+  {
+    "name": "Foldable Kitchen Products",
+    "slug": "foldable-kitchen-products"
+  },
+  {
+    "name": "Foldable Kitchen Items",
+    "slug": "foldable-kitchen-items"
+  },
+  {
+    "name": "Foldable Kitchen Goods",
+    "slug": "foldable-kitchen-goods"
+  },
+  {
+    "name": "Foldable Kitchen Materials",
+    "slug": "foldable-kitchen-materials"
+  },
+  {
+    "name": "Premium Office Accessories",
+    "slug": "premium-office-accessories"
+  },
+  {
+    "name": "Premium Office Supplies",
+    "slug": "premium-office-supplies"
+  },
+  {
+    "name": "Premium Office Equipment",
+    "slug": "premium-office-equipment"
+  },
+  {
+    "name": "Premium Office Essentials",
+    "slug": "premium-office-essentials"
+  },
+  {
+    "name": "Premium Office Kits",
+    "slug": "premium-office-kits"
+  },
+  {
+    "name": "Premium Office Bundles",
+    "slug": "premium-office-bundles"
+  },
+  {
+    "name": "Premium Office Replacement Parts",
+    "slug": "premium-office-replacement-parts"
+  },
+  {
+    "name": "Premium Office Refills",
+    "slug": "premium-office-refills"
+  },
+  {
+    "name": "Premium Office Storage",
+    "slug": "premium-office-storage"
+  },
+  {
+    "name": "Premium Office Organizers",
+    "slug": "premium-office-organizers"
+  },
+  {
+    "name": "Premium Office Tools",
+    "slug": "premium-office-tools"
+  },
+  {
+    "name": "Premium Office Components",
+    "slug": "premium-office-components"
+  },
+  {
+    "name": "Premium Office Collections",
+    "slug": "premium-office-collections"
+  },
+  {
+    "name": "Premium Office Solutions",
+    "slug": "premium-office-solutions"
+  },
+  {
+    "name": "Premium Office Gear",
+    "slug": "premium-office-gear"
+  },
+  {
+    "name": "Premium Office Sets",
+    "slug": "premium-office-sets"
+  },
+  {
+    "name": "Premium Office Products",
+    "slug": "premium-office-products"
+  },
+  {
+    "name": "Premium Office Items",
+    "slug": "premium-office-items"
+  },
+  {
+    "name": "Premium Office Goods",
+    "slug": "premium-office-goods"
+  },
+  {
+    "name": "Premium Office Materials",
+    "slug": "premium-office-materials"
+  },
+  {
+    "name": "Budget Office Accessories",
+    "slug": "budget-office-accessories"
+  },
+  {
+    "name": "Budget Office Supplies",
+    "slug": "budget-office-supplies"
+  },
+  {
+    "name": "Budget Office Equipment",
+    "slug": "budget-office-equipment"
+  },
+  {
+    "name": "Budget Office Essentials",
+    "slug": "budget-office-essentials"
+  },
+  {
+    "name": "Budget Office Kits",
+    "slug": "budget-office-kits"
+  },
+  {
+    "name": "Budget Office Bundles",
+    "slug": "budget-office-bundles"
+  },
+  {
+    "name": "Budget Office Replacement Parts",
+    "slug": "budget-office-replacement-parts"
+  },
+  {
+    "name": "Budget Office Refills",
+    "slug": "budget-office-refills"
+  },
+  {
+    "name": "Budget Office Storage",
+    "slug": "budget-office-storage"
+  },
+  {
+    "name": "Budget Office Organizers",
+    "slug": "budget-office-organizers"
+  },
+  {
+    "name": "Budget Office Tools",
+    "slug": "budget-office-tools"
+  },
+  {
+    "name": "Budget Office Components",
+    "slug": "budget-office-components"
+  },
+  {
+    "name": "Budget Office Collections",
+    "slug": "budget-office-collections"
+  },
+  {
+    "name": "Budget Office Solutions",
+    "slug": "budget-office-solutions"
+  },
+  {
+    "name": "Budget Office Gear",
+    "slug": "budget-office-gear"
+  },
+  {
+    "name": "Budget Office Sets",
+    "slug": "budget-office-sets"
+  },
+  {
+    "name": "Budget Office Products",
+    "slug": "budget-office-products"
+  },
+  {
+    "name": "Budget Office Items",
+    "slug": "budget-office-items"
+  },
+  {
+    "name": "Budget Office Goods",
+    "slug": "budget-office-goods"
+  },
+  {
+    "name": "Budget Office Materials",
+    "slug": "budget-office-materials"
+  },
+  {
+    "name": "Professional Office Accessories",
+    "slug": "professional-office-accessories"
+  },
+  {
+    "name": "Professional Office Supplies",
+    "slug": "professional-office-supplies"
+  },
+  {
+    "name": "Professional Office Equipment",
+    "slug": "professional-office-equipment"
+  },
+  {
+    "name": "Professional Office Essentials",
+    "slug": "professional-office-essentials"
+  },
+  {
+    "name": "Professional Office Kits",
+    "slug": "professional-office-kits"
+  },
+  {
+    "name": "Professional Office Bundles",
+    "slug": "professional-office-bundles"
+  },
+  {
+    "name": "Professional Office Replacement Parts",
+    "slug": "professional-office-replacement-parts"
+  },
+  {
+    "name": "Professional Office Refills",
+    "slug": "professional-office-refills"
+  },
+  {
+    "name": "Professional Office Storage",
+    "slug": "professional-office-storage"
+  },
+  {
+    "name": "Professional Office Organizers",
+    "slug": "professional-office-organizers"
+  },
+  {
+    "name": "Professional Office Tools",
+    "slug": "professional-office-tools"
+  },
+  {
+    "name": "Professional Office Components",
+    "slug": "professional-office-components"
+  },
+  {
+    "name": "Professional Office Collections",
+    "slug": "professional-office-collections"
+  },
+  {
+    "name": "Professional Office Solutions",
+    "slug": "professional-office-solutions"
+  },
+  {
+    "name": "Professional Office Gear",
+    "slug": "professional-office-gear"
+  },
+  {
+    "name": "Professional Office Sets",
+    "slug": "professional-office-sets"
+  },
+  {
+    "name": "Professional Office Products",
+    "slug": "professional-office-products"
+  },
+  {
+    "name": "Professional Office Items",
+    "slug": "professional-office-items"
+  },
+  {
+    "name": "Professional Office Goods",
+    "slug": "professional-office-goods"
+  },
+  {
+    "name": "Professional Office Materials",
+    "slug": "professional-office-materials"
+  },
+  {
+    "name": "Compact Office Accessories",
+    "slug": "compact-office-accessories"
+  },
+  {
+    "name": "Compact Office Supplies",
+    "slug": "compact-office-supplies"
+  },
+  {
+    "name": "Compact Office Equipment",
+    "slug": "compact-office-equipment"
+  },
+  {
+    "name": "Compact Office Essentials",
+    "slug": "compact-office-essentials"
+  },
+  {
+    "name": "Compact Office Kits",
+    "slug": "compact-office-kits"
+  },
+  {
+    "name": "Compact Office Bundles",
+    "slug": "compact-office-bundles"
+  },
+  {
+    "name": "Compact Office Replacement Parts",
+    "slug": "compact-office-replacement-parts"
+  },
+  {
+    "name": "Compact Office Refills",
+    "slug": "compact-office-refills"
+  },
+  {
+    "name": "Compact Office Storage",
+    "slug": "compact-office-storage"
+  },
+  {
+    "name": "Compact Office Organizers",
+    "slug": "compact-office-organizers"
+  },
+  {
+    "name": "Compact Office Tools",
+    "slug": "compact-office-tools"
+  },
+  {
+    "name": "Compact Office Components",
+    "slug": "compact-office-components"
+  },
+  {
+    "name": "Compact Office Collections",
+    "slug": "compact-office-collections"
+  },
+  {
+    "name": "Compact Office Solutions",
+    "slug": "compact-office-solutions"
+  },
+  {
+    "name": "Compact Office Gear",
+    "slug": "compact-office-gear"
+  },
+  {
+    "name": "Compact Office Sets",
+    "slug": "compact-office-sets"
+  },
+  {
+    "name": "Compact Office Products",
+    "slug": "compact-office-products"
+  },
+  {
+    "name": "Compact Office Items",
+    "slug": "compact-office-items"
+  },
+  {
+    "name": "Compact Office Goods",
+    "slug": "compact-office-goods"
+  },
+  {
+    "name": "Compact Office Materials",
+    "slug": "compact-office-materials"
+  },
+  {
+    "name": "Portable Office Accessories",
+    "slug": "portable-office-accessories"
+  },
+  {
+    "name": "Portable Office Supplies",
+    "slug": "portable-office-supplies"
+  },
+  {
+    "name": "Portable Office Equipment",
+    "slug": "portable-office-equipment"
+  },
+  {
+    "name": "Portable Office Essentials",
+    "slug": "portable-office-essentials"
+  },
+  {
+    "name": "Portable Office Kits",
+    "slug": "portable-office-kits"
+  },
+  {
+    "name": "Portable Office Bundles",
+    "slug": "portable-office-bundles"
+  },
+  {
+    "name": "Portable Office Replacement Parts",
+    "slug": "portable-office-replacement-parts"
+  },
+  {
+    "name": "Portable Office Refills",
+    "slug": "portable-office-refills"
+  },
+  {
+    "name": "Portable Office Storage",
+    "slug": "portable-office-storage"
+  },
+  {
+    "name": "Portable Office Organizers",
+    "slug": "portable-office-organizers"
+  },
+  {
+    "name": "Portable Office Tools",
+    "slug": "portable-office-tools"
+  },
+  {
+    "name": "Portable Office Components",
+    "slug": "portable-office-components"
+  },
+  {
+    "name": "Portable Office Collections",
+    "slug": "portable-office-collections"
+  },
+  {
+    "name": "Portable Office Solutions",
+    "slug": "portable-office-solutions"
+  },
+  {
+    "name": "Portable Office Gear",
+    "slug": "portable-office-gear"
+  },
+  {
+    "name": "Portable Office Sets",
+    "slug": "portable-office-sets"
+  },
+  {
+    "name": "Portable Office Products",
+    "slug": "portable-office-products"
+  },
+  {
+    "name": "Portable Office Items",
+    "slug": "portable-office-items"
+  },
+  {
+    "name": "Portable Office Goods",
+    "slug": "portable-office-goods"
+  },
+  {
+    "name": "Portable Office Materials",
+    "slug": "portable-office-materials"
+  },
+  {
+    "name": "Mini Office Accessories",
+    "slug": "mini-office-accessories"
+  },
+  {
+    "name": "Mini Office Supplies",
+    "slug": "mini-office-supplies"
+  },
+  {
+    "name": "Mini Office Equipment",
+    "slug": "mini-office-equipment"
+  },
+  {
+    "name": "Mini Office Essentials",
+    "slug": "mini-office-essentials"
+  },
+  {
+    "name": "Mini Office Kits",
+    "slug": "mini-office-kits"
+  },
+  {
+    "name": "Mini Office Bundles",
+    "slug": "mini-office-bundles"
+  },
+  {
+    "name": "Mini Office Replacement Parts",
+    "slug": "mini-office-replacement-parts"
+  },
+  {
+    "name": "Mini Office Refills",
+    "slug": "mini-office-refills"
+  },
+  {
+    "name": "Mini Office Storage",
+    "slug": "mini-office-storage"
+  },
+  {
+    "name": "Mini Office Organizers",
+    "slug": "mini-office-organizers"
+  },
+  {
+    "name": "Mini Office Tools",
+    "slug": "mini-office-tools"
+  },
+  {
+    "name": "Mini Office Components",
+    "slug": "mini-office-components"
+  },
+  {
+    "name": "Mini Office Collections",
+    "slug": "mini-office-collections"
+  },
+  {
+    "name": "Mini Office Solutions",
+    "slug": "mini-office-solutions"
+  },
+  {
+    "name": "Mini Office Gear",
+    "slug": "mini-office-gear"
+  },
+  {
+    "name": "Mini Office Sets",
+    "slug": "mini-office-sets"
+  },
+  {
+    "name": "Mini Office Products",
+    "slug": "mini-office-products"
+  },
+  {
+    "name": "Mini Office Items",
+    "slug": "mini-office-items"
+  },
+  {
+    "name": "Mini Office Goods",
+    "slug": "mini-office-goods"
+  },
+  {
+    "name": "Mini Office Materials",
+    "slug": "mini-office-materials"
+  },
+  {
+    "name": "Large Office Accessories",
+    "slug": "large-office-accessories"
+  },
+  {
+    "name": "Large Office Supplies",
+    "slug": "large-office-supplies"
+  },
+  {
+    "name": "Large Office Equipment",
+    "slug": "large-office-equipment"
+  },
+  {
+    "name": "Large Office Essentials",
+    "slug": "large-office-essentials"
+  },
+  {
+    "name": "Large Office Kits",
+    "slug": "large-office-kits"
+  },
+  {
+    "name": "Large Office Bundles",
+    "slug": "large-office-bundles"
+  },
+  {
+    "name": "Large Office Replacement Parts",
+    "slug": "large-office-replacement-parts"
+  },
+  {
+    "name": "Large Office Refills",
+    "slug": "large-office-refills"
+  },
+  {
+    "name": "Large Office Storage",
+    "slug": "large-office-storage"
+  },
+  {
+    "name": "Large Office Organizers",
+    "slug": "large-office-organizers"
+  },
+  {
+    "name": "Large Office Tools",
+    "slug": "large-office-tools"
+  },
+  {
+    "name": "Large Office Components",
+    "slug": "large-office-components"
+  },
+  {
+    "name": "Large Office Collections",
+    "slug": "large-office-collections"
+  },
+  {
+    "name": "Large Office Solutions",
+    "slug": "large-office-solutions"
+  },
+  {
+    "name": "Large Office Gear",
+    "slug": "large-office-gear"
+  },
+  {
+    "name": "Large Office Sets",
+    "slug": "large-office-sets"
+  },
+  {
+    "name": "Large Office Products",
+    "slug": "large-office-products"
+  },
+  {
+    "name": "Large Office Items",
+    "slug": "large-office-items"
+  },
+  {
+    "name": "Large Office Goods",
+    "slug": "large-office-goods"
+  },
+  {
+    "name": "Large Office Materials",
+    "slug": "large-office-materials"
+  },
+  {
+    "name": "Eco Office Accessories",
+    "slug": "eco-office-accessories"
+  },
+  {
+    "name": "Eco Office Supplies",
+    "slug": "eco-office-supplies"
+  },
+  {
+    "name": "Eco Office Equipment",
+    "slug": "eco-office-equipment"
+  },
+  {
+    "name": "Eco Office Essentials",
+    "slug": "eco-office-essentials"
+  },
+  {
+    "name": "Eco Office Kits",
+    "slug": "eco-office-kits"
+  },
+  {
+    "name": "Eco Office Bundles",
+    "slug": "eco-office-bundles"
+  },
+  {
+    "name": "Eco Office Replacement Parts",
+    "slug": "eco-office-replacement-parts"
+  },
+  {
+    "name": "Eco Office Refills",
+    "slug": "eco-office-refills"
+  },
+  {
+    "name": "Eco Office Storage",
+    "slug": "eco-office-storage"
+  },
+  {
+    "name": "Eco Office Organizers",
+    "slug": "eco-office-organizers"
+  },
+  {
+    "name": "Eco Office Tools",
+    "slug": "eco-office-tools"
+  },
+  {
+    "name": "Eco Office Components",
+    "slug": "eco-office-components"
+  },
+  {
+    "name": "Eco Office Collections",
+    "slug": "eco-office-collections"
+  },
+  {
+    "name": "Eco Office Solutions",
+    "slug": "eco-office-solutions"
+  },
+  {
+    "name": "Eco Office Gear",
+    "slug": "eco-office-gear"
+  },
+  {
+    "name": "Eco Office Sets",
+    "slug": "eco-office-sets"
+  },
+  {
+    "name": "Eco Office Products",
+    "slug": "eco-office-products"
+  },
+  {
+    "name": "Eco Office Items",
+    "slug": "eco-office-items"
+  },
+  {
+    "name": "Eco Office Goods",
+    "slug": "eco-office-goods"
+  },
+  {
+    "name": "Eco Office Materials",
+    "slug": "eco-office-materials"
+  },
+  {
+    "name": "Organic Office Accessories",
+    "slug": "organic-office-accessories"
+  },
+  {
+    "name": "Organic Office Supplies",
+    "slug": "organic-office-supplies"
+  },
+  {
+    "name": "Organic Office Equipment",
+    "slug": "organic-office-equipment"
+  },
+  {
+    "name": "Organic Office Essentials",
+    "slug": "organic-office-essentials"
+  },
+  {
+    "name": "Organic Office Kits",
+    "slug": "organic-office-kits"
+  },
+  {
+    "name": "Organic Office Bundles",
+    "slug": "organic-office-bundles"
+  },
+  {
+    "name": "Organic Office Replacement Parts",
+    "slug": "organic-office-replacement-parts"
+  },
+  {
+    "name": "Organic Office Refills",
+    "slug": "organic-office-refills"
+  },
+  {
+    "name": "Organic Office Storage",
+    "slug": "organic-office-storage"
+  },
+  {
+    "name": "Organic Office Organizers",
+    "slug": "organic-office-organizers"
+  },
+  {
+    "name": "Organic Office Tools",
+    "slug": "organic-office-tools"
+  },
+  {
+    "name": "Organic Office Components",
+    "slug": "organic-office-components"
+  },
+  {
+    "name": "Organic Office Collections",
+    "slug": "organic-office-collections"
+  },
+  {
+    "name": "Organic Office Solutions",
+    "slug": "organic-office-solutions"
+  },
+  {
+    "name": "Organic Office Gear",
+    "slug": "organic-office-gear"
+  },
+  {
+    "name": "Organic Office Sets",
+    "slug": "organic-office-sets"
+  },
+  {
+    "name": "Organic Office Products",
+    "slug": "organic-office-products"
+  },
+  {
+    "name": "Organic Office Items",
+    "slug": "organic-office-items"
+  },
+  {
+    "name": "Organic Office Goods",
+    "slug": "organic-office-goods"
+  },
+  {
+    "name": "Organic Office Materials",
+    "slug": "organic-office-materials"
+  },
+  {
+    "name": "Luxury Office Accessories",
+    "slug": "luxury-office-accessories"
+  },
+  {
+    "name": "Luxury Office Supplies",
+    "slug": "luxury-office-supplies"
+  },
+  {
+    "name": "Luxury Office Equipment",
+    "slug": "luxury-office-equipment"
+  },
+  {
+    "name": "Luxury Office Essentials",
+    "slug": "luxury-office-essentials"
+  },
+  {
+    "name": "Luxury Office Kits",
+    "slug": "luxury-office-kits"
+  },
+  {
+    "name": "Luxury Office Bundles",
+    "slug": "luxury-office-bundles"
+  },
+  {
+    "name": "Luxury Office Replacement Parts",
+    "slug": "luxury-office-replacement-parts"
+  },
+  {
+    "name": "Luxury Office Refills",
+    "slug": "luxury-office-refills"
+  },
+  {
+    "name": "Luxury Office Storage",
+    "slug": "luxury-office-storage"
+  },
+  {
+    "name": "Luxury Office Organizers",
+    "slug": "luxury-office-organizers"
+  },
+  {
+    "name": "Luxury Office Tools",
+    "slug": "luxury-office-tools"
+  },
+  {
+    "name": "Luxury Office Components",
+    "slug": "luxury-office-components"
+  },
+  {
+    "name": "Luxury Office Collections",
+    "slug": "luxury-office-collections"
+  },
+  {
+    "name": "Luxury Office Solutions",
+    "slug": "luxury-office-solutions"
+  },
+  {
+    "name": "Luxury Office Gear",
+    "slug": "luxury-office-gear"
+  },
+  {
+    "name": "Luxury Office Sets",
+    "slug": "luxury-office-sets"
+  },
+  {
+    "name": "Luxury Office Products",
+    "slug": "luxury-office-products"
+  },
+  {
+    "name": "Luxury Office Items",
+    "slug": "luxury-office-items"
+  },
+  {
+    "name": "Luxury Office Goods",
+    "slug": "luxury-office-goods"
+  },
+  {
+    "name": "Luxury Office Materials",
+    "slug": "luxury-office-materials"
+  },
+  {
+    "name": "Smart Office Accessories",
+    "slug": "smart-office-accessories"
+  },
+  {
+    "name": "Smart Office Supplies",
+    "slug": "smart-office-supplies"
+  },
+  {
+    "name": "Smart Office Equipment",
+    "slug": "smart-office-equipment"
+  },
+  {
+    "name": "Smart Office Essentials",
+    "slug": "smart-office-essentials"
+  },
+  {
+    "name": "Smart Office Kits",
+    "slug": "smart-office-kits"
+  },
+  {
+    "name": "Smart Office Bundles",
+    "slug": "smart-office-bundles"
+  },
+  {
+    "name": "Smart Office Replacement Parts",
+    "slug": "smart-office-replacement-parts"
+  },
+  {
+    "name": "Smart Office Refills",
+    "slug": "smart-office-refills"
+  },
+  {
+    "name": "Smart Office Storage",
+    "slug": "smart-office-storage"
+  },
+  {
+    "name": "Smart Office Organizers",
+    "slug": "smart-office-organizers"
+  },
+  {
+    "name": "Smart Office Tools",
+    "slug": "smart-office-tools"
+  },
+  {
+    "name": "Smart Office Components",
+    "slug": "smart-office-components"
+  },
+  {
+    "name": "Smart Office Collections",
+    "slug": "smart-office-collections"
+  },
+  {
+    "name": "Smart Office Solutions",
+    "slug": "smart-office-solutions"
+  },
+  {
+    "name": "Smart Office Gear",
+    "slug": "smart-office-gear"
+  },
+  {
+    "name": "Smart Office Sets",
+    "slug": "smart-office-sets"
+  },
+  {
+    "name": "Smart Office Products",
+    "slug": "smart-office-products"
+  },
+  {
+    "name": "Smart Office Items",
+    "slug": "smart-office-items"
+  },
+  {
+    "name": "Smart Office Goods",
+    "slug": "smart-office-goods"
+  },
+  {
+    "name": "Smart Office Materials",
+    "slug": "smart-office-materials"
+  },
+  {
+    "name": "Wireless Office Accessories",
+    "slug": "wireless-office-accessories"
+  },
+  {
+    "name": "Wireless Office Supplies",
+    "slug": "wireless-office-supplies"
+  },
+  {
+    "name": "Wireless Office Equipment",
+    "slug": "wireless-office-equipment"
+  },
+  {
+    "name": "Wireless Office Essentials",
+    "slug": "wireless-office-essentials"
+  },
+  {
+    "name": "Wireless Office Kits",
+    "slug": "wireless-office-kits"
+  },
+  {
+    "name": "Wireless Office Bundles",
+    "slug": "wireless-office-bundles"
+  },
+  {
+    "name": "Wireless Office Replacement Parts",
+    "slug": "wireless-office-replacement-parts"
+  },
+  {
+    "name": "Wireless Office Refills",
+    "slug": "wireless-office-refills"
+  },
+  {
+    "name": "Wireless Office Storage",
+    "slug": "wireless-office-storage"
+  },
+  {
+    "name": "Wireless Office Organizers",
+    "slug": "wireless-office-organizers"
+  },
+  {
+    "name": "Wireless Office Tools",
+    "slug": "wireless-office-tools"
+  },
+  {
+    "name": "Wireless Office Components",
+    "slug": "wireless-office-components"
+  },
+  {
+    "name": "Wireless Office Collections",
+    "slug": "wireless-office-collections"
+  },
+  {
+    "name": "Wireless Office Solutions",
+    "slug": "wireless-office-solutions"
+  },
+  {
+    "name": "Wireless Office Gear",
+    "slug": "wireless-office-gear"
+  },
+  {
+    "name": "Wireless Office Sets",
+    "slug": "wireless-office-sets"
+  },
+  {
+    "name": "Wireless Office Products",
+    "slug": "wireless-office-products"
+  },
+  {
+    "name": "Wireless Office Items",
+    "slug": "wireless-office-items"
+  },
+  {
+    "name": "Wireless Office Goods",
+    "slug": "wireless-office-goods"
+  },
+  {
+    "name": "Wireless Office Materials",
+    "slug": "wireless-office-materials"
+  },
+  {
+    "name": "Rechargeable Office Accessories",
+    "slug": "rechargeable-office-accessories"
+  },
+  {
+    "name": "Rechargeable Office Supplies",
+    "slug": "rechargeable-office-supplies"
+  },
+  {
+    "name": "Rechargeable Office Equipment",
+    "slug": "rechargeable-office-equipment"
+  },
+  {
+    "name": "Rechargeable Office Essentials",
+    "slug": "rechargeable-office-essentials"
+  },
+  {
+    "name": "Rechargeable Office Kits",
+    "slug": "rechargeable-office-kits"
+  },
+  {
+    "name": "Rechargeable Office Bundles",
+    "slug": "rechargeable-office-bundles"
+  },
+  {
+    "name": "Rechargeable Office Replacement Parts",
+    "slug": "rechargeable-office-replacement-parts"
+  },
+  {
+    "name": "Rechargeable Office Refills",
+    "slug": "rechargeable-office-refills"
+  },
+  {
+    "name": "Rechargeable Office Storage",
+    "slug": "rechargeable-office-storage"
+  },
+  {
+    "name": "Rechargeable Office Organizers",
+    "slug": "rechargeable-office-organizers"
+  },
+  {
+    "name": "Rechargeable Office Tools",
+    "slug": "rechargeable-office-tools"
+  },
+  {
+    "name": "Rechargeable Office Components",
+    "slug": "rechargeable-office-components"
+  },
+  {
+    "name": "Rechargeable Office Collections",
+    "slug": "rechargeable-office-collections"
+  },
+  {
+    "name": "Rechargeable Office Solutions",
+    "slug": "rechargeable-office-solutions"
+  },
+  {
+    "name": "Rechargeable Office Gear",
+    "slug": "rechargeable-office-gear"
+  },
+  {
+    "name": "Rechargeable Office Sets",
+    "slug": "rechargeable-office-sets"
+  },
+  {
+    "name": "Rechargeable Office Products",
+    "slug": "rechargeable-office-products"
+  },
+  {
+    "name": "Rechargeable Office Items",
+    "slug": "rechargeable-office-items"
+  },
+  {
+    "name": "Rechargeable Office Goods",
+    "slug": "rechargeable-office-goods"
+  },
+  {
+    "name": "Rechargeable Office Materials",
+    "slug": "rechargeable-office-materials"
+  },
+  {
+    "name": "Heavy Duty Office Accessories",
+    "slug": "heavy-duty-office-accessories"
+  },
+  {
+    "name": "Heavy Duty Office Supplies",
+    "slug": "heavy-duty-office-supplies"
+  },
+  {
+    "name": "Heavy Duty Office Equipment",
+    "slug": "heavy-duty-office-equipment"
+  },
+  {
+    "name": "Heavy Duty Office Essentials",
+    "slug": "heavy-duty-office-essentials"
+  },
+  {
+    "name": "Heavy Duty Office Kits",
+    "slug": "heavy-duty-office-kits"
+  },
+  {
+    "name": "Heavy Duty Office Bundles",
+    "slug": "heavy-duty-office-bundles"
+  },
+  {
+    "name": "Heavy Duty Office Replacement Parts",
+    "slug": "heavy-duty-office-replacement-parts"
+  },
+  {
+    "name": "Heavy Duty Office Refills",
+    "slug": "heavy-duty-office-refills"
+  },
+  {
+    "name": "Heavy Duty Office Storage",
+    "slug": "heavy-duty-office-storage"
+  },
+  {
+    "name": "Heavy Duty Office Organizers",
+    "slug": "heavy-duty-office-organizers"
+  },
+  {
+    "name": "Heavy Duty Office Tools",
+    "slug": "heavy-duty-office-tools"
+  },
+  {
+    "name": "Heavy Duty Office Components",
+    "slug": "heavy-duty-office-components"
+  },
+  {
+    "name": "Heavy Duty Office Collections",
+    "slug": "heavy-duty-office-collections"
+  },
+  {
+    "name": "Heavy Duty Office Solutions",
+    "slug": "heavy-duty-office-solutions"
+  },
+  {
+    "name": "Heavy Duty Office Gear",
+    "slug": "heavy-duty-office-gear"
+  },
+  {
+    "name": "Heavy Duty Office Sets",
+    "slug": "heavy-duty-office-sets"
+  },
+  {
+    "name": "Heavy Duty Office Products",
+    "slug": "heavy-duty-office-products"
+  },
+  {
+    "name": "Heavy Duty Office Items",
+    "slug": "heavy-duty-office-items"
+  },
+  {
+    "name": "Heavy Duty Office Goods",
+    "slug": "heavy-duty-office-goods"
+  },
+  {
+    "name": "Heavy Duty Office Materials",
+    "slug": "heavy-duty-office-materials"
+  },
+  {
+    "name": "Classic Office Accessories",
+    "slug": "classic-office-accessories"
+  },
+  {
+    "name": "Classic Office Supplies",
+    "slug": "classic-office-supplies"
+  },
+  {
+    "name": "Classic Office Equipment",
+    "slug": "classic-office-equipment"
+  },
+  {
+    "name": "Classic Office Essentials",
+    "slug": "classic-office-essentials"
+  },
+  {
+    "name": "Classic Office Kits",
+    "slug": "classic-office-kits"
+  },
+  {
+    "name": "Classic Office Bundles",
+    "slug": "classic-office-bundles"
+  },
+  {
+    "name": "Classic Office Replacement Parts",
+    "slug": "classic-office-replacement-parts"
+  },
+  {
+    "name": "Classic Office Refills",
+    "slug": "classic-office-refills"
+  },
+  {
+    "name": "Classic Office Storage",
+    "slug": "classic-office-storage"
+  },
+  {
+    "name": "Classic Office Organizers",
+    "slug": "classic-office-organizers"
+  }
 ]
