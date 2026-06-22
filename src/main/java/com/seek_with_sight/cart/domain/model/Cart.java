@@ -1,11 +1,15 @@
 package com.seek_with_sight.cart.domain.model;
 
+import com.seek_with_sight.shared.domain.model.BaseDomainModel;
+
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
-public class Cart {
+public class Cart extends BaseDomainModel {
     private final UUID userId;
     private final Map<UUID, CartItem> items;
 
@@ -39,5 +43,13 @@ public class Cart {
         return items.values().stream()
                 .map(item -> item.priceAtAddition().multiply(BigDecimal.valueOf(item.quantity())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public UUID getUserId() {
+        return userId;
+    }
+
+    public List<CartItem> getItems() {
+        return new ArrayList<>(items.values());
     }
 }
