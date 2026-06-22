@@ -8,4 +8,11 @@ public record CartItem(
         int quantity,
         BigDecimal priceAtAddition
 ) {
+    public CartItem incrementQuantity(int amount) {
+        return new CartItem(
+                productId,
+                quantity + amount,
+                priceAtAddition
+        );
+    }
 }
