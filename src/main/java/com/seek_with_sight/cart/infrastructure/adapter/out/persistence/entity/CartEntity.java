@@ -6,6 +6,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -21,7 +22,8 @@ import java.util.List;
 @Setter
 @Table(name = "carts")
 public class CartEntity extends BaseEntity {
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne()
+    @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
