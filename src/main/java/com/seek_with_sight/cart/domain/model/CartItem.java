@@ -12,7 +12,7 @@ public class CartItem extends BaseDomainModel {
 
     private BigDecimal price;
 
-    private String currency;
+    private String currencyCode;
 
     public BigDecimal getTotalPrice() {
         return price.multiply(BigDecimal.valueOf(quantity));
@@ -42,11 +42,11 @@ public class CartItem extends BaseDomainModel {
         this.price = price;
     }
 
-    public String getCurrency() {
-        return currency;
+    public String getCurrencyCode() {
+        return currencyCode;
     }
 
-    public void setCurrency(String currency) {
-        this.currency = currency;
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
     }
 }

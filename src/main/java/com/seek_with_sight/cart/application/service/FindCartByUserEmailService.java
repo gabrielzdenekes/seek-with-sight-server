@@ -1,21 +1,19 @@
 package com.seek_with_sight.cart.application.service;
 
-import com.seek_with_sight.cart.application.port.in.FindCartForCurrentUser;
+import com.seek_with_sight.cart.application.port.in.FindCartForCurrentUserUseCase;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
 import com.seek_with_sight.cart.domain.model.Cart;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class FindCartByUserEmailService implements FindCartForCurrentUser {
+public class FindCartByUserEmailService implements FindCartForCurrentUserUseCase {
     private final CurrentUserPort currentUserPort;
     private final CartRepositoryPort cartRepo;
 
     @Override
     public Cart find() {
-        var user = currentUserPort
-                .getCurrentUser()
-                .orElseThrow();
+        var user = currentUserPort.getCurrentUser();
 
         return cartRepo.findWithItemsByUserId(user.getId())
                 .orElseGet(() -> {
