@@ -10,6 +10,6 @@ public record CartItemResponse(
         String productImageUrl,
         int quantity,
         BigDecimal unitPrice,
-        BigDecimal subtotal
+        BigDecimal totalPrice
 ) {
 }

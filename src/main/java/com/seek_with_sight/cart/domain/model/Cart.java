@@ -1,6 +1,7 @@
 package com.seek_with_sight.cart.domain.model;
 
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
+import com.seek_with_sight.user.domain.model.User;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -9,11 +10,13 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class Cart extends BaseDomainModel {
-    private UUID userId;
+    private User user;
 
     private List<CartItem> items = new ArrayList<>();
 
     private BigDecimal totalPrice;
+
+    private String currency;
 
     public void addItem(CartItem item) {
         items.add(item);
@@ -33,16 +36,8 @@ public class Cart extends BaseDomainModel {
 
     private void recalculateTotal() {
         this.totalPrice = items.stream()
-                .map(CartItem::getSubTotal)
+                .map(CartItem::getTotalPrice)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-    }
-
-    public UUID getUserId() {
-        return userId;
-    }
-
-    public void setUserId(UUID userId) {
-        this.userId = userId;
     }
 
     public List<CartItem> getItems() {
@@ -59,5 +54,21 @@ public class Cart extends BaseDomainModel {
 
     public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

@@ -12,7 +12,9 @@ public class CartItem extends BaseDomainModel {
 
     private BigDecimal price;
 
-    public BigDecimal getSubTotal() {
+    private String currency;
+
+    public BigDecimal getTotalPrice() {
         return price.multiply(BigDecimal.valueOf(quantity));
     }
 
@@ -38,5 +40,13 @@ public class CartItem extends BaseDomainModel {
 
     public void setPrice(BigDecimal price) {
         this.price = price;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

@@ -12,11 +12,9 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 @Mapper(componentModel = "spring")
 public interface CartPersistenceMapper extends PersistenceMapper<Cart, CartEntity> {
     @Override
-    @Mapping(target = "userId", source = "user.id")
     @Mapping(target = "items", ignore = true)
     Cart toDomain(CartEntity entity);
 
-    @Mapping(target = "userId", source = "user.id")
     Cart toDomainWithDetails(CartEntity entity);
 
     @Override

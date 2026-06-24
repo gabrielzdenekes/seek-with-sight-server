@@ -7,8 +7,6 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface CartRepositoryPort extends BaseRepositoryPort<Cart> {
-    Optional<Cart> findByUserId(UUID userId);
-
     Optional<Cart> findWithItemsByUserId(UUID userId);
 
     boolean existsByUserId(Long userId);
