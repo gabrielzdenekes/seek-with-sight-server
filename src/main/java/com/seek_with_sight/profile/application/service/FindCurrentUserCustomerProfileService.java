@@ -15,9 +15,7 @@ public class FindCurrentUserCustomerProfileService implements FindCurrentUserCus
 
     @Override
     public CustomerProfile find() {
-        var user = currentUserPort
-                .getCurrentUser()
-                .orElseThrow();
+        var user = currentUserPort.getCurrentUser();
 
         log.info("Find customer profile by email {}", user.getEmail());
 

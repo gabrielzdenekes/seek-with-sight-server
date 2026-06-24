@@ -7,14 +7,12 @@ import com.seek_with_sight.user.domain.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import java.util.Optional;
-
 @AllArgsConstructor
 public class SecurityCurrentUserAdapter implements CurrentUserPort {
     private final UserRepositoryPort userRepo;
 
     @Override
-    public Optional<User> getCurrentUser() {
+    public User getCurrentUser() {
         var authentication = SecurityContextHolder
                 .getContext()
                 .getAuthentication();
@@ -23,6 +21,8 @@ public class SecurityCurrentUserAdapter implements CurrentUserPort {
             throw new UnauthorizedException();
         }
 
-        return userRepo.findByEmailIgnoreCase(authentication.getName());
+        return userRepo
+                .findByEmailIgnoreCase(authentication.getName())
+                .get();
     }
 }

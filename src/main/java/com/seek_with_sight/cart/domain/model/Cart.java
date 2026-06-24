@@ -1,5 +1,6 @@
 package com.seek_with_sight.cart.domain.model;
 
+import com.seek_with_sight.cart.domain.exception.ItemAlreadyAddedToCartException;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 import com.seek_with_sight.user.domain.model.User;
 
@@ -19,6 +20,14 @@ public class Cart extends BaseDomainModel {
     private String currency;
 
     public void addItem(CartItem item) {
+        var existingItem = items.stream()
+                .filter(i -> i.getProductId() == item.getProductId())
+                .findFirst();
+
+        if (!existingItem.isPresent()) {
+            throw new ItemAlreadyAddedToCartException(new Object[]{ "Existing productId=" + item.getProductId() });
+        }
+
         items.add(item);
         recalculateTotal();
     }
