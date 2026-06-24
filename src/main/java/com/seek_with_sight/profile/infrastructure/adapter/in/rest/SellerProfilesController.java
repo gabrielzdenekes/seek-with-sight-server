@@ -1,7 +1,7 @@
 package com.seek_with_sight.profile.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.profile.application.port.in.CreateSellerProfileUseCase;
-import com.seek_with_sight.profile.application.port.in.FindSellerProfileByEmailUseCase;
+import com.seek_with_sight.profile.application.port.in.FindCurrentUserSellerProfileUseCase;
 import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CreateSellerRequest;
 import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.SellerProfileResponse;
 import com.seek_with_sight.profile.infrastructure.adapter.in.rest.mapper.SellerProfileRestMapper;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SellerProfilesController {
     private final SellerProfileRestMapper sellerMapper;
     private final CreateSellerProfileUseCase createSellerProfileUseCase;
-    private final FindSellerProfileByEmailUseCase findSellerProfileByEmailUseCase;
+    private final FindCurrentUserSellerProfileUseCase findCurrentUserSellerProfileUseCase;
     private final UserRestMapper userRestMapper;
 
     @PostMapping
@@ -35,8 +35,7 @@ public class SellerProfilesController {
 
     @GetMapping("/me")
     public SellerProfileResponse getById(Authentication authentication) {
-        var email = authentication.getName();
-        var profile = findSellerProfileByEmailUseCase.find(email);
+        var profile = findCurrentUserSellerProfileUseCase.find();
 
         return sellerMapper.toSellerProfileResponse(profile);
     }

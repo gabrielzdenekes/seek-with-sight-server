@@ -1,7 +1,7 @@
 package com.seek_with_sight.profile.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.profile.application.port.in.CreateCustomerProfileUseCase;
-import com.seek_with_sight.profile.application.port.in.FindCustomerProfileByEmailUseCase;
+import com.seek_with_sight.profile.application.port.in.FindCurrentUserCustomerProfile;
 import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CreateCustomerRequest;
 import com.seek_with_sight.profile.infrastructure.adapter.in.rest.dto.CustomerProfileResponse;
 import com.seek_with_sight.profile.infrastructure.adapter.in.rest.mapper.CustomerProfileRestMapper;
@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CustomerProfilesController {
     private final CustomerProfileRestMapper mapper;
     private final CreateCustomerProfileUseCase createCustomerProfileUseCase;
-    private final FindCustomerProfileByEmailUseCase findCustomerProfileByEmailUseCase;
+    private final FindCurrentUserCustomerProfile findCurrentUserProfile;
     private final UserRestMapper userRestMapper;
 
     @PostMapping
@@ -36,7 +36,7 @@ public class CustomerProfilesController {
     @GetMapping("/me")
     public CustomerProfileResponse getById(Authentication authentication) {
         var email = authentication.getName();
-        var profile = findCustomerProfileByEmailUseCase.find(email);
+        var profile = findCurrentUserProfile.find();
 
         return mapper.toCustomerProfileResponse(profile);
     }

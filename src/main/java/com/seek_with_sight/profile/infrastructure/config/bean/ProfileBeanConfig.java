@@ -1,7 +1,7 @@
 package com.seek_with_sight.profile.infrastructure.config.bean;
 
-import com.seek_with_sight.profile.application.port.in.FindCustomerProfileByEmailUseCase;
-import com.seek_with_sight.profile.application.port.in.FindSellerProfileByEmailUseCase;
+import com.seek_with_sight.profile.application.port.in.FindCurrentUserCustomerProfile;
+import com.seek_with_sight.profile.application.port.in.FindCurrentUserSellerProfileUseCase;
 import com.seek_with_sight.user.application.port.in.CreateUserUseCase;
 import com.seek_with_sight.profile.application.service.CreateCustomerProfileService;
 import com.seek_with_sight.profile.application.service.CreateSellerProfileService;
@@ -9,8 +9,8 @@ import com.seek_with_sight.profile.application.port.in.CreateCustomerProfileUseC
 import com.seek_with_sight.profile.application.port.in.CreateSellerProfileUseCase;
 import com.seek_with_sight.profile.application.port.out.CustomerProfileRepositoryPort;
 import com.seek_with_sight.profile.application.port.out.SellerProfileRepositoryPort;
-import com.seek_with_sight.profile.application.service.FindCustomerProfileByEmailService;
-import com.seek_with_sight.profile.application.service.FindSellerProfileByEmailService;
+import com.seek_with_sight.profile.application.service.FindCurrentUserCustomerProfileService;
+import com.seek_with_sight.profile.application.service.FindCurrentUserSellerProfileService;
 import com.seek_with_sight.profile.application.service.mapper.CustomerProfileAppMapper;
 import com.seek_with_sight.profile.application.service.mapper.SellerProfileAppMapper;
 import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.CustomerProfilePersistenceAdapter;
@@ -19,6 +19,7 @@ import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.mapper.SellerProfilePersistenceMapper;
 import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.repository.CustomerProfileJpaRepository;
 import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.repository.SellerProfileJpaRepository;
+import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -62,16 +63,18 @@ public class ProfileBeanConfig {
     }
 
     @Bean
-    public FindCustomerProfileByEmailUseCase findCustomerProfileByUserIdUseCase(
-            CustomerProfileRepositoryPort repo
+    public FindCurrentUserCustomerProfile findCustomerProfileByUserIdUseCase(
+            CustomerProfileRepositoryPort repo,
+            CurrentUserPort currentUserPort
     ) {
-        return new FindCustomerProfileByEmailService(repo);
+        return new FindCurrentUserCustomerProfileService(currentUserPort, repo);
     }
 
     @Bean
-    public FindSellerProfileByEmailUseCase findSellerProfileByUserIdUseCase(
-            SellerProfileRepositoryPort repo
+    public FindCurrentUserSellerProfileUseCase findSellerProfileByUserIdUseCase(
+            SellerProfileRepositoryPort repo,
+            CurrentUserPort currentUserPort
     ) {
-        return new FindSellerProfileByEmailService(repo);
+        return new FindCurrentUserSellerProfileService(repo, currentUserPort);
     }
 }
