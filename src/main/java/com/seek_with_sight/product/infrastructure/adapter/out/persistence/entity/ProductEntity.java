@@ -57,16 +57,16 @@ public class ProductEntity extends BaseEntity {
     private BigDecimal weight;
 
     @Column(name = "weight_unit", length = 10)
-    private String weightUnit = "kg";
+    private String weightUnit;
 
     @Column(name = "requires_shipping")
-    private Boolean requiresShipping = true;
+    private Boolean requiresShipping;
 
     @Column(name = "is_digital")
-    private Boolean isDigital = false;
+    private Boolean isDigital;
 
     @Column(name = "tax_class", length = 50)
-    private String taxClass = "standard";
+    private String taxClass;
 
     @Column(name = "base_price", precision = 19, scale = 4)
     private BigDecimal basePrice;
@@ -88,18 +88,18 @@ public class ProductEntity extends BaseEntity {
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private List<ProductTagEntity> tags = new ArrayList<>();
+    private List<TagEntity> tags = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("sortOrder ASC")
-    private List<ProductImageEntity> images = new ArrayList<>();
+    private List<ImageEntity> images = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProductVariantEntity> variants = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProductAttributeEntity> attributes = new ArrayList<>();
+    private List<AttributeEntity> attributes = new ArrayList<>();
 
-    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ProductSeoEntity seo;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private SeoEntity seo;
 }

@@ -36,8 +36,9 @@ public class SecurityConfig {
                                         "/v3/api-docs/**"
                                 ).permitAll()
                                 .requestMatchers(
-                                        "/api/seller-profile/me",
-                                        "/api/customer-profile/me"
+                                        "/api/seller-profiles/me",
+                                        "/api/customer-profiles/me",
+                                        "/api/cart/**"
                                 ).authenticated()
                                 .anyRequest().permitAll()
                 )

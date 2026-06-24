@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 public class TestSeekWithSightApplication {
 
 	static void main(String[] args) {
-		SpringApplication.from(SeekWithSightApplication::main).with(TestcontainersConfiguration.class).run(args);
+		SpringApplication.from(SeekWithSightApplication::main).with(TestsConfiguration.class).run(args);
 	}
 
 }

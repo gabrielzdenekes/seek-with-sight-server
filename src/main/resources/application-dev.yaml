@@ -1,8 +1,8 @@
 spring:
   jpa:
     hibernate:
-      ddl-auto: create
-    show-sql: true
+      ddl-auto: update
+    show-sql: false
 
   flyway:
     enabled: false
@@ -19,6 +19,9 @@ server:
 logging:
   level:
     root: INFO
+    com.seek_with_sight: DEBUG
+    org.springframework.web: INFO
+    org.hibernate.SQL: DEBUG
 
 app:
   base-url: "https://localhost:8443"

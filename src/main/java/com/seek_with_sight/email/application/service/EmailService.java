@@ -47,10 +47,10 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
 
         var user = userRepository.findById(token.getUserId()).orElseThrow();
         user.setEmailVerified(true);
-        userRepository.save(user);
+        userRepository.update(user);
 
         token.setUsed(true);
-        tokenRepository.save(token);
+        tokenRepository.update(token);
     }
 
     @Override
@@ -86,6 +86,6 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
         token.setExpiresAt(Instant.now().plus(24, ChronoUnit.HOURS));
         token.setUserId(user.getId());
 
-        return tokenRepository.save(token);
+        return tokenRepository.create(token);
     }
 }

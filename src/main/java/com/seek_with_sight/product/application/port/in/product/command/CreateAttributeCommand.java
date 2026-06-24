@@ -1,0 +1,12 @@
+package com.seek_with_sight.product.application.port.in.product.command;
+
+public record CreateAttributeCommand(
+        String name,
+
+        String value,
+
+        Boolean isFilterable,
+
+        Integer sortOrder
+) {
+}

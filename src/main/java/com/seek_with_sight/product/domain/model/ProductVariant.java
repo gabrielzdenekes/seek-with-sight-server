@@ -36,7 +36,7 @@ public class ProductVariant extends BaseDomainModel {
 
     private List<ProductVariantOption> selectedOptions;
 
-    private List<ProductImage> images;
+    private List<Image> images;
 
     public Product getProduct() {
         return product;
@@ -158,11 +158,11 @@ public class ProductVariant extends BaseDomainModel {
         this.selectedOptions = selectedOptions;
     }
 
-    public List<ProductImage> getImages() {
+    public List<Image> getImages() {
         return images;
     }
 
-    public void setImages(List<ProductImage> images) {
+    public void setImages(List<Image> images) {
         this.images = images;
     }
 }

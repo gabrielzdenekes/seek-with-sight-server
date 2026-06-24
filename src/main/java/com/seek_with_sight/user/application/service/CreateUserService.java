@@ -35,7 +35,7 @@ public class CreateUserService implements CreateUserUseCase {
         user.setPassHash(encodedPassword);
         user.setRoles(new HashSet<>(userRoles));
 
-        var createdUser = this.userRepository.save(user);
+        var createdUser = this.userRepository.create(user);
 
         emailService.sendVerificationEmail(createdUser);
 

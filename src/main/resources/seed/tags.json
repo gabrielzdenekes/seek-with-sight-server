@@ -1,0 +1,4002 @@
+[
+  {
+    "name": "Electronics",
+    "slug": "electronics"
+  },
+  {
+    "name": "Smartphones",
+    "slug": "smartphones"
+  },
+  {
+    "name": "Android Phones",
+    "slug": "android-phones"
+  },
+  {
+    "name": "iPhones",
+    "slug": "iphones"
+  },
+  {
+    "name": "Feature Phones",
+    "slug": "feature-phones"
+  },
+  {
+    "name": "Phone Cases",
+    "slug": "phone-cases"
+  },
+  {
+    "name": "Screen Protectors",
+    "slug": "screen-protectors"
+  },
+  {
+    "name": "Wireless Chargers",
+    "slug": "wireless-chargers"
+  },
+  {
+    "name": "Power Banks",
+    "slug": "power-banks"
+  },
+  {
+    "name": "USB Chargers",
+    "slug": "usb-chargers"
+  },
+  {
+    "name": "USB-C Cables",
+    "slug": "usb-c-cables"
+  },
+  {
+    "name": "Lightning Cables",
+    "slug": "lightning-cables"
+  },
+  {
+    "name": "Micro USB Cables",
+    "slug": "micro-usb-cables"
+  },
+  {
+    "name": "Bluetooth Speakers",
+    "slug": "bluetooth-speakers"
+  },
+  {
+    "name": "Smart Speakers",
+    "slug": "smart-speakers"
+  },
+  {
+    "name": "Soundbars",
+    "slug": "soundbars"
+  },
+  {
+    "name": "Home Theater Systems",
+    "slug": "home-theater-systems"
+  },
+  {
+    "name": "Headphones",
+    "slug": "headphones"
+  },
+  {
+    "name": "Wireless Earbuds",
+    "slug": "wireless-earbuds"
+  },
+  {
+    "name": "Gaming Headsets",
+    "slug": "gaming-headsets"
+  },
+  {
+    "name": "Webcams",
+    "slug": "webcams"
+  },
+  {
+    "name": "Monitors",
+    "slug": "monitors"
+  },
+  {
+    "name": "4K Monitors",
+    "slug": "4k-monitors"
+  },
+  {
+    "name": "Ultrawide Monitors",
+    "slug": "ultrawide-monitors"
+  },
+  {
+    "name": "Mechanical Keyboards",
+    "slug": "mechanical-keyboards"
+  },
+  {
+    "name": "Wireless Keyboards",
+    "slug": "wireless-keyboards"
+  },
+  {
+    "name": "Gaming Mice",
+    "slug": "gaming-mice"
+  },
+  {
+    "name": "Mouse Pads",
+    "slug": "mouse-pads"
+  },
+  {
+    "name": "Printers",
+    "slug": "printers"
+  },
+  {
+    "name": "Ink Cartridges",
+    "slug": "ink-cartridges"
+  },
+  {
+    "name": "Laser Printers",
+    "slug": "laser-printers"
+  },
+  {
+    "name": "Scanners",
+    "slug": "scanners"
+  },
+  {
+    "name": "Routers",
+    "slug": "routers"
+  },
+  {
+    "name": "Wi-Fi Extenders",
+    "slug": "wi-fi-extenders"
+  },
+  {
+    "name": "Network Switches",
+    "slug": "network-switches"
+  },
+  {
+    "name": "NAS Storage",
+    "slug": "nas-storage"
+  },
+  {
+    "name": "External SSDs",
+    "slug": "external-ssds"
+  },
+  {
+    "name": "External HDDs",
+    "slug": "external-hdds"
+  },
+  {
+    "name": "USB Flash Drives",
+    "slug": "usb-flash-drives"
+  },
+  {
+    "name": "Memory Cards",
+    "slug": "memory-cards"
+  },
+  {
+    "name": "Graphics Cards",
+    "slug": "graphics-cards"
+  },
+  {
+    "name": "Motherboards",
+    "slug": "motherboards"
+  },
+  {
+    "name": "Processors",
+    "slug": "processors"
+  },
+  {
+    "name": "RAM Memory",
+    "slug": "ram-memory"
+  },
+  {
+    "name": "Computer Cases",
+    "slug": "computer-cases"
+  },
+  {
+    "name": "CPU Coolers",
+    "slug": "cpu-coolers"
+  },
+  {
+    "name": "Laptop Bags",
+    "slug": "laptop-bags"
+  },
+  {
+    "name": "Projectors",
+    "slug": "projectors"
+  },
+  {
+    "name": "Smart TVs",
+    "slug": "smart-tvs"
+  },
+  {
+    "name": "Streaming Devices",
+    "slug": "streaming-devices"
+  },
+  {
+    "name": "T-Shirts",
+    "slug": "t-shirts"
+  },
+  {
+    "name": "Shirts",
+    "slug": "shirts"
+  },
+  {
+    "name": "Dress Shirts",
+    "slug": "dress-shirts"
+  },
+  {
+    "name": "Polo Shirts",
+    "slug": "polo-shirts"
+  },
+  {
+    "name": "Tank Tops",
+    "slug": "tank-tops"
+  },
+  {
+    "name": "Hoodies",
+    "slug": "hoodies"
+  },
+  {
+    "name": "Sweatshirts",
+    "slug": "sweatshirts"
+  },
+  {
+    "name": "Jackets",
+    "slug": "jackets"
+  },
+  {
+    "name": "Winter Coats",
+    "slug": "winter-coats"
+  },
+  {
+    "name": "Rain Jackets",
+    "slug": "rain-jackets"
+  },
+  {
+    "name": "Blazers",
+    "slug": "blazers"
+  },
+  {
+    "name": "Suits",
+    "slug": "suits"
+  },
+  {
+    "name": "Jeans",
+    "slug": "jeans"
+  },
+  {
+    "name": "Chinos",
+    "slug": "chinos"
+  },
+  {
+    "name": "Cargo Pants",
+    "slug": "cargo-pants"
+  },
+  {
+    "name": "Shorts",
+    "slug": "shorts"
+  },
+  {
+    "name": "Leggings",
+    "slug": "leggings"
+  },
+  {
+    "name": "Yoga Pants",
+    "slug": "yoga-pants"
+  },
+  {
+    "name": "Skirts",
+    "slug": "skirts"
+  },
+  {
+    "name": "Maxi Dresses",
+    "slug": "maxi-dresses"
+  },
+  {
+    "name": "Cocktail Dresses",
+    "slug": "cocktail-dresses"
+  },
+  {
+    "name": "Evening Gowns",
+    "slug": "evening-gowns"
+  },
+  {
+    "name": "Sweaters",
+    "slug": "sweaters"
+  },
+  {
+    "name": "Cardigans",
+    "slug": "cardigans"
+  },
+  {
+    "name": "Swimwear",
+    "slug": "swimwear"
+  },
+  {
+    "name": "Bikinis",
+    "slug": "bikinis"
+  },
+  {
+    "name": "Underwear",
+    "slug": "underwear"
+  },
+  {
+    "name": "Bras",
+    "slug": "bras"
+  },
+  {
+    "name": "Socks",
+    "slug": "socks"
+  },
+  {
+    "name": "Sleepwear",
+    "slug": "sleepwear"
+  },
+  {
+    "name": "Slippers",
+    "slug": "slippers"
+  },
+  {
+    "name": "Sneakers",
+    "slug": "sneakers"
+  },
+  {
+    "name": "Running Shoes",
+    "slug": "running-shoes"
+  },
+  {
+    "name": "Boots",
+    "slug": "boots"
+  },
+  {
+    "name": "Sandals",
+    "slug": "sandals"
+  },
+  {
+    "name": "Loafers",
+    "slug": "loafers"
+  },
+  {
+    "name": "High Heels",
+    "slug": "high-heels"
+  },
+  {
+    "name": "Belts",
+    "slug": "belts"
+  },
+  {
+    "name": "Wallets",
+    "slug": "wallets"
+  },
+  {
+    "name": "Handbags",
+    "slug": "handbags"
+  },
+  {
+    "name": "Backpacks",
+    "slug": "backpacks"
+  },
+  {
+    "name": "Luggage",
+    "slug": "luggage"
+  },
+  {
+    "name": "Scarves",
+    "slug": "scarves"
+  },
+  {
+    "name": "Gloves",
+    "slug": "gloves"
+  },
+  {
+    "name": "Hats",
+    "slug": "hats"
+  },
+  {
+    "name": "Caps",
+    "slug": "caps"
+  },
+  {
+    "name": "Sunglasses",
+    "slug": "sunglasses"
+  },
+  {
+    "name": "Watches",
+    "slug": "watches"
+  },
+  {
+    "name": "Jewelry",
+    "slug": "jewelry"
+  },
+  {
+    "name": "Necklaces",
+    "slug": "necklaces"
+  },
+  {
+    "name": "Sofas",
+    "slug": "sofas"
+  },
+  {
+    "name": "Sectional Sofas",
+    "slug": "sectional-sofas"
+  },
+  {
+    "name": "Recliners",
+    "slug": "recliners"
+  },
+  {
+    "name": "Coffee Tables",
+    "slug": "coffee-tables"
+  },
+  {
+    "name": "Dining Tables",
+    "slug": "dining-tables"
+  },
+  {
+    "name": "Dining Chairs",
+    "slug": "dining-chairs"
+  },
+  {
+    "name": "Office Chairs",
+    "slug": "office-chairs"
+  },
+  {
+    "name": "Standing Desks",
+    "slug": "standing-desks"
+  },
+  {
+    "name": "Bookshelves",
+    "slug": "bookshelves"
+  },
+  {
+    "name": "TV Stands",
+    "slug": "tv-stands"
+  },
+  {
+    "name": "Beds",
+    "slug": "beds"
+  },
+  {
+    "name": "Mattresses",
+    "slug": "mattresses"
+  },
+  {
+    "name": "Wardrobes",
+    "slug": "wardrobes"
+  },
+  {
+    "name": "Dressers",
+    "slug": "dressers"
+  },
+  {
+    "name": "Nightstands",
+    "slug": "nightstands"
+  },
+  {
+    "name": "Cabinets",
+    "slug": "cabinets"
+  },
+  {
+    "name": "Storage Shelves",
+    "slug": "storage-shelves"
+  },
+  {
+    "name": "Curtains",
+    "slug": "curtains"
+  },
+  {
+    "name": "Blinds",
+    "slug": "blinds"
+  },
+  {
+    "name": "Rugs",
+    "slug": "rugs"
+  },
+  {
+    "name": "Carpets",
+    "slug": "carpets"
+  },
+  {
+    "name": "Wall Art",
+    "slug": "wall-art"
+  },
+  {
+    "name": "Picture Frames",
+    "slug": "picture-frames"
+  },
+  {
+    "name": "Mirrors",
+    "slug": "mirrors"
+  },
+  {
+    "name": "Table Lamps",
+    "slug": "table-lamps"
+  },
+  {
+    "name": "Floor Lamps",
+    "slug": "floor-lamps"
+  },
+  {
+    "name": "Ceiling Lights",
+    "slug": "ceiling-lights"
+  },
+  {
+    "name": "LED Bulbs",
+    "slug": "led-bulbs"
+  },
+  {
+    "name": "Candles",
+    "slug": "candles"
+  },
+  {
+    "name": "Vases",
+    "slug": "vases"
+  },
+  {
+    "name": "Planters",
+    "slug": "planters"
+  },
+  {
+    "name": "Cookware",
+    "slug": "cookware"
+  },
+  {
+    "name": "Frying Pans",
+    "slug": "frying-pans"
+  },
+  {
+    "name": "Saucepans",
+    "slug": "saucepans"
+  },
+  {
+    "name": "Pressure Cookers",
+    "slug": "pressure-cookers"
+  },
+  {
+    "name": "Air Fryers",
+    "slug": "air-fryers"
+  },
+  {
+    "name": "Blenders",
+    "slug": "blenders"
+  },
+  {
+    "name": "Coffee Makers",
+    "slug": "coffee-makers"
+  },
+  {
+    "name": "Electric Kettles",
+    "slug": "electric-kettles"
+  },
+  {
+    "name": "Microwaves",
+    "slug": "microwaves"
+  },
+  {
+    "name": "Refrigerators",
+    "slug": "refrigerators"
+  },
+  {
+    "name": "Dishwashers",
+    "slug": "dishwashers"
+  },
+  {
+    "name": "Vacuum Cleaners",
+    "slug": "vacuum-cleaners"
+  },
+  {
+    "name": "Robot Vacuums",
+    "slug": "robot-vacuums"
+  },
+  {
+    "name": "Air Purifiers",
+    "slug": "air-purifiers"
+  },
+  {
+    "name": "Humidifiers",
+    "slug": "humidifiers"
+  },
+  {
+    "name": "Fans",
+    "slug": "fans"
+  },
+  {
+    "name": "Heaters",
+    "slug": "heaters"
+  },
+  {
+    "name": "Laundry Baskets",
+    "slug": "laundry-baskets"
+  },
+  {
+    "name": "Storage Boxes",
+    "slug": "storage-boxes"
+  },
+  {
+    "name": "Rice",
+    "slug": "rice"
+  },
+  {
+    "name": "Pasta",
+    "slug": "pasta"
+  },
+  {
+    "name": "Noodles",
+    "slug": "noodles"
+  },
+  {
+    "name": "Flour",
+    "slug": "flour"
+  },
+  {
+    "name": "Sugar",
+    "slug": "sugar"
+  },
+  {
+    "name": "Salt",
+    "slug": "salt"
+  },
+  {
+    "name": "Pepper",
+    "slug": "pepper"
+  },
+  {
+    "name": "Spices",
+    "slug": "spices"
+  },
+  {
+    "name": "Herbs",
+    "slug": "herbs"
+  },
+  {
+    "name": "Olive Oil",
+    "slug": "olive-oil"
+  },
+  {
+    "name": "Cooking Oil",
+    "slug": "cooking-oil"
+  },
+  {
+    "name": "Vinegar",
+    "slug": "vinegar"
+  },
+  {
+    "name": "Sauces",
+    "slug": "sauces"
+  },
+  {
+    "name": "Ketchup",
+    "slug": "ketchup"
+  },
+  {
+    "name": "Mustard",
+    "slug": "mustard"
+  },
+  {
+    "name": "Mayonnaise",
+    "slug": "mayonnaise"
+  },
+  {
+    "name": "Honey",
+    "slug": "honey"
+  },
+  {
+    "name": "Jam",
+    "slug": "jam"
+  },
+  {
+    "name": "Peanut Butter",
+    "slug": "peanut-butter"
+  },
+  {
+    "name": "Breakfast Cereal",
+    "slug": "breakfast-cereal"
+  },
+  {
+    "name": "Oats",
+    "slug": "oats"
+  },
+  {
+    "name": "Coffee",
+    "slug": "coffee"
+  },
+  {
+    "name": "Tea",
+    "slug": "tea"
+  },
+  {
+    "name": "Green Tea",
+    "slug": "green-tea"
+  },
+  {
+    "name": "Hot Chocolate",
+    "slug": "hot-chocolate"
+  },
+  {
+    "name": "Bottled Water",
+    "slug": "bottled-water"
+  },
+  {
+    "name": "Sparkling Water",
+    "slug": "sparkling-water"
+  },
+  {
+    "name": "Soft Drinks",
+    "slug": "soft-drinks"
+  },
+  {
+    "name": "Fruit Juice",
+    "slug": "fruit-juice"
+  },
+  {
+    "name": "Energy Drinks",
+    "slug": "energy-drinks"
+  },
+  {
+    "name": "Chocolate",
+    "slug": "chocolate"
+  },
+  {
+    "name": "Candy",
+    "slug": "candy"
+  },
+  {
+    "name": "Cookies",
+    "slug": "cookies"
+  },
+  {
+    "name": "Crackers",
+    "slug": "crackers"
+  },
+  {
+    "name": "Chips",
+    "slug": "chips"
+  },
+  {
+    "name": "Popcorn",
+    "slug": "popcorn"
+  },
+  {
+    "name": "Nuts",
+    "slug": "nuts"
+  },
+  {
+    "name": "Almonds",
+    "slug": "almonds"
+  },
+  {
+    "name": "Cashews",
+    "slug": "cashews"
+  },
+  {
+    "name": "Walnuts",
+    "slug": "walnuts"
+  },
+  {
+    "name": "Dried Fruit",
+    "slug": "dried-fruit"
+  },
+  {
+    "name": "Fresh Fruit",
+    "slug": "fresh-fruit"
+  },
+  {
+    "name": "Fresh Vegetables",
+    "slug": "fresh-vegetables"
+  },
+  {
+    "name": "Frozen Vegetables",
+    "slug": "frozen-vegetables"
+  },
+  {
+    "name": "Frozen Pizza",
+    "slug": "frozen-pizza"
+  },
+  {
+    "name": "Ice Cream",
+    "slug": "ice-cream"
+  },
+  {
+    "name": "Cheese",
+    "slug": "cheese"
+  },
+  {
+    "name": "Yogurt",
+    "slug": "yogurt"
+  },
+  {
+    "name": "Milk",
+    "slug": "milk"
+  },
+  {
+    "name": "Eggs",
+    "slug": "eggs"
+  },
+  {
+    "name": "Building Blocks",
+    "slug": "building-blocks"
+  },
+  {
+    "name": "Action Figures",
+    "slug": "action-figures"
+  },
+  {
+    "name": "Dolls",
+    "slug": "dolls"
+  },
+  {
+    "name": "Doll Houses",
+    "slug": "doll-houses"
+  },
+  {
+    "name": "Toy Cars",
+    "slug": "toy-cars"
+  },
+  {
+    "name": "RC Cars",
+    "slug": "rc-cars"
+  },
+  {
+    "name": "Toy Trains",
+    "slug": "toy-trains"
+  },
+  {
+    "name": "Toy Airplanes",
+    "slug": "toy-airplanes"
+  },
+  {
+    "name": "Toy Boats",
+    "slug": "toy-boats"
+  },
+  {
+    "name": "Stuffed Animals",
+    "slug": "stuffed-animals"
+  },
+  {
+    "name": "Educational Toys",
+    "slug": "educational-toys"
+  },
+  {
+    "name": "STEM Toys",
+    "slug": "stem-toys"
+  },
+  {
+    "name": "Science Kits",
+    "slug": "science-kits"
+  },
+  {
+    "name": "Chemistry Sets",
+    "slug": "chemistry-sets"
+  },
+  {
+    "name": "Board Games",
+    "slug": "board-games"
+  },
+  {
+    "name": "Card Games",
+    "slug": "card-games"
+  },
+  {
+    "name": "Puzzles",
+    "slug": "puzzles"
+  },
+  {
+    "name": "Jigsaw Puzzles",
+    "slug": "jigsaw-puzzles"
+  },
+  {
+    "name": "Toy Kitchens",
+    "slug": "toy-kitchens"
+  },
+  {
+    "name": "Toy Tools",
+    "slug": "toy-tools"
+  },
+  {
+    "name": "Musical Toys",
+    "slug": "musical-toys"
+  },
+  {
+    "name": "Baby Rattles",
+    "slug": "baby-rattles"
+  },
+  {
+    "name": "Ride On Toys",
+    "slug": "ride-on-toys"
+  },
+  {
+    "name": "Scooters",
+    "slug": "scooters"
+  },
+  {
+    "name": "Skateboards",
+    "slug": "skateboards"
+  },
+  {
+    "name": "Kites",
+    "slug": "kites"
+  },
+  {
+    "name": "Water Guns",
+    "slug": "water-guns"
+  },
+  {
+    "name": "Pool Toys",
+    "slug": "pool-toys"
+  },
+  {
+    "name": "Play Tents",
+    "slug": "play-tents"
+  },
+  {
+    "name": "Robotic Toys",
+    "slug": "robotic-toys"
+  },
+  {
+    "name": "Footballs",
+    "slug": "footballs"
+  },
+  {
+    "name": "Basketballs",
+    "slug": "basketballs"
+  },
+  {
+    "name": "Soccer Cleats",
+    "slug": "soccer-cleats"
+  },
+  {
+    "name": "Tennis Rackets",
+    "slug": "tennis-rackets"
+  },
+  {
+    "name": "Badminton Rackets",
+    "slug": "badminton-rackets"
+  },
+  {
+    "name": "Baseball Gloves",
+    "slug": "baseball-gloves"
+  },
+  {
+    "name": "Golf Clubs",
+    "slug": "golf-clubs"
+  },
+  {
+    "name": "Yoga Mats",
+    "slug": "yoga-mats"
+  },
+  {
+    "name": "Dumbbells",
+    "slug": "dumbbells"
+  },
+  {
+    "name": "Kettlebells",
+    "slug": "kettlebells"
+  },
+  {
+    "name": "Resistance Bands",
+    "slug": "resistance-bands"
+  },
+  {
+    "name": "Treadmills",
+    "slug": "treadmills"
+  },
+  {
+    "name": "Exercise Bikes",
+    "slug": "exercise-bikes"
+  },
+  {
+    "name": "Camping Tents",
+    "slug": "camping-tents"
+  },
+  {
+    "name": "Sleeping Bags",
+    "slug": "sleeping-bags"
+  },
+  {
+    "name": "Hiking Backpacks",
+    "slug": "hiking-backpacks"
+  },
+  {
+    "name": "Fishing Reels",
+    "slug": "fishing-reels"
+  },
+  {
+    "name": "Kayaks",
+    "slug": "kayaks"
+  },
+  {
+    "name": "Bike Helmets",
+    "slug": "bike-helmets"
+  },
+  {
+    "name": "Boxing Gloves",
+    "slug": "boxing-gloves"
+  },
+  {
+    "name": "Face Cleanser",
+    "slug": "face-cleanser"
+  },
+  {
+    "name": "Moisturizer",
+    "slug": "moisturizer"
+  },
+  {
+    "name": "Face Serum",
+    "slug": "face-serum"
+  },
+  {
+    "name": "Sunscreen",
+    "slug": "sunscreen"
+  },
+  {
+    "name": "Lip Balm",
+    "slug": "lip-balm"
+  },
+  {
+    "name": "Foundation",
+    "slug": "foundation"
+  },
+  {
+    "name": "Concealer",
+    "slug": "concealer"
+  },
+  {
+    "name": "Mascara",
+    "slug": "mascara"
+  },
+  {
+    "name": "Lipstick",
+    "slug": "lipstick"
+  },
+  {
+    "name": "Eyeshadow",
+    "slug": "eyeshadow"
+  },
+  {
+    "name": "Makeup Brushes",
+    "slug": "makeup-brushes"
+  },
+  {
+    "name": "Perfume",
+    "slug": "perfume"
+  },
+  {
+    "name": "Shampoo",
+    "slug": "shampoo"
+  },
+  {
+    "name": "Conditioner",
+    "slug": "conditioner"
+  },
+  {
+    "name": "Hair Oil",
+    "slug": "hair-oil"
+  },
+  {
+    "name": "Hair Dryer",
+    "slug": "hair-dryer"
+  },
+  {
+    "name": "Hair Straightener",
+    "slug": "hair-straightener"
+  },
+  {
+    "name": "Electric Shaver",
+    "slug": "electric-shaver"
+  },
+  {
+    "name": "Body Wash",
+    "slug": "body-wash"
+  },
+  {
+    "name": "Toothbrush",
+    "slug": "toothbrush"
+  },
+  {
+    "name": "Car Tires",
+    "slug": "car-tires"
+  },
+  {
+    "name": "Motorcycle Tires",
+    "slug": "motorcycle-tires"
+  },
+  {
+    "name": "Engine Oil",
+    "slug": "engine-oil"
+  },
+  {
+    "name": "Brake Pads",
+    "slug": "brake-pads"
+  },
+  {
+    "name": "Car Batteries",
+    "slug": "car-batteries"
+  },
+  {
+    "name": "Seat Covers",
+    "slug": "seat-covers"
+  },
+  {
+    "name": "Floor Mats",
+    "slug": "floor-mats"
+  },
+  {
+    "name": "Dash Cameras",
+    "slug": "dash-cameras"
+  },
+  {
+    "name": "GPS Navigators",
+    "slug": "gps-navigators"
+  },
+  {
+    "name": "Car Chargers",
+    "slug": "car-chargers"
+  },
+  {
+    "name": "Spark Plugs",
+    "slug": "spark-plugs"
+  },
+  {
+    "name": "Air Filters",
+    "slug": "air-filters"
+  },
+  {
+    "name": "Wiper Blades",
+    "slug": "wiper-blades"
+  },
+  {
+    "name": "Car Wax",
+    "slug": "car-wax"
+  },
+  {
+    "name": "Coolant",
+    "slug": "coolant"
+  },
+  {
+    "name": "Jump Starters",
+    "slug": "jump-starters"
+  },
+  {
+    "name": "Roof Racks",
+    "slug": "roof-racks"
+  },
+  {
+    "name": "Tow Straps",
+    "slug": "tow-straps"
+  },
+  {
+    "name": "Tool Kits",
+    "slug": "tool-kits"
+  },
+  {
+    "name": "Pressure Washers",
+    "slug": "pressure-washers"
+  },
+  {
+    "name": "Dog Food",
+    "slug": "dog-food"
+  },
+  {
+    "name": "Cat Food",
+    "slug": "cat-food"
+  },
+  {
+    "name": "Bird Food",
+    "slug": "bird-food"
+  },
+  {
+    "name": "Fish Food",
+    "slug": "fish-food"
+  },
+  {
+    "name": "Dog Beds",
+    "slug": "dog-beds"
+  },
+  {
+    "name": "Cat Trees",
+    "slug": "cat-trees"
+  },
+  {
+    "name": "Dog Collars",
+    "slug": "dog-collars"
+  },
+  {
+    "name": "Dog Leashes",
+    "slug": "dog-leashes"
+  },
+  {
+    "name": "Pet Carriers",
+    "slug": "pet-carriers"
+  },
+  {
+    "name": "Aquariums",
+    "slug": "aquariums"
+  },
+  {
+    "name": "Bird Cages",
+    "slug": "bird-cages"
+  },
+  {
+    "name": "Litter Boxes",
+    "slug": "litter-boxes"
+  },
+  {
+    "name": "Pet Toys",
+    "slug": "pet-toys"
+  },
+  {
+    "name": "Pet Grooming",
+    "slug": "pet-grooming"
+  },
+  {
+    "name": "Pet Bowls",
+    "slug": "pet-bowls"
+  },
+  {
+    "name": "Cat Litter",
+    "slug": "cat-litter"
+  },
+  {
+    "name": "Pet Shampoo",
+    "slug": "pet-shampoo"
+  },
+  {
+    "name": "Pet Treats",
+    "slug": "pet-treats"
+  },
+  {
+    "name": "Reptile Tanks",
+    "slug": "reptile-tanks"
+  },
+  {
+    "name": "Hamster Cages",
+    "slug": "hamster-cages"
+  },
+  {
+    "name": "Premium Kitchen Accessories",
+    "slug": "premium-kitchen-accessories"
+  },
+  {
+    "name": "Premium Kitchen Supplies",
+    "slug": "premium-kitchen-supplies"
+  },
+  {
+    "name": "Premium Kitchen Equipment",
+    "slug": "premium-kitchen-equipment"
+  },
+  {
+    "name": "Premium Kitchen Essentials",
+    "slug": "premium-kitchen-essentials"
+  },
+  {
+    "name": "Premium Kitchen Kits",
+    "slug": "premium-kitchen-kits"
+  },
+  {
+    "name": "Premium Kitchen Bundles",
+    "slug": "premium-kitchen-bundles"
+  },
+  {
+    "name": "Premium Kitchen Replacement Parts",
+    "slug": "premium-kitchen-replacement-parts"
+  },
+  {
+    "name": "Premium Kitchen Refills",
+    "slug": "premium-kitchen-refills"
+  },
+  {
+    "name": "Premium Kitchen Storage",
+    "slug": "premium-kitchen-storage"
+  },
+  {
+    "name": "Premium Kitchen Organizers",
+    "slug": "premium-kitchen-organizers"
+  },
+  {
+    "name": "Premium Kitchen Tools",
+    "slug": "premium-kitchen-tools"
+  },
+  {
+    "name": "Premium Kitchen Components",
+    "slug": "premium-kitchen-components"
+  },
+  {
+    "name": "Premium Kitchen Collections",
+    "slug": "premium-kitchen-collections"
+  },
+  {
+    "name": "Premium Kitchen Solutions",
+    "slug": "premium-kitchen-solutions"
+  },
+  {
+    "name": "Premium Kitchen Gear",
+    "slug": "premium-kitchen-gear"
+  },
+  {
+    "name": "Premium Kitchen Sets",
+    "slug": "premium-kitchen-sets"
+  },
+  {
+    "name": "Premium Kitchen Products",
+    "slug": "premium-kitchen-products"
+  },
+  {
+    "name": "Premium Kitchen Items",
+    "slug": "premium-kitchen-items"
+  },
+  {
+    "name": "Premium Kitchen Goods",
+    "slug": "premium-kitchen-goods"
+  },
+  {
+    "name": "Premium Kitchen Materials",
+    "slug": "premium-kitchen-materials"
+  },
+  {
+    "name": "Budget Kitchen Accessories",
+    "slug": "budget-kitchen-accessories"
+  },
+  {
+    "name": "Budget Kitchen Supplies",
+    "slug": "budget-kitchen-supplies"
+  },
+  {
+    "name": "Budget Kitchen Equipment",
+    "slug": "budget-kitchen-equipment"
+  },
+  {
+    "name": "Budget Kitchen Essentials",
+    "slug": "budget-kitchen-essentials"
+  },
+  {
+    "name": "Budget Kitchen Kits",
+    "slug": "budget-kitchen-kits"
+  },
+  {
+    "name": "Budget Kitchen Bundles",
+    "slug": "budget-kitchen-bundles"
+  },
+  {
+    "name": "Budget Kitchen Replacement Parts",
+    "slug": "budget-kitchen-replacement-parts"
+  },
+  {
+    "name": "Budget Kitchen Refills",
+    "slug": "budget-kitchen-refills"
+  },
+  {
+    "name": "Budget Kitchen Storage",
+    "slug": "budget-kitchen-storage"
+  },
+  {
+    "name": "Budget Kitchen Organizers",
+    "slug": "budget-kitchen-organizers"
+  },
+  {
+    "name": "Budget Kitchen Tools",
+    "slug": "budget-kitchen-tools"
+  },
+  {
+    "name": "Budget Kitchen Components",
+    "slug": "budget-kitchen-components"
+  },
+  {
+    "name": "Budget Kitchen Collections",
+    "slug": "budget-kitchen-collections"
+  },
+  {
+    "name": "Budget Kitchen Solutions",
+    "slug": "budget-kitchen-solutions"
+  },
+  {
+    "name": "Budget Kitchen Gear",
+    "slug": "budget-kitchen-gear"
+  },
+  {
+    "name": "Budget Kitchen Sets",
+    "slug": "budget-kitchen-sets"
+  },
+  {
+    "name": "Budget Kitchen Products",
+    "slug": "budget-kitchen-products"
+  },
+  {
+    "name": "Budget Kitchen Items",
+    "slug": "budget-kitchen-items"
+  },
+  {
+    "name": "Budget Kitchen Goods",
+    "slug": "budget-kitchen-goods"
+  },
+  {
+    "name": "Budget Kitchen Materials",
+    "slug": "budget-kitchen-materials"
+  },
+  {
+    "name": "Professional Kitchen Accessories",
+    "slug": "professional-kitchen-accessories"
+  },
+  {
+    "name": "Professional Kitchen Supplies",
+    "slug": "professional-kitchen-supplies"
+  },
+  {
+    "name": "Professional Kitchen Equipment",
+    "slug": "professional-kitchen-equipment"
+  },
+  {
+    "name": "Professional Kitchen Essentials",
+    "slug": "professional-kitchen-essentials"
+  },
+  {
+    "name": "Professional Kitchen Kits",
+    "slug": "professional-kitchen-kits"
+  },
+  {
+    "name": "Professional Kitchen Bundles",
+    "slug": "professional-kitchen-bundles"
+  },
+  {
+    "name": "Professional Kitchen Replacement Parts",
+    "slug": "professional-kitchen-replacement-parts"
+  },
+  {
+    "name": "Professional Kitchen Refills",
+    "slug": "professional-kitchen-refills"
+  },
+  {
+    "name": "Professional Kitchen Storage",
+    "slug": "professional-kitchen-storage"
+  },
+  {
+    "name": "Professional Kitchen Organizers",
+    "slug": "professional-kitchen-organizers"
+  },
+  {
+    "name": "Professional Kitchen Tools",
+    "slug": "professional-kitchen-tools"
+  },
+  {
+    "name": "Professional Kitchen Components",
+    "slug": "professional-kitchen-components"
+  },
+  {
+    "name": "Professional Kitchen Collections",
+    "slug": "professional-kitchen-collections"
+  },
+  {
+    "name": "Professional Kitchen Solutions",
+    "slug": "professional-kitchen-solutions"
+  },
+  {
+    "name": "Professional Kitchen Gear",
+    "slug": "professional-kitchen-gear"
+  },
+  {
+    "name": "Professional Kitchen Sets",
+    "slug": "professional-kitchen-sets"
+  },
+  {
+    "name": "Professional Kitchen Products",
+    "slug": "professional-kitchen-products"
+  },
+  {
+    "name": "Professional Kitchen Items",
+    "slug": "professional-kitchen-items"
+  },
+  {
+    "name": "Professional Kitchen Goods",
+    "slug": "professional-kitchen-goods"
+  },
+  {
+    "name": "Professional Kitchen Materials",
+    "slug": "professional-kitchen-materials"
+  },
+  {
+    "name": "Compact Kitchen Accessories",
+    "slug": "compact-kitchen-accessories"
+  },
+  {
+    "name": "Compact Kitchen Supplies",
+    "slug": "compact-kitchen-supplies"
+  },
+  {
+    "name": "Compact Kitchen Equipment",
+    "slug": "compact-kitchen-equipment"
+  },
+  {
+    "name": "Compact Kitchen Essentials",
+    "slug": "compact-kitchen-essentials"
+  },
+  {
+    "name": "Compact Kitchen Kits",
+    "slug": "compact-kitchen-kits"
+  },
+  {
+    "name": "Compact Kitchen Bundles",
+    "slug": "compact-kitchen-bundles"
+  },
+  {
+    "name": "Compact Kitchen Replacement Parts",
+    "slug": "compact-kitchen-replacement-parts"
+  },
+  {
+    "name": "Compact Kitchen Refills",
+    "slug": "compact-kitchen-refills"
+  },
+  {
+    "name": "Compact Kitchen Storage",
+    "slug": "compact-kitchen-storage"
+  },
+  {
+    "name": "Compact Kitchen Organizers",
+    "slug": "compact-kitchen-organizers"
+  },
+  {
+    "name": "Compact Kitchen Tools",
+    "slug": "compact-kitchen-tools"
+  },
+  {
+    "name": "Compact Kitchen Components",
+    "slug": "compact-kitchen-components"
+  },
+  {
+    "name": "Compact Kitchen Collections",
+    "slug": "compact-kitchen-collections"
+  },
+  {
+    "name": "Compact Kitchen Solutions",
+    "slug": "compact-kitchen-solutions"
+  },
+  {
+    "name": "Compact Kitchen Gear",
+    "slug": "compact-kitchen-gear"
+  },
+  {
+    "name": "Compact Kitchen Sets",
+    "slug": "compact-kitchen-sets"
+  },
+  {
+    "name": "Compact Kitchen Products",
+    "slug": "compact-kitchen-products"
+  },
+  {
+    "name": "Compact Kitchen Items",
+    "slug": "compact-kitchen-items"
+  },
+  {
+    "name": "Compact Kitchen Goods",
+    "slug": "compact-kitchen-goods"
+  },
+  {
+    "name": "Compact Kitchen Materials",
+    "slug": "compact-kitchen-materials"
+  },
+  {
+    "name": "Portable Kitchen Accessories",
+    "slug": "portable-kitchen-accessories"
+  },
+  {
+    "name": "Portable Kitchen Supplies",
+    "slug": "portable-kitchen-supplies"
+  },
+  {
+    "name": "Portable Kitchen Equipment",
+    "slug": "portable-kitchen-equipment"
+  },
+  {
+    "name": "Portable Kitchen Essentials",
+    "slug": "portable-kitchen-essentials"
+  },
+  {
+    "name": "Portable Kitchen Kits",
+    "slug": "portable-kitchen-kits"
+  },
+  {
+    "name": "Portable Kitchen Bundles",
+    "slug": "portable-kitchen-bundles"
+  },
+  {
+    "name": "Portable Kitchen Replacement Parts",
+    "slug": "portable-kitchen-replacement-parts"
+  },
+  {
+    "name": "Portable Kitchen Refills",
+    "slug": "portable-kitchen-refills"
+  },
+  {
+    "name": "Portable Kitchen Storage",
+    "slug": "portable-kitchen-storage"
+  },
+  {
+    "name": "Portable Kitchen Organizers",
+    "slug": "portable-kitchen-organizers"
+  },
+  {
+    "name": "Portable Kitchen Tools",
+    "slug": "portable-kitchen-tools"
+  },
+  {
+    "name": "Portable Kitchen Components",
+    "slug": "portable-kitchen-components"
+  },
+  {
+    "name": "Portable Kitchen Collections",
+    "slug": "portable-kitchen-collections"
+  },
+  {
+    "name": "Portable Kitchen Solutions",
+    "slug": "portable-kitchen-solutions"
+  },
+  {
+    "name": "Portable Kitchen Gear",
+    "slug": "portable-kitchen-gear"
+  },
+  {
+    "name": "Portable Kitchen Sets",
+    "slug": "portable-kitchen-sets"
+  },
+  {
+    "name": "Portable Kitchen Products",
+    "slug": "portable-kitchen-products"
+  },
+  {
+    "name": "Portable Kitchen Items",
+    "slug": "portable-kitchen-items"
+  },
+  {
+    "name": "Portable Kitchen Goods",
+    "slug": "portable-kitchen-goods"
+  },
+  {
+    "name": "Portable Kitchen Materials",
+    "slug": "portable-kitchen-materials"
+  },
+  {
+    "name": "Mini Kitchen Accessories",
+    "slug": "mini-kitchen-accessories"
+  },
+  {
+    "name": "Mini Kitchen Supplies",
+    "slug": "mini-kitchen-supplies"
+  },
+  {
+    "name": "Mini Kitchen Equipment",
+    "slug": "mini-kitchen-equipment"
+  },
+  {
+    "name": "Mini Kitchen Essentials",
+    "slug": "mini-kitchen-essentials"
+  },
+  {
+    "name": "Mini Kitchen Kits",
+    "slug": "mini-kitchen-kits"
+  },
+  {
+    "name": "Mini Kitchen Bundles",
+    "slug": "mini-kitchen-bundles"
+  },
+  {
+    "name": "Mini Kitchen Replacement Parts",
+    "slug": "mini-kitchen-replacement-parts"
+  },
+  {
+    "name": "Mini Kitchen Refills",
+    "slug": "mini-kitchen-refills"
+  },
+  {
+    "name": "Mini Kitchen Storage",
+    "slug": "mini-kitchen-storage"
+  },
+  {
+    "name": "Mini Kitchen Organizers",
+    "slug": "mini-kitchen-organizers"
+  },
+  {
+    "name": "Mini Kitchen Tools",
+    "slug": "mini-kitchen-tools"
+  },
+  {
+    "name": "Mini Kitchen Components",
+    "slug": "mini-kitchen-components"
+  },
+  {
+    "name": "Mini Kitchen Collections",
+    "slug": "mini-kitchen-collections"
+  },
+  {
+    "name": "Mini Kitchen Solutions",
+    "slug": "mini-kitchen-solutions"
+  },
+  {
+    "name": "Mini Kitchen Gear",
+    "slug": "mini-kitchen-gear"
+  },
+  {
+    "name": "Mini Kitchen Sets",
+    "slug": "mini-kitchen-sets"
+  },
+  {
+    "name": "Mini Kitchen Products",
+    "slug": "mini-kitchen-products"
+  },
+  {
+    "name": "Mini Kitchen Items",
+    "slug": "mini-kitchen-items"
+  },
+  {
+    "name": "Mini Kitchen Goods",
+    "slug": "mini-kitchen-goods"
+  },
+  {
+    "name": "Mini Kitchen Materials",
+    "slug": "mini-kitchen-materials"
+  },
+  {
+    "name": "Large Kitchen Accessories",
+    "slug": "large-kitchen-accessories"
+  },
+  {
+    "name": "Large Kitchen Supplies",
+    "slug": "large-kitchen-supplies"
+  },
+  {
+    "name": "Large Kitchen Equipment",
+    "slug": "large-kitchen-equipment"
+  },
+  {
+    "name": "Large Kitchen Essentials",
+    "slug": "large-kitchen-essentials"
+  },
+  {
+    "name": "Large Kitchen Kits",
+    "slug": "large-kitchen-kits"
+  },
+  {
+    "name": "Large Kitchen Bundles",
+    "slug": "large-kitchen-bundles"
+  },
+  {
+    "name": "Large Kitchen Replacement Parts",
+    "slug": "large-kitchen-replacement-parts"
+  },
+  {
+    "name": "Large Kitchen Refills",
+    "slug": "large-kitchen-refills"
+  },
+  {
+    "name": "Large Kitchen Storage",
+    "slug": "large-kitchen-storage"
+  },
+  {
+    "name": "Large Kitchen Organizers",
+    "slug": "large-kitchen-organizers"
+  },
+  {
+    "name": "Large Kitchen Tools",
+    "slug": "large-kitchen-tools"
+  },
+  {
+    "name": "Large Kitchen Components",
+    "slug": "large-kitchen-components"
+  },
+  {
+    "name": "Large Kitchen Collections",
+    "slug": "large-kitchen-collections"
+  },
+  {
+    "name": "Large Kitchen Solutions",
+    "slug": "large-kitchen-solutions"
+  },
+  {
+    "name": "Large Kitchen Gear",
+    "slug": "large-kitchen-gear"
+  },
+  {
+    "name": "Large Kitchen Sets",
+    "slug": "large-kitchen-sets"
+  },
+  {
+    "name": "Large Kitchen Products",
+    "slug": "large-kitchen-products"
+  },
+  {
+    "name": "Large Kitchen Items",
+    "slug": "large-kitchen-items"
+  },
+  {
+    "name": "Large Kitchen Goods",
+    "slug": "large-kitchen-goods"
+  },
+  {
+    "name": "Large Kitchen Materials",
+    "slug": "large-kitchen-materials"
+  },
+  {
+    "name": "Eco Kitchen Accessories",
+    "slug": "eco-kitchen-accessories"
+  },
+  {
+    "name": "Eco Kitchen Supplies",
+    "slug": "eco-kitchen-supplies"
+  },
+  {
+    "name": "Eco Kitchen Equipment",
+    "slug": "eco-kitchen-equipment"
+  },
+  {
+    "name": "Eco Kitchen Essentials",
+    "slug": "eco-kitchen-essentials"
+  },
+  {
+    "name": "Eco Kitchen Kits",
+    "slug": "eco-kitchen-kits"
+  },
+  {
+    "name": "Eco Kitchen Bundles",
+    "slug": "eco-kitchen-bundles"
+  },
+  {
+    "name": "Eco Kitchen Replacement Parts",
+    "slug": "eco-kitchen-replacement-parts"
+  },
+  {
+    "name": "Eco Kitchen Refills",
+    "slug": "eco-kitchen-refills"
+  },
+  {
+    "name": "Eco Kitchen Storage",
+    "slug": "eco-kitchen-storage"
+  },
+  {
+    "name": "Eco Kitchen Organizers",
+    "slug": "eco-kitchen-organizers"
+  },
+  {
+    "name": "Eco Kitchen Tools",
+    "slug": "eco-kitchen-tools"
+  },
+  {
+    "name": "Eco Kitchen Components",
+    "slug": "eco-kitchen-components"
+  },
+  {
+    "name": "Eco Kitchen Collections",
+    "slug": "eco-kitchen-collections"
+  },
+  {
+    "name": "Eco Kitchen Solutions",
+    "slug": "eco-kitchen-solutions"
+  },
+  {
+    "name": "Eco Kitchen Gear",
+    "slug": "eco-kitchen-gear"
+  },
+  {
+    "name": "Eco Kitchen Sets",
+    "slug": "eco-kitchen-sets"
+  },
+  {
+    "name": "Eco Kitchen Products",
+    "slug": "eco-kitchen-products"
+  },
+  {
+    "name": "Eco Kitchen Items",
+    "slug": "eco-kitchen-items"
+  },
+  {
+    "name": "Eco Kitchen Goods",
+    "slug": "eco-kitchen-goods"
+  },
+  {
+    "name": "Eco Kitchen Materials",
+    "slug": "eco-kitchen-materials"
+  },
+  {
+    "name": "Organic Kitchen Accessories",
+    "slug": "organic-kitchen-accessories"
+  },
+  {
+    "name": "Organic Kitchen Supplies",
+    "slug": "organic-kitchen-supplies"
+  },
+  {
+    "name": "Organic Kitchen Equipment",
+    "slug": "organic-kitchen-equipment"
+  },
+  {
+    "name": "Organic Kitchen Essentials",
+    "slug": "organic-kitchen-essentials"
+  },
+  {
+    "name": "Organic Kitchen Kits",
+    "slug": "organic-kitchen-kits"
+  },
+  {
+    "name": "Organic Kitchen Bundles",
+    "slug": "organic-kitchen-bundles"
+  },
+  {
+    "name": "Organic Kitchen Replacement Parts",
+    "slug": "organic-kitchen-replacement-parts"
+  },
+  {
+    "name": "Organic Kitchen Refills",
+    "slug": "organic-kitchen-refills"
+  },
+  {
+    "name": "Organic Kitchen Storage",
+    "slug": "organic-kitchen-storage"
+  },
+  {
+    "name": "Organic Kitchen Organizers",
+    "slug": "organic-kitchen-organizers"
+  },
+  {
+    "name": "Organic Kitchen Tools",
+    "slug": "organic-kitchen-tools"
+  },
+  {
+    "name": "Organic Kitchen Components",
+    "slug": "organic-kitchen-components"
+  },
+  {
+    "name": "Organic Kitchen Collections",
+    "slug": "organic-kitchen-collections"
+  },
+  {
+    "name": "Organic Kitchen Solutions",
+    "slug": "organic-kitchen-solutions"
+  },
+  {
+    "name": "Organic Kitchen Gear",
+    "slug": "organic-kitchen-gear"
+  },
+  {
+    "name": "Organic Kitchen Sets",
+    "slug": "organic-kitchen-sets"
+  },
+  {
+    "name": "Organic Kitchen Products",
+    "slug": "organic-kitchen-products"
+  },
+  {
+    "name": "Organic Kitchen Items",
+    "slug": "organic-kitchen-items"
+  },
+  {
+    "name": "Organic Kitchen Goods",
+    "slug": "organic-kitchen-goods"
+  },
+  {
+    "name": "Organic Kitchen Materials",
+    "slug": "organic-kitchen-materials"
+  },
+  {
+    "name": "Luxury Kitchen Accessories",
+    "slug": "luxury-kitchen-accessories"
+  },
+  {
+    "name": "Luxury Kitchen Supplies",
+    "slug": "luxury-kitchen-supplies"
+  },
+  {
+    "name": "Luxury Kitchen Equipment",
+    "slug": "luxury-kitchen-equipment"
+  },
+  {
+    "name": "Luxury Kitchen Essentials",
+    "slug": "luxury-kitchen-essentials"
+  },
+  {
+    "name": "Luxury Kitchen Kits",
+    "slug": "luxury-kitchen-kits"
+  },
+  {
+    "name": "Luxury Kitchen Bundles",
+    "slug": "luxury-kitchen-bundles"
+  },
+  {
+    "name": "Luxury Kitchen Replacement Parts",
+    "slug": "luxury-kitchen-replacement-parts"
+  },
+  {
+    "name": "Luxury Kitchen Refills",
+    "slug": "luxury-kitchen-refills"
+  },
+  {
+    "name": "Luxury Kitchen Storage",
+    "slug": "luxury-kitchen-storage"
+  },
+  {
+    "name": "Luxury Kitchen Organizers",
+    "slug": "luxury-kitchen-organizers"
+  },
+  {
+    "name": "Luxury Kitchen Tools",
+    "slug": "luxury-kitchen-tools"
+  },
+  {
+    "name": "Luxury Kitchen Components",
+    "slug": "luxury-kitchen-components"
+  },
+  {
+    "name": "Luxury Kitchen Collections",
+    "slug": "luxury-kitchen-collections"
+  },
+  {
+    "name": "Luxury Kitchen Solutions",
+    "slug": "luxury-kitchen-solutions"
+  },
+  {
+    "name": "Luxury Kitchen Gear",
+    "slug": "luxury-kitchen-gear"
+  },
+  {
+    "name": "Luxury Kitchen Sets",
+    "slug": "luxury-kitchen-sets"
+  },
+  {
+    "name": "Luxury Kitchen Products",
+    "slug": "luxury-kitchen-products"
+  },
+  {
+    "name": "Luxury Kitchen Items",
+    "slug": "luxury-kitchen-items"
+  },
+  {
+    "name": "Luxury Kitchen Goods",
+    "slug": "luxury-kitchen-goods"
+  },
+  {
+    "name": "Luxury Kitchen Materials",
+    "slug": "luxury-kitchen-materials"
+  },
+  {
+    "name": "Smart Kitchen Accessories",
+    "slug": "smart-kitchen-accessories"
+  },
+  {
+    "name": "Smart Kitchen Supplies",
+    "slug": "smart-kitchen-supplies"
+  },
+  {
+    "name": "Smart Kitchen Equipment",
+    "slug": "smart-kitchen-equipment"
+  },
+  {
+    "name": "Smart Kitchen Essentials",
+    "slug": "smart-kitchen-essentials"
+  },
+  {
+    "name": "Smart Kitchen Kits",
+    "slug": "smart-kitchen-kits"
+  },
+  {
+    "name": "Smart Kitchen Bundles",
+    "slug": "smart-kitchen-bundles"
+  },
+  {
+    "name": "Smart Kitchen Replacement Parts",
+    "slug": "smart-kitchen-replacement-parts"
+  },
+  {
+    "name": "Smart Kitchen Refills",
+    "slug": "smart-kitchen-refills"
+  },
+  {
+    "name": "Smart Kitchen Storage",
+    "slug": "smart-kitchen-storage"
+  },
+  {
+    "name": "Smart Kitchen Organizers",
+    "slug": "smart-kitchen-organizers"
+  },
+  {
+    "name": "Smart Kitchen Tools",
+    "slug": "smart-kitchen-tools"
+  },
+  {
+    "name": "Smart Kitchen Components",
+    "slug": "smart-kitchen-components"
+  },
+  {
+    "name": "Smart Kitchen Collections",
+    "slug": "smart-kitchen-collections"
+  },
+  {
+    "name": "Smart Kitchen Solutions",
+    "slug": "smart-kitchen-solutions"
+  },
+  {
+    "name": "Smart Kitchen Gear",
+    "slug": "smart-kitchen-gear"
+  },
+  {
+    "name": "Smart Kitchen Sets",
+    "slug": "smart-kitchen-sets"
+  },
+  {
+    "name": "Smart Kitchen Products",
+    "slug": "smart-kitchen-products"
+  },
+  {
+    "name": "Smart Kitchen Items",
+    "slug": "smart-kitchen-items"
+  },
+  {
+    "name": "Smart Kitchen Goods",
+    "slug": "smart-kitchen-goods"
+  },
+  {
+    "name": "Smart Kitchen Materials",
+    "slug": "smart-kitchen-materials"
+  },
+  {
+    "name": "Wireless Kitchen Accessories",
+    "slug": "wireless-kitchen-accessories"
+  },
+  {
+    "name": "Wireless Kitchen Supplies",
+    "slug": "wireless-kitchen-supplies"
+  },
+  {
+    "name": "Wireless Kitchen Equipment",
+    "slug": "wireless-kitchen-equipment"
+  },
+  {
+    "name": "Wireless Kitchen Essentials",
+    "slug": "wireless-kitchen-essentials"
+  },
+  {
+    "name": "Wireless Kitchen Kits",
+    "slug": "wireless-kitchen-kits"
+  },
+  {
+    "name": "Wireless Kitchen Bundles",
+    "slug": "wireless-kitchen-bundles"
+  },
+  {
+    "name": "Wireless Kitchen Replacement Parts",
+    "slug": "wireless-kitchen-replacement-parts"
+  },
+  {
+    "name": "Wireless Kitchen Refills",
+    "slug": "wireless-kitchen-refills"
+  },
+  {
+    "name": "Wireless Kitchen Storage",
+    "slug": "wireless-kitchen-storage"
+  },
+  {
+    "name": "Wireless Kitchen Organizers",
+    "slug": "wireless-kitchen-organizers"
+  },
+  {
+    "name": "Wireless Kitchen Tools",
+    "slug": "wireless-kitchen-tools"
+  },
+  {
+    "name": "Wireless Kitchen Components",
+    "slug": "wireless-kitchen-components"
+  },
+  {
+    "name": "Wireless Kitchen Collections",
+    "slug": "wireless-kitchen-collections"
+  },
+  {
+    "name": "Wireless Kitchen Solutions",
+    "slug": "wireless-kitchen-solutions"
+  },
+  {
+    "name": "Wireless Kitchen Gear",
+    "slug": "wireless-kitchen-gear"
+  },
+  {
+    "name": "Wireless Kitchen Sets",
+    "slug": "wireless-kitchen-sets"
+  },
+  {
+    "name": "Wireless Kitchen Products",
+    "slug": "wireless-kitchen-products"
+  },
+  {
+    "name": "Wireless Kitchen Items",
+    "slug": "wireless-kitchen-items"
+  },
+  {
+    "name": "Wireless Kitchen Goods",
+    "slug": "wireless-kitchen-goods"
+  },
+  {
+    "name": "Wireless Kitchen Materials",
+    "slug": "wireless-kitchen-materials"
+  },
+  {
+    "name": "Rechargeable Kitchen Accessories",
+    "slug": "rechargeable-kitchen-accessories"
+  },
+  {
+    "name": "Rechargeable Kitchen Supplies",
+    "slug": "rechargeable-kitchen-supplies"
+  },
+  {
+    "name": "Rechargeable Kitchen Equipment",
+    "slug": "rechargeable-kitchen-equipment"
+  },
+  {
+    "name": "Rechargeable Kitchen Essentials",
+    "slug": "rechargeable-kitchen-essentials"
+  },
+  {
+    "name": "Rechargeable Kitchen Kits",
+    "slug": "rechargeable-kitchen-kits"
+  },
+  {
+    "name": "Rechargeable Kitchen Bundles",
+    "slug": "rechargeable-kitchen-bundles"
+  },
+  {
+    "name": "Rechargeable Kitchen Replacement Parts",
+    "slug": "rechargeable-kitchen-replacement-parts"
+  },
+  {
+    "name": "Rechargeable Kitchen Refills",
+    "slug": "rechargeable-kitchen-refills"
+  },
+  {
+    "name": "Rechargeable Kitchen Storage",
+    "slug": "rechargeable-kitchen-storage"
+  },
+  {
+    "name": "Rechargeable Kitchen Organizers",
+    "slug": "rechargeable-kitchen-organizers"
+  },
+  {
+    "name": "Rechargeable Kitchen Tools",
+    "slug": "rechargeable-kitchen-tools"
+  },
+  {
+    "name": "Rechargeable Kitchen Components",
+    "slug": "rechargeable-kitchen-components"
+  },
+  {
+    "name": "Rechargeable Kitchen Collections",
+    "slug": "rechargeable-kitchen-collections"
+  },
+  {
+    "name": "Rechargeable Kitchen Solutions",
+    "slug": "rechargeable-kitchen-solutions"
+  },
+  {
+    "name": "Rechargeable Kitchen Gear",
+    "slug": "rechargeable-kitchen-gear"
+  },
+  {
+    "name": "Rechargeable Kitchen Sets",
+    "slug": "rechargeable-kitchen-sets"
+  },
+  {
+    "name": "Rechargeable Kitchen Products",
+    "slug": "rechargeable-kitchen-products"
+  },
+  {
+    "name": "Rechargeable Kitchen Items",
+    "slug": "rechargeable-kitchen-items"
+  },
+  {
+    "name": "Rechargeable Kitchen Goods",
+    "slug": "rechargeable-kitchen-goods"
+  },
+  {
+    "name": "Rechargeable Kitchen Materials",
+    "slug": "rechargeable-kitchen-materials"
+  },
+  {
+    "name": "Heavy Duty Kitchen Accessories",
+    "slug": "heavy-duty-kitchen-accessories"
+  },
+  {
+    "name": "Heavy Duty Kitchen Supplies",
+    "slug": "heavy-duty-kitchen-supplies"
+  },
+  {
+    "name": "Heavy Duty Kitchen Equipment",
+    "slug": "heavy-duty-kitchen-equipment"
+  },
+  {
+    "name": "Heavy Duty Kitchen Essentials",
+    "slug": "heavy-duty-kitchen-essentials"
+  },
+  {
+    "name": "Heavy Duty Kitchen Kits",
+    "slug": "heavy-duty-kitchen-kits"
+  },
+  {
+    "name": "Heavy Duty Kitchen Bundles",
+    "slug": "heavy-duty-kitchen-bundles"
+  },
+  {
+    "name": "Heavy Duty Kitchen Replacement Parts",
+    "slug": "heavy-duty-kitchen-replacement-parts"
+  },
+  {
+    "name": "Heavy Duty Kitchen Refills",
+    "slug": "heavy-duty-kitchen-refills"
+  },
+  {
+    "name": "Heavy Duty Kitchen Storage",
+    "slug": "heavy-duty-kitchen-storage"
+  },
+  {
+    "name": "Heavy Duty Kitchen Organizers",
+    "slug": "heavy-duty-kitchen-organizers"
+  },
+  {
+    "name": "Heavy Duty Kitchen Tools",
+    "slug": "heavy-duty-kitchen-tools"
+  },
+  {
+    "name": "Heavy Duty Kitchen Components",
+    "slug": "heavy-duty-kitchen-components"
+  },
+  {
+    "name": "Heavy Duty Kitchen Collections",
+    "slug": "heavy-duty-kitchen-collections"
+  },
+  {
+    "name": "Heavy Duty Kitchen Solutions",
+    "slug": "heavy-duty-kitchen-solutions"
+  },
+  {
+    "name": "Heavy Duty Kitchen Gear",
+    "slug": "heavy-duty-kitchen-gear"
+  },
+  {
+    "name": "Heavy Duty Kitchen Sets",
+    "slug": "heavy-duty-kitchen-sets"
+  },
+  {
+    "name": "Heavy Duty Kitchen Products",
+    "slug": "heavy-duty-kitchen-products"
+  },
+  {
+    "name": "Heavy Duty Kitchen Items",
+    "slug": "heavy-duty-kitchen-items"
+  },
+  {
+    "name": "Heavy Duty Kitchen Goods",
+    "slug": "heavy-duty-kitchen-goods"
+  },
+  {
+    "name": "Heavy Duty Kitchen Materials",
+    "slug": "heavy-duty-kitchen-materials"
+  },
+  {
+    "name": "Classic Kitchen Accessories",
+    "slug": "classic-kitchen-accessories"
+  },
+  {
+    "name": "Classic Kitchen Supplies",
+    "slug": "classic-kitchen-supplies"
+  },
+  {
+    "name": "Classic Kitchen Equipment",
+    "slug": "classic-kitchen-equipment"
+  },
+  {
+    "name": "Classic Kitchen Essentials",
+    "slug": "classic-kitchen-essentials"
+  },
+  {
+    "name": "Classic Kitchen Kits",
+    "slug": "classic-kitchen-kits"
+  },
+  {
+    "name": "Classic Kitchen Bundles",
+    "slug": "classic-kitchen-bundles"
+  },
+  {
+    "name": "Classic Kitchen Replacement Parts",
+    "slug": "classic-kitchen-replacement-parts"
+  },
+  {
+    "name": "Classic Kitchen Refills",
+    "slug": "classic-kitchen-refills"
+  },
+  {
+    "name": "Classic Kitchen Storage",
+    "slug": "classic-kitchen-storage"
+  },
+  {
+    "name": "Classic Kitchen Organizers",
+    "slug": "classic-kitchen-organizers"
+  },
+  {
+    "name": "Classic Kitchen Tools",
+    "slug": "classic-kitchen-tools"
+  },
+  {
+    "name": "Classic Kitchen Components",
+    "slug": "classic-kitchen-components"
+  },
+  {
+    "name": "Classic Kitchen Collections",
+    "slug": "classic-kitchen-collections"
+  },
+  {
+    "name": "Classic Kitchen Solutions",
+    "slug": "classic-kitchen-solutions"
+  },
+  {
+    "name": "Classic Kitchen Gear",
+    "slug": "classic-kitchen-gear"
+  },
+  {
+    "name": "Classic Kitchen Sets",
+    "slug": "classic-kitchen-sets"
+  },
+  {
+    "name": "Classic Kitchen Products",
+    "slug": "classic-kitchen-products"
+  },
+  {
+    "name": "Classic Kitchen Items",
+    "slug": "classic-kitchen-items"
+  },
+  {
+    "name": "Classic Kitchen Goods",
+    "slug": "classic-kitchen-goods"
+  },
+  {
+    "name": "Classic Kitchen Materials",
+    "slug": "classic-kitchen-materials"
+  },
+  {
+    "name": "Modern Kitchen Accessories",
+    "slug": "modern-kitchen-accessories"
+  },
+  {
+    "name": "Modern Kitchen Supplies",
+    "slug": "modern-kitchen-supplies"
+  },
+  {
+    "name": "Modern Kitchen Equipment",
+    "slug": "modern-kitchen-equipment"
+  },
+  {
+    "name": "Modern Kitchen Essentials",
+    "slug": "modern-kitchen-essentials"
+  },
+  {
+    "name": "Modern Kitchen Kits",
+    "slug": "modern-kitchen-kits"
+  },
+  {
+    "name": "Modern Kitchen Bundles",
+    "slug": "modern-kitchen-bundles"
+  },
+  {
+    "name": "Modern Kitchen Replacement Parts",
+    "slug": "modern-kitchen-replacement-parts"
+  },
+  {
+    "name": "Modern Kitchen Refills",
+    "slug": "modern-kitchen-refills"
+  },
+  {
+    "name": "Modern Kitchen Storage",
+    "slug": "modern-kitchen-storage"
+  },
+  {
+    "name": "Modern Kitchen Organizers",
+    "slug": "modern-kitchen-organizers"
+  },
+  {
+    "name": "Modern Kitchen Tools",
+    "slug": "modern-kitchen-tools"
+  },
+  {
+    "name": "Modern Kitchen Components",
+    "slug": "modern-kitchen-components"
+  },
+  {
+    "name": "Modern Kitchen Collections",
+    "slug": "modern-kitchen-collections"
+  },
+  {
+    "name": "Modern Kitchen Solutions",
+    "slug": "modern-kitchen-solutions"
+  },
+  {
+    "name": "Modern Kitchen Gear",
+    "slug": "modern-kitchen-gear"
+  },
+  {
+    "name": "Modern Kitchen Sets",
+    "slug": "modern-kitchen-sets"
+  },
+  {
+    "name": "Modern Kitchen Products",
+    "slug": "modern-kitchen-products"
+  },
+  {
+    "name": "Modern Kitchen Items",
+    "slug": "modern-kitchen-items"
+  },
+  {
+    "name": "Modern Kitchen Goods",
+    "slug": "modern-kitchen-goods"
+  },
+  {
+    "name": "Modern Kitchen Materials",
+    "slug": "modern-kitchen-materials"
+  },
+  {
+    "name": "Vintage Kitchen Accessories",
+    "slug": "vintage-kitchen-accessories"
+  },
+  {
+    "name": "Vintage Kitchen Supplies",
+    "slug": "vintage-kitchen-supplies"
+  },
+  {
+    "name": "Vintage Kitchen Equipment",
+    "slug": "vintage-kitchen-equipment"
+  },
+  {
+    "name": "Vintage Kitchen Essentials",
+    "slug": "vintage-kitchen-essentials"
+  },
+  {
+    "name": "Vintage Kitchen Kits",
+    "slug": "vintage-kitchen-kits"
+  },
+  {
+    "name": "Vintage Kitchen Bundles",
+    "slug": "vintage-kitchen-bundles"
+  },
+  {
+    "name": "Vintage Kitchen Replacement Parts",
+    "slug": "vintage-kitchen-replacement-parts"
+  },
+  {
+    "name": "Vintage Kitchen Refills",
+    "slug": "vintage-kitchen-refills"
+  },
+  {
+    "name": "Vintage Kitchen Storage",
+    "slug": "vintage-kitchen-storage"
+  },
+  {
+    "name": "Vintage Kitchen Organizers",
+    "slug": "vintage-kitchen-organizers"
+  },
+  {
+    "name": "Vintage Kitchen Tools",
+    "slug": "vintage-kitchen-tools"
+  },
+  {
+    "name": "Vintage Kitchen Components",
+    "slug": "vintage-kitchen-components"
+  },
+  {
+    "name": "Vintage Kitchen Collections",
+    "slug": "vintage-kitchen-collections"
+  },
+  {
+    "name": "Vintage Kitchen Solutions",
+    "slug": "vintage-kitchen-solutions"
+  },
+  {
+    "name": "Vintage Kitchen Gear",
+    "slug": "vintage-kitchen-gear"
+  },
+  {
+    "name": "Vintage Kitchen Sets",
+    "slug": "vintage-kitchen-sets"
+  },
+  {
+    "name": "Vintage Kitchen Products",
+    "slug": "vintage-kitchen-products"
+  },
+  {
+    "name": "Vintage Kitchen Items",
+    "slug": "vintage-kitchen-items"
+  },
+  {
+    "name": "Vintage Kitchen Goods",
+    "slug": "vintage-kitchen-goods"
+  },
+  {
+    "name": "Vintage Kitchen Materials",
+    "slug": "vintage-kitchen-materials"
+  },
+  {
+    "name": "Digital Kitchen Accessories",
+    "slug": "digital-kitchen-accessories"
+  },
+  {
+    "name": "Digital Kitchen Supplies",
+    "slug": "digital-kitchen-supplies"
+  },
+  {
+    "name": "Digital Kitchen Equipment",
+    "slug": "digital-kitchen-equipment"
+  },
+  {
+    "name": "Digital Kitchen Essentials",
+    "slug": "digital-kitchen-essentials"
+  },
+  {
+    "name": "Digital Kitchen Kits",
+    "slug": "digital-kitchen-kits"
+  },
+  {
+    "name": "Digital Kitchen Bundles",
+    "slug": "digital-kitchen-bundles"
+  },
+  {
+    "name": "Digital Kitchen Replacement Parts",
+    "slug": "digital-kitchen-replacement-parts"
+  },
+  {
+    "name": "Digital Kitchen Refills",
+    "slug": "digital-kitchen-refills"
+  },
+  {
+    "name": "Digital Kitchen Storage",
+    "slug": "digital-kitchen-storage"
+  },
+  {
+    "name": "Digital Kitchen Organizers",
+    "slug": "digital-kitchen-organizers"
+  },
+  {
+    "name": "Digital Kitchen Tools",
+    "slug": "digital-kitchen-tools"
+  },
+  {
+    "name": "Digital Kitchen Components",
+    "slug": "digital-kitchen-components"
+  },
+  {
+    "name": "Digital Kitchen Collections",
+    "slug": "digital-kitchen-collections"
+  },
+  {
+    "name": "Digital Kitchen Solutions",
+    "slug": "digital-kitchen-solutions"
+  },
+  {
+    "name": "Digital Kitchen Gear",
+    "slug": "digital-kitchen-gear"
+  },
+  {
+    "name": "Digital Kitchen Sets",
+    "slug": "digital-kitchen-sets"
+  },
+  {
+    "name": "Digital Kitchen Products",
+    "slug": "digital-kitchen-products"
+  },
+  {
+    "name": "Digital Kitchen Items",
+    "slug": "digital-kitchen-items"
+  },
+  {
+    "name": "Digital Kitchen Goods",
+    "slug": "digital-kitchen-goods"
+  },
+  {
+    "name": "Digital Kitchen Materials",
+    "slug": "digital-kitchen-materials"
+  },
+  {
+    "name": "Electric Kitchen Accessories",
+    "slug": "electric-kitchen-accessories"
+  },
+  {
+    "name": "Electric Kitchen Supplies",
+    "slug": "electric-kitchen-supplies"
+  },
+  {
+    "name": "Electric Kitchen Equipment",
+    "slug": "electric-kitchen-equipment"
+  },
+  {
+    "name": "Electric Kitchen Essentials",
+    "slug": "electric-kitchen-essentials"
+  },
+  {
+    "name": "Electric Kitchen Kits",
+    "slug": "electric-kitchen-kits"
+  },
+  {
+    "name": "Electric Kitchen Bundles",
+    "slug": "electric-kitchen-bundles"
+  },
+  {
+    "name": "Electric Kitchen Replacement Parts",
+    "slug": "electric-kitchen-replacement-parts"
+  },
+  {
+    "name": "Electric Kitchen Refills",
+    "slug": "electric-kitchen-refills"
+  },
+  {
+    "name": "Electric Kitchen Storage",
+    "slug": "electric-kitchen-storage"
+  },
+  {
+    "name": "Electric Kitchen Organizers",
+    "slug": "electric-kitchen-organizers"
+  },
+  {
+    "name": "Electric Kitchen Tools",
+    "slug": "electric-kitchen-tools"
+  },
+  {
+    "name": "Electric Kitchen Components",
+    "slug": "electric-kitchen-components"
+  },
+  {
+    "name": "Electric Kitchen Collections",
+    "slug": "electric-kitchen-collections"
+  },
+  {
+    "name": "Electric Kitchen Solutions",
+    "slug": "electric-kitchen-solutions"
+  },
+  {
+    "name": "Electric Kitchen Gear",
+    "slug": "electric-kitchen-gear"
+  },
+  {
+    "name": "Electric Kitchen Sets",
+    "slug": "electric-kitchen-sets"
+  },
+  {
+    "name": "Electric Kitchen Products",
+    "slug": "electric-kitchen-products"
+  },
+  {
+    "name": "Electric Kitchen Items",
+    "slug": "electric-kitchen-items"
+  },
+  {
+    "name": "Electric Kitchen Goods",
+    "slug": "electric-kitchen-goods"
+  },
+  {
+    "name": "Electric Kitchen Materials",
+    "slug": "electric-kitchen-materials"
+  },
+  {
+    "name": "Foldable Kitchen Accessories",
+    "slug": "foldable-kitchen-accessories"
+  },
+  {
+    "name": "Foldable Kitchen Supplies",
+    "slug": "foldable-kitchen-supplies"
+  },
+  {
+    "name": "Foldable Kitchen Equipment",
+    "slug": "foldable-kitchen-equipment"
+  },
+  {
+    "name": "Foldable Kitchen Essentials",
+    "slug": "foldable-kitchen-essentials"
+  },
+  {
+    "name": "Foldable Kitchen Kits",
+    "slug": "foldable-kitchen-kits"
+  },
+  {
+    "name": "Foldable Kitchen Bundles",
+    "slug": "foldable-kitchen-bundles"
+  },
+  {
+    "name": "Foldable Kitchen Replacement Parts",
+    "slug": "foldable-kitchen-replacement-parts"
+  },
+  {
+    "name": "Foldable Kitchen Refills",
+    "slug": "foldable-kitchen-refills"
+  },
+  {
+    "name": "Foldable Kitchen Storage",
+    "slug": "foldable-kitchen-storage"
+  },
+  {
+    "name": "Foldable Kitchen Organizers",
+    "slug": "foldable-kitchen-organizers"
+  },
+  {
+    "name": "Foldable Kitchen Tools",
+    "slug": "foldable-kitchen-tools"
+  },
+  {
+    "name": "Foldable Kitchen Components",
+    "slug": "foldable-kitchen-components"
+  },
+  {
+    "name": "Foldable Kitchen Collections",
+    "slug": "foldable-kitchen-collections"
+  },
+  {
+    "name": "Foldable Kitchen Solutions",
+    "slug": "foldable-kitchen-solutions"
+  },
+  {
+    "name": "Foldable Kitchen Gear",
+    "slug": "foldable-kitchen-gear"
+  },
+  {
+    "name": "Foldable Kitchen Sets",
+    "slug": "foldable-kitchen-sets"
+  },
+  {
+    "name": "Foldable Kitchen Products",
+    "slug": "foldable-kitchen-products"
+  },
+  {
+    "name": "Foldable Kitchen Items",
+    "slug": "foldable-kitchen-items"
+  },
+  {
+    "name": "Foldable Kitchen Goods",
+    "slug": "foldable-kitchen-goods"
+  },
+  {
+    "name": "Foldable Kitchen Materials",
+    "slug": "foldable-kitchen-materials"
+  },
+  {
+    "name": "Premium Office Accessories",
+    "slug": "premium-office-accessories"
+  },
+  {
+    "name": "Premium Office Supplies",
+    "slug": "premium-office-supplies"
+  },
+  {
+    "name": "Premium Office Equipment",
+    "slug": "premium-office-equipment"
+  },
+  {
+    "name": "Premium Office Essentials",
+    "slug": "premium-office-essentials"
+  },
+  {
+    "name": "Premium Office Kits",
+    "slug": "premium-office-kits"
+  },
+  {
+    "name": "Premium Office Bundles",
+    "slug": "premium-office-bundles"
+  },
+  {
+    "name": "Premium Office Replacement Parts",
+    "slug": "premium-office-replacement-parts"
+  },
+  {
+    "name": "Premium Office Refills",
+    "slug": "premium-office-refills"
+  },
+  {
+    "name": "Premium Office Storage",
+    "slug": "premium-office-storage"
+  },
+  {
+    "name": "Premium Office Organizers",
+    "slug": "premium-office-organizers"
+  },
+  {
+    "name": "Premium Office Tools",
+    "slug": "premium-office-tools"
+  },
+  {
+    "name": "Premium Office Components",
+    "slug": "premium-office-components"
+  },
+  {
+    "name": "Premium Office Collections",
+    "slug": "premium-office-collections"
+  },
+  {
+    "name": "Premium Office Solutions",
+    "slug": "premium-office-solutions"
+  },
+  {
+    "name": "Premium Office Gear",
+    "slug": "premium-office-gear"
+  },
+  {
+    "name": "Premium Office Sets",
+    "slug": "premium-office-sets"
+  },
+  {
+    "name": "Premium Office Products",
+    "slug": "premium-office-products"
+  },
+  {
+    "name": "Premium Office Items",
+    "slug": "premium-office-items"
+  },
+  {
+    "name": "Premium Office Goods",
+    "slug": "premium-office-goods"
+  },
+  {
+    "name": "Premium Office Materials",
+    "slug": "premium-office-materials"
+  },
+  {
+    "name": "Budget Office Accessories",
+    "slug": "budget-office-accessories"
+  },
+  {
+    "name": "Budget Office Supplies",
+    "slug": "budget-office-supplies"
+  },
+  {
+    "name": "Budget Office Equipment",
+    "slug": "budget-office-equipment"
+  },
+  {
+    "name": "Budget Office Essentials",
+    "slug": "budget-office-essentials"
+  },
+  {
+    "name": "Budget Office Kits",
+    "slug": "budget-office-kits"
+  },
+  {
+    "name": "Budget Office Bundles",
+    "slug": "budget-office-bundles"
+  },
+  {
+    "name": "Budget Office Replacement Parts",
+    "slug": "budget-office-replacement-parts"
+  },
+  {
+    "name": "Budget Office Refills",
+    "slug": "budget-office-refills"
+  },
+  {
+    "name": "Budget Office Storage",
+    "slug": "budget-office-storage"
+  },
+  {
+    "name": "Budget Office Organizers",
+    "slug": "budget-office-organizers"
+  },
+  {
+    "name": "Budget Office Tools",
+    "slug": "budget-office-tools"
+  },
+  {
+    "name": "Budget Office Components",
+    "slug": "budget-office-components"
+  },
+  {
+    "name": "Budget Office Collections",
+    "slug": "budget-office-collections"
+  },
+  {
+    "name": "Budget Office Solutions",
+    "slug": "budget-office-solutions"
+  },
+  {
+    "name": "Budget Office Gear",
+    "slug": "budget-office-gear"
+  },
+  {
+    "name": "Budget Office Sets",
+    "slug": "budget-office-sets"
+  },
+  {
+    "name": "Budget Office Products",
+    "slug": "budget-office-products"
+  },
+  {
+    "name": "Budget Office Items",
+    "slug": "budget-office-items"
+  },
+  {
+    "name": "Budget Office Goods",
+    "slug": "budget-office-goods"
+  },
+  {
+    "name": "Budget Office Materials",
+    "slug": "budget-office-materials"
+  },
+  {
+    "name": "Professional Office Accessories",
+    "slug": "professional-office-accessories"
+  },
+  {
+    "name": "Professional Office Supplies",
+    "slug": "professional-office-supplies"
+  },
+  {
+    "name": "Professional Office Equipment",
+    "slug": "professional-office-equipment"
+  },
+  {
+    "name": "Professional Office Essentials",
+    "slug": "professional-office-essentials"
+  },
+  {
+    "name": "Professional Office Kits",
+    "slug": "professional-office-kits"
+  },
+  {
+    "name": "Professional Office Bundles",
+    "slug": "professional-office-bundles"
+  },
+  {
+    "name": "Professional Office Replacement Parts",
+    "slug": "professional-office-replacement-parts"
+  },
+  {
+    "name": "Professional Office Refills",
+    "slug": "professional-office-refills"
+  },
+  {
+    "name": "Professional Office Storage",
+    "slug": "professional-office-storage"
+  },
+  {
+    "name": "Professional Office Organizers",
+    "slug": "professional-office-organizers"
+  },
+  {
+    "name": "Professional Office Tools",
+    "slug": "professional-office-tools"
+  },
+  {
+    "name": "Professional Office Components",
+    "slug": "professional-office-components"
+  },
+  {
+    "name": "Professional Office Collections",
+    "slug": "professional-office-collections"
+  },
+  {
+    "name": "Professional Office Solutions",
+    "slug": "professional-office-solutions"
+  },
+  {
+    "name": "Professional Office Gear",
+    "slug": "professional-office-gear"
+  },
+  {
+    "name": "Professional Office Sets",
+    "slug": "professional-office-sets"
+  },
+  {
+    "name": "Professional Office Products",
+    "slug": "professional-office-products"
+  },
+  {
+    "name": "Professional Office Items",
+    "slug": "professional-office-items"
+  },
+  {
+    "name": "Professional Office Goods",
+    "slug": "professional-office-goods"
+  },
+  {
+    "name": "Professional Office Materials",
+    "slug": "professional-office-materials"
+  },
+  {
+    "name": "Compact Office Accessories",
+    "slug": "compact-office-accessories"
+  },
+  {
+    "name": "Compact Office Supplies",
+    "slug": "compact-office-supplies"
+  },
+  {
+    "name": "Compact Office Equipment",
+    "slug": "compact-office-equipment"
+  },
+  {
+    "name": "Compact Office Essentials",
+    "slug": "compact-office-essentials"
+  },
+  {
+    "name": "Compact Office Kits",
+    "slug": "compact-office-kits"
+  },
+  {
+    "name": "Compact Office Bundles",
+    "slug": "compact-office-bundles"
+  },
+  {
+    "name": "Compact Office Replacement Parts",
+    "slug": "compact-office-replacement-parts"
+  },
+  {
+    "name": "Compact Office Refills",
+    "slug": "compact-office-refills"
+  },
+  {
+    "name": "Compact Office Storage",
+    "slug": "compact-office-storage"
+  },
+  {
+    "name": "Compact Office Organizers",
+    "slug": "compact-office-organizers"
+  },
+  {
+    "name": "Compact Office Tools",
+    "slug": "compact-office-tools"
+  },
+  {
+    "name": "Compact Office Components",
+    "slug": "compact-office-components"
+  },
+  {
+    "name": "Compact Office Collections",
+    "slug": "compact-office-collections"
+  },
+  {
+    "name": "Compact Office Solutions",
+    "slug": "compact-office-solutions"
+  },
+  {
+    "name": "Compact Office Gear",
+    "slug": "compact-office-gear"
+  },
+  {
+    "name": "Compact Office Sets",
+    "slug": "compact-office-sets"
+  },
+  {
+    "name": "Compact Office Products",
+    "slug": "compact-office-products"
+  },
+  {
+    "name": "Compact Office Items",
+    "slug": "compact-office-items"
+  },
+  {
+    "name": "Compact Office Goods",
+    "slug": "compact-office-goods"
+  },
+  {
+    "name": "Compact Office Materials",
+    "slug": "compact-office-materials"
+  },
+  {
+    "name": "Portable Office Accessories",
+    "slug": "portable-office-accessories"
+  },
+  {
+    "name": "Portable Office Supplies",
+    "slug": "portable-office-supplies"
+  },
+  {
+    "name": "Portable Office Equipment",
+    "slug": "portable-office-equipment"
+  },
+  {
+    "name": "Portable Office Essentials",
+    "slug": "portable-office-essentials"
+  },
+  {
+    "name": "Portable Office Kits",
+    "slug": "portable-office-kits"
+  },
+  {
+    "name": "Portable Office Bundles",
+    "slug": "portable-office-bundles"
+  },
+  {
+    "name": "Portable Office Replacement Parts",
+    "slug": "portable-office-replacement-parts"
+  },
+  {
+    "name": "Portable Office Refills",
+    "slug": "portable-office-refills"
+  },
+  {
+    "name": "Portable Office Storage",
+    "slug": "portable-office-storage"
+  },
+  {
+    "name": "Portable Office Organizers",
+    "slug": "portable-office-organizers"
+  },
+  {
+    "name": "Portable Office Tools",
+    "slug": "portable-office-tools"
+  },
+  {
+    "name": "Portable Office Components",
+    "slug": "portable-office-components"
+  },
+  {
+    "name": "Portable Office Collections",
+    "slug": "portable-office-collections"
+  },
+  {
+    "name": "Portable Office Solutions",
+    "slug": "portable-office-solutions"
+  },
+  {
+    "name": "Portable Office Gear",
+    "slug": "portable-office-gear"
+  },
+  {
+    "name": "Portable Office Sets",
+    "slug": "portable-office-sets"
+  },
+  {
+    "name": "Portable Office Products",
+    "slug": "portable-office-products"
+  },
+  {
+    "name": "Portable Office Items",
+    "slug": "portable-office-items"
+  },
+  {
+    "name": "Portable Office Goods",
+    "slug": "portable-office-goods"
+  },
+  {
+    "name": "Portable Office Materials",
+    "slug": "portable-office-materials"
+  },
+  {
+    "name": "Mini Office Accessories",
+    "slug": "mini-office-accessories"
+  },
+  {
+    "name": "Mini Office Supplies",
+    "slug": "mini-office-supplies"
+  },
+  {
+    "name": "Mini Office Equipment",
+    "slug": "mini-office-equipment"
+  },
+  {
+    "name": "Mini Office Essentials",
+    "slug": "mini-office-essentials"
+  },
+  {
+    "name": "Mini Office Kits",
+    "slug": "mini-office-kits"
+  },
+  {
+    "name": "Mini Office Bundles",
+    "slug": "mini-office-bundles"
+  },
+  {
+    "name": "Mini Office Replacement Parts",
+    "slug": "mini-office-replacement-parts"
+  },
+  {
+    "name": "Mini Office Refills",
+    "slug": "mini-office-refills"
+  },
+  {
+    "name": "Mini Office Storage",
+    "slug": "mini-office-storage"
+  },
+  {
+    "name": "Mini Office Organizers",
+    "slug": "mini-office-organizers"
+  },
+  {
+    "name": "Mini Office Tools",
+    "slug": "mini-office-tools"
+  },
+  {
+    "name": "Mini Office Components",
+    "slug": "mini-office-components"
+  },
+  {
+    "name": "Mini Office Collections",
+    "slug": "mini-office-collections"
+  },
+  {
+    "name": "Mini Office Solutions",
+    "slug": "mini-office-solutions"
+  },
+  {
+    "name": "Mini Office Gear",
+    "slug": "mini-office-gear"
+  },
+  {
+    "name": "Mini Office Sets",
+    "slug": "mini-office-sets"
+  },
+  {
+    "name": "Mini Office Products",
+    "slug": "mini-office-products"
+  },
+  {
+    "name": "Mini Office Items",
+    "slug": "mini-office-items"
+  },
+  {
+    "name": "Mini Office Goods",
+    "slug": "mini-office-goods"
+  },
+  {
+    "name": "Mini Office Materials",
+    "slug": "mini-office-materials"
+  },
+  {
+    "name": "Large Office Accessories",
+    "slug": "large-office-accessories"
+  },
+  {
+    "name": "Large Office Supplies",
+    "slug": "large-office-supplies"
+  },
+  {
+    "name": "Large Office Equipment",
+    "slug": "large-office-equipment"
+  },
+  {
+    "name": "Large Office Essentials",
+    "slug": "large-office-essentials"
+  },
+  {
+    "name": "Large Office Kits",
+    "slug": "large-office-kits"
+  },
+  {
+    "name": "Large Office Bundles",
+    "slug": "large-office-bundles"
+  },
+  {
+    "name": "Large Office Replacement Parts",
+    "slug": "large-office-replacement-parts"
+  },
+  {
+    "name": "Large Office Refills",
+    "slug": "large-office-refills"
+  },
+  {
+    "name": "Large Office Storage",
+    "slug": "large-office-storage"
+  },
+  {
+    "name": "Large Office Organizers",
+    "slug": "large-office-organizers"
+  },
+  {
+    "name": "Large Office Tools",
+    "slug": "large-office-tools"
+  },
+  {
+    "name": "Large Office Components",
+    "slug": "large-office-components"
+  },
+  {
+    "name": "Large Office Collections",
+    "slug": "large-office-collections"
+  },
+  {
+    "name": "Large Office Solutions",
+    "slug": "large-office-solutions"
+  },
+  {
+    "name": "Large Office Gear",
+    "slug": "large-office-gear"
+  },
+  {
+    "name": "Large Office Sets",
+    "slug": "large-office-sets"
+  },
+  {
+    "name": "Large Office Products",
+    "slug": "large-office-products"
+  },
+  {
+    "name": "Large Office Items",
+    "slug": "large-office-items"
+  },
+  {
+    "name": "Large Office Goods",
+    "slug": "large-office-goods"
+  },
+  {
+    "name": "Large Office Materials",
+    "slug": "large-office-materials"
+  },
+  {
+    "name": "Eco Office Accessories",
+    "slug": "eco-office-accessories"
+  },
+  {
+    "name": "Eco Office Supplies",
+    "slug": "eco-office-supplies"
+  },
+  {
+    "name": "Eco Office Equipment",
+    "slug": "eco-office-equipment"
+  },
+  {
+    "name": "Eco Office Essentials",
+    "slug": "eco-office-essentials"
+  },
+  {
+    "name": "Eco Office Kits",
+    "slug": "eco-office-kits"
+  },
+  {
+    "name": "Eco Office Bundles",
+    "slug": "eco-office-bundles"
+  },
+  {
+    "name": "Eco Office Replacement Parts",
+    "slug": "eco-office-replacement-parts"
+  },
+  {
+    "name": "Eco Office Refills",
+    "slug": "eco-office-refills"
+  },
+  {
+    "name": "Eco Office Storage",
+    "slug": "eco-office-storage"
+  },
+  {
+    "name": "Eco Office Organizers",
+    "slug": "eco-office-organizers"
+  },
+  {
+    "name": "Eco Office Tools",
+    "slug": "eco-office-tools"
+  },
+  {
+    "name": "Eco Office Components",
+    "slug": "eco-office-components"
+  },
+  {
+    "name": "Eco Office Collections",
+    "slug": "eco-office-collections"
+  },
+  {
+    "name": "Eco Office Solutions",
+    "slug": "eco-office-solutions"
+  },
+  {
+    "name": "Eco Office Gear",
+    "slug": "eco-office-gear"
+  },
+  {
+    "name": "Eco Office Sets",
+    "slug": "eco-office-sets"
+  },
+  {
+    "name": "Eco Office Products",
+    "slug": "eco-office-products"
+  },
+  {
+    "name": "Eco Office Items",
+    "slug": "eco-office-items"
+  },
+  {
+    "name": "Eco Office Goods",
+    "slug": "eco-office-goods"
+  },
+  {
+    "name": "Eco Office Materials",
+    "slug": "eco-office-materials"
+  },
+  {
+    "name": "Organic Office Accessories",
+    "slug": "organic-office-accessories"
+  },
+  {
+    "name": "Organic Office Supplies",
+    "slug": "organic-office-supplies"
+  },
+  {
+    "name": "Organic Office Equipment",
+    "slug": "organic-office-equipment"
+  },
+  {
+    "name": "Organic Office Essentials",
+    "slug": "organic-office-essentials"
+  },
+  {
+    "name": "Organic Office Kits",
+    "slug": "organic-office-kits"
+  },
+  {
+    "name": "Organic Office Bundles",
+    "slug": "organic-office-bundles"
+  },
+  {
+    "name": "Organic Office Replacement Parts",
+    "slug": "organic-office-replacement-parts"
+  },
+  {
+    "name": "Organic Office Refills",
+    "slug": "organic-office-refills"
+  },
+  {
+    "name": "Organic Office Storage",
+    "slug": "organic-office-storage"
+  },
+  {
+    "name": "Organic Office Organizers",
+    "slug": "organic-office-organizers"
+  },
+  {
+    "name": "Organic Office Tools",
+    "slug": "organic-office-tools"
+  },
+  {
+    "name": "Organic Office Components",
+    "slug": "organic-office-components"
+  },
+  {
+    "name": "Organic Office Collections",
+    "slug": "organic-office-collections"
+  },
+  {
+    "name": "Organic Office Solutions",
+    "slug": "organic-office-solutions"
+  },
+  {
+    "name": "Organic Office Gear",
+    "slug": "organic-office-gear"
+  },
+  {
+    "name": "Organic Office Sets",
+    "slug": "organic-office-sets"
+  },
+  {
+    "name": "Organic Office Products",
+    "slug": "organic-office-products"
+  },
+  {
+    "name": "Organic Office Items",
+    "slug": "organic-office-items"
+  },
+  {
+    "name": "Organic Office Goods",
+    "slug": "organic-office-goods"
+  },
+  {
+    "name": "Organic Office Materials",
+    "slug": "organic-office-materials"
+  },
+  {
+    "name": "Luxury Office Accessories",
+    "slug": "luxury-office-accessories"
+  },
+  {
+    "name": "Luxury Office Supplies",
+    "slug": "luxury-office-supplies"
+  },
+  {
+    "name": "Luxury Office Equipment",
+    "slug": "luxury-office-equipment"
+  },
+  {
+    "name": "Luxury Office Essentials",
+    "slug": "luxury-office-essentials"
+  },
+  {
+    "name": "Luxury Office Kits",
+    "slug": "luxury-office-kits"
+  },
+  {
+    "name": "Luxury Office Bundles",
+    "slug": "luxury-office-bundles"
+  },
+  {
+    "name": "Luxury Office Replacement Parts",
+    "slug": "luxury-office-replacement-parts"
+  },
+  {
+    "name": "Luxury Office Refills",
+    "slug": "luxury-office-refills"
+  },
+  {
+    "name": "Luxury Office Storage",
+    "slug": "luxury-office-storage"
+  },
+  {
+    "name": "Luxury Office Organizers",
+    "slug": "luxury-office-organizers"
+  },
+  {
+    "name": "Luxury Office Tools",
+    "slug": "luxury-office-tools"
+  },
+  {
+    "name": "Luxury Office Components",
+    "slug": "luxury-office-components"
+  },
+  {
+    "name": "Luxury Office Collections",
+    "slug": "luxury-office-collections"
+  },
+  {
+    "name": "Luxury Office Solutions",
+    "slug": "luxury-office-solutions"
+  },
+  {
+    "name": "Luxury Office Gear",
+    "slug": "luxury-office-gear"
+  },
+  {
+    "name": "Luxury Office Sets",
+    "slug": "luxury-office-sets"
+  },
+  {
+    "name": "Luxury Office Products",
+    "slug": "luxury-office-products"
+  },
+  {
+    "name": "Luxury Office Items",
+    "slug": "luxury-office-items"
+  },
+  {
+    "name": "Luxury Office Goods",
+    "slug": "luxury-office-goods"
+  },
+  {
+    "name": "Luxury Office Materials",
+    "slug": "luxury-office-materials"
+  },
+  {
+    "name": "Smart Office Accessories",
+    "slug": "smart-office-accessories"
+  },
+  {
+    "name": "Smart Office Supplies",
+    "slug": "smart-office-supplies"
+  },
+  {
+    "name": "Smart Office Equipment",
+    "slug": "smart-office-equipment"
+  },
+  {
+    "name": "Smart Office Essentials",
+    "slug": "smart-office-essentials"
+  },
+  {
+    "name": "Smart Office Kits",
+    "slug": "smart-office-kits"
+  },
+  {
+    "name": "Smart Office Bundles",
+    "slug": "smart-office-bundles"
+  },
+  {
+    "name": "Smart Office Replacement Parts",
+    "slug": "smart-office-replacement-parts"
+  },
+  {
+    "name": "Smart Office Refills",
+    "slug": "smart-office-refills"
+  },
+  {
+    "name": "Smart Office Storage",
+    "slug": "smart-office-storage"
+  },
+  {
+    "name": "Smart Office Organizers",
+    "slug": "smart-office-organizers"
+  },
+  {
+    "name": "Smart Office Tools",
+    "slug": "smart-office-tools"
+  },
+  {
+    "name": "Smart Office Components",
+    "slug": "smart-office-components"
+  },
+  {
+    "name": "Smart Office Collections",
+    "slug": "smart-office-collections"
+  },
+  {
+    "name": "Smart Office Solutions",
+    "slug": "smart-office-solutions"
+  },
+  {
+    "name": "Smart Office Gear",
+    "slug": "smart-office-gear"
+  },
+  {
+    "name": "Smart Office Sets",
+    "slug": "smart-office-sets"
+  },
+  {
+    "name": "Smart Office Products",
+    "slug": "smart-office-products"
+  },
+  {
+    "name": "Smart Office Items",
+    "slug": "smart-office-items"
+  },
+  {
+    "name": "Smart Office Goods",
+    "slug": "smart-office-goods"
+  },
+  {
+    "name": "Smart Office Materials",
+    "slug": "smart-office-materials"
+  },
+  {
+    "name": "Wireless Office Accessories",
+    "slug": "wireless-office-accessories"
+  },
+  {
+    "name": "Wireless Office Supplies",
+    "slug": "wireless-office-supplies"
+  },
+  {
+    "name": "Wireless Office Equipment",
+    "slug": "wireless-office-equipment"
+  },
+  {
+    "name": "Wireless Office Essentials",
+    "slug": "wireless-office-essentials"
+  },
+  {
+    "name": "Wireless Office Kits",
+    "slug": "wireless-office-kits"
+  },
+  {
+    "name": "Wireless Office Bundles",
+    "slug": "wireless-office-bundles"
+  },
+  {
+    "name": "Wireless Office Replacement Parts",
+    "slug": "wireless-office-replacement-parts"
+  },
+  {
+    "name": "Wireless Office Refills",
+    "slug": "wireless-office-refills"
+  },
+  {
+    "name": "Wireless Office Storage",
+    "slug": "wireless-office-storage"
+  },
+  {
+    "name": "Wireless Office Organizers",
+    "slug": "wireless-office-organizers"
+  },
+  {
+    "name": "Wireless Office Tools",
+    "slug": "wireless-office-tools"
+  },
+  {
+    "name": "Wireless Office Components",
+    "slug": "wireless-office-components"
+  },
+  {
+    "name": "Wireless Office Collections",
+    "slug": "wireless-office-collections"
+  },
+  {
+    "name": "Wireless Office Solutions",
+    "slug": "wireless-office-solutions"
+  },
+  {
+    "name": "Wireless Office Gear",
+    "slug": "wireless-office-gear"
+  },
+  {
+    "name": "Wireless Office Sets",
+    "slug": "wireless-office-sets"
+  },
+  {
+    "name": "Wireless Office Products",
+    "slug": "wireless-office-products"
+  },
+  {
+    "name": "Wireless Office Items",
+    "slug": "wireless-office-items"
+  },
+  {
+    "name": "Wireless Office Goods",
+    "slug": "wireless-office-goods"
+  },
+  {
+    "name": "Wireless Office Materials",
+    "slug": "wireless-office-materials"
+  },
+  {
+    "name": "Rechargeable Office Accessories",
+    "slug": "rechargeable-office-accessories"
+  },
+  {
+    "name": "Rechargeable Office Supplies",
+    "slug": "rechargeable-office-supplies"
+  },
+  {
+    "name": "Rechargeable Office Equipment",
+    "slug": "rechargeable-office-equipment"
+  },
+  {
+    "name": "Rechargeable Office Essentials",
+    "slug": "rechargeable-office-essentials"
+  },
+  {
+    "name": "Rechargeable Office Kits",
+    "slug": "rechargeable-office-kits"
+  },
+  {
+    "name": "Rechargeable Office Bundles",
+    "slug": "rechargeable-office-bundles"
+  },
+  {
+    "name": "Rechargeable Office Replacement Parts",
+    "slug": "rechargeable-office-replacement-parts"
+  },
+  {
+    "name": "Rechargeable Office Refills",
+    "slug": "rechargeable-office-refills"
+  },
+  {
+    "name": "Rechargeable Office Storage",
+    "slug": "rechargeable-office-storage"
+  },
+  {
+    "name": "Rechargeable Office Organizers",
+    "slug": "rechargeable-office-organizers"
+  },
+  {
+    "name": "Rechargeable Office Tools",
+    "slug": "rechargeable-office-tools"
+  },
+  {
+    "name": "Rechargeable Office Components",
+    "slug": "rechargeable-office-components"
+  },
+  {
+    "name": "Rechargeable Office Collections",
+    "slug": "rechargeable-office-collections"
+  },
+  {
+    "name": "Rechargeable Office Solutions",
+    "slug": "rechargeable-office-solutions"
+  },
+  {
+    "name": "Rechargeable Office Gear",
+    "slug": "rechargeable-office-gear"
+  },
+  {
+    "name": "Rechargeable Office Sets",
+    "slug": "rechargeable-office-sets"
+  },
+  {
+    "name": "Rechargeable Office Products",
+    "slug": "rechargeable-office-products"
+  },
+  {
+    "name": "Rechargeable Office Items",
+    "slug": "rechargeable-office-items"
+  },
+  {
+    "name": "Rechargeable Office Goods",
+    "slug": "rechargeable-office-goods"
+  },
+  {
+    "name": "Rechargeable Office Materials",
+    "slug": "rechargeable-office-materials"
+  },
+  {
+    "name": "Heavy Duty Office Accessories",
+    "slug": "heavy-duty-office-accessories"
+  },
+  {
+    "name": "Heavy Duty Office Supplies",
+    "slug": "heavy-duty-office-supplies"
+  },
+  {
+    "name": "Heavy Duty Office Equipment",
+    "slug": "heavy-duty-office-equipment"
+  },
+  {
+    "name": "Heavy Duty Office Essentials",
+    "slug": "heavy-duty-office-essentials"
+  },
+  {
+    "name": "Heavy Duty Office Kits",
+    "slug": "heavy-duty-office-kits"
+  },
+  {
+    "name": "Heavy Duty Office Bundles",
+    "slug": "heavy-duty-office-bundles"
+  },
+  {
+    "name": "Heavy Duty Office Replacement Parts",
+    "slug": "heavy-duty-office-replacement-parts"
+  },
+  {
+    "name": "Heavy Duty Office Refills",
+    "slug": "heavy-duty-office-refills"
+  },
+  {
+    "name": "Heavy Duty Office Storage",
+    "slug": "heavy-duty-office-storage"
+  },
+  {
+    "name": "Heavy Duty Office Organizers",
+    "slug": "heavy-duty-office-organizers"
+  },
+  {
+    "name": "Heavy Duty Office Tools",
+    "slug": "heavy-duty-office-tools"
+  },
+  {
+    "name": "Heavy Duty Office Components",
+    "slug": "heavy-duty-office-components"
+  },
+  {
+    "name": "Heavy Duty Office Collections",
+    "slug": "heavy-duty-office-collections"
+  },
+  {
+    "name": "Heavy Duty Office Solutions",
+    "slug": "heavy-duty-office-solutions"
+  },
+  {
+    "name": "Heavy Duty Office Gear",
+    "slug": "heavy-duty-office-gear"
+  },
+  {
+    "name": "Heavy Duty Office Sets",
+    "slug": "heavy-duty-office-sets"
+  },
+  {
+    "name": "Heavy Duty Office Products",
+    "slug": "heavy-duty-office-products"
+  },
+  {
+    "name": "Heavy Duty Office Items",
+    "slug": "heavy-duty-office-items"
+  },
+  {
+    "name": "Heavy Duty Office Goods",
+    "slug": "heavy-duty-office-goods"
+  },
+  {
+    "name": "Heavy Duty Office Materials",
+    "slug": "heavy-duty-office-materials"
+  },
+  {
+    "name": "Classic Office Accessories",
+    "slug": "classic-office-accessories"
+  },
+  {
+    "name": "Classic Office Supplies",
+    "slug": "classic-office-supplies"
+  },
+  {
+    "name": "Classic Office Equipment",
+    "slug": "classic-office-equipment"
+  },
+  {
+    "name": "Classic Office Essentials",
+    "slug": "classic-office-essentials"
+  },
+  {
+    "name": "Classic Office Kits",
+    "slug": "classic-office-kits"
+  },
+  {
+    "name": "Classic Office Bundles",
+    "slug": "classic-office-bundles"
+  },
+  {
+    "name": "Classic Office Replacement Parts",
+    "slug": "classic-office-replacement-parts"
+  },
+  {
+    "name": "Classic Office Refills",
+    "slug": "classic-office-refills"
+  },
+  {
+    "name": "Classic Office Storage",
+    "slug": "classic-office-storage"
+  },
+  {
+    "name": "Classic Office Organizers",
+    "slug": "classic-office-organizers"
+  }
+]

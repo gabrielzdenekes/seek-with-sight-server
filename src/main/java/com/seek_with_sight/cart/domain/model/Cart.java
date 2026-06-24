@@ -1,0 +1,74 @@
+package com.seek_with_sight.cart.domain.model;
+
+import com.seek_with_sight.shared.domain.model.BaseDomainModel;
+import com.seek_with_sight.user.domain.model.User;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+public class Cart extends BaseDomainModel {
+    private User user;
+
+    private List<CartItem> items = new ArrayList<>();
+
+    private BigDecimal totalPrice;
+
+    private String currency;
+
+    public void addItem(CartItem item) {
+        items.add(item);
+        recalculateTotal();
+    }
+
+    public void updateItemQuantity(UUID productId, int quantity) {
+        var item = findItemByProductId(productId).orElseThrow();
+        item.setQuantity(quantity);
+    }
+
+    private Optional<CartItem> findItemByProductId(UUID productId) {
+        return items.stream()
+                .filter(item -> item.getProductId().equals(productId))
+                .findFirst();
+    }
+
+    private void recalculateTotal() {
+        this.totalPrice = items.stream()
+                .map(CartItem::getTotalPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
+    public List<CartItem> getItems() {
+        return items;
+    }
+
+    public void setItems(List<CartItem> items) {
+        this.items = items;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+}

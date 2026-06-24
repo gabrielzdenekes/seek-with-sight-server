@@ -31,7 +31,7 @@ public class CreateCustomerProfileService implements CreateCustomerProfileUseCas
 
         profile.setUser(user);
 
-        repo.save(profile);
+        repo.create(profile);
 
         return user;
     }
