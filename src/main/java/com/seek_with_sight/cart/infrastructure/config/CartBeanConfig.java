@@ -1,11 +1,14 @@
 package com.seek_with_sight.cart.infrastructure.config;
 
-import com.seek_with_sight.cart.application.port.in.FindCartForCurrentUser;
+import com.seek_with_sight.cart.application.port.in.AddItemToCartUseCase;
+import com.seek_with_sight.cart.application.port.in.FindCartForCurrentUserUseCase;
+import com.seek_with_sight.cart.application.port.out.AddItemToCartService;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
 import com.seek_with_sight.cart.application.service.FindCartByUserEmailService;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.CartPersistenceAdapter;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.mapper.CartPersistenceMapper;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.repository.CartJpaRepository;
+import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,10 +24,23 @@ public class CartBeanConfig {
     }
 
     @Bean
-    public FindCartForCurrentUser findCartByUserEmailUseCase(
+    public FindCartForCurrentUserUseCase findCartByUserEmailUseCase(
             CartRepositoryPort cartRepo,
             CurrentUserPort currentUserPort
     ) {
         return new FindCartByUserEmailService(currentUserPort, cartRepo);
+    }
+
+    @Bean
+    public AddItemToCartUseCase addItemToCartUseCase(
+            CurrentUserPort currentUserPort,
+            ProductRepositoryPort productRepo,
+            CartRepositoryPort cartRepo
+    ) {
+        return new AddItemToCartService(
+                currentUserPort,
+                productRepo,
+                cartRepo
+        );
     }
 }

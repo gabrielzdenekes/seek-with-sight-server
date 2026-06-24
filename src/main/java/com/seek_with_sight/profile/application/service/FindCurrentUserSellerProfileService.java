@@ -15,9 +15,7 @@ public class FindCurrentUserSellerProfileService implements FindCurrentUserSelle
 
     @Override
     public SellerProfile find() {
-        var user = currentUserPort
-                .getCurrentUser()
-                .orElseThrow();
+        var user = currentUserPort.getCurrentUser();
 
         log.info("Find seller profile by email {}", user.getEmail());
 
