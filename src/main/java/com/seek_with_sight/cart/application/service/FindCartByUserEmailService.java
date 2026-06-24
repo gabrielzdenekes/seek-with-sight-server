@@ -17,11 +17,11 @@ public class FindCartByUserEmailService implements FindCartByUserEmailUseCase {
 
         return cartRepo.findWithItemsByUserId(user.getId())
                 .orElseGet(() -> {
-                     var cart = new Cart();
+                    var cart = new Cart();
 
-                     cart.setUser(user);
+                    cart.setUser(user);
 
-                     return cartRepo.create(cart);
+                    return cartRepo.create(cart);
                 });
     }
 }
