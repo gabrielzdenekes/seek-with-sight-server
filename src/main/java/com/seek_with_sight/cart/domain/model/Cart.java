@@ -1,5 +1,6 @@
 package com.seek_with_sight.cart.domain.model;
 
+import com.seek_with_sight.cart.domain.exception.CartItemNotFoundException;
 import com.seek_with_sight.cart.domain.exception.ItemAlreadyAddedToCartException;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 import com.seek_with_sight.user.domain.model.User;
@@ -33,7 +34,9 @@ public class Cart extends BaseDomainModel {
     }
 
     public void updateItemQuantity(UUID productId, int quantity) {
-        var item = findItemByProductId(productId).orElseThrow();
+        var item = findItemByProductId(productId)
+                .orElseThrow(() -> new CartItemNotFoundException(new Object[]{ "productId=" + productId }));
+
         item.setQuantity(quantity);
     }
 
