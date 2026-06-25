@@ -61,4 +61,10 @@ public class CartController {
 
         removeItemFromCartUseCase.remove(productId);
     }
+
+    @DeleteMapping("/items")
+    @ApiResponseDetails(messageCode = "clear-cart.success")
+    public void clearCart() {
+
+    }
 }
