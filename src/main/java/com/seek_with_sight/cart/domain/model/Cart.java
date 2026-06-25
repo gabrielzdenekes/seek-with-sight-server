@@ -46,6 +46,11 @@ public class Cart extends BaseDomainModel {
         recalculateTotal();
     }
 
+    public void clear() {
+        items.clear();
+        recalculateTotal();
+    }
+
     private Optional<CartItem> findItemByProductId(UUID productId) {
         return items.stream()
                 .filter(item -> item.getProductId().equals(productId))
