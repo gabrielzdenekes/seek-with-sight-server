@@ -1,6 +1,7 @@
 package com.seek_with_sight.cart.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.cart.application.port.in.AddItemToCartUseCase;
+import com.seek_with_sight.cart.application.port.in.ClearCartUseCase;
 import com.seek_with_sight.cart.application.port.in.FindCartForCurrentUserUseCase;
 import com.seek_with_sight.cart.application.port.in.RemoveItemFromCartUseCase;
 import com.seek_with_sight.cart.application.port.in.UpdateItemQuantityUseCase;
@@ -32,6 +33,7 @@ public class CartController {
     private final AddItemToCartUseCase addItemToCartUseCase;
     private final UpdateItemQuantityUseCase updateItemQuantityUseCase;
     private final RemoveItemFromCartUseCase removeItemFromCartUseCase;
+    private final ClearCartUseCase clearCartUseCase;
 
     @GetMapping
     public CartResponse get(Authentication authentication) {
@@ -66,5 +68,6 @@ public class CartController {
     @ApiResponseDetails(messageCode = "clear-cart.success")
     public void clearCart() {
 
+        clearCartUseCase.clear();
     }
 }
