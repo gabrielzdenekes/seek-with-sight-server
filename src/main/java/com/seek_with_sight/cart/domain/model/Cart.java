@@ -25,7 +25,7 @@ public class Cart extends BaseDomainModel {
                 .filter(i -> i.getProductId() == item.getProductId())
                 .findFirst();
 
-        if (!existingItem.isPresent()) {
+        if (existingItem.isPresent()) {
             throw new ItemAlreadyAddedToCartException(new Object[]{ "Existing productId=" + item.getProductId() });
         }
 
@@ -38,6 +38,12 @@ public class Cart extends BaseDomainModel {
                 .orElseThrow(() -> new CartItemNotFoundException(new Object[]{ "productId=" + productId }));
 
         item.setQuantity(quantity);
+        recalculateTotal();
+    }
+
+    public void removeItem(UUID productId) {
+        items.removeIf(i -> i.getProductId().equals(productId));
+        recalculateTotal();
     }
 
     private Optional<CartItem> findItemByProductId(UUID productId) {

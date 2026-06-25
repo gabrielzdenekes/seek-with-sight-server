@@ -2,10 +2,12 @@ package com.seek_with_sight.cart.infrastructure.config;
 
 import com.seek_with_sight.cart.application.port.in.AddItemToCartUseCase;
 import com.seek_with_sight.cart.application.port.in.FindCartForCurrentUserUseCase;
+import com.seek_with_sight.cart.application.port.in.RemoveItemFromCartUseCase;
 import com.seek_with_sight.cart.application.port.in.UpdateItemQuantityUseCase;
 import com.seek_with_sight.cart.application.port.out.AddItemToCartService;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
 import com.seek_with_sight.cart.application.service.FindCartByUserEmailService;
+import com.seek_with_sight.cart.application.service.RemoveItemFromCartService;
 import com.seek_with_sight.cart.application.service.UpdateItemQuantityService;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.CartPersistenceAdapter;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.mapper.CartPersistenceMapper;
@@ -52,5 +54,13 @@ public class CartBeanConfig {
             CartRepositoryPort cartRepo
     ) {
         return new UpdateItemQuantityService(cartRepo, currentUserPort);
+    }
+
+    @Bean
+    public RemoveItemFromCartUseCase removeItemFromCartUseCase(
+            CurrentUserPort currentUserPort,
+            CartRepositoryPort cartRepo
+    ) {
+        return new RemoveItemFromCartService(currentUserPort, cartRepo);
     }
 }

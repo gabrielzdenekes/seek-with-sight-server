@@ -25,6 +25,11 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
     @Override
     public boolean supports(@NonNull MethodParameter returnType,
                             @NonNull Class<? extends HttpMessageConverter<?>> converterType) {
+        if (returnType.getParameterType() == void.class ||
+                returnType.getParameterType() == Void.class) {
+            return true;
+        }
+
         return !returnType.getParameterType().equals(ApiResponse.class) &&
                 !returnType.getParameterType().equals(ResponseEntity.class) &&
                 !isSpringDocPackage(returnType);
