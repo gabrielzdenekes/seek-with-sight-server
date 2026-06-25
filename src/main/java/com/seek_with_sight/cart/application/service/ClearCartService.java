@@ -3,6 +3,7 @@ package com.seek_with_sight.cart.application.service;
 import com.seek_with_sight.cart.application.port.in.ClearCartUseCase;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -11,6 +12,7 @@ public class ClearCartService implements ClearCartUseCase {
     private final CartRepositoryPort cartRepo;
 
     @Override
+    @Transactional
     public void clear() {
         var user = currentUserPort.getCurrentUser();
         var cart = cartRepo.findWithItemsByUserId(user.getId()).get();
