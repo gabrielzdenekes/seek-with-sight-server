@@ -42,7 +42,7 @@ public class Cart extends BaseDomainModel {
     }
 
     public void removeItem(UUID productId) {
-        items.removeIf(i -> i.getProductId() == productId);
+        items.removeIf(i -> i.getProductId().equals(productId));
         recalculateTotal();
     }
 
