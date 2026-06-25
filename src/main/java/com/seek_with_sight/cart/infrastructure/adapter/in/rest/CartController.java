@@ -38,14 +38,12 @@ public class CartController {
     }
 
     @PostMapping("/items")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void addItemToCart(@Valid @RequestBody AddCartItemRequest request) {
         var addItemCommand = mapper.toAddItemToCartCommand(request);
         addItemToCartUseCase.add(addItemCommand);
     }
 
     @PatchMapping("/items/{itemId}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateItemQuantity(
             @Valid @RequestBody UpdateItemQuantityRequest request,
             @PathVariable UUID itemId) {
