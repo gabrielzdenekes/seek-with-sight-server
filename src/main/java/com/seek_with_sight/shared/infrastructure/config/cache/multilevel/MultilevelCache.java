@@ -1,4 +1,4 @@
-package com.seek_with_sight.shared.infrastructure.config.cache;
+package com.seek_with_sight.shared.infrastructure.config.cache.multilevel;
 
 import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.Nullable;
@@ -20,7 +20,7 @@ public class MultilevelCache implements Cache {
 
     @Override
     public Object getNativeCache() {
-        return null;
+        return this;
     }
 
     @Override

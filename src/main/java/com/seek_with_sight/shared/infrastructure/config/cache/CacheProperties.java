@@ -6,7 +6,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public record CacheProperties(
         int initialCapacity,
         int maximumSize,
-        int expireAfterWrite
+        int expireAfterWrite,
+        int entryTtl
 ) {
 
 }
