@@ -13,9 +13,8 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.serializer.JacksonJsonRedisSerializer;
+import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
-import org.springframework.data.redis.serializer.RedisSerializer;
 import tools.jackson.databind.ObjectMapper;
 
 import java.time.Duration;
@@ -50,7 +49,7 @@ public class CacheConfig {
             ObjectMapper objectMapper
     ) {
 
-        RedisSerializer<Object> serializer = new JacksonJsonRedisSerializer<>(objectMapper, Object.class);
+        var serializer = new GenericJackson2JsonRedisSerializer();
 
         var config = RedisCacheConfiguration
                 .defaultCacheConfig()
@@ -59,6 +58,7 @@ public class CacheConfig {
                                 .SerializationPair
                                 .fromSerializer(serializer)
                 )
+                .disableCachingNullValues()
                 .entryTtl(Duration.ofHours(cacheProperties.entryTtl()));
 
         return RedisCacheManager.builder(connectionFactory)

@@ -23,12 +23,14 @@ public class MultilevelCache implements Cache {
 
     @Override
     public @Nullable ValueWrapper get(Object key) {
+        // 1. Try L1
         var value = l1Cache.get(key);
 
         if (value != null) {
             return value;
         }
 
+        // 2. Try L2
         value = l2Cache.get(key);
 
         if (value != null) {
@@ -40,12 +42,14 @@ public class MultilevelCache implements Cache {
 
     @Override
     public @Nullable <T> T get(Object key, @Nullable Class<T> type) {
+        // 1. Try L1
         T value = l1Cache.get(key, type);
 
         if (value != null) {
             return value;
         }
 
+        // 2. Try L2
         value = l2Cache.get(key, type);
 
         if (value != null) {
@@ -57,12 +61,40 @@ public class MultilevelCache implements Cache {
 
     @Override
     public @Nullable <T> T get(Object key, Callable<T> valueLoader) {
-        throw new UnsupportedOperationException();
+        // 1. Try L1
+        T value = l1Cache.get(key, valueLoader);
+        if (value != null) {
+            return value;
+        }
+
+        // 2. Try L2
+        value = l2Cache.get(key, valueLoader);
+
+        if (value != null) {
+            l1Cache.put(key, value);
+            return value;
+        }
+
+        // 3. Load from loader
+        try {
+            value = valueLoader.call();
+
+            if (value != null) {
+                l1Cache.put(key, value);
+                l2Cache.put(key, value);
+            }
+
+            return value;
+
+        } catch (Exception ex) {
+            throw new ValueRetrievalException(key, valueLoader, ex);
+        }
     }
 
     @Override
     public void put(Object key, @Nullable Object value) {
-
+        l1Cache.put(key, value);
+        l2Cache.put(key, value);
     }
 
     @Override
