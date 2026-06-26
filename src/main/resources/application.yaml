@@ -21,6 +21,7 @@ spring:
         initial-capacity: 100
         maximum-size: 1000
         expire-after-write: 10 # In minutes
+        entry-ttl: 1 # In hours
 
   datasource:
     url: ${SWS_DB_URL}
