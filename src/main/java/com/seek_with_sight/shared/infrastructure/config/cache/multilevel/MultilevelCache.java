@@ -5,8 +5,6 @@ import org.jspecify.annotations.Nullable;
 import org.springframework.cache.Cache;
 
 import java.util.concurrent.Callable;
-import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 @RequiredArgsConstructor
 public class MultilevelCache implements Cache {
@@ -15,7 +13,7 @@ public class MultilevelCache implements Cache {
 
     @Override
     public String getName() {
-        return "";
+        return l1Cache.getName();
     }
 
     @Override
@@ -25,27 +23,41 @@ public class MultilevelCache implements Cache {
 
     @Override
     public @Nullable ValueWrapper get(Object key) {
-        return null;
+        var value = l1Cache.get(key);
+
+        if (value != null) {
+            return value;
+        }
+
+        value = l2Cache.get(key);
+
+        if (value != null) {
+            l1Cache.put(key, value.get());
+        }
+
+        return value;
     }
 
     @Override
     public @Nullable <T> T get(Object key, @Nullable Class<T> type) {
-        return null;
+        T value = l1Cache.get(key, type);
+
+        if (value != null) {
+            return value;
+        }
+
+        value = l2Cache.get(key, type);
+
+        if (value != null) {
+            l1Cache.put(key, value);
+        }
+
+        return value;
     }
 
     @Override
     public @Nullable <T> T get(Object key, Callable<T> valueLoader) {
-        return null;
-    }
-
-    @Override
-    public @Nullable CompletableFuture<?> retrieve(Object key) {
-        return Cache.super.retrieve(key);
-    }
-
-    @Override
-    public <T> CompletableFuture<T> retrieve(Object key, Supplier<CompletableFuture<T>> valueLoader) {
-        return Cache.super.retrieve(key, valueLoader);
+        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -55,26 +67,36 @@ public class MultilevelCache implements Cache {
 
     @Override
     public @Nullable ValueWrapper putIfAbsent(Object key, @Nullable Object value) {
-        return Cache.super.putIfAbsent(key, value);
+        var existing = get(key);
+
+        if (existing == null) {
+            put(key, value);
+        }
+
+        return existing;
     }
 
     @Override
     public void evict(Object key) {
-
+        l1Cache.evict(key);
+        l2Cache.evict(key);
     }
 
     @Override
     public boolean evictIfPresent(Object key) {
-        return Cache.super.evictIfPresent(key);
+        return l1Cache.evictIfPresent(key) ||
+                l2Cache.evictIfPresent(key);
     }
 
     @Override
     public void clear() {
-
+        l1Cache.clear();
+        l2Cache.clear();
     }
 
     @Override
     public boolean invalidate() {
-        return Cache.super.invalidate();
+        return l1Cache.invalidate() ||
+                l2Cache.invalidate();
     }
 }
