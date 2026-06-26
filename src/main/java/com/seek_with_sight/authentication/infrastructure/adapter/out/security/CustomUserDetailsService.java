@@ -1,6 +1,6 @@
 package com.seek_with_sight.authentication.infrastructure.adapter.out.security;
 
-import com.seek_with_sight.user.infrastructure.adapter.out.persistence.repository.UserJpaRepository;
+import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -15,11 +15,11 @@ import java.util.HashSet;
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
-    private final UserJpaRepository userJpaRepository;
+    private final UserRepositoryPort userRepo;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        var user = userJpaRepository.findByEmailIgnoreCase(email)
+        var user = userRepo.findByEmailIgnoreCase(email)
                 .orElseThrow(() -> new UsernameNotFoundException(email));
 
         var authorities = new HashSet<GrantedAuthority>();
