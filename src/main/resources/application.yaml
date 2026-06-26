@@ -14,6 +14,11 @@ spring:
         refresh-token-expiration: 604800000
         refresh-cookie-path: /api/auth
         refresh-cookie-same-site: Strict
+    cache:
+      config:
+        initial-capacity: 100
+        maximum-size: 1000
+        expire-after-write: 10 # In minutes
 
   datasource:
     url: ${SWS_DB_URL}
