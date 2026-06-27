@@ -24,6 +24,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.reposi
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.TagJpaRepository;
+import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -55,9 +56,15 @@ public class ProductBeanConfig {
             ProductRepositoryPort productRepo,
             CategoryRepositoryPort categoryRepo,
             BrandRepositoryPort brandRepository,
-            ProductAppMapper mapper
+            ProductAppMapper mapper,
+            DomainEventPublisher publisher
     ) {
-        return new CreateProductService(productRepo, categoryRepo, brandRepository, mapper);
+        return new CreateProductService(
+                productRepo,
+                categoryRepo,
+                brandRepository,
+                mapper,
+                publisher);
     }
 
     @Bean

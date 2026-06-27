@@ -4,9 +4,7 @@ import com.seek_with_sight.shared.application.port.out.event.DomainEventPublishe
 import com.seek_with_sight.shared.domain.event.DomainEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Component;
 
-@Component
 @RequiredArgsConstructor
 public class SpringDomainEventPublisher implements DomainEventPublisher {
     private final ApplicationEventPublisher publisher;
