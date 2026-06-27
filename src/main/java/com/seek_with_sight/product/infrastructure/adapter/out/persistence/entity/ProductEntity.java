@@ -43,7 +43,7 @@ public class ProductEntity extends BaseEntity {
     @Column(name = "short_description", length = 500)
     private String shortDescription;
 
-    @Column(length = 20000)
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Enumerated(EnumType.STRING)
@@ -95,7 +95,7 @@ public class ProductEntity extends BaseEntity {
     @OrderBy("sortOrder ASC")
     private List<ImageEntity> images = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
     private List<ProductVariantEntity> variants = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
@@ -103,5 +103,6 @@ public class ProductEntity extends BaseEntity {
     private List<AttributeEntity> attributes = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "seo_id")
     private SeoEntity seo;
 }
