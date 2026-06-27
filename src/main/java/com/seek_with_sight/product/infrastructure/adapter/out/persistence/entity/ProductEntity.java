@@ -91,6 +91,7 @@ public class ProductEntity extends BaseEntity {
     private List<TagEntity> tags = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "product_id")
     @OrderBy("sortOrder ASC")
     private List<ImageEntity> images = new ArrayList<>();
 
@@ -98,6 +99,7 @@ public class ProductEntity extends BaseEntity {
     private List<ProductVariantEntity> variants = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "product_id")
     private List<AttributeEntity> attributes = new ArrayList<>();
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
