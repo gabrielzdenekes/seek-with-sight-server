@@ -8,7 +8,6 @@ public class ProductCreatedEvent extends DomainEvent {
     private final UUID productId;
 
     public ProductCreatedEvent(UUID productId) {
-        super();
         this.productId = productId;
     }
 
