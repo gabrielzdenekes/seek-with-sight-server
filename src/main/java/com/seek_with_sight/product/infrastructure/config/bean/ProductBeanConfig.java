@@ -49,8 +49,9 @@ public class ProductBeanConfig {
     @Bean
     public ProductRepositoryPort productRepositoryPort(
             ProductJpaRepository repo,
-            ProductPersistenceMapper mapper) {
-        return new ProductPersistenceAdapter(repo, mapper);
+            ProductPersistenceMapper mapper,
+            TagJpaRepository tagRepo) {
+        return new ProductPersistenceAdapter(repo, mapper, tagRepo);
     }
 
     @Bean

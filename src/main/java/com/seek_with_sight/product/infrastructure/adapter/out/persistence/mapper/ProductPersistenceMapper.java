@@ -6,7 +6,6 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import org.mapstruct.BeanMapping;
-import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -18,6 +17,7 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 )
 public interface ProductPersistenceMapper extends PersistenceMapper<Product, ProductEntity> {
     @Override
+    @Named("basicToDomain")
     @Mapping(target = "category", ignore = true)
     @Mapping(target = "brand", ignore = true)
     @Mapping(target = "images", ignore = true)

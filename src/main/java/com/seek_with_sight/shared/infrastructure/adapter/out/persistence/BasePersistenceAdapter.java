@@ -34,8 +34,13 @@ public class BasePersistenceAdapter<
         return updateAndSaveEntity(domain, entity);
     }
 
+    protected void syncComplexProperties(D domain, E entity) {
+        // Default implementation: do nothing.
+    }
+
     private D updateAndSaveEntity(D domain, E entity) {
         mapper.updateEntityFromDomain(domain, entity);
+        syncComplexProperties(domain, entity);
 
         var savedEntity = repository.save(entity);
 

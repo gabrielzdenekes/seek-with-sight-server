@@ -38,6 +38,8 @@ public class Product extends BaseDomainModel {
 
     private Seo seo;
 
+    private List<Tag> tags;
+
     private List<Image> images;
 
     private List<ProductVariant> variants;
@@ -199,5 +201,13 @@ public class Product extends BaseDomainModel {
 
     public void setCompareAtPrice(BigDecimal compareAtPrice) {
         this.compareAtPrice = compareAtPrice;
+    }
+
+    public List<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<Tag> tags) {
+        this.tags = tags;
     }
 }
