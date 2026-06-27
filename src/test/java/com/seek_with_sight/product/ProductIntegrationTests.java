@@ -1,8 +1,8 @@
 package com.seek_with_sight.product;
 
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductImageRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductImageRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductImageResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.utils.IntegrationTestsBase;
