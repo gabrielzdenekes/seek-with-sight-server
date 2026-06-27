@@ -1,6 +1,7 @@
 package com.seek_with_sight.product.infrastructure.config.bean;
 
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
+import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.in.tag.CreateTagUseCase;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
@@ -8,6 +9,7 @@ import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.port.out.TagRepositoryPort;
 import com.seek_with_sight.product.application.service.product.CreateProductService;
+import com.seek_with_sight.product.application.service.product.CreateProductVariantService;
 import com.seek_with_sight.product.application.service.product.GetProductByIdService;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.application.service.tag.CreateTagService;
@@ -86,5 +88,10 @@ public class ProductBeanConfig {
             TagRepositoryPort repo
     ) {
         return new CreateTagService(mapper, repo);
+    }
+
+    @Bean
+    public CreateProductVariantUseCase createProductVariantUseCase() {
+        return new CreateProductVariantService();
     }
 }

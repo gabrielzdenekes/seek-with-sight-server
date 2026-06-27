@@ -6,6 +6,8 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.config.cache.CacheNames;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -21,6 +23,10 @@ public class ProductPersistenceAdapter
     }
 
     @Override
+    @Cacheable(
+            cacheNames = CacheNames.PRODUCTS,
+            key = "#id"
+    )
     public Optional<Product> findById(UUID id) {
         return repository
                 .findById(id)
