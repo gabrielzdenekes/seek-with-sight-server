@@ -88,7 +88,6 @@ public record ProductRequest(
         )
         BigDecimal basePrice,
 
-        @NotNull(message = "{product.compare-at-price.required}")
         @DecimalMin(
                 value = "0.00",
                 message = "{product.compare-at-price.positive-value}"
