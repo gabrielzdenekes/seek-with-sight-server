@@ -1,6 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
+import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
@@ -26,6 +27,7 @@ public class ProductsController {
     private final CreateProductUseCase createProductUseCase;
     private final ProductRestMapper mapper;
     private final GetProductByIdUseCase getProductByIdUseCase;
+    private final CreateProductVariantUseCase createProductVariantUseCase;
 
     @PostMapping
     public ProductResponse create(@RequestBody @Valid ProductRequest request) {
@@ -47,6 +49,9 @@ public class ProductsController {
             @Valid @RequestBody ProductVariantRequest request,
             @PathVariable UUID productId) {
 
-        return null;
+        var command = mapper.toCreateProductVariantCommand(request);
+        var variant = createProductVariantUseCase.create(command, productId);
+
+        return mapper.toVariantResponse(variant);
     }
 }

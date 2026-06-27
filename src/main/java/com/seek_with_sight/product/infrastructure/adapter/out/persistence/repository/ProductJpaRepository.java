@@ -17,7 +17,8 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
             "tags",
             "images",
             "attributes",
-            "seo"
+            "seo",
+            "variants"
     })
     Optional<ProductEntity> findById(UUID uuid);
 }

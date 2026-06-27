@@ -44,6 +44,11 @@ public class Product extends BaseDomainModel {
 
     private List<Attribute> attributes;
 
+    public void addVariant(ProductVariant variant) {
+        variants.add(variant);
+        variant.setProduct(this);
+    }
+
     public String getName() {
         return name;
     }
