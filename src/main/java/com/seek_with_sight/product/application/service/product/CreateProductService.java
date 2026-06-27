@@ -5,7 +5,10 @@ import com.seek_with_sight.product.application.port.in.product.command.CreatePro
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
+import com.seek_with_sight.product.domain.ProductCreatedEvent;
 import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
@@ -16,15 +19,23 @@ public class CreateProductService implements CreateProductUseCase {
     private final CategoryRepositoryPort categoryRepo;
     private final BrandRepositoryPort brandRepository;
     private final ProductAppMapper mapper;
+    private final DomainEventPublisher publisher;
 
     @Override
+    @Transactional
     public Product create(CreateProductCommand command) {
         var product = mapper.fromCreateCommand(command);
 
         setCategory(product, command.categoryId());
         setBrand(product, command.brandId());
 
-        return productRepo.create(product);
+        var createdProduct = productRepo.create(product);
+
+        publisher.publish(
+                new ProductCreatedEvent(createdProduct.getId())
+        );
+
+        return createdProduct;
     }
 
     private void setBrand(Product product, UUID brandId) {
