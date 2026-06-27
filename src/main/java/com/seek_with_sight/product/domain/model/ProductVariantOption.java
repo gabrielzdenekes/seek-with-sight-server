@@ -7,8 +7,6 @@ public class ProductVariantOption extends BaseDomainModel {
 
     private String value;
 
-    private Product product;
-
     private Integer sortOrder;
 
     public String getName() {
@@ -17,14 +15,6 @@ public class ProductVariantOption extends BaseDomainModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public Integer getSortOrder() {
