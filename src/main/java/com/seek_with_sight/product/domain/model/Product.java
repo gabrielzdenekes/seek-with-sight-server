@@ -4,6 +4,7 @@ import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 public class Product extends BaseDomainModel {
     private String name;
@@ -49,6 +50,10 @@ public class Product extends BaseDomainModel {
     public void addVariant(ProductVariant variant) {
         variants.add(variant);
         variant.setProduct(this);
+    }
+
+    public void removeVariant(UUID variantId) {
+        variants.removeIf(v -> v.getId().equals(variantId));
     }
 
     public String getName() {
