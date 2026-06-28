@@ -46,10 +46,11 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
 
         /*
         Total relationships: Category, Brand, Tags, Images, Variants, Attributes, Seo
-        3 select queries are made:
+        4 select queries are made:
          - for the product
          - for the tags
          - for the images
+         - for product variants
          */
         sqlCounterUtils.assertSelectQueriesCount(
                 () -> {
@@ -59,7 +60,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
                         throw new RuntimeException(e);
                     }
                 },
-                3
+                4
         );
     }
 

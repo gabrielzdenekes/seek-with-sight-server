@@ -18,11 +18,14 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandP
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.CategoryPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.TagPersistenceAdapter;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.AttributePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.BrandPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductTagPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.MapStructTagPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagsPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
@@ -53,8 +56,20 @@ public class ProductBeanConfig {
             ProductJpaRepository repo,
             ProductPersistenceMapper mapper,
             EntityManager entityManager,
-            ProductVariantPersistenceMapper variantMapper) {
-        return new ProductPersistenceAdapter(repo, mapper, entityManager, variantMapper);
+            ProductVariantPersistenceMapper variantMapper,
+            TagsPersistenceMapper tagsMapper,
+            ImagePersistenceMapper imagesMapper,
+            AttributePersistenceMapper attributesMapper) {
+
+        return new ProductPersistenceAdapter(
+                repo,
+                mapper,
+                entityManager,
+                variantMapper,
+                tagsMapper,
+                imagesMapper,
+                attributesMapper
+        );
     }
 
     @Bean
@@ -81,7 +96,7 @@ public class ProductBeanConfig {
     @Bean
     public TagRepositoryPort productTagRepositoryPort(
             TagJpaRepository repo,
-            ProductTagPersistenceMapper mapper
+            MapStructTagPersistenceMapper mapper
     ) {
         return new TagPersistenceAdapter(repo, mapper);
     }

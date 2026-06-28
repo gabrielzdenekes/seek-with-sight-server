@@ -7,8 +7,11 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.TagEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.AttributePersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagsPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import com.seek_with_sight.shared.infrastructure.config.cache.CacheNames;
@@ -23,17 +26,26 @@ public class ProductPersistenceAdapter
         implements ProductRepositoryPort {
     private final ProductPersistenceMapper mapper;
     private final EntityManager entityManager;
-    private final ProductVariantPersistenceMapper variantMapper;
+    private final ProductVariantPersistenceMapper variantsMapper;
+    private final TagsPersistenceMapper tagsMapper;
+    private final ImagePersistenceMapper imagesMapper;
+    private final AttributePersistenceMapper attributesMapper;
 
     public ProductPersistenceAdapter(
             ProductJpaRepository repository,
             ProductPersistenceMapper mapper,
             EntityManager entityManager,
-            ProductVariantPersistenceMapper variantMapper) {
+            ProductVariantPersistenceMapper variantsMapper,
+            TagsPersistenceMapper tagsMapper,
+            ImagePersistenceMapper imagesMapper,
+            AttributePersistenceMapper attributesMapper) {
         super(repository, mapper, ProductEntity::new);
         this.mapper = mapper;
         this.entityManager = entityManager;
-        this.variantMapper = variantMapper;
+        this.variantsMapper = variantsMapper;
+        this.tagsMapper = tagsMapper;
+        this.imagesMapper = imagesMapper;
+        this.attributesMapper = attributesMapper;
     }
 
     @Override
@@ -49,14 +61,14 @@ public class ProductPersistenceAdapter
 
     @Override
     protected void syncComplexProperties(Product domain, ProductEntity entity) {
-        syncCollection(entity.getTags(), domain.getTags(), TagEntity.class, null, entityManager);
-        syncCollection(entity.getImages(), domain.getImages(), ImageEntity.class, null, entityManager);
-        syncCollection(entity.getAttributes(), domain.getAttributes(), AttributeEntity.class, null, entityManager);
+        syncCollection(entity.getTags(), domain.getTags(), TagEntity.class, tagsMapper::updateEntityFromDomain, entityManager);
+        syncCollection(entity.getImages(), domain.getImages(), ImageEntity.class, imagesMapper::updateEntityFromDomain, entityManager);
+        syncCollection(entity.getAttributes(), domain.getAttributes(), AttributeEntity.class, attributesMapper::updateEntityFromDomain, entityManager);
         syncCollection(
                 entity.getVariants(),
                 domain.getVariants(),
                 ProductVariantEntity.class,
-                variantMapper::updateEntityFromDomain,
+                variantsMapper::updateEntityFromDomain,
                 entityManager
         );
     }

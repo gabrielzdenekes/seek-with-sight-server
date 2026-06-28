@@ -50,6 +50,10 @@ public class BasePersistenceAdapter<
             BiConsumer<D, E> updateFunction,
             EntityManager entityManager) {
 
+        if (domainModels == null) {
+            return;
+        }
+
         var currentEntitiesMap = entities
                 .stream()
                 .collect(Collectors.toMap(BaseEntity::getId, Function.identity()));
@@ -63,6 +67,7 @@ public class BasePersistenceAdapter<
         entities.removeIf(e -> !domainIds.contains(e.getId()));
 
         for (var domain : domainModels) {
+            // If the there is a new domain object without ID, we need to create new entity
             if (domain.getId() == null) {
                 try {
                     E newEntity = entityClass.getDeclaredConstructor().newInstance();
@@ -76,7 +81,7 @@ public class BasePersistenceAdapter<
                     );
                 }
             } else if (!currentEntitiesMap.containsKey(domain.getId())) {
-                // Add new entity tags, that exist in domain tags
+                // Add new entity that exist in domain tags
                 var entity = entityManager.getReference(entityClass, domain.getId());
                 entities.add(entity);
             }
