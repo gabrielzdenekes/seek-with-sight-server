@@ -3,9 +3,9 @@ package com.seek_with_sight.email.infrastructure.out.persistence;
 import com.seek_with_sight.email.domain.model.EmailVerificationToken;
 import com.seek_with_sight.email.application.port.out.VerificationTokenRepositoryPort;
 import com.seek_with_sight.email.infrastructure.out.persistence.entity.EmailVerificationTokenEntity;
+import com.seek_with_sight.email.infrastructure.out.persistence.mapper.VerificationTokenPersistenceMapper;
 import com.seek_with_sight.email.infrastructure.out.persistence.repository.VerificationTokenJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
-import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -14,12 +14,13 @@ public class VerificationTokenRepositoryAdapter
         extends BasePersistenceAdapter<
         EmailVerificationToken,
         EmailVerificationTokenEntity,
-        VerificationTokenJpaRepository>
+        VerificationTokenJpaRepository,
+        VerificationTokenPersistenceMapper>
         implements VerificationTokenRepositoryPort {
 
     public VerificationTokenRepositoryAdapter(
             VerificationTokenJpaRepository repository,
-            PersistenceMapper<EmailVerificationToken, EmailVerificationTokenEntity> mapper
+            VerificationTokenPersistenceMapper mapper
     ) {
         super(repository, mapper, EmailVerificationTokenEntity::new);
     }

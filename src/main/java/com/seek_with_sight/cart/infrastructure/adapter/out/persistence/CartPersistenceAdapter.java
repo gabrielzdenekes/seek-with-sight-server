@@ -14,13 +14,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class CartPersistenceAdapter
-        extends BasePersistenceAdapter<Cart, CartEntity, CartJpaRepository>
+        extends BasePersistenceAdapter<Cart, CartEntity, CartJpaRepository, CartPersistenceMapper>
         implements CartRepositoryPort {
-    private final CartPersistenceMapper mapper;
 
     public CartPersistenceAdapter(CartJpaRepository repository, CartPersistenceMapper mapper) {
         super(repository, mapper, CartEntity::new);
-        this.mapper = mapper;
     }
 
     @Override

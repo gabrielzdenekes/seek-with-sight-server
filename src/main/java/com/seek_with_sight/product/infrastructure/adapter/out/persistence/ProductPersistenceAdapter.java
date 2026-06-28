@@ -11,7 +11,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagsPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagsCircularPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import jakarta.persistence.EntityManager;
@@ -20,12 +20,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class ProductPersistenceAdapter
-        extends BasePersistenceAdapter<Product, ProductEntity, ProductJpaRepository>
+        extends BasePersistenceAdapter<Product, ProductEntity, ProductJpaRepository, ProductPersistenceMapper>
         implements ProductRepositoryPort {
-    private final ProductPersistenceMapper mapper;
     private final EntityManager entityManager;
     private final ProductVariantPersistenceMapper variantsMapper;
-    private final TagsPersistenceMapper tagsMapper;
+    private final TagsCircularPersistenceMapper tagsMapper;
     private final ImagePersistenceMapper imagesMapper;
     private final AttributePersistenceMapper attributesMapper;
 
@@ -34,11 +33,10 @@ public class ProductPersistenceAdapter
             ProductPersistenceMapper mapper,
             EntityManager entityManager,
             ProductVariantPersistenceMapper variantsMapper,
-            TagsPersistenceMapper tagsMapper,
+            TagsCircularPersistenceMapper tagsMapper,
             ImagePersistenceMapper imagesMapper,
             AttributePersistenceMapper attributesMapper) {
         super(repository, mapper, ProductEntity::new);
-        this.mapper = mapper;
         this.entityManager = entityManager;
         this.variantsMapper = variantsMapper;
         this.tagsMapper = tagsMapper;

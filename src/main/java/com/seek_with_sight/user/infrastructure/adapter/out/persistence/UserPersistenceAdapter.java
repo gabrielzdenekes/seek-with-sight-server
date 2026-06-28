@@ -7,8 +7,6 @@ import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.entity.UserEntity;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.mapper.UserPersistenceMapper;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.repository.UserJpaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.jpa.repository.EntityGraph;
 
@@ -16,11 +14,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class UserPersistenceAdapter
-        extends BasePersistenceAdapter<User, UserEntity, UserJpaRepository>
+        extends BasePersistenceAdapter<User, UserEntity, UserJpaRepository, UserPersistenceMapper>
         implements UserRepositoryPort {
-
-    @Autowired
-    private CacheManager cache;
 
     public UserPersistenceAdapter(UserJpaRepository repository, UserPersistenceMapper mapper) {
         super(repository, mapper, UserEntity::new);
