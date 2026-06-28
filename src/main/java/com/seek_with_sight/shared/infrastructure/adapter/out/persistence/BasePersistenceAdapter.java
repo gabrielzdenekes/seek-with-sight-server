@@ -71,9 +71,11 @@ public class BasePersistenceAdapter<
 
                     entities.add(newEntity);
                 } catch (Exception e) {
-                    throw new RuntimeException("Failed to create new entity instance for " + entityClass.getSimpleName(), e);
+                    throw new RuntimeException(
+                            "Failed to create new entity instance for " + entityClass.getSimpleName(), e
+                    );
                 }
-            }else if (!currentEntitiesMap.containsKey(domain.getId())) {
+            } else if (!currentEntitiesMap.containsKey(domain.getId())) {
                 // Add new entity tags, that exist in domain tags
                 var entity = entityManager.getReference(entityClass, domain.getId());
                 entities.add(entity);
