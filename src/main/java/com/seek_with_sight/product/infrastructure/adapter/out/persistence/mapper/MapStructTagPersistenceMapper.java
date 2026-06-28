@@ -21,5 +21,9 @@ public interface MapStructTagPersistenceMapper extends PersistenceMapper<Tag, Ta
 
     @BeanMapping(nullValuePropertyMappingStrategy =
             NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDomain(Tag domain, @MappingTarget TagEntity entity, @Context CycleAvoidingMappingContext context);
+    void updateEntityFromDomain(
+            Tag domain,
+            @MappingTarget TagEntity entity,
+            @Context CycleAvoidingMappingContext context
+    );
 }

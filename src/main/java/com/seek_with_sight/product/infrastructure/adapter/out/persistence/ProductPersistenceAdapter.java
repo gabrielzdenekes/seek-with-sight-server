@@ -61,9 +61,30 @@ public class ProductPersistenceAdapter
 
     @Override
     protected void syncComplexProperties(Product domain, ProductEntity entity) {
-        syncCollection(entity.getTags(), domain.getTags(), TagEntity.class, tagsMapper::updateEntityFromDomain, entityManager);
-        syncCollection(entity.getImages(), domain.getImages(), ImageEntity.class, imagesMapper::updateEntityFromDomain, entityManager);
-        syncCollection(entity.getAttributes(), domain.getAttributes(), AttributeEntity.class, attributesMapper::updateEntityFromDomain, entityManager);
+        syncCollection(
+                entity.getTags(),
+                domain.getTags(),
+                TagEntity.class,
+                tagsMapper::updateEntityFromDomain,
+                entityManager
+        );
+
+        syncCollection(
+                entity.getImages(),
+                domain.getImages(),
+                ImageEntity.class,
+                imagesMapper::updateEntityFromDomain,
+                entityManager
+        );
+
+        syncCollection(
+                entity.getAttributes(),
+                domain.getAttributes(),
+                AttributeEntity.class,
+                attributesMapper::updateEntityFromDomain,
+                entityManager
+        );
+
         syncCollection(
                 entity.getVariants(),
                 domain.getVariants(),
