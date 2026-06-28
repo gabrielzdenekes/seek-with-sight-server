@@ -11,7 +11,11 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class RefreshTokenPersistenceAdapter
-        extends BasePersistenceAdapter<RefreshToken, RefreshTokenEntity, RefreshTokenJpaRepository, RefreshTokenPersistenceMapper>
+        extends BasePersistenceAdapter<
+        RefreshToken,
+        RefreshTokenEntity,
+        RefreshTokenJpaRepository,
+        RefreshTokenPersistenceMapper>
         implements RefreshTokenPort {
 
     public RefreshTokenPersistenceAdapter(

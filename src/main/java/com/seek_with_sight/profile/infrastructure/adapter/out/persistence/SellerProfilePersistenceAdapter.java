@@ -10,7 +10,11 @@ import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePer
 import java.util.Optional;
 
 public class SellerProfilePersistenceAdapter
-        extends BasePersistenceAdapter<SellerProfile, SellerProfileEntity, SellerProfileJpaRepository, SellerProfilePersistenceMapper>
+        extends BasePersistenceAdapter<
+        SellerProfile,
+        SellerProfileEntity,
+        SellerProfileJpaRepository,
+        SellerProfilePersistenceMapper>
         implements SellerProfileRepositoryPort {
 
     public SellerProfilePersistenceAdapter(
