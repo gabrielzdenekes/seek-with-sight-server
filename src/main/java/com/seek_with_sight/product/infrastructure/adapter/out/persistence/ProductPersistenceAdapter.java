@@ -14,9 +14,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagsPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
-import com.seek_with_sight.shared.infrastructure.config.cache.CacheNames;
 import jakarta.persistence.EntityManager;
-import org.springframework.cache.annotation.Cacheable;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -49,14 +47,19 @@ public class ProductPersistenceAdapter
     }
 
     @Override
-    @Cacheable(
-            cacheNames = CacheNames.PRODUCTS,
-            key = "#id"
-    )
     public Optional<Product> findById(UUID id) {
         return repository
                 .findById(id)
                 .map(mapper::toDomainWithDetails);
+    }
+
+    @Override
+    public Product update(Product domain) {
+        var updatedProduct = super.update(domain);
+
+        entityManager.flush();
+
+        return updatedProduct;
     }
 
     @Override
