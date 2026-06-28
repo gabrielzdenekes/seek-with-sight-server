@@ -2,32 +2,38 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.model.Product;
-import com.seek_with_sight.product.domain.model.Tag;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.AttributeEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ImageEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.TagEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.TagJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import com.seek_with_sight.shared.infrastructure.config.cache.CacheNames;
+import jakarta.persistence.EntityManager;
 import org.springframework.cache.annotation.Cacheable;
 
-import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class ProductPersistenceAdapter
         extends BasePersistenceAdapter<Product, ProductEntity, ProductJpaRepository>
         implements ProductRepositoryPort {
     private final ProductPersistenceMapper mapper;
-    private final TagJpaRepository tagsRepo;
+    private final EntityManager entityManager;
+    private final ProductVariantPersistenceMapper variantMapper;
 
-    public ProductPersistenceAdapter(ProductJpaRepository repository, ProductPersistenceMapper mapper, TagJpaRepository tagsRepo) {
+    public ProductPersistenceAdapter(
+            ProductJpaRepository repository,
+            ProductPersistenceMapper mapper,
+            EntityManager entityManager,
+            ProductVariantPersistenceMapper variantMapper) {
         super(repository, mapper, ProductEntity::new);
         this.mapper = mapper;
-        this.tagsRepo = tagsRepo;
+        this.entityManager = entityManager;
+        this.variantMapper = variantMapper;
     }
 
     @Override
@@ -43,30 +49,15 @@ public class ProductPersistenceAdapter
 
     @Override
     protected void syncComplexProperties(Product domain, ProductEntity entity) {
-        super.syncComplexProperties(domain, entity);
-    }
-
-    private void syncTags(Product domain, ProductEntity entity) {
-        var currentEntityTagsMap = entity
-                .getTags()
-                .stream()
-                .collect(Collectors.toMap(TagEntity::getId, Function.identity()));
-
-        var domainTagsIds = domain
-                .getTags()
-                .stream()
-                .map(Tag::getId)
-                .collect(Collectors.toSet());
-
-        // Remove entity tags that don't match with the domain tags
-        entity.getTags().removeIf(t -> !domainTagsIds.contains(t.getId()));
-
-        // Add new entity tags, that exist in domain tags
-        for (var tagId : domainTagsIds) {
-            if (!currentEntityTagsMap.containsKey(tagId)) {
-                var tagEntity = tagsRepo.getReferenceById(tagId);
-                entity.getTags().add(tagEntity);
-            }
-        }
+        syncCollection(entity.getTags(), domain.getTags(), TagEntity.class, null, entityManager);
+        syncCollection(entity.getImages(), domain.getImages(), ImageEntity.class, null, entityManager);
+        syncCollection(entity.getAttributes(), domain.getAttributes(), AttributeEntity.class, null, entityManager);
+        syncCollection(
+                entity.getVariants(),
+                domain.getVariants(),
+                ProductVariantEntity.class,
+                variantMapper::updateEntityFromDomain,
+                entityManager
+        );
     }
 }

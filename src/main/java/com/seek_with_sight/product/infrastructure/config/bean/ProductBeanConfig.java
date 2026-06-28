@@ -22,11 +22,13 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductTagPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.TagJpaRepository;
 import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
+import jakarta.persistence.EntityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -50,8 +52,9 @@ public class ProductBeanConfig {
     public ProductRepositoryPort productRepositoryPort(
             ProductJpaRepository repo,
             ProductPersistenceMapper mapper,
-            TagJpaRepository tagRepo) {
-        return new ProductPersistenceAdapter(repo, mapper, tagRepo);
+            EntityManager entityManager,
+            ProductVariantPersistenceMapper variantMapper) {
+        return new ProductPersistenceAdapter(repo, mapper, entityManager, variantMapper);
     }
 
     @Bean
