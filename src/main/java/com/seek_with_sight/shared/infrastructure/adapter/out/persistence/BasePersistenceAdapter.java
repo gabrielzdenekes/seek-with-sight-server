@@ -17,10 +17,11 @@ import java.util.stream.Collectors;
 public class BasePersistenceAdapter<
         D extends BaseDomainModel,
         E,
-        R extends JpaRepository<E, UUID>>
+        R extends JpaRepository<E, UUID>,
+        M extends PersistenceMapper<D, E>>
         implements BaseRepositoryPort<D> {
     protected final R repository;
-    protected final PersistenceMapper<D, E> mapper;
+    protected final M mapper;
     private final Supplier<E> entityFactory;
 
     @Override

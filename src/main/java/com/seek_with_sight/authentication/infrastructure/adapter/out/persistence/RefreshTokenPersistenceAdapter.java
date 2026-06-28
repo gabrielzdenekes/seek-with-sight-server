@@ -3,20 +3,20 @@ package com.seek_with_sight.authentication.infrastructure.adapter.out.persistenc
 import com.seek_with_sight.authentication.domain.model.RefreshToken;
 import com.seek_with_sight.authentication.application.port.out.RefreshTokenPort;
 import com.seek_with_sight.authentication.infrastructure.adapter.out.persistence.entity.RefreshTokenEntity;
+import com.seek_with_sight.authentication.infrastructure.adapter.out.persistence.mapper.RefreshTokenPersistenceMapper;
 import com.seek_with_sight.authentication.infrastructure.adapter.out.persistence.repository.RefreshTokenJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
-import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 
 import java.util.Optional;
 import java.util.UUID;
 
 public class RefreshTokenPersistenceAdapter
-        extends BasePersistenceAdapter<RefreshToken, RefreshTokenEntity, RefreshTokenJpaRepository>
+        extends BasePersistenceAdapter<RefreshToken, RefreshTokenEntity, RefreshTokenJpaRepository, RefreshTokenPersistenceMapper>
         implements RefreshTokenPort {
 
     public RefreshTokenPersistenceAdapter(
             RefreshTokenJpaRepository repository,
-            PersistenceMapper<RefreshToken, RefreshTokenEntity> mapper
+            RefreshTokenPersistenceMapper mapper
     ) {
         super(repository, mapper, RefreshTokenEntity::new);
     }
