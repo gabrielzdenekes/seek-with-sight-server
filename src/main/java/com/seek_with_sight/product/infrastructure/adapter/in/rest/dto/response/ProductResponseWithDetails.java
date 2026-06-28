@@ -17,4 +17,6 @@ public class ProductResponseWithDetails extends ProductResponse {
     private List<ProductImageResponse> images;
 
     private List<ProductAttributeResponse> attributes;
+
+    private List<ProductVariantResponse> variants;
 }

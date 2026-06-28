@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request;
+package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product;
 
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import jakarta.validation.Valid;
@@ -88,7 +88,6 @@ public record ProductRequest(
         )
         BigDecimal basePrice,
 
-        @NotNull(message = "{product.compare-at-price.required}")
         @DecimalMin(
                 value = "0.00",
                 message = "{product.compare-at-price.positive-value}"

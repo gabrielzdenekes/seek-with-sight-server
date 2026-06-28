@@ -1,8 +1,8 @@
 package com.seek_with_sight.product;
 
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductImageRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.ProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductImageRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductImageResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.utils.IntegrationTestsBase;
@@ -46,10 +46,11 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
 
         /*
         Total relationships: Category, Brand, Tags, Images, Variants, Attributes, Seo
-        3 select queries are made:
+        4 select queries are made:
          - for the product
          - for the tags
          - for the images
+         - for product variants
          */
         sqlCounterUtils.assertSelectQueriesCount(
                 () -> {
@@ -59,7 +60,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
                         throw new RuntimeException(e);
                     }
                 },
-                3
+                4
         );
     }
 

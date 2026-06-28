@@ -1,5 +1,8 @@
 package com.seek_with_sight.shared.infrastructure.config.cache;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.seek_with_sight.shared.infrastructure.config.cache.multilevel.MultilevelCacheManager;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +18,6 @@ import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
-import tools.jackson.databind.ObjectMapper;
 
 import java.time.Duration;
 
@@ -45,11 +47,19 @@ public class CacheConfig {
     @Bean
     CacheManager redisCacheManager(
             RedisConnectionFactory connectionFactory,
-            CacheProperties cacheProperties,
-            ObjectMapper objectMapper
+            CacheProperties cacheProperties
     ) {
+        var objectMapper = new ObjectMapper();
 
-        var serializer = new GenericJackson2JsonRedisSerializer();
+        objectMapper.registerModule(new JavaTimeModule());
+
+        objectMapper.activateDefaultTyping(
+                objectMapper.getPolymorphicTypeValidator(),
+                ObjectMapper.DefaultTyping.NON_FINAL,
+                JsonTypeInfo.As.PROPERTY
+        );
+
+        var serializer = new GenericJackson2JsonRedisSerializer(objectMapper);
 
         var config = RedisCacheConfiguration
                 .defaultCacheConfig()
