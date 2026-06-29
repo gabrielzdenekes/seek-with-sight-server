@@ -4,6 +4,7 @@ import com.seek_with_sight.product.application.port.in.product.CreateProductUseC
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.tag.CreateTagUseCase;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
@@ -14,6 +15,7 @@ import com.seek_with_sight.product.application.service.product.CreateProductVari
 import com.seek_with_sight.product.application.service.product.GetProductByIdService;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.application.service.product.RemoveProductVariantService;
+import com.seek_with_sight.product.application.service.product.UpdateProductVariantService;
 import com.seek_with_sight.product.application.service.tag.CreateTagService;
 import com.seek_with_sight.product.application.service.tag.TagAppMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;
@@ -123,5 +125,13 @@ public class ProductBeanConfig {
             ProductRepositoryPort repo
     ) {
         return new RemoveProductVariantService(repo);
+    }
+
+    @Bean
+    public UpdateProductVariantUseCase updateProductVariantUseCase(
+            ProductRepositoryPort repo,
+            ProductAppMapper mapper
+    ) {
+        return new UpdateProductVariantService(repo, mapper);
     }
 }

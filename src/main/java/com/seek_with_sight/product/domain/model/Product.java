@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.domain.model;
 
+import com.seek_with_sight.product.domain.exception.ProductVariantNotFoundException;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.math.BigDecimal;
@@ -54,6 +55,13 @@ public class Product extends BaseDomainModel {
 
     public void removeVariant(UUID variantId) {
         variants.removeIf(v -> v.getId().equals(variantId));
+    }
+
+    public ProductVariant findVariantById(UUID variantId) {
+        return variants.stream()
+                .filter(v -> v.getId().equals(variantId))
+                .findFirst()
+                .orElseThrow(() -> new ProductVariantNotFoundException(new Object[]{ variantId }));
     }
 
     public String getName() {

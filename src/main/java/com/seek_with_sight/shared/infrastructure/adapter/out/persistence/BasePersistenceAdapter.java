@@ -85,6 +85,11 @@ public class BasePersistenceAdapter<
                 // Add new entity that exist in domain tags
                 var entity = entityManager.getReference(entityClass, domain.getId());
                 entities.add(entity);
+            } else {
+                // Update entity properties
+                var entity = entityManager.getReference(entityClass, domain.getId());
+
+                updateFunction.accept(domain, entity);
             }
         }
     }

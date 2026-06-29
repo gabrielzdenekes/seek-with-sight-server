@@ -2,6 +2,7 @@ package com.seek_with_sight.product.infrastructure.adapter.in.rest.mapper;
 
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductCommand;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
+import com.seek_with_sight.product.application.port.in.product.command.UpdateProductVariantCommand;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
@@ -22,4 +23,6 @@ public interface ProductRestMapper {
     CreateProductVariantCommand toCreateProductVariantCommand(ProductVariantRequest request);
 
     ProductVariantResponse toVariantResponse(ProductVariant variant);
+
+    UpdateProductVariantCommand toUpdateProductVariantCommand(ProductVariantRequest request);
 }

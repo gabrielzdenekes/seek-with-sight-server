@@ -1,0 +1,36 @@
+package com.seek_with_sight.product.application.service.product;
+
+import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.product.command.UpdateProductVariantCommand;
+import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
+import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
+import com.seek_with_sight.product.domain.model.ProductVariant;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+
+import java.util.UUID;
+
+@RequiredArgsConstructor
+public class UpdateProductVariantService implements UpdateProductVariantUseCase {
+    private final ProductRepositoryPort productsRepo;
+    private final ProductAppMapper mapper;
+
+    @Override
+    @Transactional
+    public ProductVariant update(
+            UUID productId,
+            UUID variantId,
+            UpdateProductVariantCommand command
+    ) {
+        var product = productsRepo.findById(productId)
+                .orElseThrow(() -> new ProductNotFoundException(new Object[]{ productId }));
+
+        var variant = product.findVariantById(variantId);
+
+        mapper.updateVariant(command, variant);
+
+        productsRepo.update(product);
+
+        return variant;
+    }
+}
