@@ -36,22 +36,6 @@ public class BasePersistenceAdapter<
         return mapper.toDomain(savedEntity);
     }
 
-    @Override
-    public D create(D domain) {
-        var entity = entityFactory.get();
-
-        return updateAndSaveEntity(domain, entity);
-    }
-
-    @Override
-    public D update(D domain) {
-        var entity = repository
-                .findById(domain.getId())
-                .orElseThrow();
-
-        return updateAndSaveEntity(domain, entity);
-    }
-
     protected void syncComplexProperties(D domain, E entity) {
         // Default implementation: do nothing.
     }
@@ -104,15 +88,6 @@ public class BasePersistenceAdapter<
                 updateFunction.accept(domain, entity);
             }
         }
-    }
-
-    private D updateAndSaveEntity(D domain, E entity) {
-        mapper.updateEntityFromDomain(domain, entity);
-        syncComplexProperties(domain, entity);
-
-        var savedEntity = repository.save(entity);
-
-        return mapper.toDomain(savedEntity);
     }
 
     private E loadEntity(UUID id) {
