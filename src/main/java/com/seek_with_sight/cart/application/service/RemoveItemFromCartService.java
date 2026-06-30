@@ -21,6 +21,6 @@ public class RemoveItemFromCartService implements RemoveItemFromCartUseCase {
 
         cart.removeItem(productId);
 
-        cartRepositoryPort.update(cart);
+        cartRepositoryPort.save(cart);
     }
 }

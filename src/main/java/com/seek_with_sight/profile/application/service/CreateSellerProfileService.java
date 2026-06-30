@@ -33,7 +33,7 @@ public class CreateSellerProfileService implements CreateSellerProfileUseCase {
         profile.setUser(user);
         profile.setStatus(SellerStatus.PENDING_REVIEW);
 
-        repo.create(profile);
+        repo.save(profile);
 
         return user;
     }

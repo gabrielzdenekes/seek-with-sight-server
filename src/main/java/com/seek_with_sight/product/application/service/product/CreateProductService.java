@@ -29,7 +29,7 @@ public class CreateProductService implements CreateProductUseCase {
         setCategory(product, command.categoryId());
         setBrand(product, command.brandId());
 
-        var createdProduct = productRepo.create(product);
+        var createdProduct = productRepo.save(product);
 
         publisher.publish(
                 new ProductCreatedEvent(createdProduct.getId())

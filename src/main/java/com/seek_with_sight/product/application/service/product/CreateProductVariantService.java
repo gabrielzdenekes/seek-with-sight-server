@@ -25,7 +25,7 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
 
         product.addVariant(productVariant);
 
-        productRepo.update(product);
+        productRepo.save(product);
 
         var updatedProduct = productRepo.findById(productId).get();
 

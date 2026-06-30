@@ -56,7 +56,7 @@ public class CreateUserUseCaseTests {
 
         when(roleRepository.findByNameIn(any())).thenReturn(List.of(role));
         when(passwordEncoderPort.encode(createCommand.rawPassword())).thenReturn(encodedPassword);
-        when(userRepository.create(any(User.class))).thenAnswer(i -> i.getArgument(0));
+        when(userRepository.save(any(User.class))).thenAnswer(i -> i.getArgument(0));
 
         var roles = List.of(RoleName.ROLE_CUSTOMER);
         var createdUser = createUserService.createUser(createCommand, roles);

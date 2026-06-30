@@ -20,6 +20,6 @@ public class RemoveProductVariantService implements RemoveProductVariantUseCase 
 
         product.removeVariant(variantId);
 
-        productsRepo.update(product);
+        productsRepo.save(product);
     }
 }

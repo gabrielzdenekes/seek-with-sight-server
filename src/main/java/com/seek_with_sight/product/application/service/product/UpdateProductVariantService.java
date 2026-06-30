@@ -29,7 +29,7 @@ public class UpdateProductVariantService implements UpdateProductVariantUseCase 
 
         mapper.updateVariant(command, variant);
 
-        productsRepo.update(product);
+        productsRepo.save(product);
 
         return variant;
     }

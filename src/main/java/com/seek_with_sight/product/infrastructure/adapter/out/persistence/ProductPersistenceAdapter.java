@@ -52,8 +52,8 @@ public class ProductPersistenceAdapter
     }
 
     @Override
-    public Product update(Product domain) {
-        var updatedProduct = super.update(domain);
+    public Product save(Product domain) {
+        var updatedProduct = super.save(domain);
 
         entityManager.flush();
 

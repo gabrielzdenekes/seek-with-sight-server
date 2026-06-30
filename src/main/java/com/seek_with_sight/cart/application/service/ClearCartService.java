@@ -19,6 +19,6 @@ public class ClearCartService implements ClearCartUseCase {
 
         cart.clear();
 
-        cartRepo.update(cart);
+        cartRepo.save(cart);
     }
 }

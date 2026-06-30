@@ -21,7 +21,7 @@ public class FindCartByUserEmailService implements FindCartForCurrentUserUseCase
 
                     cart.setUser(user);
 
-                    return cartRepo.create(cart);
+                    return cartRepo.save(cart);
                 });
     }
 }

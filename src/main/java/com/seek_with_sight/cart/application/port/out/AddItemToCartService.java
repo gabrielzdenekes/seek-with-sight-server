@@ -34,6 +34,6 @@ public class AddItemToCartService implements AddItemToCartUseCase {
 
         cart.addItem(cartItem);
 
-        cartRepo.update(cart);
+        cartRepo.save(cart);
     }
 }

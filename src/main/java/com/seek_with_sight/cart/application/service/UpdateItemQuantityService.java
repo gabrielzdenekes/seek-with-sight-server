@@ -19,6 +19,6 @@ public class UpdateItemQuantityService implements UpdateItemQuantityUseCase {
 
         cart.updateItemQuantity(productId, quantity);
 
-        cartRepo.update(cart);
+        cartRepo.save(cart);
     }
 }

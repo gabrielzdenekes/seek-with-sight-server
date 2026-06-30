@@ -26,8 +26,8 @@ public class CartPersistenceAdapter
             cacheNames = CacheNames.CART,
             key = "#cart.user.id"
     )
-    public Cart update(Cart cart) {
-        return super.update(cart);
+    public Cart save(Cart cart) {
+        return super.save(cart);
     }
 
     @Override
