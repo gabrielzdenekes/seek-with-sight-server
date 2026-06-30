@@ -5,7 +5,7 @@ import com.seek_with_sight.authentication.domain.model.JwtLoginData;
 import com.seek_with_sight.authentication.application.port.in.RefreshTokenUseCase;
 import com.seek_with_sight.authentication.application.port.out.JwtTokenPort;
 import com.seek_with_sight.authentication.application.port.out.RefreshTokenPort;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,13 +13,13 @@ import org.springframework.util.StringUtils;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 @Slf4j
 public class RefreshTokenService implements RefreshTokenUseCase {
     private final RefreshTokenPort refreshTokenPort;
     private final JwtTokenPort jwtTokenPort;
 
     @Override
+    @Transactional
     public JwtLoginData refreshToken(String refreshToken) {
         log.info("Refresh attempt started");
 

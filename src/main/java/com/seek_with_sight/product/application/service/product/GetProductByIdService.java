@@ -4,6 +4,7 @@ import com.seek_with_sight.product.application.port.in.product.GetProductByIdUse
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.model.Product;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -12,6 +13,7 @@ public class GetProductByIdService implements GetProductByIdUseCase {
     private final ProductRepositoryPort productRepo;
 
     @Override
+    @Transactional(readOnly = true)
     public Product getById(UUID id) {
         return productRepo
                 .findById(id)

@@ -8,7 +8,7 @@ import com.seek_with_sight.user.application.port.in.CreateUserUseCase;
 import com.seek_with_sight.authorization.application.port.out.RoleRepositoryPort;
 import com.seek_with_sight.authentication.application.port.out.PasswordEncoderPort;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

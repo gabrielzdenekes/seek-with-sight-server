@@ -6,7 +6,7 @@ import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import com.seek_with_sight.cart.domain.model.CartItem;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

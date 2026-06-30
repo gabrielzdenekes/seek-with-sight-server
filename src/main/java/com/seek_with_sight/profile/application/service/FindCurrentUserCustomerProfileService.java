@@ -6,6 +6,7 @@ import com.seek_with_sight.profile.domain.model.CustomerProfile;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 
 @AllArgsConstructor
 @Slf4j
@@ -14,6 +15,7 @@ public class FindCurrentUserCustomerProfileService implements FindCurrentUserCus
     private final CustomerProfileRepositoryPort repo;
 
     @Override
+    @Transactional(readOnly = true)
     public CustomerProfile find() {
         var user = currentUserPort.getCurrentUser();
 

@@ -3,7 +3,7 @@ package com.seek_with_sight.cart.application.service;
 import com.seek_with_sight.cart.application.port.in.ClearCartUseCase;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor

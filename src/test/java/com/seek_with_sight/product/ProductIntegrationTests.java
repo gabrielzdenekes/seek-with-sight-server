@@ -7,7 +7,7 @@ import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.P
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
