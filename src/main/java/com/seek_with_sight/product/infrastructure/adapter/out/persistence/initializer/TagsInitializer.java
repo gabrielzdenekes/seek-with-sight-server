@@ -4,7 +4,7 @@ import com.seek_with_sight.product.domain.model.Tag;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.TagEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.TagJpaRepository;
 import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;

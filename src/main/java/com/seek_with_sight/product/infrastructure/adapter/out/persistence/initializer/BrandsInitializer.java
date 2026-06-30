@@ -2,7 +2,7 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence.initi
 
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.BrandEntity;
 import jakarta.persistence.EntityManager;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import tools.jackson.databind.ObjectMapper;
 import com.seek_with_sight.product.domain.model.Brand;

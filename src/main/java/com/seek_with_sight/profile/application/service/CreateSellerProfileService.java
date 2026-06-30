@@ -10,6 +10,7 @@ import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.profile.application.port.in.CreateSellerProfileUseCase;
 import com.seek_with_sight.profile.application.port.in.command.CreateSellerProfileCommand;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class CreateSellerProfileService implements CreateSellerProfileUseCase {
     private final SellerProfileRepositoryPort repo;
 
     @Override
+    @Transactional
     public User createSellerProfile(CreateSellerProfileCommand createSellerProfileCommand) {
         var createUserCommand = new CreateUserCommand(
                 createSellerProfileCommand.email(),
@@ -33,7 +35,7 @@ public class CreateSellerProfileService implements CreateSellerProfileUseCase {
         profile.setUser(user);
         profile.setStatus(SellerStatus.PENDING_REVIEW);
 
-        repo.create(profile);
+        repo.save(profile);
 
         return user;
     }

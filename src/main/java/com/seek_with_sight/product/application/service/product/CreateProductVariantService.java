@@ -5,7 +5,7 @@ import com.seek_with_sight.product.application.port.in.product.command.CreatePro
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import com.seek_with_sight.product.domain.model.ProductVariant;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
@@ -25,7 +25,7 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
 
         product.addVariant(productVariant);
 
-        productRepo.update(product);
+        productRepo.save(product);
 
         var updatedProduct = productRepo.findById(productId).get();
 

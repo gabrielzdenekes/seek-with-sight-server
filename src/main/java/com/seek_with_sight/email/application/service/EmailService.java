@@ -12,7 +12,7 @@ import com.seek_with_sight.email.application.port.out.EmailSenderPort;
 import com.seek_with_sight.email.application.port.out.VerificationTokenRepositoryPort;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.shared.infrastructure.config.application.ApplicationProperties;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -47,13 +47,14 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
 
         var user = userRepository.findById(token.getUserId()).orElseThrow();
         user.setEmailVerified(true);
-        userRepository.update(user);
+        userRepository.save(user);
 
         token.setUsed(true);
-        tokenRepository.update(token);
+        tokenRepository.save(token);
     }
 
     @Override
+    @Transactional
     public void resend(String email) {
         var user = userRepository.findByEmailIgnoreCase(email)
                 .orElseThrow();
@@ -86,6 +87,6 @@ public class EmailService implements VerifyEmailUseCase, ResendVerificationUseCa
         token.setExpiresAt(Instant.now().plus(24, ChronoUnit.HOURS));
         token.setUserId(user.getId());
 
-        return tokenRepository.create(token);
+        return tokenRepository.save(token);
     }
 }

@@ -25,19 +25,15 @@ public class BasePersistenceAdapter<
     private final Supplier<E> entityFactory;
 
     @Override
-    public D create(D domain) {
-        var entity = entityFactory.get();
+    public D save(D domain) {
+        var entity = loadEntity(domain.getId());
 
-        return updateAndSaveEntity(domain, entity);
-    }
+        mapper.updateEntityFromDomain(domain, entity);
+        syncComplexProperties(domain, entity);
 
-    @Override
-    public D update(D domain) {
-        var entity = repository
-                .findById(domain.getId())
-                .orElseThrow();
+        var savedEntity = repository.save(entity);
 
-        return updateAndSaveEntity(domain, entity);
+        return mapper.toDomain(savedEntity);
     }
 
     protected void syncComplexProperties(D domain, E entity) {
@@ -94,12 +90,13 @@ public class BasePersistenceAdapter<
         }
     }
 
-    private D updateAndSaveEntity(D domain, E entity) {
-        mapper.updateEntityFromDomain(domain, entity);
-        syncComplexProperties(domain, entity);
+    private E loadEntity(UUID id) {
+        if (id == null) {
+            return entityFactory.get();
+        }
 
-        var savedEntity = repository.save(entity);
-
-        return mapper.toDomain(savedEntity);
+        return repository
+                .findById(id)
+                .orElseThrow();
     }
 }

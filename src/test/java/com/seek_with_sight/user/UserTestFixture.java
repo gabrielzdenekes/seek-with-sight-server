@@ -39,6 +39,6 @@ public class UserTestFixture {
 
         user.setEmailVerified(true);
 
-        userRepository.update(user);
+        userRepository.save(user);
     }
 }

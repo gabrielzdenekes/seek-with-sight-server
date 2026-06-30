@@ -3,7 +3,7 @@ package com.seek_with_sight.product.application.service.product;
 import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
@@ -20,6 +20,6 @@ public class RemoveProductVariantService implements RemoveProductVariantUseCase 
 
         product.removeVariant(variantId);
 
-        productsRepo.update(product);
+        productsRepo.save(product);
     }
 }

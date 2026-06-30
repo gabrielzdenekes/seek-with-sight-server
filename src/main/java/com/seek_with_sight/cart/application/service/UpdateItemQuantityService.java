@@ -4,6 +4,7 @@ import com.seek_with_sight.cart.application.port.in.UpdateItemQuantityUseCase;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -13,12 +14,13 @@ public class UpdateItemQuantityService implements UpdateItemQuantityUseCase {
     private final CurrentUserPort currentUserPort;
 
     @Override
+    @Transactional
     public void update(UUID productId, int quantity) {
         var user = currentUserPort.getCurrentUser();
         var cart = cartRepo.findWithItemsByUserId(user.getId()).get();
 
         cart.updateItemQuantity(productId, quantity);
 
-        cartRepo.update(cart);
+        cartRepo.save(cart);
     }
 }

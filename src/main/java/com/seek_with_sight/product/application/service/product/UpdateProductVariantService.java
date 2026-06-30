@@ -5,7 +5,7 @@ import com.seek_with_sight.product.application.port.in.product.command.UpdatePro
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import com.seek_with_sight.product.domain.model.ProductVariant;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
@@ -29,7 +29,7 @@ public class UpdateProductVariantService implements UpdateProductVariantUseCase 
 
         mapper.updateVariant(command, variant);
 
-        productsRepo.update(product);
+        productsRepo.save(product);
 
         return variant;
     }

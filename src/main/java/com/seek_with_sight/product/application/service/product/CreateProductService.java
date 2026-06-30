@@ -8,7 +8,7 @@ import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.ProductCreatedEvent;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.util.UUID;
@@ -29,7 +29,7 @@ public class CreateProductService implements CreateProductUseCase {
         setCategory(product, command.categoryId());
         setBrand(product, command.brandId());
 
-        var createdProduct = productRepo.create(product);
+        var createdProduct = productRepo.save(product);
 
         publisher.publish(
                 new ProductCreatedEvent(createdProduct.getId())

@@ -14,6 +14,6 @@ public class CreateTagService implements CreateTagUseCase {
     @Override
     public Tag createTag(CreateTagCommand command) {
         var tag = mapper.fromCreateCommand(command);
-        return repository.create(tag);
+        return repository.save(tag);
     }
 }

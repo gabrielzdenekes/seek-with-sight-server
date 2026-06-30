@@ -9,6 +9,7 @@ import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.profile.application.port.in.CreateCustomerProfileUseCase;
 import com.seek_with_sight.profile.application.port.in.command.CreateCustomerProfileCommand;
 import lombok.AllArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class CreateCustomerProfileService implements CreateCustomerProfileUseCas
     private final CustomerProfileRepositoryPort repo;
 
     @Override
+    @Transactional
     public User createCustomerProfile(CreateCustomerProfileCommand createCustomerProfileCommand) {
         var createUserCommand = new CreateUserCommand(
                 createCustomerProfileCommand.email(),
@@ -31,7 +33,7 @@ public class CreateCustomerProfileService implements CreateCustomerProfileUseCas
 
         profile.setUser(user);
 
-        repo.create(profile);
+        repo.save(profile);
 
         return user;
     }

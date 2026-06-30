@@ -9,16 +9,15 @@ import com.seek_with_sight.authentication.application.port.in.LoginUseCase;
 import com.seek_with_sight.authentication.application.port.out.JwtTokenPort;
 import com.seek_with_sight.authentication.application.port.out.RefreshTokenPort;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 @Slf4j
 public class LoginService implements LoginUseCase {
     private final UserRepositoryPort userRepository;
@@ -27,6 +26,7 @@ public class LoginService implements LoginUseCase {
     private final JwtTokenPort jwtTokenPort;
 
     @Override
+    @Transactional
     public JwtLoginData login(LoginCommand loginCommand) {
         log.info("Login attempt for email={}", loginCommand.email());
 
@@ -71,7 +71,7 @@ public class LoginService implements LoginUseCase {
 
                     newRefreshToken.setUser(user);
 
-                    return refreshTokenPort.create(newRefreshToken);
+                    return refreshTokenPort.save(newRefreshToken);
                 });
 
         var refreshTokenString = jwtLoginData.getRefreshToken();
@@ -81,6 +81,6 @@ public class LoginService implements LoginUseCase {
         refreshToken.setExpiresAt(expiresAt);
 
         log.info("Refresh token persisted for userId={}", user.getId());
-        refreshTokenPort.update(refreshToken);
+        refreshTokenPort.save(refreshToken);
     }
 }
