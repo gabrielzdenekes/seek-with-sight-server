@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
+import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.CascadeType;

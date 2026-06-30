@@ -25,7 +25,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.TagPer
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.AttributePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.BrandPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ImagePersistenceMapper;
+import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagsCircularPersistenceMapper;
