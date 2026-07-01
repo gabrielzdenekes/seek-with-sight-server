@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.domain.model;
+package com.seek_with_sight.media.domain.model;
 
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 

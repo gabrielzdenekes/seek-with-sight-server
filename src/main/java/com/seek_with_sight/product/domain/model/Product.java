@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.domain.model;
 
+import com.seek_with_sight.media.domain.model.Image;
 import com.seek_with_sight.product.domain.exception.ProductVariantNotFoundException;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
