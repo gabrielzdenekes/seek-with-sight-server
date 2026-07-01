@@ -7,8 +7,6 @@ import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePers
 import com.seek_with_sight.media.infrastructure.out.persistence.repository.ImageJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 
-import java.util.function.Supplier;
-
 public class ImagePersistenceAdapter
     extends BasePersistenceAdapter<
         Image,

@@ -15,7 +15,7 @@ public class ImageEntity extends BaseEntity {
     @Column(length = 512)
     private String key;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false)
     private String originalFilename;
 
     @Column(nullable = false, length = 100)
