@@ -1,8 +1,8 @@
 package com.seek_with_sight.media.application.port.in;
 
-import com.seek_with_sight.media.application.port.in.command.ImageUploadResult;
 import com.seek_with_sight.media.application.port.in.command.UploadImageCommand;
+import com.seek_with_sight.media.domain.model.Image;
 
 public interface UploadImageUseCase {
-    ImageUploadResult upload(UploadImageCommand command);
+    Image upload(UploadImageCommand command);
 }

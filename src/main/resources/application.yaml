@@ -23,9 +23,6 @@ spring:
         expire-after-write: 10 # In minutes
         entry-ttl: 1 # In hours
 
-    storage:
-      root-dir: uploads
-
   datasource:
     url: ${SWS_DB_URL}
     username: ${POSTGRES_USER}

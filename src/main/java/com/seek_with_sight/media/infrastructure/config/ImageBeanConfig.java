@@ -26,12 +26,14 @@ public class ImageBeanConfig {
     }
 
     @Bean
-    public UploadImageUseCase uploadImageUseCase(FileStoragePort fileStoragePort) {
-        return new UploadImageService(fileStoragePort);
+    public UploadImageUseCase uploadImageUseCase(
+            FileStoragePort fileStoragePort,
+            ImageRepositoryPort repo) {
+        return new UploadImageService(fileStoragePort, repo);
     }
 
     @Bean
-    @Profile("development")
+    @Profile("dev")
     public FileStoragePort fileStoragePort(FileSystemStorageProperties props) {
         return new FileSystemStorageAdapter(props);
     }

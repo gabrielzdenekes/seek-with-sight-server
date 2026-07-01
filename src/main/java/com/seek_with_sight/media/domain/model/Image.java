@@ -5,17 +5,13 @@ import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 public class Image extends BaseDomainModel {
     private String key;
 
-    private String originalFileName;
+    private String originalFilename;
 
     private String contentType;
 
     private long sizeBytes;
 
     private String url;
-
-    private int width;
-
-    private int height;
 
     public String getKey() {
         return key;
@@ -25,12 +21,12 @@ public class Image extends BaseDomainModel {
         this.key = key;
     }
 
-    public String getOriginalFileName() {
-        return originalFileName;
+    public String getOriginalFilename() {
+        return originalFilename;
     }
 
-    public void setOriginalFileName(String originalFileName) {
-        this.originalFileName = originalFileName;
+    public void setOriginalFilename(String originalFilename) {
+        this.originalFilename = originalFilename;
     }
 
     public String getContentType() {
@@ -55,21 +51,5 @@ public class Image extends BaseDomainModel {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
     }
 }

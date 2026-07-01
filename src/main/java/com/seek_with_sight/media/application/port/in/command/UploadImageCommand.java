@@ -6,6 +6,7 @@ public record UploadImageCommand(
         InputStream content,
         String originalFilename,
         String contentType,
-        long sizeBytes
+        long sizeBytes,
+        String namespace
 ) {
 }

@@ -11,8 +11,10 @@ import java.nio.file.StandardCopyOption;
 
 public class FileSystemStorageAdapter implements FileStoragePort {
     private final Path rootLocation;
+    private final FileSystemStorageProperties props;
 
     public FileSystemStorageAdapter(FileSystemStorageProperties props) {
+        this.props = props;
         rootLocation = Path.of(props.rootDir()).toAbsolutePath().normalize();
 
         try {
@@ -23,17 +25,20 @@ public class FileSystemStorageAdapter implements FileStoragePort {
     }
 
     @Override
-    public String store(InputStream content, String key, String contentType, long sizeBytes) {
+    public void store(InputStream content, String key, String contentType, long sizeBytes) {
         var targetPath = resolveSafely(key);
 
         try {
             Files.createDirectories(targetPath.getParent());
             Files.copy(content, targetPath, StandardCopyOption.REPLACE_EXISTING);
-
-            return key;
         } catch (IOException e) {
             throw new ImageStorageException("Failed to store file locally: " + key, e);
         }
+    }
+
+    @Override
+    public String resolveUrl(String key) {
+        return props.publicBaseUrl() + "/" + key;
     }
 
     private Path resolveSafely(String key) {
