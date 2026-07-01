@@ -3,66 +3,50 @@ package com.seek_with_sight.media.domain.model;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 public class Image extends BaseDomainModel {
+    private String key;
+
+    private String originalFileName;
+
+    private String contentType;
+
+    private long sizeBytes;
+
     private String url;
 
-    private String thumbnailUrl;
+    private int width;
 
-    private String altText;
+    private int height;
 
-    private Integer sortOrder;
-
-    private Boolean isPrimary;
-
-    private Integer width;
-
-    private Integer height;
-
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
+    public String getKey() {
+        return key;
     }
 
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
+    public void setKey(String key) {
+        this.key = key;
     }
 
-    public String getAltText() {
-        return altText;
+    public String getOriginalFileName() {
+        return originalFileName;
     }
 
-    public void setAltText(String altText) {
-        this.altText = altText;
+    public void setOriginalFileName(String originalFileName) {
+        this.originalFileName = originalFileName;
     }
 
-    public Integer getSortOrder() {
-        return sortOrder;
+    public String getContentType() {
+        return contentType;
     }
 
-    public void setSortOrder(Integer sortOrder) {
-        this.sortOrder = sortOrder;
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
     }
 
-    public Boolean getIsPrimary() {
-        return isPrimary;
+    public long getSizeBytes() {
+        return sizeBytes;
     }
 
-    public void setIsPrimary(Boolean primary) {
-        isPrimary = primary;
-    }
-
-    public Integer getWidth() {
-        return width;
-    }
-
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
-
-    public Integer getHeight() {
-        return height;
-    }
-
-    public void setHeight(Integer height) {
-        this.height = height;
+    public void setSizeBytes(long sizeBytes) {
+        this.sizeBytes = sizeBytes;
     }
 
     public String getUrl() {
@@ -71,5 +55,21 @@ public class Image extends BaseDomainModel {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 }

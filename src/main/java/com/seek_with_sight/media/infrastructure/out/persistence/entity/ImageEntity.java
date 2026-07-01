@@ -28,8 +28,8 @@ public class ImageEntity extends BaseEntity {
     private String url;
 
     @Column
-    private Integer width;
+    private int width;
 
     @Column
-    private Integer height;
+    private int height;
 }
