@@ -113,15 +113,18 @@ public class GlobalExceptionHandler {
     ) {
         var status = HttpStatus.INTERNAL_SERVER_ERROR;
         Object data = null;
+        var message = getLocalizedErrorMessage("generic.error");
 
         if (includeStacktrace) {
             data = Arrays.stream(ex.getStackTrace())
                     .map(StackTraceElement::toString)
                     .toArray(String[]::new);
+
+            message = ex.getMessage();
         }
 
         var errorResponse = ApiErrorResponse.create(
-                getLocalizedErrorMessage("generic.error"),
+                message,
                 data,
                 ErrorType.INTERNAL.name(),
                 status

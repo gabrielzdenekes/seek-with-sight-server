@@ -118,9 +118,10 @@ public class ProductBeanConfig {
     @Bean
     public CreateProductVariantUseCase createProductVariantUseCase(
             ProductRepositoryPort repo,
-            ProductAppMapper mapper
+            ProductAppMapper mapper,
+            ImageRepositoryPort imageRepo
     ) {
-        return new CreateProductVariantService(repo, mapper);
+        return new CreateProductVariantService(repo, mapper, imageRepo);
     }
 
     @Bean
