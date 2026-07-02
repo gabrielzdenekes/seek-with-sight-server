@@ -105,8 +105,7 @@ public record ProductRequest(
         @NotNull(message = "{product.category.required}")
         UUID brandId,
 
-        @Valid
-        List<@Valid ProductImageRequest> images,
+        List<UUID> imageIds,
 
         @Valid
         List<@Valid ProductAttributeRequest> attributes,

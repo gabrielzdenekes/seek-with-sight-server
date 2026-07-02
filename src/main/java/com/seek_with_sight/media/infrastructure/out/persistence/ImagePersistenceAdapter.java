@@ -7,6 +7,9 @@ import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePers
 import com.seek_with_sight.media.infrastructure.out.persistence.repository.ImageJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 
+import java.util.List;
+import java.util.UUID;
+
 public class ImagePersistenceAdapter
     extends BasePersistenceAdapter<
         Image,
@@ -17,5 +20,13 @@ public class ImagePersistenceAdapter
 
     public ImagePersistenceAdapter(ImageJpaRepository repository, ImagePersistenceMapper mapper) {
         super(repository, mapper, ImageEntity::new);
+    }
+
+    @Override
+    public List<Image> findAllById(Iterable<UUID> ids) {
+        return repository.findAllById(ids)
+                .stream()
+                .map(mapper::toDomain)
+                .toList();
     }
 }

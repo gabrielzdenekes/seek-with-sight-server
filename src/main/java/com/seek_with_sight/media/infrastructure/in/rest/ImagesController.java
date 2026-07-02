@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.UncheckedIOException;
 
 @RestController
-@RequestMapping("/api/images")
+@RequestMapping("/api/imageIds")
 @RequiredArgsConstructor
 public class ImagesController {
     private final UploadImageUseCase uploadImageUseCase;

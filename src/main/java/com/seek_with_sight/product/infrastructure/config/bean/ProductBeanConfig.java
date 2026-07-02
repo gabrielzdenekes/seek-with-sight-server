@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.infrastructure.config.bean;
 
+import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
@@ -81,14 +82,16 @@ public class ProductBeanConfig {
             CategoryRepositoryPort categoryRepo,
             BrandRepositoryPort brandRepository,
             ProductAppMapper mapper,
-            DomainEventPublisher publisher
+            DomainEventPublisher publisher,
+            ImageRepositoryPort imageRepo
     ) {
         return new CreateProductService(
                 productRepo,
                 categoryRepo,
                 brandRepository,
                 mapper,
-                publisher);
+                publisher,
+                imageRepo);
     }
 
     @Bean

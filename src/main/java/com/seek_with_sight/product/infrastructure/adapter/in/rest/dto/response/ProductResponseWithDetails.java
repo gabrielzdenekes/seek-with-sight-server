@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response;
 
+import com.seek_with_sight.media.infrastructure.in.rest.dto.ImageResponse;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +15,7 @@ public class ProductResponseWithDetails extends ProductResponse {
 
     private ProductSeoResponse seo;
 
-    private List<ProductImageResponse> images;
+    private List<ImageResponse> images;
 
     private List<ProductAttributeResponse> attributes;
 

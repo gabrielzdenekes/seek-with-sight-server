@@ -1,9 +1,7 @@
 package com.seek_with_sight.product;
 
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductImageRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductImageResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
@@ -49,7 +47,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         4 select queries are made:
          - for the product
          - for the tags
-         - for the images
+         - for the imageIds
          - for product variants
          */
         sqlCounterUtils.assertSelectQueriesCount(
@@ -103,7 +101,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
 
     private void assertImages(ProductResponseWithDetails result, ProductRequest request) {
         var actualImages = result.getImages().toArray(ProductImageResponse[]::new);
-        var expectedImages = request.images().toArray(ProductImageRequest[]::new);
+        var expectedImages = request.imageIds().toArray(ProductImageRequest[]::new);
 
         assertThat(actualImages.length).isEqualTo(expectedImages.length);
 
