@@ -55,3 +55,7 @@ server:
   error:
     include-stacktrace: never
     include-message: never
+
+app:
+  errors:
+    include-stacktrace: false

@@ -26,6 +26,9 @@ logging:
 app:
   base-url: "https://localhost:8443"
 
+  errors:
+    include-stacktrace: true
+
   storage:
     root-dir: uploads
     public-base-url: ${app.base-url}/${app.storage.root-dir}
