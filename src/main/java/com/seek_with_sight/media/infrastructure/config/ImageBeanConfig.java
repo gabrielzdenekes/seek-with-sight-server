@@ -9,6 +9,7 @@ import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePers
 import com.seek_with_sight.media.infrastructure.out.persistence.repository.ImageJpaRepository;
 import com.seek_with_sight.media.infrastructure.out.storage.FileSystemStorageAdapter;
 import com.seek_with_sight.media.infrastructure.out.storage.FileSystemStorageProperties;
+import com.seek_with_sight.shared.infrastructure.url.UrlResolver;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +35,9 @@ public class ImageBeanConfig {
 
     @Bean
     @Profile("dev")
-    public FileStoragePort fileStoragePort(FileSystemStorageProperties props) {
-        return new FileSystemStorageAdapter(props);
+    public FileStoragePort fileStoragePort(
+            FileSystemStorageProperties props,
+            UrlResolver urlResolver) {
+        return new FileSystemStorageAdapter(props, urlResolver);
     }
 }

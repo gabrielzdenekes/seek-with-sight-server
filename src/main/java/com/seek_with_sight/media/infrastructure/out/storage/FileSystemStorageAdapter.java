@@ -2,31 +2,35 @@ package com.seek_with_sight.media.infrastructure.out.storage;
 
 import com.seek_with_sight.media.application.port.out.FileStoragePort;
 import com.seek_with_sight.media.application.service.exception.ImageStorageException;
+import com.seek_with_sight.shared.infrastructure.url.UrlResolver;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 
 public class FileSystemStorageAdapter implements FileStoragePort {
-    private final Path rootLocation;
-    private final FileSystemStorageProperties props;
+    private final FileSystemStorageProperties properties;
+    private final UrlResolver urlResolver;
 
-    public FileSystemStorageAdapter(FileSystemStorageProperties props) {
-        this.props = props;
-        rootLocation = Path.of(props.rootDir()).toAbsolutePath().normalize();
+    public FileSystemStorageAdapter(
+            FileSystemStorageProperties properties,
+            UrlResolver urlResolver
+    ) {
+
+        this.properties = properties;
+        this.urlResolver = urlResolver;
 
         try {
-            Files.createDirectories(this.rootLocation);
+            Files.createDirectories(properties.getRootLocation());
         } catch (IOException e) {
             throw new ImageStorageException("Could not initialize local storage directory", e);
         }
     }
 
     @Override
-    public void store(InputStream content, String key, String contentType, long sizeBytes) {
-        var targetPath = resolveSafely(key);
+    public void store(InputStream content, String namespace, String key, String contentType, long sizeBytes) {
+        var targetPath = urlResolver.resolveFilePath(properties.getRootLocation(), key, namespace);
 
         try {
             Files.createDirectories(targetPath.getParent());
@@ -37,17 +41,11 @@ public class FileSystemStorageAdapter implements FileStoragePort {
     }
 
     @Override
-    public String resolveUrl(String key) {
-        return props.publicBaseUrl() + "/" + key;
-    }
-
-    private Path resolveSafely(String key) {
-        var targetPath = rootLocation.resolve(key).normalize();
-
-        if (!targetPath.startsWith(rootLocation)) {
-            throw new ImageStorageException("Rejected storage key outside of root directory: " + key, null);
-        }
-
-        return targetPath;
+    public String resolveUrl(String key, String namespace) {
+        return urlResolver.resolveHttpUrl(
+                properties.publicBaseUrl(),
+                namespace,
+                key
+        );
     }
 }

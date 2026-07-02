@@ -12,19 +12,27 @@ import java.util.UUID;
 
 @RequiredArgsConstructor
 public class UploadImageService implements UploadImageUseCase {
+    private static final String IMAGES_FOLDER = "images";
+
     private final FileStoragePort fileStorage;
     private final ImageRepositoryPort repo;
 
     @Override
     @Transactional
     public Image upload(UploadImageCommand command) {
-        var key = command.namespace() + UUID.randomUUID() + extractExtension(command.originalFilename());
+        var key = UUID.randomUUID() + extractExtension(command.originalFilename());
 
-        fileStorage.store(command.content(), key, command.contentType(), command.sizeBytes());
+        fileStorage.store(
+                command.content(),
+                command.namespace(),
+                key,
+                command.contentType(),
+                command.sizeBytes()
+        );
 
         var image = new Image();
 
-        image.setUrl(fileStorage.resolveUrl(key));
+        image.setUrl(fileStorage.resolveUrl(key, command.namespace()));
         image.setKey(key);
         image.setContentType(command.contentType());
         image.setSizeBytes(command.sizeBytes());
