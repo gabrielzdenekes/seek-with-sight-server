@@ -5,13 +5,11 @@ import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.entity.Ca
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
-import org.mapstruct.BeanMapping;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
 
 @Mapper(
         componentModel = "spring",

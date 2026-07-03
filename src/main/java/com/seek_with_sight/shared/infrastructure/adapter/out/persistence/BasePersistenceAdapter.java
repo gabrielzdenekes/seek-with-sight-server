@@ -64,9 +64,9 @@ public class BasePersistenceAdapter<
         for (var domain : domainModels) {
             // If the there is a new domain object without ID, we need to create new entity
             if (domain.getId() == null || !currentEntitiesMap.containsKey(domain.getId())) {
-                    E newEntity = currentMapper.toEntity(domain, new CycleAvoidingMappingContext());
+                E newEntity = currentMapper.toEntity(domain, new CycleAvoidingMappingContext());
 
-                    entities.add(newEntity);
+                entities.add(newEntity);
             } else {
                 // Update entity properties
                 currentMapper.toEntity(domain, new CycleAvoidingMappingContext());
