@@ -1,5 +1,6 @@
 package com.seek_with_sight.product;
 
+import com.seek_with_sight.media.infrastructure.in.rest.dto.ImageResponse;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
@@ -8,6 +9,8 @@ import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
 import org.springframework.transaction.annotation.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.UUID;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -100,22 +103,16 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
     }
 
     private void assertImages(ProductResponseWithDetails result, ProductRequest request) {
-        var actualImages = result.getImages().toArray(ProductImageResponse[]::new);
-        var expectedImages = request.imageIds().toArray(ProductImageRequest[]::new);
+        var actualImages = result.getImages().toArray(ImageResponse[]::new);
+        var expectedImages = request.imageIds().toArray(UUID[]::new);
 
         assertThat(actualImages.length).isEqualTo(expectedImages.length);
 
         for (int i = 0; i < expectedImages.length; i++) {
-            var actImg = actualImages[i];
-            var expImg = expectedImages[i];
+            var actImgId = actualImages[i].id();
+            var expImgId = expectedImages[i];
 
-            assertThat(actImg.id()).isNotNull();
-            assertThat(actImg.url()).isEqualTo(expImg.url());
-            assertThat(actImg.altText()).isEqualTo(expImg.altText());
-            assertThat(actImg.width()).isEqualTo(expImg.width());
-            assertThat(actImg.height()).isEqualTo(expImg.height());
-            assertThat(actImg.isPrimary()).isEqualTo(expImg.isPrimary());
-            assertThat(actImg.sortOrder()).isEqualTo(expImg.sortOrder());
+            assertThat(actImgId).isEqualTo(expImgId);
         }
     }
 }

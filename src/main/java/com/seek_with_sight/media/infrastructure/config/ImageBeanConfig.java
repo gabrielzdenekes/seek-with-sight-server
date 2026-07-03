@@ -34,7 +34,7 @@ public class ImageBeanConfig {
     }
 
     @Bean
-    @Profile("dev")
+    @Profile({ "dev", "test" })
     public FileStoragePort fileStoragePort(
             FileSystemStorageProperties props,
             UrlResolver urlResolver) {
