@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper;
+package com.seek_with_sight.shared.infrastructure.adapter.out.persistence;
 
 import java.util.IdentityHashMap;
 

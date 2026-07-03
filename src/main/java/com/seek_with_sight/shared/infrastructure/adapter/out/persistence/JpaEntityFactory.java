@@ -1,4 +1,4 @@
-package com.seek_with_sight.shared.infrastructure.mapper;
+package com.seek_with_sight.shared.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 import jakarta.persistence.EntityManager;

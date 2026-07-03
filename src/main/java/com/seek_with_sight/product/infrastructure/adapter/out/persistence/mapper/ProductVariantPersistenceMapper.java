@@ -3,7 +3,7 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence.mappe
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
-import com.seek_with_sight.shared.infrastructure.mapper.JpaEntityFactory;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
