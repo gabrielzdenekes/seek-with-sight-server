@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -43,7 +42,7 @@ public class BasePersistenceAdapter<
             List<E> entities,
             List<D> domainModels,
             Class<E> entityClass,
-            BiConsumer<D, E> updateFunction,
+            PersistenceMapper<D, E> currentMapper,
             EntityManager entityManager) {
 
         if (domainModels == null) {
@@ -63,29 +62,14 @@ public class BasePersistenceAdapter<
         entities.removeIf(e -> !domainIds.contains(e.getId()));
 
         for (var domain : domainModels) {
-            // TODO: Use mapper.toEntity()
             // If the there is a new domain object without ID, we need to create new entity
-            if (domain.getId() == null) {
-                try {
-                    E newEntity = entityClass.getDeclaredConstructor().newInstance();
-
-                    updateFunction.accept(domain, newEntity);
+            if (domain.getId() == null || !currentEntitiesMap.containsKey(domain.getId())) {
+                    E newEntity = currentMapper.toEntity(domain, new CycleAvoidingMappingContext());
 
                     entities.add(newEntity);
-                } catch (Exception e) {
-                    throw new RuntimeException(
-                            "Failed to create new entity instance for " + entityClass.getSimpleName(), e
-                    );
-                }
-            } else if (!currentEntitiesMap.containsKey(domain.getId())) {
-                // Add new entity that exist in domain tags
-                var entity = entityManager.getReference(entityClass, domain.getId());
-                entities.add(entity);
             } else {
                 // Update entity properties
-                var entity = entityManager.getReference(entityClass, domain.getId());
-
-                updateFunction.accept(domain, entity);
+                currentMapper.toEntity(domain, new CycleAvoidingMappingContext());
             }
         }
     }

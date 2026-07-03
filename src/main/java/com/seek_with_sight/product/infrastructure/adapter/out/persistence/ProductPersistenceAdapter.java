@@ -68,8 +68,7 @@ public class ProductPersistenceAdapter
                 entity.getTags(),
                 domain.getTags(),
                 TagEntity.class,
-                (a, b) ->
-                        tagsMapper.updateEntityFromDomain(a, b, new CycleAvoidingMappingContext()),
+                tagsMapper,
                 entityManager
         );
 
@@ -77,8 +76,7 @@ public class ProductPersistenceAdapter
                 entity.getImages(),
                 domain.getImages(),
                 ImageEntity.class,
-                (a, b) ->
-                        imagesMapper.updateEntityFromDomain(a, b, new CycleAvoidingMappingContext()),
+                imagesMapper,
                 entityManager
         );
 
@@ -86,8 +84,7 @@ public class ProductPersistenceAdapter
                 entity.getAttributes(),
                 domain.getAttributes(),
                 AttributeEntity.class,
-                (a, b) ->
-                        attributesMapper.updateEntityFromDomain(a, b, new CycleAvoidingMappingContext()),
+                attributesMapper,
                 entityManager
         );
 
@@ -95,8 +92,7 @@ public class ProductPersistenceAdapter
                 entity.getVariants(),
                 domain.getVariants(),
                 ProductVariantEntity.class,
-                (a, b) ->
-                        variantsMapper.updateEntityFromDomain(a, b, new CycleAvoidingMappingContext()),
+                variantsMapper,
                 entityManager
         );
     }
