@@ -1,7 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper;
 
-import com.seek_with_sight.product.domain.model.Attribute;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.AttributeEntity;
+import com.seek_with_sight.product.domain.model.Tag;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.TagEntity;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
@@ -15,16 +15,16 @@ import org.mapstruct.MappingTarget;
         uses = { JpaEntityFactory.class },
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
-public interface AttributePersistenceMapper extends PersistenceMapper<Attribute, AttributeEntity> {
+public interface TagPersistenceMapper extends PersistenceMapper<Tag, TagEntity> {
     @Override
     void updateEntityFromDomain(
-            Attribute domain,
-            @MappingTarget AttributeEntity entity,
+            Tag domain,
+            @MappingTarget TagEntity entity,
             @Context CycleAvoidingMappingContext context);
 
     @Override
-    Attribute toDomain(AttributeEntity entity, @Context CycleAvoidingMappingContext context);
+    Tag toDomain(TagEntity entity, @Context CycleAvoidingMappingContext context);
 
     @Override
-    AttributeEntity toEntity(Attribute domain, @Context CycleAvoidingMappingContext context);
+    TagEntity toEntity(Tag domain, @Context CycleAvoidingMappingContext context);
 }

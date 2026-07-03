@@ -6,6 +6,7 @@ import com.seek_with_sight.email.infrastructure.out.persistence.entity.EmailVeri
 import com.seek_with_sight.email.infrastructure.out.persistence.mapper.VerificationTokenPersistenceMapper;
 import com.seek_with_sight.email.infrastructure.out.persistence.repository.VerificationTokenJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -27,7 +28,7 @@ public class VerificationTokenRepositoryAdapter
 
     @Override
     public Optional<EmailVerificationToken> findByToken(String rawToken) {
-        return repository.findByToken(rawToken).map(mapper::toDomain);
+        return repository.findByToken(rawToken).map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override

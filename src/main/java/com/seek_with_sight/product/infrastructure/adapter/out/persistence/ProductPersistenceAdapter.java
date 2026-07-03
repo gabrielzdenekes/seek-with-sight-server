@@ -11,9 +11,10 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagsCircularPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import jakarta.persistence.EntityManager;
 
 import java.util.Optional;
@@ -22,9 +23,10 @@ import java.util.UUID;
 public class ProductPersistenceAdapter
         extends BasePersistenceAdapter<Product, ProductEntity, ProductJpaRepository, ProductPersistenceMapper>
         implements ProductRepositoryPort {
+
     private final EntityManager entityManager;
     private final ProductVariantPersistenceMapper variantsMapper;
-    private final TagsCircularPersistenceMapper tagsMapper;
+    private final TagPersistenceMapper tagsMapper;
     private final ImagePersistenceMapper imagesMapper;
     private final AttributePersistenceMapper attributesMapper;
 
@@ -33,7 +35,7 @@ public class ProductPersistenceAdapter
             ProductPersistenceMapper mapper,
             EntityManager entityManager,
             ProductVariantPersistenceMapper variantsMapper,
-            TagsCircularPersistenceMapper tagsMapper,
+            TagPersistenceMapper tagsMapper,
             ImagePersistenceMapper imagesMapper,
             AttributePersistenceMapper attributesMapper) {
         super(repository, mapper, ProductEntity::new);
@@ -48,7 +50,7 @@ public class ProductPersistenceAdapter
     public Optional<Product> findById(UUID id) {
         return repository
                 .findById(id)
-                .map(mapper::toDomainWithDetails);
+                .map((x) -> mapper.toDomainWithDetails(x, new CycleAvoidingMappingContext()));
     }
 
     @Override
@@ -66,7 +68,8 @@ public class ProductPersistenceAdapter
                 entity.getTags(),
                 domain.getTags(),
                 TagEntity.class,
-                tagsMapper::updateEntityFromDomain,
+                (a, b) ->
+                        tagsMapper.updateEntityFromDomain(a, b, new CycleAvoidingMappingContext()),
                 entityManager
         );
 
@@ -74,7 +77,8 @@ public class ProductPersistenceAdapter
                 entity.getImages(),
                 domain.getImages(),
                 ImageEntity.class,
-                imagesMapper::updateEntityFromDomain,
+                (a, b) ->
+                        imagesMapper.updateEntityFromDomain(a, b, new CycleAvoidingMappingContext()),
                 entityManager
         );
 
@@ -82,7 +86,8 @@ public class ProductPersistenceAdapter
                 entity.getAttributes(),
                 domain.getAttributes(),
                 AttributeEntity.class,
-                attributesMapper::updateEntityFromDomain,
+                (a, b) ->
+                        attributesMapper.updateEntityFromDomain(a, b, new CycleAvoidingMappingContext()),
                 entityManager
         );
 
@@ -90,7 +95,8 @@ public class ProductPersistenceAdapter
                 entity.getVariants(),
                 domain.getVariants(),
                 ProductVariantEntity.class,
-                variantsMapper::updateEntityFromDomain,
+                (a, b) ->
+                        variantsMapper.updateEntityFromDomain(a, b, new CycleAvoidingMappingContext()),
                 entityManager
         );
     }

@@ -26,14 +26,13 @@ public class BasePersistenceAdapter<
 
     @Override
     public D save(D domain) {
-        var entity = loadEntity(domain.getId());
+        var entity = mapper.toEntity(domain, new CycleAvoidingMappingContext());
 
-        mapper.updateEntityFromDomain(domain, entity);
         syncComplexProperties(domain, entity);
 
         var savedEntity = repository.save(entity);
 
-        return mapper.toDomain(savedEntity);
+        return mapper.toDomain(savedEntity, new CycleAvoidingMappingContext());
     }
 
     protected void syncComplexProperties(D domain, E entity) {
@@ -64,6 +63,7 @@ public class BasePersistenceAdapter<
         entities.removeIf(e -> !domainIds.contains(e.getId()));
 
         for (var domain : domainModels) {
+            // TODO: Use mapper.toEntity()
             // If the there is a new domain object without ID, we need to create new entity
             if (domain.getId() == null) {
                 try {

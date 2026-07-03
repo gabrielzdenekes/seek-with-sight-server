@@ -6,6 +6,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -22,6 +23,6 @@ public class CategoryPersistenceAdapter
 
     @Override
     public Optional<Category> findById(UUID categoryId) {
-        return repository.findById(categoryId).map(mapper::toDomain);
+        return repository.findById(categoryId).map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 }
