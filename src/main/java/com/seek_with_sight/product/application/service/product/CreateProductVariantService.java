@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.application.service.product;
 
+import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
@@ -8,12 +9,14 @@ import com.seek_with_sight.product.domain.model.ProductVariant;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
 public class CreateProductVariantService implements CreateProductVariantUseCase {
     private final ProductRepositoryPort productRepo;
     private final ProductAppMapper productAppMapper;
+    private final ImageRepositoryPort imagesRepo;
 
     @Override
     @Transactional
@@ -22,6 +25,8 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
                 .orElseThrow(() -> new ProductNotFoundException(new Object[]{ "productId", productId }));
 
         var productVariant = productAppMapper.fromCreateCommand(command);
+
+        setImages(productVariant, command.imageIds());
 
         product.addVariant(productVariant);
 
@@ -35,5 +40,10 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
                 .get();
 
         return updatedVariant;
+    }
+
+    private void setImages(ProductVariant variant, List<UUID> imageIds) {
+        var images = imagesRepo.findAllById(imageIds);
+        variant.setImages(images);
     }
 }

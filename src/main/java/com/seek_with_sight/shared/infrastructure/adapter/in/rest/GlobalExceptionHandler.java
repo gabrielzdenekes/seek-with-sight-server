@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +26,9 @@ import java.util.Arrays;
 @Slf4j
 public class GlobalExceptionHandler {
     private final LocalizedMessageService messageService;
+
+    @Value("${app.errors.include-stacktrace:false}")
+    private boolean includeStacktrace;
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<?>> handleBadCredentials(BadCredentialsException ex) {
@@ -108,9 +112,20 @@ public class GlobalExceptionHandler {
             HttpServletRequest request
     ) {
         var status = HttpStatus.INTERNAL_SERVER_ERROR;
+        Object data = null;
+        var message = getLocalizedErrorMessage("generic.error");
+
+        if (includeStacktrace) {
+            data = Arrays.stream(ex.getStackTrace())
+                    .map(StackTraceElement::toString)
+                    .toArray(String[]::new);
+
+            message = ex.getMessage();
+        }
+
         var errorResponse = ApiErrorResponse.create(
-                getLocalizedErrorMessage("generic.error"),
-                null,
+                message,
+                data,
                 ErrorType.INTERNAL.name(),
                 status
         );

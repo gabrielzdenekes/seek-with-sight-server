@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
+import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.CascadeType;
@@ -15,7 +16,6 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -92,7 +92,6 @@ public class ProductEntity extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "product_id")
-    @OrderBy("sortOrder ASC")
     private List<ImageEntity> images = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")

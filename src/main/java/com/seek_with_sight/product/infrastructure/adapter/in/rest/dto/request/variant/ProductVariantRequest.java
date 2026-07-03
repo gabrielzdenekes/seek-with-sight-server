@@ -1,6 +1,5 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant;
 
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductImageRequest;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
@@ -13,6 +12,7 @@ import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.UUID;
 
 public record ProductVariantRequest(
         @NotBlank(message = "{product-variant.title.required}")
@@ -84,8 +84,7 @@ public record ProductVariantRequest(
         @Digits(integer = 6, fraction = 2, message = "{product-variant.height.digits}")
         BigDecimal height,
 
-        @Valid
-        List<@Valid ProductImageRequest> images,
+        List<UUID> imageIds,
 
         @Valid
         List<@Valid VariantOptionRequest> selectedOptions
