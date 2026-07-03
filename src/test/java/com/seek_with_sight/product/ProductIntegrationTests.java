@@ -61,7 +61,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
                         throw new RuntimeException(e);
                     }
                 },
-                4
+                5
         );
     }
 

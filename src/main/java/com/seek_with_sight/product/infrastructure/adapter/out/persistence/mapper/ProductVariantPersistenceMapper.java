@@ -2,14 +2,15 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence.mappe
 
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
-import com.seek_with_sight.shared.infrastructure.mapper.JpaEntityFactory;
-import org.mapstruct.BeanMapping;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import org.mapstruct.CollectionMappingStrategy;
+import org.mapstruct.Context;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
+
+import java.util.List;
 
 @Mapper(
         componentModel = "spring",
@@ -18,11 +19,19 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
 )
 public interface ProductVariantPersistenceMapper extends PersistenceMapper<ProductVariant, ProductVariantEntity> {
     @Override
-    @BeanMapping(nullValuePropertyMappingStrategy =
-            NullValuePropertyMappingStrategy.IGNORE)
-    @Mapping(target = "product.variants", ignore = true)
-    void updateEntityFromDomain(ProductVariant domain, @MappingTarget ProductVariantEntity entity);
+    void updateEntityFromDomain(
+            ProductVariant domain,
+            @MappingTarget ProductVariantEntity entity,
+            @Context CycleAvoidingMappingContext context);
 
     @Override
-    ProductVariant toDomain(ProductVariantEntity entity);
+    ProductVariantEntity toEntity(ProductVariant domain, @Context CycleAvoidingMappingContext context);
+
+    @Override
+    ProductVariant toDomain(ProductVariantEntity entity, @Context CycleAvoidingMappingContext context);
+
+    List<ProductVariantEntity> toEntityList(
+            List<ProductVariant> domainList,
+            @Context CycleAvoidingMappingContext context
+    );
 }

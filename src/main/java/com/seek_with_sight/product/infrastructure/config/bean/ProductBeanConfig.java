@@ -29,7 +29,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagsCircularPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.TagPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
@@ -61,7 +61,7 @@ public class ProductBeanConfig {
             ProductPersistenceMapper mapper,
             EntityManager entityManager,
             ProductVariantPersistenceMapper variantMapper,
-            TagsCircularPersistenceMapper tagsMapper,
+            TagPersistenceMapper tagsMapper,
             ImagePersistenceMapper imagesMapper,
             AttributePersistenceMapper attributesMapper) {
 
@@ -102,7 +102,7 @@ public class ProductBeanConfig {
     @Bean
     public TagRepositoryPort productTagRepositoryPort(
             TagJpaRepository repo,
-            TagsCircularPersistenceMapper mapper
+            TagPersistenceMapper mapper
     ) {
         return new TagPersistenceAdapter(repo, mapper);
     }

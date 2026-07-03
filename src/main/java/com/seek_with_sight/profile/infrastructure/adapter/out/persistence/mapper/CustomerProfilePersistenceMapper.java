@@ -2,20 +2,30 @@ package com.seek_with_sight.profile.infrastructure.adapter.out.persistence.mappe
 
 import com.seek_with_sight.profile.domain.model.CustomerProfile;
 import com.seek_with_sight.profile.infrastructure.adapter.out.persistence.entity.CustomerProfileEntity;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
-import org.mapstruct.BeanMapping;
+import org.mapstruct.CollectionMappingStrategy;
+import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
 
-@Mapper(componentModel = "spring")
+@Mapper(
+        componentModel = "spring",
+        uses = { JpaEntityFactory.class },
+        collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
+)
 public interface CustomerProfilePersistenceMapper
         extends PersistenceMapper<CustomerProfile, CustomerProfileEntity> {
     @Override
-    CustomerProfile toDomain(CustomerProfileEntity entity);
+    CustomerProfile toDomain(CustomerProfileEntity entity, @Context CycleAvoidingMappingContext context);
 
     @Override
-    @BeanMapping(nullValuePropertyMappingStrategy =
-            NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDomain(CustomerProfile domain, @MappingTarget CustomerProfileEntity entity);
+    CustomerProfileEntity toEntity(CustomerProfile domain, @Context CycleAvoidingMappingContext context);
+
+    @Override
+    void updateEntityFromDomain(
+            CustomerProfile domain,
+            @MappingTarget CustomerProfileEntity entity,
+            @Context CycleAvoidingMappingContext context);
 }
