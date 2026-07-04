@@ -23,7 +23,7 @@ import java.time.Duration;
 
 @Configuration
 @EnableCaching
-@EnableConfigurationProperties(CacheProperties.class)
+@EnableConfigurationProperties({ CacheProperties.class, ClientCacheProperties.class })
 public class CacheConfig {
     @Bean
     public CacheManager caffeineCacheManager(CacheProperties cacheProperties) {

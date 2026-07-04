@@ -18,6 +18,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Arrays;
 
@@ -104,6 +105,21 @@ public class GlobalExceptionHandler {
         );
 
         return new ResponseEntity<>(errorResponse, status);
+    }
+
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<ApiResponse<?>> handleResponseStatusException(
+            ResponseStatusException ex
+    ) {
+        var status = HttpStatus.resolve(ex.getStatusCode().value());
+
+        var response = ApiErrorResponse.create(
+                ex.getMessage(),
+                null,
+                status
+        );
+
+        return new ResponseEntity<>(response, status);
     }
 
     @ExceptionHandler(Exception.class)
