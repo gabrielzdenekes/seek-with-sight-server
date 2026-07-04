@@ -20,6 +20,7 @@ import java.util.UUID;
 import java.util.stream.IntStream;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 
 @TestComponent
 public class ProductVariantTestFixture {
@@ -47,6 +48,24 @@ public class ProductVariantTestFixture {
         return new RequestResponseData<>(dto, apiResponse);
     }
 
+    public RequestResponseData<ProductVariantRequest, ApiResponse<ProductVariantResponse>> updateProductVariant(
+            UUID productId,
+            UUID productVariantId,
+            ProductVariantRequest updatedRequest
+    ) throws Exception {
+        var request = put("/api/products/" + productId + "/variants/" + productVariantId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(updatedRequest));
+        var result = mockMvc.perform(request).andReturn();
+        var apiResponse = objectMapper.readValue(
+                result.getResponse().getContentAsString(),
+                new TypeReference<ApiResponse<ProductVariantResponse>>() {
+                }
+        );
+
+        return new RequestResponseData<>(updatedRequest, apiResponse);
+    }
+
     private ProductVariantRequest createProductVariantRequest() throws Exception {
         var selectedOptions = getSelectedOptionsRequestData();
         var imageIds = getImageIds();
@@ -70,7 +89,7 @@ public class ProductVariantTestFixture {
         );
     }
 
-    private List<UUID> getImageIds() throws Exception {
+    public List<UUID> getImageIds() throws Exception {
         var imageIds = new ArrayList<UUID>();
 
         for (var i = 0; i < TestDataUtils.randomIntegerBetween(1, 4); i++) {
@@ -81,7 +100,7 @@ public class ProductVariantTestFixture {
         return imageIds;
     }
 
-    private List<VariantOptionRequest> getSelectedOptionsRequestData() {
+    public List<VariantOptionRequest> getSelectedOptionsRequestData() {
         var selectedOptions = IntStream.range(0, TestDataUtils.randomIntegerBetween(1, 4))
                 .mapToObj(i -> new VariantOptionRequest(
                         TestDataUtils.word(),

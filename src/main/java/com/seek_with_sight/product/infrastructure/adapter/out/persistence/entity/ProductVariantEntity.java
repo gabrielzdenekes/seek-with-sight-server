@@ -12,6 +12,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -62,7 +63,31 @@ public class ProductVariantEntity extends BaseEntity {
     @JoinColumn(name = "variant_id")
     private List<ProductVariantOptionEntity> selectedOptions;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany()
     @JoinColumn(name = "variant_id")
     private List<ImageEntity> images;
+
+    public void setSelectedOptions(List<ProductVariantOptionEntity> newOptions) {
+        if (this.selectedOptions == null) {
+            this.selectedOptions = new ArrayList<>();
+        }
+
+        this.selectedOptions.clear();
+
+        if (newOptions != null) {
+            this.selectedOptions.addAll(newOptions);
+        }
+    }
+
+    public void setImages(List<ImageEntity> newImages) {
+        if (this.images == null) {
+            this.images = new ArrayList<>();
+        }
+
+        this.images.clear();
+
+        if (newImages != null) {
+            this.images.addAll(newImages);
+        }
+    }
 }

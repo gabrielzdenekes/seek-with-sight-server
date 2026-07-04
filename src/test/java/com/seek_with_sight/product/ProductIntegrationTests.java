@@ -53,7 +53,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
                         throw new RuntimeException(e);
                     }
                 },
-                5
+                4
         );
     }
 
