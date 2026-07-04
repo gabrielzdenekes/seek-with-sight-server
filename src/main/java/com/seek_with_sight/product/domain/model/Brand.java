@@ -2,8 +2,6 @@ package com.seek_with_sight.product.domain.model;
 
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
-import java.util.List;
-
 public class Brand extends BaseDomainModel {
     private String name;
 
@@ -16,8 +14,6 @@ public class Brand extends BaseDomainModel {
     private String websiteUrl;
 
     private Boolean isActive;
-
-    private List<Product> products;
 
     public String getName() {
         return name;
@@ -67,11 +63,4 @@ public class Brand extends BaseDomainModel {
         isActive = active;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
-    }
 }

@@ -6,6 +6,7 @@ import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 public class Product extends BaseDomainModel {
@@ -41,7 +42,7 @@ public class Product extends BaseDomainModel {
 
     private Seo seo;
 
-    private List<Tag> tags;
+    private Set<Tag> tags;
 
     private List<Image> images;
 
@@ -51,7 +52,6 @@ public class Product extends BaseDomainModel {
 
     public void addVariant(ProductVariant variant) {
         variants.add(variant);
-        variant.setProduct(this);
     }
 
     public void removeVariant(UUID variantId) {
@@ -217,11 +217,11 @@ public class Product extends BaseDomainModel {
         this.compareAtPrice = compareAtPrice;
     }
 
-    public List<Tag> getTags() {
+    public Set<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(List<Tag> tags) {
+    public void setTags(Set<Tag> tags) {
         this.tags = tags;
     }
 }

@@ -13,8 +13,6 @@ public class Category extends BaseDomainModel {
 
     private String imageUrl;
 
-    private Category parent;
-
     private List<Category> children;
 
     private Integer sortOrder;
@@ -51,14 +49,6 @@ public class Category extends BaseDomainModel {
 
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
-    }
-
-    public Category getParent() {
-        return parent;
-    }
-
-    public void setParent(Category parent) {
-        this.parent = parent;
     }
 
     public List<Category> getChildren() {

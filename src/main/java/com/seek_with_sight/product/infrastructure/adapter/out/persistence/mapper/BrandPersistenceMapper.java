@@ -8,17 +8,15 @@ import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.Persist
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
 @Mapper(
         componentModel = "spring",
-        uses = { JpaEntityFactory.class },
+        uses = { JpaEntityFactory.class, ProductPersistenceMapper.class },
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface BrandPersistenceMapper extends PersistenceMapper<Brand, BrandEntity> {
     @Override
-    @Mapping(target = "products", ignore = true)
     Brand toDomain(BrandEntity entity, @Context CycleAvoidingMappingContext context);
 
     @Override
