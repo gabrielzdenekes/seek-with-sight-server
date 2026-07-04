@@ -19,7 +19,6 @@ import org.mapstruct.MappingTarget;
 public interface CategoryPersistenceMapper
         extends PersistenceMapper<Category, CategoryEntity> {
     @Override
-    @Mapping(target = "parent", ignore = true)
     @Mapping(target = "children", ignore = true)
     Category toDomain(CategoryEntity entity, @Context CycleAvoidingMappingContext context);
 

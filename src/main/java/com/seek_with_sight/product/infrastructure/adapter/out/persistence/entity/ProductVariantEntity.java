@@ -5,15 +5,14 @@ import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEnt
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -64,11 +63,31 @@ public class ProductVariantEntity extends BaseEntity {
     @JoinColumn(name = "variant_id")
     private List<ProductVariantOptionEntity> selectedOptions;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany()
     @JoinColumn(name = "variant_id")
     private List<ImageEntity> images;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private ProductEntity product;
+    public void setSelectedOptions(List<ProductVariantOptionEntity> newOptions) {
+        if (this.selectedOptions == null) {
+            this.selectedOptions = new ArrayList<>();
+        }
+
+        this.selectedOptions.clear();
+
+        if (newOptions != null) {
+            this.selectedOptions.addAll(newOptions);
+        }
+    }
+
+    public void setImages(List<ImageEntity> newImages) {
+        if (this.images == null) {
+            this.images = new ArrayList<>();
+        }
+
+        this.images.clear();
+
+        if (newImages != null) {
+            this.images.addAll(newImages);
+        }
+    }
 }

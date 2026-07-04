@@ -30,7 +30,7 @@ public class FileSystemStorageAdapter implements FileStoragePort {
 
     @Override
     public void store(InputStream content, String namespace, String key, String contentType, long sizeBytes) {
-        var targetPath = urlResolver.resolveFilePath(properties.getRootLocation(), key, namespace);
+        var targetPath = urlResolver.resolveFilePath(properties.getRootLocation(), namespace, key);
 
         try {
             Files.createDirectories(targetPath.getParent());

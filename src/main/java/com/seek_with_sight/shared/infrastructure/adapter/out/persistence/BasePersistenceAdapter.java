@@ -6,7 +6,7 @@ import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+import java.util.Collection;
 import java.util.UUID;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -39,8 +39,8 @@ public class BasePersistenceAdapter<
     }
 
     protected <E extends BaseEntity, D extends BaseDomainModel> void syncCollection(
-            List<E> entities,
-            List<D> domainModels,
+            Collection<E> entities,
+            Collection<D> domainModels,
             Class<E> entityClass,
             PersistenceMapper<D, E> currentMapper,
             EntityManager entityManager) {

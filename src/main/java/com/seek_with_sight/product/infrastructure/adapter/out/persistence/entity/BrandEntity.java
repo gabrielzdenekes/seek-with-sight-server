@@ -3,14 +3,10 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entit
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
@@ -35,7 +31,4 @@ public class BrandEntity extends BaseEntity {
 
     @Column(name = "is_active")
     private Boolean isActive;
-
-    @OneToMany(mappedBy = "brand")
-    private List<ProductEntity> products = new ArrayList<>();
 }

@@ -45,14 +45,6 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         var createResult = productTestFixture.createProduct();
         var productId = createResult.response().getData().getId();
 
-        /*
-        Total relationships: Category, Brand, Tags, Images, Variants, Attributes, Seo
-        4 select queries are made:
-         - for the product
-         - for the tags
-         - for the imageIds
-         - for product variants
-         */
         sqlCounterUtils.assertSelectQueriesCount(
                 () -> {
                     try {
@@ -61,7 +53,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
                         throw new RuntimeException(e);
                     }
                 },
-                5
+                4
         );
     }
 

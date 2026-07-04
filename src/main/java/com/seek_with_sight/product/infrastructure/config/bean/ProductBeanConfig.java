@@ -134,8 +134,9 @@ public class ProductBeanConfig {
     @Bean
     public UpdateProductVariantUseCase updateProductVariantUseCase(
             ProductRepositoryPort repo,
-            ProductAppMapper mapper
+            ProductAppMapper mapper,
+            ImageRepositoryPort imagesRepo
     ) {
-        return new UpdateProductVariantService(repo, mapper);
+        return new UpdateProductVariantService(repo, mapper, imagesRepo);
     }
 }
