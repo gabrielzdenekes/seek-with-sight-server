@@ -33,7 +33,7 @@ public class ProductPersistenceAdapter
     public Optional<Product> findById(UUID id) {
         return repository
                 .findById(id)
-                .map((x) -> mapper.toDomain(x));
+                .map(mapper::toDomain);
     }
 
     @Override

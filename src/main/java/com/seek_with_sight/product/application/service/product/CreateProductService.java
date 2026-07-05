@@ -30,7 +30,7 @@ public class CreateProductService implements CreateProductUseCase {
         var product = mapper.fromCreateCommand(command);
 
         setCategory(product, command.categoryId());
-//        setBrand(product, command.brandId());
+        setBrand(product, command.brandId());
 
         var createdProduct = productRepo.save(product);
 
@@ -42,10 +42,6 @@ public class CreateProductService implements CreateProductUseCase {
     }
 
     private void setBrand(Product product, UUID brandId) {
-        if (brandId == null) {
-            return;
-        }
-
         var brand = brandRepository
                 .findById(brandId)
                 .orElseThrow();

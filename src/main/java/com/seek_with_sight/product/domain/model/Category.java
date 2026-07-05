@@ -81,7 +81,7 @@ public class Category extends BaseDomainModel {
         return products;
     }
 
-    public void setProduct(List<Product> product) {
+    public void setProduct(List<Product> products) {
         this.products = products;
     }
 }

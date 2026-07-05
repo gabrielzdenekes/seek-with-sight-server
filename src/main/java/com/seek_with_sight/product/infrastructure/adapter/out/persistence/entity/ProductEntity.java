@@ -56,9 +56,9 @@ public class ProductEntity extends BaseEntity {
     @JoinColumn(name = "category_id", nullable = false) // Usa nullable = true si el producto puede no tener categoría
     private CategoryEntity category;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "brand_id")
-//    private BrandEntity brand;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_id")
+    private BrandEntity brand;
 
 //    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<ProductVariantEntity> variants = new ArrayList<>();

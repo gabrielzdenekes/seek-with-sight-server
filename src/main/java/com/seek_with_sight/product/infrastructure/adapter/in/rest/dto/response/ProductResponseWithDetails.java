@@ -9,6 +9,8 @@ import java.util.List;
 @Getter
 @Setter
 public class ProductResponseWithDetails extends ProductResponse {
+    private BrandResponse brand;
+
     private CategoryResponse category;
 
     private List<ImageResponse> images;

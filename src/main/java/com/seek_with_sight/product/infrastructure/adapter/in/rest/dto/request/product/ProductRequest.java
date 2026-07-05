@@ -40,6 +40,9 @@ public record ProductRequest(
         ProductStatus status,
 
         @NotNull(message = "{product.category.required}")
-        UUID categoryId
+        UUID categoryId,
+
+        @NotNull(message = "{product.brand.required}")
+        UUID brandId
 ) {
 }
