@@ -52,14 +52,14 @@ public class ProductEntity extends BaseEntity {
     @Column(nullable = false, length = 20)
     private ProductStatus status = ProductStatus.DRAFT;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", nullable = false) // Usa nullable = true si el producto puede no tener categoría
+    private CategoryEntity category;
+
 //    @ManyToOne(fetch = FetchType.LAZY)
 //    @JoinColumn(name = "brand_id")
 //    private BrandEntity brand;
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "category_id", nullable = false)
-//    private Category category;
-//
+
 //    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
 //    private List<ProductVariantEntity> variants = new ArrayList<>();
 }

@@ -37,6 +37,9 @@ public record ProductRequest(
         String description,
 
         @NotNull(message = "{product.status.required}")
-        ProductStatus status
+        ProductStatus status,
+
+        @NotNull(message = "{product.category.required}")
+        UUID categoryId
 ) {
 }
