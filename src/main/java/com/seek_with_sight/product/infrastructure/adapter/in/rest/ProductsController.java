@@ -4,8 +4,10 @@ import com.seek_with_sight.product.application.port.in.product.CreateProductUseC
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.product.UpdateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
@@ -30,8 +32,9 @@ import java.util.UUID;
 @RequestMapping("/api/products")
 @RequiredArgsConstructor
 public class ProductsController {
-    private final CreateProductUseCase createProductUseCase;
     private final ProductRestMapper mapper;
+    private final CreateProductUseCase createProductUseCase;
+    private final UpdateProductUseCase updateProductUseCase;
     private final GetProductByIdUseCase getProductByIdUseCase;
     private final CreateProductVariantUseCase createProductVariantUseCase;
     private final RemoveProductVariantUseCase removeProductVariantUseCase;
@@ -50,6 +53,17 @@ public class ProductsController {
         var product = getProductByIdUseCase.getById(productId);
 
         return mapper.toResponseWithDetails(product);
+    }
+
+    @PutMapping("/{productId}")
+    public ProductResponse updateProduct(
+            @PathVariable UUID productId,
+            @RequestBody @Valid UpdateProductRequest request
+    ) {
+        var updateCommand = mapper.toUpdateProductCommand(request);
+        var updatedProduct = updateProductUseCase.update(productId, updateCommand);
+
+        return mapper.toResponseWithDetails(updatedProduct);
     }
 
     @PostMapping("/{productId}/variants")

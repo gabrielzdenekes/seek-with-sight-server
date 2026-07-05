@@ -25,7 +25,14 @@ public class BasePersistenceAdapter<
 
     @Override
     public D save(D domain) {
-        var entity = mapper.toEntity(domain);
+        E entity;
+
+        if (domain.getId() != null && repository.existsById(domain.getId())) {
+            entity = repository.findById(domain.getId()).orElseThrow();
+            mapper.updateEntityFromDomain(domain, entity);
+        } else {
+            entity = mapper.toEntity(domain);
+        }
 
         syncComplexProperties(domain, entity);
 

@@ -1,10 +1,14 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
+import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
+import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import jakarta.persistence.EntityManager;
@@ -18,15 +22,25 @@ public class ProductPersistenceAdapter
 
     private final EntityManager entityManager;
     private final ProductVariantPersistenceMapper variantsMapper;
+    private final CategoryJpaRepository categoryRepository;
+    private final BrandJpaRepository brandJpaRepository;
+    private final ImagePersistenceMapper imageMapper;
 
     public ProductPersistenceAdapter(
             ProductJpaRepository repository,
             ProductPersistenceMapper mapper,
             EntityManager entityManager,
-            ProductVariantPersistenceMapper variantsMapper) {
+            ProductVariantPersistenceMapper variantsMapper,
+            CategoryJpaRepository categoryRepository,
+            BrandJpaRepository brandJpaRepository,
+            ImagePersistenceMapper imageMapper) {
+
         super(repository, mapper, ProductEntity::new);
         this.entityManager = entityManager;
         this.variantsMapper = variantsMapper;
+        this.categoryRepository = categoryRepository;
+        this.brandJpaRepository = brandJpaRepository;
+        this.imageMapper = imageMapper;
     }
 
     @Override
@@ -47,12 +61,32 @@ public class ProductPersistenceAdapter
 
     @Override
     protected void syncComplexProperties(Product domain, ProductEntity entity) {
-//        syncCollection(
-//                entity.getVariants(),
-//                domain.getVariants(),
-//                ProductVariantEntity.class,
-//                variantsMapper,
-//                entityManager
-//        );
+        if (domain.getCategory() != null && domain.getCategory().getId() != null) {
+            if (entity.getCategory() == null || !entity.getCategory().getId().equals(domain.getCategory().getId())) {
+                var newCategoryEntity = categoryRepository
+                        .findById(domain.getCategory().getId())
+                        .orElseThrow(() -> new IllegalArgumentException("Category not found with ID: " + domain.getCategory().getId()));
+
+                entity.setCategory(newCategoryEntity);
+            }
+        }
+
+        if (domain.getBrand() != null && domain.getBrand().getId() != null) {
+            if (entity.getBrand() == null || !entity.getBrand().getId().equals(domain.getBrand().getId())) {
+                var newBrandEntity = brandJpaRepository
+                        .findById(domain.getBrand().getId())
+                        .orElseThrow(() -> new IllegalArgumentException("Brand not found with ID: " + domain.getBrand().getId()));
+
+                entity.setBrand(newBrandEntity);
+            }
+        }
+
+        syncCollection(
+                entity.getImages(),
+                domain.getImages(),
+                ImageEntity.class,
+                imageMapper,
+                entityManager
+        );
     }
 }
