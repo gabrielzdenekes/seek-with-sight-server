@@ -24,7 +24,7 @@ public class RolePersistenceAdapter
     public List<Role> findByNameIn(List<RoleName> roleNames) {
         return repository
                 .findByNameIn(roleNames).stream()
-                .map(e -> mapper.toDomain(e))
+                .map(mapper::toDomain)
                 .toList();
     }
 }

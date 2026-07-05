@@ -1,16 +1,11 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product;
 
 import com.seek_with_sight.product.domain.model.ProductStatus;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-import java.math.BigDecimal;
-import java.util.List;
 import java.util.UUID;
 
 public record ProductRequest(

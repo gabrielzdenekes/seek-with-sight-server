@@ -12,7 +12,6 @@ import com.seek_with_sight.shared.application.port.out.event.DomainEventPublishe
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
-import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor

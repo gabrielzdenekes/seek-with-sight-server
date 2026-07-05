@@ -1,13 +1,8 @@
 package com.seek_with_sight.product.domain.model;
 
-import com.seek_with_sight.media.domain.model.Image;
-import com.seek_with_sight.product.domain.exception.ProductVariantNotFoundException;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Set;
-import java.util.UUID;
 
 public class Product extends BaseDomainModel {
     private String name;

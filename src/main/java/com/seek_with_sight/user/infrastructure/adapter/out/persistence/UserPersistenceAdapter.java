@@ -34,13 +34,13 @@ public class UserPersistenceAdapter
     public Optional<User> findByEmailIgnoreCase(String email) {
         return repository
                 .findByEmailIgnoreCase(email)
-                .map(e -> mapper.toDomain(e));
+                .map(mapper::toDomain);
     }
 
     @Override
     public Optional<User> findById(UUID id) {
         return repository
                 .findById(id)
-                .map(e -> mapper.toDomain(e));
+                .map(mapper::toDomain);
     }
 }

@@ -5,9 +5,7 @@ import com.seek_with_sight.authorization.infrastructure.adapter.out.persistence.
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import org.mapstruct.CollectionMappingStrategy;
-import org.mapstruct.Context;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
 
 @Mapper(
         componentModel = "spring",

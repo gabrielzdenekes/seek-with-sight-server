@@ -1,6 +1,5 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;

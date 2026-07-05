@@ -4,7 +4,6 @@ import com.seek_with_sight.product.domain.model.ProductStatus;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
