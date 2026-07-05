@@ -2,7 +2,6 @@ package com.seek_with_sight.product;
 
 import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.VariantOptionRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductVariantResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.utils.data.RequestResponseData;

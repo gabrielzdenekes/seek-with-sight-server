@@ -22,8 +22,6 @@ public record CreateProductCommand(
         BigDecimal compareAtPrice,
         UUID categoryId,
         UUID brandId,
-        List<UUID> imageIds,
-        List<CreateAttributeCommand> attributes,
-        CreateSeoRequest seo
+        List<UUID> imageIds
 ) {
 }

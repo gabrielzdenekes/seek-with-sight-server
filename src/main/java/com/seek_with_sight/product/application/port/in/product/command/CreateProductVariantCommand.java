@@ -18,7 +18,6 @@ public record CreateProductVariantCommand(
         BigDecimal length,
         BigDecimal width,
         BigDecimal height,
-        List<UUID> imageIds,
-        List<CreateVariantOptionCommand> selectedOptions
+        List<UUID> imageIds
 ) {
 }

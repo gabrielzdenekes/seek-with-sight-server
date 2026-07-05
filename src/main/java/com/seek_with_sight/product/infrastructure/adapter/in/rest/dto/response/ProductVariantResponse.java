@@ -21,7 +21,6 @@ public record ProductVariantResponse(
         BigDecimal length,
         BigDecimal width,
         BigDecimal height,
-        List<ProductVariantOptionResponse> selectedOptions,
         List<ImageResponse> images
 ) {
 }

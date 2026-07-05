@@ -13,11 +13,7 @@ public class ProductResponseWithDetails extends ProductResponse {
 
     private BrandResponse brand;
 
-    private ProductSeoResponse seo;
-
     private List<ImageResponse> images;
-
-    private List<ProductAttributeResponse> attributes;
 
     private List<ProductVariantResponse> variants;
 }

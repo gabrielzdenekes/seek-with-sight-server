@@ -84,9 +84,6 @@ public record ProductVariantRequest(
         @Digits(integer = 6, fraction = 2, message = "{product-variant.height.digits}")
         BigDecimal height,
 
-        List<UUID> imageIds,
-
-        @Valid
-        List<@Valid VariantOptionRequest> selectedOptions
+        List<UUID> imageIds
 ) {
 }

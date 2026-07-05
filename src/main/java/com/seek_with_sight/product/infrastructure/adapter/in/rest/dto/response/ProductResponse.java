@@ -21,20 +21,4 @@ public class ProductResponse {
     private String description;
 
     private ProductStatus status;
-
-    private String currencyCode;
-
-    private BigDecimal weight;
-
-    private String weightUnit;
-
-    private Boolean requiresShipping;
-
-    private Boolean isDigital;
-
-    private String taxClass;
-
-    private BigDecimal basePrice;
-
-    private BigDecimal compareAtPrice;
 }

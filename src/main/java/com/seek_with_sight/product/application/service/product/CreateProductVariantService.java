@@ -28,8 +28,6 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
 
         setImages(productVariant, command.imageIds());
 
-        product.addVariant(productVariant);
-
         productRepo.save(product);
 
         var updatedProduct = productRepo.findById(productId).get();

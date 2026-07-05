@@ -2,9 +2,7 @@ package com.seek_with_sight.product;
 
 import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.domain.model.ProductStatus;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductAttributeRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductSeoRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.BrandEntity;

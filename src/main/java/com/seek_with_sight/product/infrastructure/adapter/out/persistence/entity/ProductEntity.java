@@ -1,6 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
 import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
+import com.seek_with_sight.product.domain.model.Category;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.CascadeType;
@@ -12,6 +13,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -30,80 +32,34 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name = "products", indexes = {
-        @Index(name = "idx_product_slug", columnList = "slug"),
-        @Index(name = "idx_product_status", columnList = "status"),
-        @Index(name = "idx_product_brand", columnList = "brand_id"),
-        @Index(name = "idx_product_category", columnList = "category_id")
+        @Index(name = "idx_product_slug", columnList = "slug", unique = true),
+        @Index(name = "idx_product_status", columnList = "status")
 })
 public class ProductEntity extends BaseEntity {
     @Column(nullable = false, length = 300)
     private String name;
 
-    @Column(unique = true, nullable = false, length = 350)
+    @Column(nullable = false, unique = true, length = 180)
     private String slug;
 
-    @Column(name = "short_description", length = 500)
+    @Column(length = 500)
     private String shortDescription;
 
-    @Column(columnDefinition = "TEXT")
+    @Lob
     private String description;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private ProductStatus status;
+    @Column(nullable = false, length = 20)
+    private ProductStatus status = ProductStatus.DRAFT;
 
-    @Column(name = "currency_code", length = 3)
-    private String currencyCode = "EUR";
-
-    @Column(precision = 10, scale = 3)
-    private BigDecimal weight;
-
-    @Column(name = "weight_unit", length = 10)
-    private String weightUnit;
-
-    @Column(name = "requires_shipping")
-    private Boolean requiresShipping;
-
-    @Column(name = "is_digital")
-    private Boolean isDigital;
-
-    @Column(name = "tax_class", length = 50)
-    private String taxClass;
-
-    @Column(name = "base_price", precision = 19, scale = 4)
-    private BigDecimal basePrice;
-
-    @Column(name = "compare_at_price", precision = 19, scale = 4)
-    private BigDecimal compareAtPrice;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private CategoryEntity category;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_id")
-    private BrandEntity brand;
-
-    @ManyToMany
-    @JoinTable(
-            name = "product_tags",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id")
-    )
-    private Set<TagEntity> tags = new HashSet<>();
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "product_id")
-    private List<ImageEntity> images = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ProductVariantEntity> variants = new ArrayList<>();
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "product_id")
-    private List<AttributeEntity> attributes = new ArrayList<>();
-
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "seo_id")
-    private SeoEntity seo;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "brand_id")
+//    private BrandEntity brand;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "category_id", nullable = false)
+//    private Category category;
+//
+//    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<ProductVariantEntity> variants = new ArrayList<>();
 }

@@ -6,7 +6,6 @@ import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEnti
 import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.media.infrastructure.out.persistence.repository.ImageJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
-import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,7 +26,7 @@ public class ImagePersistenceAdapter
     public List<Image> findAllById(Iterable<UUID> ids) {
         return repository.findAllById(ids)
                 .stream()
-                .map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()))
+                .map(mapper::toDomain)
                 .toList();
     }
 }

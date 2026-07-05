@@ -2,14 +2,10 @@ package com.seek_with_sight.cart.infrastructure.adapter.out.persistence.mapper;
 
 import com.seek_with_sight.cart.domain.model.Cart;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.entity.CartEntity;
-import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import org.mapstruct.CollectionMappingStrategy;
-import org.mapstruct.Context;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 
 @Mapper(
         componentModel = "spring",
@@ -18,17 +14,8 @@ import org.mapstruct.MappingTarget;
 )
 public interface CartPersistenceMapper extends PersistenceMapper<Cart, CartEntity> {
     @Override
-    void updateEntityFromDomain(
-            Cart domain,
-            @MappingTarget CartEntity entity,
-            @Context CycleAvoidingMappingContext context);
+    Cart toDomain(CartEntity entity);
 
     @Override
-    @Mapping(target = "items", ignore = true)
-    Cart toDomain(CartEntity entity, @Context CycleAvoidingMappingContext context);
-
-    @Override
-    CartEntity toEntity(Cart domain, @Context CycleAvoidingMappingContext context);
-
-    Cart toDomainWithDetails(CartEntity entity, @Context CycleAvoidingMappingContext context);
+    CartEntity toEntity(Cart domain);
 }

@@ -31,7 +31,6 @@ public class CreateProductService implements CreateProductUseCase {
 
         setCategory(product, command.categoryId());
         setBrand(product, command.brandId());
-        setImages(product, command.imageIds());
 
         var createdProduct = productRepo.save(product);
 
@@ -60,10 +59,5 @@ public class CreateProductService implements CreateProductUseCase {
                 .orElseThrow();
 
         product.setCategory(category);
-    }
-
-    private void setImages(Product product, List<UUID> imageIds) {
-        var images = imagesRepo.findAllById(imageIds);
-        product.setImages(images);
     }
 }

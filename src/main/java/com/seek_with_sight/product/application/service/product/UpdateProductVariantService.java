@@ -27,22 +27,23 @@ public class UpdateProductVariantService implements UpdateProductVariantUseCase 
     ) {
         var product = productsRepo.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException(new Object[]{ productId }));
-
-        var variant = product.findVariantById(variantId);
-
-        setImages(variant, command.imageIds());
-        mapper.updateVariant(command, variant);
-
-        productsRepo.save(product);
-
-        var updatedProduct = productsRepo.findById(productId).get();
-
-        var updatedVariant = updatedProduct.getVariants().stream()
-                .filter(v -> v.getId().equals(variantId))
-                .findFirst()
-                .get();
-
-        return updatedVariant;
+//
+//        var variant = product.findVariantById(variantId);
+//
+//        setImages(variant, command.imageIds());
+//        mapper.updateVariant(command, variant);
+//
+//        productsRepo.save(product);
+//
+//        var updatedProduct = productsRepo.findById(productId).get();
+//
+//        var updatedVariant = updatedProduct.getVariants().stream()
+//                .filter(v -> v.getId().equals(variantId))
+//                .findFirst()
+//                .get();
+//
+//        return updatedVariant;
+        return null;
     }
 
     private void setImages(ProductVariant variant, List<UUID> imageIds) {
