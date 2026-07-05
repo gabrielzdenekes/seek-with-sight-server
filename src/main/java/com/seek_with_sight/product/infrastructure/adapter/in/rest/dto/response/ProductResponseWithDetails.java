@@ -11,8 +11,6 @@ import java.util.List;
 public class ProductResponseWithDetails extends ProductResponse {
     private CategoryResponse category;
 
-    private BrandResponse brand;
-
     private List<ImageResponse> images;
 
     private List<ProductVariantResponse> variants;

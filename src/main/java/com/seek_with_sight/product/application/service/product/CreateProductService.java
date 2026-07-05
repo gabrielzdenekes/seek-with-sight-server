@@ -29,8 +29,8 @@ public class CreateProductService implements CreateProductUseCase {
     public Product create(CreateProductCommand command) {
         var product = mapper.fromCreateCommand(command);
 
-        setCategory(product, command.categoryId());
-        setBrand(product, command.brandId());
+//        setCategory(product, command.categoryId());
+//        setBrand(product, command.brandId());
 
         var createdProduct = productRepo.save(product);
 
