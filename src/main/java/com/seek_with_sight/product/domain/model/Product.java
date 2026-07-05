@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.domain.model;
 
+import com.seek_with_sight.media.domain.model.Image;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.util.List;
@@ -18,6 +19,8 @@ public class Product extends BaseDomainModel {
     private Brand brand;
 
     private Category category;
+
+    private List<Image> images;
 
     private List<ProductVariant> variants;
 
@@ -83,5 +86,13 @@ public class Product extends BaseDomainModel {
 
     public void setVariants(List<ProductVariant> variants) {
         this.variants = variants;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 }

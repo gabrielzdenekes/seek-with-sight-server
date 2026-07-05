@@ -12,6 +12,7 @@ import com.seek_with_sight.shared.application.port.out.event.DomainEventPublishe
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -30,6 +31,7 @@ public class CreateProductService implements CreateProductUseCase {
 
         setCategory(product, command.categoryId());
         setBrand(product, command.brandId());
+        setImages(product, command.imageIds());
 
         var createdProduct = productRepo.save(product);
 
@@ -38,6 +40,14 @@ public class CreateProductService implements CreateProductUseCase {
         );
 
         return createdProduct;
+    }
+
+    private void setImages(Product product, List<UUID> imageIds) {
+        if (imageIds == null || imageIds.isEmpty()) {
+            return;
+        }
+
+        product.setImages(imagesRepo.findAllById(imageIds));
     }
 
     private void setBrand(Product product, UUID brandId) {

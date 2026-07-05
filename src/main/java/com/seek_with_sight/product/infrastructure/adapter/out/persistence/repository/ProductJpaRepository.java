@@ -13,7 +13,8 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
     @Override
     @EntityGraph(attributePaths = {
             "brand",
-            "category"
+            "category",
+            "images"
     })
     Optional<ProductEntity> findById(UUID uuid);
 }
