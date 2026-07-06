@@ -13,9 +13,5 @@ import org.mapstruct.Mapper;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface ImagePersistenceMapper extends PersistenceMapper<Image, ImageEntity> {
-    @Override
-    Image toDomain(ImageEntity entity);
 
-    @Override
-    ImageEntity toEntity(Image domain);
 }

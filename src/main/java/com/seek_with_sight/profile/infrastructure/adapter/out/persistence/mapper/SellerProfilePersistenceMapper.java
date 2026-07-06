@@ -13,9 +13,4 @@ import org.mapstruct.Mapper;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface SellerProfilePersistenceMapper extends PersistenceMapper<SellerProfile, SellerProfileEntity> {
-    @Override
-    SellerProfile toDomain(SellerProfileEntity entity);
-
-    @Override
-    SellerProfileEntity toEntity(SellerProfile domain);
 }

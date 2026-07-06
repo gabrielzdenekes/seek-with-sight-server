@@ -1,16 +1,17 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
-import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
-import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePersistenceMapper;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductImageEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import jakarta.persistence.EntityManager;
 
 import java.util.Optional;
@@ -24,7 +25,7 @@ public class ProductPersistenceAdapter
     private final ProductVariantPersistenceMapper variantsMapper;
     private final CategoryJpaRepository categoryRepository;
     private final BrandJpaRepository brandJpaRepository;
-    private final ImagePersistenceMapper imageMapper;
+    private final ProductImagePersistenceMapper imagesMapper;
 
     public ProductPersistenceAdapter(
             ProductJpaRepository repository,
@@ -33,21 +34,21 @@ public class ProductPersistenceAdapter
             ProductVariantPersistenceMapper variantsMapper,
             CategoryJpaRepository categoryRepository,
             BrandJpaRepository brandJpaRepository,
-            ImagePersistenceMapper imageMapper) {
+            ProductImagePersistenceMapper imagesMapper) {
 
         super(repository, mapper, ProductEntity::new);
         this.entityManager = entityManager;
         this.variantsMapper = variantsMapper;
         this.categoryRepository = categoryRepository;
         this.brandJpaRepository = brandJpaRepository;
-        this.imageMapper = imageMapper;
+        this.imagesMapper = imagesMapper;
     }
 
     @Override
     public Optional<Product> findById(UUID id) {
         return repository
                 .findById(id)
-                .map(mapper::toDomain);
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override
@@ -84,8 +85,8 @@ public class ProductPersistenceAdapter
         syncCollection(
                 entity.getImages(),
                 domain.getImages(),
-                ImageEntity.class,
-                imageMapper,
+                ProductImageEntity.class,
+                imagesMapper,
                 entityManager
         );
     }

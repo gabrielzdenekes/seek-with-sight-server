@@ -1,6 +1,5 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
-import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.CascadeType;
@@ -11,7 +10,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
@@ -54,11 +52,18 @@ public class ProductEntity extends BaseEntity {
     @JoinColumn(name = "brand_id")
     private BrandEntity brand;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinTable(
-            name = "product_images",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "image_id")
-    )
-    private List<ImageEntity> images = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
+    private List<ProductImageEntity> images = new ArrayList<>();
+
+    public void setImages(List<ProductImageEntity> images) {
+        if (this.images == null) {
+            this.images = new ArrayList<>();
+        }
+
+        this.images.clear();
+
+        if (images != null) {
+            this.images.addAll(images);
+        }
+    }
 }

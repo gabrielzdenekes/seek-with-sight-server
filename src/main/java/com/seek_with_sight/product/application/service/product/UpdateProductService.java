@@ -11,7 +11,6 @@ import com.seek_with_sight.product.domain.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -38,20 +37,7 @@ public class UpdateProductService implements UpdateProductUseCase {
             setBrand(product, command.brandId());
         }
 
-        if (command.imageIds() != null && !command.imageIds().isEmpty()) {
-            setImages(product, command.imageIds());
-        }
-
         return productRepo.save(product);
-    }
-
-
-    private void setImages(Product product, List<UUID> imageIds) {
-        if (imageIds == null || imageIds.isEmpty()) {
-            return;
-        }
-
-        product.setImages(imagesRepo.findAllById(imageIds));
     }
 
     private void setBrand(Product product, UUID brandId) {

@@ -13,9 +13,4 @@ import org.mapstruct.Mapper;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface UserPersistenceMapper extends PersistenceMapper<User, UserEntity> {
-    @Override
-    User toDomain(UserEntity entity);
-
-    @Override
-    UserEntity toEntity(User domain);
 }

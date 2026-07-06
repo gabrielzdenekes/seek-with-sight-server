@@ -13,9 +13,5 @@ import org.mapstruct.Mapper;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface RolePersistenceMapper extends PersistenceMapper<Role, RoleEntity> {
-    @Override
-    Role toDomain(RoleEntity entity);
 
-    @Override
-    RoleEntity toEntity(Role domain);
 }

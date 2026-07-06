@@ -14,9 +14,5 @@ import org.mapstruct.Mapper;
 )
 public interface VerificationTokenPersistenceMapper
         extends PersistenceMapper<EmailVerificationToken, EmailVerificationTokenEntity> {
-    @Override
-    EmailVerificationToken toDomain(EmailVerificationTokenEntity entity);
 
-    @Override
-    EmailVerificationTokenEntity toEntity(EmailVerificationToken domain);
 }

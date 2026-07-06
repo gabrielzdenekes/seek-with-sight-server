@@ -14,9 +14,4 @@ import org.mapstruct.Mapper;
 )
 public interface CustomerProfilePersistenceMapper
         extends PersistenceMapper<CustomerProfile, CustomerProfileEntity> {
-    @Override
-    CustomerProfile toDomain(CustomerProfileEntity entity);
-
-    @Override
-    CustomerProfileEntity toEntity(CustomerProfile domain);
 }

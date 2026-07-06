@@ -13,9 +13,4 @@ import org.mapstruct.Mapper;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface ProductVariantPersistenceMapper extends PersistenceMapper<ProductVariant, ProductVariantEntity> {
-    @Override
-    ProductVariantEntity toEntity(ProductVariant domain);
-
-    @Override
-    ProductVariant toDomain(ProductVariantEntity entity);
 }

@@ -20,9 +20,18 @@ public class Product extends BaseDomainModel {
 
     private Category category;
 
-    private List<Image> images;
+    private List<ProductImage> images;
 
     private List<ProductVariant> variants;
+
+    public void addImage(Image image) {
+        var productImage = new ProductImage();
+
+        productImage.setProduct(this);
+        productImage.setImage(image);
+
+        images.add(productImage);
+    }
 
     public String getName() {
         return name;
@@ -88,11 +97,11 @@ public class Product extends BaseDomainModel {
         this.variants = variants;
     }
 
-    public List<Image> getImages() {
+    public List<ProductImage> getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(List<ProductImage> images) {
         this.images = images;
     }
 }

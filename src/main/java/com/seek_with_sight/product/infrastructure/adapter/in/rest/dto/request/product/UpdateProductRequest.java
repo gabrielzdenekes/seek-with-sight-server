@@ -1,14 +1,11 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product;
 
 import com.seek_with_sight.product.domain.model.ProductStatus;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.UUID;
 
 @Getter
@@ -39,8 +36,6 @@ public class UpdateProductRequest {
     private UUID categoryId;
 
     private UUID brandId;
-
-    private List<UUID> imageIds;
 
     public String getName() {
         return name;
@@ -96,13 +91,5 @@ public class UpdateProductRequest {
 
     public void setBrandId(UUID brandId) {
         this.brandId = brandId;
-    }
-
-    public List<UUID> getImageIds() {
-        return imageIds;
-    }
-
-    public void setImageIds(List<UUID> imageIds) {
-        this.imageIds = imageIds;
     }
 }

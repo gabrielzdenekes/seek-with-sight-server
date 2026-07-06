@@ -3,5 +3,15 @@
     "name": "Apple",
     "slug": "apple",
     "description": "American technology giant known for the iPhone, Mac, iPad, and a seamless ecosystem of software and services."
+  },
+  {
+    "name": "Microsoft",
+    "slug": "microsoft",
+    "description": "Global leader in software, cloud computing, and hardware, famous for Windows, Office, and Azure."
+  },
+  {
+    "name": "Google",
+    "slug": "google",
+    "description": "Search and advertising powerhouse that also creates Android, Chrome, and cloud solutions."
   }
 ]

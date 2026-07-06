@@ -1,7 +1,7 @@
 package com.seek_with_sight.product.infrastructure.config.bean;
 
 import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
-import com.seek_with_sight.media.infrastructure.out.persistence.mapper.ImagePersistenceMapper;
+import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
@@ -11,6 +11,7 @@ import com.seek_with_sight.product.application.port.in.product.UpdateProductVari
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
+import com.seek_with_sight.product.application.service.product.AddProductImageService;
 import com.seek_with_sight.product.application.service.product.CreateProductService;
 import com.seek_with_sight.product.application.service.product.CreateProductVariantService;
 import com.seek_with_sight.product.application.service.product.GetProductByIdService;
@@ -23,6 +24,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.Catego
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.BrandPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
@@ -57,7 +59,7 @@ public class ProductBeanConfig {
             ProductVariantPersistenceMapper variantMapper,
             CategoryJpaRepository categoryRepo,
             BrandJpaRepository brandRepo,
-            ImagePersistenceMapper imageMapper
+            ProductImagePersistenceMapper imageMapper
             ) {
 
         return new ProductPersistenceAdapter(
@@ -134,5 +136,12 @@ public class ProductBeanConfig {
                 productAppMapper,
                 imagesRepo
         );
+    }
+
+    @Bean
+    public AddProductImageUseCase addProductImageUseCase(
+            ProductRepositoryPort productsRepo
+    ) {
+        return new AddProductImageService(productsRepo);
     }
 }

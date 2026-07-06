@@ -13,9 +13,5 @@ import org.mapstruct.Mapper;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface RefreshTokenPersistenceMapper extends PersistenceMapper<RefreshToken, RefreshTokenEntity> {
-    @Override
-    RefreshToken toDomain(RefreshTokenEntity entity);
 
-    @Override
-    RefreshTokenEntity toEntity(RefreshToken domain);
 }

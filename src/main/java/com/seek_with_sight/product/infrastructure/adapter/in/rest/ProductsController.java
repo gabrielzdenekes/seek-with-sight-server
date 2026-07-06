@@ -1,5 +1,8 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 
+import com.seek_with_sight.media.application.port.in.UploadImageUseCase;
+import com.seek_with_sight.media.application.port.in.command.UploadImageCommand;
+import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
@@ -16,6 +19,7 @@ import com.seek_with_sight.product.infrastructure.adapter.in.rest.mapper.Product
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,9 +27,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.util.UUID;
 
 @RestController
@@ -39,6 +47,8 @@ public class ProductsController {
     private final CreateProductVariantUseCase createProductVariantUseCase;
     private final RemoveProductVariantUseCase removeProductVariantUseCase;
     private final UpdateProductVariantUseCase updateProductVariantUseCase;
+    private final UploadImageUseCase uploadImageUseCase;
+    private final AddProductImageUseCase addProductImageUseCase;
 
     @PostMapping
     public ProductResponse create(@RequestBody @Valid ProductRequest request) {
@@ -56,7 +66,7 @@ public class ProductsController {
     }
 
     @PutMapping("/{productId}")
-    public ProductResponse updateProduct(
+    public ProductResponseWithDetails updateProduct(
             @PathVariable UUID productId,
             @RequestBody @Valid UpdateProductRequest request
     ) {
@@ -64,6 +74,25 @@ public class ProductsController {
         var updatedProduct = updateProductUseCase.update(productId, updateCommand);
 
         return mapper.toResponseWithDetails(updatedProduct);
+    }
+
+    @PostMapping(
+            path = "/{productId}/images",
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
+    public ProductResponseWithDetails uploadProductImage(
+            @PathVariable UUID productId,
+            @RequestParam("file") MultipartFile file
+    ) {
+        try {
+            var command = getUploadImageCommand(file);
+            var image = uploadImageUseCase.upload(command);
+            var updatedProduct = addProductImageUseCase.add(productId, image);
+
+            return mapper.toResponseWithDetails(updatedProduct);
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to read uploaded file", e);
+        }
     }
 
     @PostMapping("/{productId}/variants")
@@ -96,5 +125,15 @@ public class ProductsController {
         var updatedVariant = updateProductVariantUseCase.update(productId, variantId, command);
 
         return mapper.toVariantResponse(updatedVariant);
+    }
+
+    private UploadImageCommand getUploadImageCommand(MultipartFile file) throws IOException {
+        return new UploadImageCommand(
+                file.getInputStream(),
+                file.getOriginalFilename(),
+                file.getContentType(),
+                file.getSize(),
+                "product-images"
+        );
     }
 }

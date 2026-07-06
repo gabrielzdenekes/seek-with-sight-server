@@ -13,9 +13,4 @@ import org.mapstruct.Mapper;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface CartPersistenceMapper extends PersistenceMapper<Cart, CartEntity> {
-    @Override
-    Cart toDomain(CartEntity entity);
-
-    @Override
-    CartEntity toEntity(Cart domain);
 }
