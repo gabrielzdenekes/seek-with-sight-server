@@ -6,6 +6,7 @@ import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.entity.Ca
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.mapper.CartPersistenceMapper;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.repository.CartJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import com.seek_with_sight.shared.infrastructure.config.cache.CacheNames;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
@@ -36,7 +37,8 @@ public class CartPersistenceAdapter
             key = "#userId"
     )
     public Optional<Cart> findWithItemsByUserId(UUID userId) {
-        return repository.findWithItemsByUserId(userId).map(mapper::toDomainWithDetails);
+        return repository.findWithItemsByUserId(userId)
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override

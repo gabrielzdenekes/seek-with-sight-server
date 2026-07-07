@@ -1,0 +1,71 @@
+package com.seek_with_sight.product;
+
+import com.seek_with_sight.media.ImageTestFixture;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductVariantResponse;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
+import com.seek_with_sight.utils.data.RequestResponseData;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.TestComponent;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import tools.jackson.core.type.TypeReference;
+import tools.jackson.databind.ObjectMapper;
+
+import java.util.UUID;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+
+@TestComponent
+public class ProductVariantTestFixture {
+    @Autowired
+    private MockMvc mockMvc;
+
+    @Autowired
+    private ObjectMapper objectMapper;
+
+    @Autowired
+    private ImageTestFixture imageTestFixture;
+
+    public RequestResponseData<ProductVariantRequest, ApiResponse<ProductVariantResponse>> createProductVariant(UUID productId) throws Exception {
+        var dto = createProductVariantRequest();
+        var request = post("/api/products/" + productId + "/variants")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(dto));
+        var result = mockMvc.perform(request).andReturn();
+        var apiResponse = objectMapper.readValue(
+                result.getResponse().getContentAsString(),
+                new TypeReference<ApiResponse<ProductVariantResponse>>() {
+                }
+        );
+
+        return new RequestResponseData<>(dto, apiResponse);
+    }
+
+    public RequestResponseData<ProductVariantRequest, ApiResponse<ProductVariantResponse>> updateProductVariant(
+            UUID productId,
+            UUID productVariantId,
+            ProductVariantRequest updatedRequest
+    ) throws Exception {
+        var request = put("/api/products/" + productId + "/variants/" + productVariantId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(updatedRequest));
+        var result = mockMvc.perform(request).andReturn();
+        var apiResponse = objectMapper.readValue(
+                result.getResponse().getContentAsString(),
+                new TypeReference<ApiResponse<ProductVariantResponse>>() {
+                }
+        );
+
+        return new RequestResponseData<>(updatedRequest, apiResponse);
+    }
+
+    private ProductVariantRequest createProductVariantRequest() throws Exception {
+        return new ProductVariantRequest(
+                ProductTestDataUtils.productName(),
+                ProductTestDataUtils.sku(),
+                ProductTestDataUtils.price()
+        );
+    }
+}

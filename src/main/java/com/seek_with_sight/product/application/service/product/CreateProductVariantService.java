@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.application.service.product;
 
+import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
@@ -14,6 +15,7 @@ import java.util.UUID;
 public class CreateProductVariantService implements CreateProductVariantUseCase {
     private final ProductRepositoryPort productRepo;
     private final ProductAppMapper productAppMapper;
+    private final ImageRepositoryPort imagesRepo;
 
     @Override
     @Transactional
@@ -24,7 +26,6 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
         var productVariant = productAppMapper.fromCreateCommand(command);
 
         product.addVariant(productVariant);
-
         productRepo.save(product);
 
         var updatedProduct = productRepo.findById(productId).get();

@@ -17,6 +17,10 @@ public class TestDataUtils {
         return faker.number().positive();
     }
 
+    public static int randomIntegerBetween(int min, int max) {
+        return faker.number().numberBetween(min, max);
+    }
+
     public static String url() {
         return faker.internet().url();
     }

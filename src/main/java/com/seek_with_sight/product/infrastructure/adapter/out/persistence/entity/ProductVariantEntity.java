@@ -13,6 +13,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,51 +24,24 @@ public class ProductVariantEntity extends BaseEntity {
     @Column(nullable = false, length = 300)
     private String title;
 
-    @Column(unique = true, nullable = false, length = 100)
+    @Column(nullable = false, unique = true, length = 100)
     private String sku;
 
-    @Column(length = 100)
-    private String barcode;
-
-    @Column(name = "price", precision = 19, scale = 4)
+    @Column(nullable = false, precision = 19, scale = 4)
     private BigDecimal price;
 
-    @Column(name = "compare_at_price", precision = 19, scale = 4)
-    private BigDecimal compareAtPrice;
-
-    @Column(name = "is_active")
-    private Boolean isActive;
-
-    @Column(name = "sort_order")
-    private Integer sortOrder = 0;
-
-    @Column(precision = 10, scale = 3)
-    private BigDecimal weight;
-
-    @Column(name = "weight_unit", length = 10)
-    private String weightUnit;
-
-    @Column(name = "dimension_unit", length = 10)
-    private String dimensionUnit;
-
-    @Column(precision = 10, scale = 2)
-    private BigDecimal length;
-
-    @Column(precision = 10, scale = 2)
-    private BigDecimal width;
-
-    @Column(precision = 10, scale = 2)
-    private BigDecimal height;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "variant_id")
-    private List<ProductVariantOptionEntity> selectedOptions;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "variant_id")
-    private List<ImageEntity> images;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "product_id", nullable = false)
     private ProductEntity product;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "variant")
+    private List<ProductImageEntity> images = new ArrayList<>();
+
+    public void setImages(List<ProductImageEntity> images) {
+        this.images.clear();
+
+        if (images != null) {
+            this.images.addAll(images);
+        }
+    }
 }

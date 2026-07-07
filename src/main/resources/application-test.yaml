@@ -2,3 +2,13 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+
+app:
+  base-url: "https://localhost:8443"
+
+  storage:
+    root-dir: uploads
+    public-base-url: ${app.base-url}/${app.storage.root-dir}
+
+  errors:
+    include-stacktrace: true

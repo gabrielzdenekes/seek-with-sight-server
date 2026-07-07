@@ -7,6 +7,7 @@ import com.seek_with_sight.authorization.infrastructure.adapter.out.persistence.
 import com.seek_with_sight.authorization.infrastructure.adapter.out.persistence.role.mapper.RolePersistenceMapper;
 import com.seek_with_sight.authorization.infrastructure.adapter.out.persistence.role.repository.RoleJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class RolePersistenceAdapter
     public List<Role> findByNameIn(List<RoleName> roleNames) {
         return repository
                 .findByNameIn(roleNames).stream()
-                .map(mapper::toDomain)
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()))
                 .toList();
     }
 }

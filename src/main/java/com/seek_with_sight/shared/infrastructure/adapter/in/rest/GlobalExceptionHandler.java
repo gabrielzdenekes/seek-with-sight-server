@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Arrays;
 
@@ -25,6 +27,9 @@ import java.util.Arrays;
 @Slf4j
 public class GlobalExceptionHandler {
     private final LocalizedMessageService messageService;
+
+    @Value("${app.errors.include-stacktrace:false}")
+    private boolean includeStacktrace;
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<?>> handleBadCredentials(BadCredentialsException ex) {
@@ -102,15 +107,41 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, status);
     }
 
+    @ExceptionHandler(ResponseStatusException.class)
+    public ResponseEntity<ApiResponse<?>> handleResponseStatusException(
+            ResponseStatusException ex
+    ) {
+        var status = HttpStatus.resolve(ex.getStatusCode().value());
+
+        var response = ApiErrorResponse.create(
+                ex.getMessage(),
+                null,
+                status
+        );
+
+        return new ResponseEntity<>(response, status);
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<?>> handleGenericException(
             Exception ex,
             HttpServletRequest request
     ) {
         var status = HttpStatus.INTERNAL_SERVER_ERROR;
+        Object data = null;
+        var message = getLocalizedErrorMessage("generic.error");
+
+        if (includeStacktrace) {
+            data = Arrays.stream(ex.getStackTrace())
+                    .map(StackTraceElement::toString)
+                    .toArray(String[]::new);
+
+            message = ex.getMessage();
+        }
+
         var errorResponse = ApiErrorResponse.create(
-                getLocalizedErrorMessage("generic.error"),
-                null,
+                message,
+                data,
                 ErrorType.INTERNAL.name(),
                 status
         );

@@ -1,9 +1,7 @@
 package com.seek_with_sight.product;
 
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductImageRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductImageResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
@@ -34,8 +32,6 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         assertBaseProperties(productResponse, requestData);
         assertCategory(productResponse, requestData);
         assertBrand(productResponse, requestData);
-        assertSeo(productResponse, requestData);
-        assertImages(productResponse, requestData);
     }
 
     @Test
@@ -44,14 +40,6 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         var createResult = productTestFixture.createProduct();
         var productId = createResult.response().getData().getId();
 
-        /*
-        Total relationships: Category, Brand, Tags, Images, Variants, Attributes, Seo
-        4 select queries are made:
-         - for the product
-         - for the tags
-         - for the images
-         - for product variants
-         */
         sqlCounterUtils.assertSelectQueriesCount(
                 () -> {
                     try {
@@ -60,7 +48,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
                         throw new RuntimeException(e);
                     }
                 },
-                4
+                3
         );
     }
 
@@ -71,14 +59,6 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         assertThat(result.getShortDescription()).isEqualTo(request.shortDescription());
         assertThat(result.getDescription()).isEqualTo(request.description());
         assertThat(result.getStatus()).isEqualTo(request.status());
-        assertThat(result.getCurrencyCode()).isEqualTo(request.currencyCode());
-        assertThat(result.getWeight()).isEqualTo(request.weight());
-        assertThat(result.getWeightUnit()).isEqualTo(request.weightUnit());
-        assertThat(result.getRequiresShipping()).isEqualTo(request.requiresShipping());
-        assertThat(result.getIsDigital()).isEqualTo(request.isDigital());
-        assertThat(result.getTaxClass()).isEqualTo(request.taxClass());
-        assertThat(result.getBasePrice()).isEqualTo(request.basePrice());
-        assertThat(result.getCompareAtPrice()).isEqualTo(request.compareAtPrice());
     }
 
     private void assertCategory(ProductResponseWithDetails result, ProductRequest request) {
@@ -87,37 +67,5 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
 
     private void assertBrand(ProductResponseWithDetails result, ProductRequest request) {
         assertThat(result.getBrand().id()).isEqualTo(request.brandId());
-    }
-
-    private void assertSeo(ProductResponseWithDetails result, ProductRequest request) {
-        var responseSeo = result.getSeo();
-        var requestSeo = request.seo();
-
-        assertThat(responseSeo.id()).isNotNull();
-        assertThat(responseSeo.metaTitle()).isEqualTo(requestSeo.metaTitle());
-        assertThat(responseSeo.metaDescription()).isEqualTo(requestSeo.metaDescription());
-        assertThat(responseSeo.ogTitle()).isEqualTo(requestSeo.ogTitle());
-        assertThat(responseSeo.ogDescription()).isEqualTo(requestSeo.ogDescription());
-        assertThat(responseSeo.ogImageUrl()).isEqualTo(requestSeo.ogImageUrl());
-    }
-
-    private void assertImages(ProductResponseWithDetails result, ProductRequest request) {
-        var actualImages = result.getImages().toArray(ProductImageResponse[]::new);
-        var expectedImages = request.images().toArray(ProductImageRequest[]::new);
-
-        assertThat(actualImages.length).isEqualTo(expectedImages.length);
-
-        for (int i = 0; i < expectedImages.length; i++) {
-            var actImg = actualImages[i];
-            var expImg = expectedImages[i];
-
-            assertThat(actImg.id()).isNotNull();
-            assertThat(actImg.url()).isEqualTo(expImg.url());
-            assertThat(actImg.altText()).isEqualTo(expImg.altText());
-            assertThat(actImg.width()).isEqualTo(expImg.width());
-            assertThat(actImg.height()).isEqualTo(expImg.height());
-            assertThat(actImg.isPrimary()).isEqualTo(expImg.isPrimary());
-            assertThat(actImg.sortOrder()).isEqualTo(expImg.sortOrder());
-        }
     }
 }

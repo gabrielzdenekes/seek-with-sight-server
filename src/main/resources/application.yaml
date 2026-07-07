@@ -22,6 +22,8 @@ spring:
         maximum-size: 1000
         expire-after-write: 10 # In minutes
         entry-ttl: 1 # In hours
+      client-config:
+          static-resource-duration: 365 # In days
 
   datasource:
     url: ${SWS_DB_URL}
@@ -55,3 +57,7 @@ server:
   error:
     include-stacktrace: never
     include-message: never
+
+app:
+  errors:
+    include-stacktrace: false

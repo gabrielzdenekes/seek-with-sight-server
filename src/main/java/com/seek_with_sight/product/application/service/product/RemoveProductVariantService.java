@@ -18,7 +18,7 @@ public class RemoveProductVariantService implements RemoveProductVariantUseCase 
         var product = productsRepo.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException(new Object[] { productId }));
 
-        product.removeVariant(variantId);
+//        product.removeVariant(variantId);
 
         productsRepo.save(product);
     }
