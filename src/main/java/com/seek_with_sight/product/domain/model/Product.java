@@ -1,9 +1,11 @@
 package com.seek_with_sight.product.domain.model;
 
 import com.seek_with_sight.media.domain.model.Image;
+import com.seek_with_sight.product.domain.exception.ProductVariantNotFoundException;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.util.List;
+import java.util.UUID;
 
 public class Product extends BaseDomainModel {
     private String name;
@@ -36,6 +38,13 @@ public class Product extends BaseDomainModel {
     public void addVariant(ProductVariant variant) {
         variants.add(variant);
         variant.setProduct(this);
+    }
+
+    public ProductVariant findVariantById(UUID variantId) {
+        return variants.stream()
+                .filter(v -> v.getId().equals(variantId))
+                .findFirst()
+                .orElseThrow(() -> new ProductVariantNotFoundException(new Object[]{ variantId }));
     }
 
     public String getName() {

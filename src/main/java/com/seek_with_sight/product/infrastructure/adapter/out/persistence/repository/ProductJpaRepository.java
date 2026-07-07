@@ -14,7 +14,8 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
     @EntityGraph(attributePaths = {
             "brand",
             "category",
-            "images"
+            "images",
+            "variants"
     })
     Optional<ProductEntity> findById(UUID uuid);
 }

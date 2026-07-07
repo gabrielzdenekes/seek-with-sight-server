@@ -12,6 +12,7 @@ import com.seek_with_sight.product.application.port.in.product.UpdateProductVari
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.UpdateVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductVariantResponse;
@@ -119,7 +120,7 @@ public class ProductsController {
     public ProductVariantResponse updateProductVariant(
             @PathVariable UUID productId,
             @PathVariable UUID variantId,
-            @Valid @RequestBody ProductVariantRequest request
+            @Valid @RequestBody UpdateVariantRequest request
     ) {
         var command = mapper.toUpdateProductVariantCommand(request);
         var updatedVariant = updateProductVariantUseCase.update(productId, variantId, command);

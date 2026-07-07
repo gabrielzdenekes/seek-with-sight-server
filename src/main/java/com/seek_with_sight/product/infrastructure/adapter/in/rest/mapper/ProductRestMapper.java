@@ -11,6 +11,7 @@ import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.UpdateVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductVariantResponse;
@@ -39,5 +40,5 @@ public interface ProductRestMapper {
 
     ProductVariantResponse toVariantResponse(ProductVariant variant);
 
-    UpdateProductVariantCommand toUpdateProductVariantCommand(ProductVariantRequest request);
+    UpdateProductVariantCommand toUpdateProductVariantCommand(UpdateVariantRequest request);
 }

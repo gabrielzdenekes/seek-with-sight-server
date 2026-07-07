@@ -3,6 +3,7 @@ package com.seek_with_sight.product.application.service.product;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductCommand;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.application.port.in.product.command.UpdateProductCommand;
+import com.seek_with_sight.product.application.port.in.product.command.UpdateProductVariantCommand;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import org.mapstruct.BeanMapping;
@@ -18,4 +19,7 @@ public interface ProductAppMapper {
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     void updateProductFromCommand(UpdateProductCommand command, @MappingTarget Product product);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateVariantFromCommand(UpdateProductVariantCommand command, @MappingTarget ProductVariant variant);
 }
