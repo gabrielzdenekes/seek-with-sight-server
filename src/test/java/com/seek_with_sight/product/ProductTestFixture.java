@@ -11,7 +11,6 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.reposi
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.utils.data.RequestResponseData;
-import com.seek_with_sight.utils.data.TestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.data.domain.Pageable;
@@ -76,7 +75,7 @@ public class ProductTestFixture {
         );
     }
 
-    private ProductRequest createProductRequest(int numberOfRelationships) throws Exception {
+    private ProductRequest createProductRequest(int numberOfRelationships) {
         var productName = ProductTestDataUtils.productName();
         var categories = categoryRepo
                 .findAll(Pageable.ofSize(1))
@@ -93,48 +92,9 @@ public class ProductTestFixture {
                 ProductTestDataUtils.shortDescription(),
                 ProductTestDataUtils.description(),
                 ProductStatus.ACTIVE,
-                ProductTestDataUtils.currencyCode(),
-                TestDataUtils.randomBigDecimal(3),
-                "kg",
-                false,
-                false,
-                "STANDARD",
-                TestDataUtils.randomBigDecimal(4),
-                TestDataUtils.randomBigDecimal(4),
                 categories[0].getId(),
-                brand[0].getId(),
-                getImageIds(1),
-                getAttributeRequests(numberOfRelationships),
-                getProductSeoRequest()
+                brand[0].getId()
         );
-    }
-
-    private static ProductSeoRequest getProductSeoRequest() {
-        return new ProductSeoRequest(
-                TestDataUtils.word(),
-                ProductTestDataUtils.shortDescription(),
-                TestDataUtils.url(),
-                TestDataUtils.word(),
-                ProductTestDataUtils.shortDescription(),
-                TestDataUtils.url()
-        );
-    }
-
-    private List<ProductAttributeRequest> getAttributeRequests(int count) {
-        var attributes = new ArrayList<ProductAttributeRequest>();
-
-        for (var i = 0; i < count; i++) {
-            var attr = new ProductAttributeRequest(
-                    TestDataUtils.word(),
-                    TestDataUtils.word(),
-                    count % 2 == 0,
-                    i
-            );
-
-            attributes.add(attr);
-        }
-
-        return attributes;
     }
 
     private List<UUID> getImageIds(int count) throws Exception {
