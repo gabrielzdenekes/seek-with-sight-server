@@ -4,6 +4,7 @@ import com.seek_with_sight.media.domain.model.Image;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductVariant extends BaseDomainModel {
@@ -15,7 +16,16 @@ public class ProductVariant extends BaseDomainModel {
 
     private BigDecimal price;
 
-    private List<Image> images;
+    private List<ProductImage> images = new ArrayList<>();
+
+    public void addImage(Image image) {
+        var productImage = new ProductImage();
+
+        productImage.setImage(image);
+        productImage.setVariant(this);
+
+        images.add(productImage);
+    }
 
     public Product getProduct() {
         return product;
@@ -41,11 +51,11 @@ public class ProductVariant extends BaseDomainModel {
         this.price = price;
     }
 
-    public List<Image> getImages() {
+    public List<ProductImage> getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(List<ProductImage> images) {
         this.images = images;
     }
 

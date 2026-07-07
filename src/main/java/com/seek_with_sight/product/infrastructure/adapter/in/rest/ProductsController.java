@@ -3,6 +3,7 @@ package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 import com.seek_with_sight.media.application.port.in.UploadImageUseCase;
 import com.seek_with_sight.media.application.port.in.command.UploadImageCommand;
 import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
+import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
@@ -50,6 +51,7 @@ public class ProductsController {
     private final UpdateProductVariantUseCase updateProductVariantUseCase;
     private final UploadImageUseCase uploadImageUseCase;
     private final AddProductImageUseCase addProductImageUseCase;
+    private final AddVariantImageUseCase addVariantImageUseCase;
 
     @PostMapping
     public ProductResponse create(@RequestBody @Valid ProductRequest request) {
@@ -126,6 +128,23 @@ public class ProductsController {
         var updatedVariant = updateProductVariantUseCase.update(productId, variantId, command);
 
         return mapper.toVariantResponse(updatedVariant);
+    }
+
+    @PostMapping("/{productId}/variants/{variantId}/images")
+    public ProductVariantResponse uploadProductVariantImage(
+            @PathVariable UUID productId,
+            @PathVariable UUID variantId,
+            @RequestParam("file") MultipartFile file
+    ) {
+        try {
+            var command = getUploadImageCommand(file);
+            var image = uploadImageUseCase.upload(command);
+            var updatedVariant = addVariantImageUseCase.add(productId, variantId, image);
+
+            return mapper.toVariantResponse(updatedVariant);
+        } catch (IOException e) {
+            throw new UncheckedIOException("Failed to read uploaded file", e);
+        }
     }
 
     private UploadImageCommand getUploadImageCommand(MultipartFile file) throws IOException {

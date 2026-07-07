@@ -33,7 +33,7 @@ public interface ProductRestMapper {
     List<ImageResponse> mapImages(List<ProductImage> value);
 
     @Mapping(source = "image.id", target = "id")
-    @Mapping(source = "image.url", target = "url") // Asumiendo que Image tiene url, añade los campos que necesites
+    @Mapping(source = "image.url", target = "url")
     ImageResponse productImageToImageResponse(ProductImage productImage);
 
     CreateProductVariantCommand toCreateProductVariantCommand(ProductVariantRequest request);

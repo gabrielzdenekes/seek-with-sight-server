@@ -8,6 +8,8 @@ public class ProductImage extends BaseDomainModel {
 
     private Image image;
 
+    private ProductVariant variant;
+
     public Product getProduct() {
         return product;
     }
@@ -22,5 +24,13 @@ public class ProductImage extends BaseDomainModel {
 
     public void setImage(Image image) {
         this.image = image;
+    }
+
+    public ProductVariant getVariant() {
+        return variant;
+    }
+
+    public void setVariant(ProductVariant variant) {
+        this.variant = variant;
     }
 }
