@@ -13,13 +13,13 @@ public class Category extends BaseDomainModel {
 
     private String imageUrl;
 
-    private Category parent;
-
     private List<Category> children;
 
     private Integer sortOrder;
 
     private Boolean isActive;
+
+    private List<Product> products;
 
     public String getName() {
         return name;
@@ -53,14 +53,6 @@ public class Category extends BaseDomainModel {
         this.imageUrl = imageUrl;
     }
 
-    public Category getParent() {
-        return parent;
-    }
-
-    public void setParent(Category parent) {
-        this.parent = parent;
-    }
-
     public List<Category> getChildren() {
         return children;
     }
@@ -83,5 +75,13 @@ public class Category extends BaseDomainModel {
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    public List<Product> getProduct() {
+        return products;
+    }
+
+    public void setProduct(List<Product> products) {
+        this.products = products;
     }
 }

@@ -23,13 +23,8 @@ public class AddItemToCartService implements AddItemToCartUseCase {
                 .orElseThrow(ProductNotFoundException::new);
         var cart = cartRepo.findWithItemsByUserId(user.getId()).get();
         var cartItem = new CartItem();
-        var price = product.getCompareAtPrice() != null
-                ? product.getCompareAtPrice()
-                : product.getBasePrice();
 
         cartItem.setQuantity(command.quantity());
-        cartItem.setCurrencyCode(product.getCurrencyCode());
-        cartItem.setPrice(price);
         cartItem.setProductId(product.getId());
 
         cart.addItem(cartItem);

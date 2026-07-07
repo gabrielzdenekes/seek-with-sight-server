@@ -23,11 +23,11 @@ public class UpdateProductVariantService implements UpdateProductVariantUseCase 
             UpdateProductVariantCommand command
     ) {
         var product = productsRepo.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException(new Object[]{ productId }));
+                .orElseThrow(() -> new ProductNotFoundException(new Object[]{productId}));
 
         var variant = product.findVariantById(variantId);
 
-        mapper.updateVariant(command, variant);
+        mapper.updateVariantFromCommand(command, variant);
 
         productsRepo.save(product);
 

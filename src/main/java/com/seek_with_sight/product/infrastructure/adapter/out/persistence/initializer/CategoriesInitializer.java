@@ -47,7 +47,6 @@ public class CategoriesInitializer implements ApplicationRunner {
         for (var cat : categories) {
             var categoryEntity = new CategoryEntity();
 
-            categoryEntity.setParent(parent);
             categoryEntity.setName(cat.getName());
             categoryEntity.setSlug(cat.getSlug());
             categoryEntity.setDescription(cat.getDescription());

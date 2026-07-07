@@ -4,7 +4,6 @@ import com.seek_with_sight.product.domain.model.ProductStatus;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.util.UUID;
 
 @Getter
@@ -21,20 +20,4 @@ public class ProductResponse {
     private String description;
 
     private ProductStatus status;
-
-    private String currencyCode;
-
-    private BigDecimal weight;
-
-    private String weightUnit;
-
-    private Boolean requiresShipping;
-
-    private Boolean isDigital;
-
-    private String taxClass;
-
-    private BigDecimal basePrice;
-
-    private BigDecimal compareAtPrice;
 }

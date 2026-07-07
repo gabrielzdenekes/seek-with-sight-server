@@ -12,12 +12,9 @@ import java.util.UUID;
 public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID> {
     @Override
     @EntityGraph(attributePaths = {
-            "category",
             "brand",
-            "tags",
+            "category",
             "images",
-            "attributes",
-            "seo",
             "variants"
     })
     Optional<ProductEntity> findById(UUID uuid);

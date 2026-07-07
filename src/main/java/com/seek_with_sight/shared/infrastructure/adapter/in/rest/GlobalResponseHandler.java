@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
@@ -44,15 +45,17 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
             @NonNull ServerHttpRequest request,
             @NonNull ServerHttpResponse response) {
         String responseMessage = null;
-        var status = HttpStatus.OK;
+        var statusCode = ((ServletServerHttpResponse) response).getServletResponse().getStatus();
 
         var responseDetails = returnType.getMethodAnnotation(ApiResponseDetails.class);
         if (responseDetails != null) {
             var messageCode = responseDetails.messageCode();
             var locale = LocaleContextHolder.getLocale();
             responseMessage = this.messageService.getMessage(messageCode, locale);
-            status = responseDetails.status();
+            statusCode = responseDetails.status().value();
         }
+
+        var status = HttpStatus.resolve(statusCode);
 
         response.setStatusCode(status);
         return ApiResponse.create(responseMessage, body, status);

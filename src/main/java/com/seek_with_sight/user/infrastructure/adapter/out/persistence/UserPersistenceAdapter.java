@@ -1,6 +1,7 @@
 package com.seek_with_sight.user.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
+import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import com.seek_with_sight.shared.infrastructure.config.cache.CacheNames;
 import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
@@ -32,11 +33,15 @@ public class UserPersistenceAdapter
             "roles.permissions"
     })
     public Optional<User> findByEmailIgnoreCase(String email) {
-        return repository.findByEmailIgnoreCase(email).map(mapper::toDomain);
+        return repository
+                .findByEmailIgnoreCase(email)
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override
     public Optional<User> findById(UUID id) {
-        return repository.findById(id).map(mapper::toDomain);
+        return repository
+                .findById(id)
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 }

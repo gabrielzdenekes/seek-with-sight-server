@@ -43,3 +43,6 @@ coverage/
 
 # Backup Files
 *.bak
+
+# Other
+uploads

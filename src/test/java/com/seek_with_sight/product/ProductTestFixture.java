@@ -1,10 +1,8 @@
 package com.seek_with_sight.product;
 
+import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.domain.model.ProductStatus;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductAttributeRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductImageRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductSeoRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.BrandEntity;
@@ -13,7 +11,6 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.reposi
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.utils.data.RequestResponseData;
-import com.seek_with_sight.utils.data.TestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.data.domain.Pageable;
@@ -46,7 +43,10 @@ public class ProductTestFixture {
     @Autowired
     private ObjectMapper objectMapper;
 
-    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProductWithNumberOfRealtionships(int numberOfRelationships) throws Exception {
+    @Autowired
+    private ImageTestFixture imageTestFixture;
+
+    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProductWithNumberOfRelationships(int numberOfRelationships) throws Exception {
         var dto = createProductRequest(numberOfRelationships);
         var payload = objectMapper.writeValueAsString(dto);
         var request = post("/api/products")
@@ -62,7 +62,7 @@ public class ProductTestFixture {
     }
 
     public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProduct() throws Exception {
-        return createProductWithNumberOfRealtionships(3);
+        return createProductWithNumberOfRelationships(3);
     }
 
     public ApiResponse<ProductResponseWithDetails> getProductById(UUID id) throws Exception {
@@ -92,67 +92,21 @@ public class ProductTestFixture {
                 ProductTestDataUtils.shortDescription(),
                 ProductTestDataUtils.description(),
                 ProductStatus.ACTIVE,
-                ProductTestDataUtils.currencyCode(),
-                TestDataUtils.randomBigDecimal(3),
-                "kg",
-                false,
-                false,
-                "STANDARD",
-                TestDataUtils.randomBigDecimal(4),
-                TestDataUtils.randomBigDecimal(4),
                 categories[0].getId(),
-                brand[0].getId(),
-                getImageRequests(numberOfRelationships),
-                getAttributeRequests(numberOfRelationships),
-                getProductSeoRequest()
+                brand[0].getId()
         );
     }
 
-    private static ProductSeoRequest getProductSeoRequest() {
-        return new ProductSeoRequest(
-                TestDataUtils.word(),
-                ProductTestDataUtils.shortDescription(),
-                TestDataUtils.url(),
-                TestDataUtils.word(),
-                ProductTestDataUtils.shortDescription(),
-                TestDataUtils.url()
-        );
-    }
-
-    private static List<ProductAttributeRequest> getAttributeRequests(int count) {
-        var attributes = new ArrayList<ProductAttributeRequest>();
-
-        for (var i = 0; i < count; i++) {
-            var attr = new ProductAttributeRequest(
-                    TestDataUtils.word(),
-                    TestDataUtils.word(),
-                    count % 2 == 0,
-                    i
-            );
-
-            attributes.add(attr);
-        }
-
-        return attributes;
-    }
-
-    private static List<ProductImageRequest> getImageRequests(int count) {
-        var images = new ArrayList<ProductImageRequest>();
+    private List<UUID> getImageIds(int count) throws Exception {
+        var imageIds = new ArrayList<UUID>();
 
         for (int i = 0; i < count; i++) {
-            var img = new ProductImageRequest(
-                    TestDataUtils.url(),
-                    i == 0,
-                    TestDataUtils.randomInteger(),
-                    TestDataUtils.randomInteger(),
-                    ProductTestDataUtils.shortDescription(),
-                    i
-            );
+            var uploadResult = imageTestFixture.uploadImage();
 
-            images.add(img);
+            imageIds.add(uploadResult.getData().id());
         }
 
-        return images;
+        return imageIds;
     }
 
     public static class SlugGenerator {
