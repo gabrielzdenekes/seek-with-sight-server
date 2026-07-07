@@ -17,5 +17,5 @@ public interface PersistenceMapper<D, E> {
     List<D> toDomainList(List<E> entityObjects, @Context CycleAvoidingMappingContext context);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDomain(D domain, @MappingTarget E entity);
+    void updateEntityFromDomain(D domain, @MappingTarget E entity, @Context CycleAvoidingMappingContext context);
 }

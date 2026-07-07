@@ -21,6 +21,10 @@ public class ProductImageEntity extends BaseEntity {
     private ProductEntity product;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_variant_id")
+    private ProductVariantEntity variant;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "image_id", nullable = false)
     private ImageEntity image;
 

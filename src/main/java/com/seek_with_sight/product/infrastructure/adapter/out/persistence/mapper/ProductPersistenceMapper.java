@@ -7,6 +7,7 @@ import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEnti
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.CollectionMappingStrategy;
+import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -31,5 +32,9 @@ public interface ProductPersistenceMapper extends PersistenceMapper<Product, Pro
     @Mapping(target = "category", ignore = true)
     @Mapping(target = "brand", ignore = true)
     @Mapping(target = "images", ignore = true)
-    void updateEntityFromDomain(Product domain, @MappingTarget ProductEntity entity);
+    void updateEntityFromDomain(
+            Product domain,
+            @MappingTarget ProductEntity entity,
+            @Context CycleAvoidingMappingContext context
+    );
 }

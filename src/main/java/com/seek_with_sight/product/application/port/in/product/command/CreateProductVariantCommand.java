@@ -7,17 +7,6 @@ import java.util.UUID;
 public record CreateProductVariantCommand(
         String title,
         String sku,
-        String barcode,
-        BigDecimal price,
-        BigDecimal compareAtPrice,
-        Boolean isActive,
-        Integer sortOrder,
-        BigDecimal weight,
-        String weightUnit,
-        String dimensionUnit,
-        BigDecimal length,
-        BigDecimal width,
-        BigDecimal height,
-        List<UUID> imageIds
+        BigDecimal price
 ) {
 }

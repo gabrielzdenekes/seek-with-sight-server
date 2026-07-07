@@ -10,17 +10,6 @@ public record ProductVariantResponse(
         UUID id,
         String title,
         String sku,
-        String barcode,
-        BigDecimal price,
-        BigDecimal compareAtPrice,
-        boolean isActive,
-        int sortOrder,
-        BigDecimal weight,
-        String weightUnit,
-        String dimensionUnit,
-        BigDecimal length,
-        BigDecimal width,
-        BigDecimal height,
         List<ImageResponse> images
 ) {
 }

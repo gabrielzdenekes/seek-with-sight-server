@@ -55,15 +55,22 @@ public class ProductEntity extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
     private List<ProductImageEntity> images = new ArrayList<>();
 
-    public void setImages(List<ProductImageEntity> images) {
-        if (this.images == null) {
-            this.images = new ArrayList<>();
-        }
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
+    private List<ProductVariantEntity> variants = new ArrayList<>();
 
+    public void setImages(List<ProductImageEntity> images) {
         this.images.clear();
 
         if (images != null) {
             this.images.addAll(images);
+        }
+    }
+
+    public void setVariants(List<ProductVariantEntity> variants) {
+        this.variants.clear();
+
+        if (variants != null) {
+            this.variants.addAll(variants);
         }
     }
 }

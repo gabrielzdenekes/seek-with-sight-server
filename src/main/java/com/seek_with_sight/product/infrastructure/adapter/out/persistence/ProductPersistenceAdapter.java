@@ -4,6 +4,7 @@ import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductImageEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductImagePersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
@@ -65,10 +66,7 @@ public class ProductPersistenceAdapter
         if (domain.getCategory() != null && domain.getCategory().getId() != null) {
             if (entity.getCategory() == null || !entity.getCategory().getId().equals(domain.getCategory().getId())) {
                 var newCategoryEntity = categoryRepository
-                        .findById(domain.getCategory().getId())
-                        .orElseThrow(() -> new IllegalArgumentException(
-                                "Category not found with ID: " + domain.getCategory().getId())
-                        );
+                        .findById(domain.getCategory().getId()).get();
 
                 entity.setCategory(newCategoryEntity);
             }
@@ -77,10 +75,7 @@ public class ProductPersistenceAdapter
         if (domain.getBrand() != null && domain.getBrand().getId() != null) {
             if (entity.getBrand() == null || !entity.getBrand().getId().equals(domain.getBrand().getId())) {
                 var newBrandEntity = brandJpaRepository
-                        .findById(domain.getBrand().getId())
-                        .orElseThrow(() -> new IllegalArgumentException(
-                                "Brand not found with ID: " + domain.getBrand().getId())
-                        );
+                        .findById(domain.getBrand().getId()).get();
 
                 entity.setBrand(newBrandEntity);
             }
@@ -91,6 +86,14 @@ public class ProductPersistenceAdapter
                 domain.getImages(),
                 ProductImageEntity.class,
                 imagesMapper,
+                entityManager
+        );
+
+        syncCollection(
+                entity.getVariants(),
+                domain.getVariants(),
+                ProductVariantEntity.class,
+                variantsMapper,
                 entityManager
         );
     }

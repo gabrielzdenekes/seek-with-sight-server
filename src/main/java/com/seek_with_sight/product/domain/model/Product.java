@@ -33,6 +33,11 @@ public class Product extends BaseDomainModel {
         images.add(productImage);
     }
 
+    public void addVariant(ProductVariant variant) {
+        variants.add(variant);
+        variant.setProduct(this);
+    }
+
     public String getName() {
         return name;
     }

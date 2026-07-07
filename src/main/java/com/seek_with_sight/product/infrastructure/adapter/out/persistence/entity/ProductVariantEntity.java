@@ -1,6 +1,5 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
-import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -22,9 +21,8 @@ import java.util.List;
 @Setter
 @Table(name = "product_variants")
 public class ProductVariantEntity extends BaseEntity {
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "product_id", nullable = false)
-    private ProductEntity product;
+    @Column(nullable = false, length = 300)
+    private String title;
 
     @Column(nullable = false, unique = true, length = 100)
     private String sku;
@@ -32,10 +30,18 @@ public class ProductVariantEntity extends BaseEntity {
     @Column(nullable = false, precision = 19, scale = 4)
     private BigDecimal price;
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    @JoinColumn(name = "variant_id")
-    private List<ImageEntity> images = new ArrayList<>();
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
+    private ProductEntity product;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "variant")
+    private List<ProductImageEntity> images = new ArrayList<>();
+
+    public void setImages(List<ProductImageEntity> images) {
+        this.images.clear();
+
+        if (images != null) {
+            this.images.addAll(images);
+        }
+    }
 }

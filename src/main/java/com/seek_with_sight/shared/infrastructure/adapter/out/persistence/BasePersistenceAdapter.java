@@ -29,7 +29,7 @@ public class BasePersistenceAdapter<
 
         if (domain.getId() != null && repository.existsById(domain.getId())) {
             entity = repository.findById(domain.getId()).orElseThrow();
-            mapper.updateEntityFromDomain(domain, entity);
+            mapper.updateEntityFromDomain(domain, entity, new CycleAvoidingMappingContext());
         } else {
             entity = mapper.toEntity(domain, new CycleAvoidingMappingContext());
         }

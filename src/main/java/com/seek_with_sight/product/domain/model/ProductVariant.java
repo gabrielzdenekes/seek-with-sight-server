@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public class ProductVariant extends BaseDomainModel {
+    private String title;
+
     private Product product;
 
     private String sku;
@@ -45,5 +47,13 @@ public class ProductVariant extends BaseDomainModel {
 
     public void setImages(List<Image> images) {
         this.images = images;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
