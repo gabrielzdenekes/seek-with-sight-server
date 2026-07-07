@@ -2,7 +2,6 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entit
 
 import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

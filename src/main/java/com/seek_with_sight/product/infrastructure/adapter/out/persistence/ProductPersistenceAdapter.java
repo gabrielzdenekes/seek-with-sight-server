@@ -66,7 +66,9 @@ public class ProductPersistenceAdapter
             if (entity.getCategory() == null || !entity.getCategory().getId().equals(domain.getCategory().getId())) {
                 var newCategoryEntity = categoryRepository
                         .findById(domain.getCategory().getId())
-                        .orElseThrow(() -> new IllegalArgumentException("Category not found with ID: " + domain.getCategory().getId()));
+                        .orElseThrow(() -> new IllegalArgumentException(
+                                "Category not found with ID: " + domain.getCategory().getId())
+                        );
 
                 entity.setCategory(newCategoryEntity);
             }
@@ -76,7 +78,9 @@ public class ProductPersistenceAdapter
             if (entity.getBrand() == null || !entity.getBrand().getId().equals(domain.getBrand().getId())) {
                 var newBrandEntity = brandJpaRepository
                         .findById(domain.getBrand().getId())
-                        .orElseThrow(() -> new IllegalArgumentException("Brand not found with ID: " + domain.getBrand().getId()));
+                        .orElseThrow(() -> new IllegalArgumentException(
+                                "Brand not found with ID: " + domain.getBrand().getId())
+                        );
 
                 entity.setBrand(newBrandEntity);
             }

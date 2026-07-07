@@ -60,7 +60,7 @@ public class ProductBeanConfig {
             CategoryJpaRepository categoryRepo,
             BrandJpaRepository brandRepo,
             ProductImagePersistenceMapper imageMapper
-            ) {
+    ) {
 
         return new ProductPersistenceAdapter(
                 repo,

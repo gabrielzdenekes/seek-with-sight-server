@@ -37,7 +37,8 @@ public class CartPersistenceAdapter
             key = "#userId"
     )
     public Optional<Cart> findWithItemsByUserId(UUID userId) {
-        return repository.findWithItemsByUserId(userId).map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+        return repository.findWithItemsByUserId(userId)
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override

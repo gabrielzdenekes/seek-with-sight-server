@@ -20,16 +20,16 @@ import org.mapstruct.NullValuePropertyMappingStrategy;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface ProductPersistenceMapper extends PersistenceMapper<Product, ProductEntity> {
-        @Override
-        @Mapping(target = "category", ignore = true)
-        @Mapping(target = "brand", ignore = true)
-        @Mapping(target = "images", ignore = true)
-        ProductEntity toEntity(Product domain, CycleAvoidingMappingContext context);
+    @Override
+    @Mapping(target = "category", ignore = true)
+    @Mapping(target = "brand", ignore = true)
+    @Mapping(target = "images", ignore = true)
+    ProductEntity toEntity(Product domain, CycleAvoidingMappingContext context);
 
-        @Override
-        @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-        @Mapping(target = "category", ignore = true)
-        @Mapping(target = "brand", ignore = true)
-        @Mapping(target = "images", ignore = true)
-        void updateEntityFromDomain(Product domain, @MappingTarget ProductEntity entity);
+    @Override
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "category", ignore = true)
+    @Mapping(target = "brand", ignore = true)
+    @Mapping(target = "images", ignore = true)
+    void updateEntityFromDomain(Product domain, @MappingTarget ProductEntity entity);
 }
