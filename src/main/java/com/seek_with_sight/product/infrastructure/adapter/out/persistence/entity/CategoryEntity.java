@@ -39,4 +39,7 @@ public class CategoryEntity extends BaseEntity {
 
     @Column(name = "is_active")
     private Boolean isActive = true;
+
+    @OneToMany(mappedBy = "category")
+    private List<ProductEntity> products = new ArrayList<>();
 }

@@ -30,14 +30,14 @@ public class RefreshTokenPersistenceAdapter
     public Optional<RefreshToken> findByToken(String token) {
         return repository
                 .findByToken(token)
-                .map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override
     public Optional<RefreshToken> findByUserId(UUID userId) {
         return repository
                 .findByUserId(userId)
-                .map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override

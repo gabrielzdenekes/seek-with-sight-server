@@ -2,11 +2,14 @@ package com.seek_with_sight.product.application.service.product;
 
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductCommand;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
+import com.seek_with_sight.product.application.port.in.product.command.UpdateProductCommand;
 import com.seek_with_sight.product.application.port.in.product.command.UpdateProductVariantCommand;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.domain.model.ProductVariant;
+import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
 
 @Mapper(componentModel = "spring")
 public interface ProductAppMapper {
@@ -14,8 +17,9 @@ public interface ProductAppMapper {
 
     ProductVariant fromCreateCommand(CreateProductVariantCommand command);
 
-    void updateVariant(
-            UpdateProductVariantCommand command,
-            @MappingTarget ProductVariant variant
-    );
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateProductFromCommand(UpdateProductCommand command, @MappingTarget Product product);
+
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateVariantFromCommand(UpdateProductVariantCommand command, @MappingTarget ProductVariant variant);
 }

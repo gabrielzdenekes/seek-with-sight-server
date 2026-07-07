@@ -9,7 +9,6 @@ import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 
 @Mapper(
         componentModel = "spring",
@@ -24,10 +23,4 @@ public interface CategoryPersistenceMapper
 
     @Override
     CategoryEntity toEntity(Category domain, @Context CycleAvoidingMappingContext context);
-
-    @Override
-    void updateEntityFromDomain(
-            Category domain,
-            @MappingTarget CategoryEntity entity,
-            @Context CycleAvoidingMappingContext context);
 }

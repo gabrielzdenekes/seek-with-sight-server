@@ -28,7 +28,7 @@ public class VerificationTokenRepositoryAdapter
 
     @Override
     public Optional<EmailVerificationToken> findByToken(String rawToken) {
-        return repository.findByToken(rawToken).map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+        return repository.findByToken(rawToken).map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override

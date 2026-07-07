@@ -1,24 +1,10 @@
 package com.seek_with_sight.product.application.port.in.product.command;
 
 import java.math.BigDecimal;
-import java.util.List;
-import java.util.UUID;
 
 public record UpdateProductVariantCommand(
         String title,
         String sku,
-        String barcode,
-        BigDecimal price,
-        BigDecimal compareAtPrice,
-        Boolean isActive,
-        Integer sortOrder,
-        BigDecimal weight,
-        String weightUnit,
-        String dimensionUnit,
-        BigDecimal length,
-        BigDecimal width,
-        BigDecimal height,
-        List<UUID> imageIds,
-        List<CreateVariantOptionCommand> selectedOptions
+        BigDecimal price
 ) {
 }

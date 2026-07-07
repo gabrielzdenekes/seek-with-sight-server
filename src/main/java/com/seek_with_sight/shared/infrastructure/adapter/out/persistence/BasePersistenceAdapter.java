@@ -25,7 +25,14 @@ public class BasePersistenceAdapter<
 
     @Override
     public D save(D domain) {
-        var entity = mapper.toEntity(domain, new CycleAvoidingMappingContext());
+        E entity;
+
+        if (domain.getId() != null && repository.existsById(domain.getId())) {
+            entity = repository.findById(domain.getId()).orElseThrow();
+            mapper.updateEntityFromDomain(domain, entity, new CycleAvoidingMappingContext());
+        } else {
+            entity = mapper.toEntity(domain, new CycleAvoidingMappingContext());
+        }
 
         syncComplexProperties(domain, entity);
 
@@ -66,7 +73,9 @@ public class BasePersistenceAdapter<
             if (domain.getId() == null || !currentEntitiesMap.containsKey(domain.getId())) {
                 E newEntity = currentMapper.toEntity(domain, new CycleAvoidingMappingContext());
 
-                entities.add(newEntity);
+                if (!entities.contains(newEntity)) {
+                    entities.add(newEntity);
+                }
             } else {
                 // Update entity properties
                 currentMapper.toEntity(domain, new CycleAvoidingMappingContext());

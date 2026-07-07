@@ -20,6 +20,6 @@ public class BrandPersistenceAdapter
 
     @Override
     public Optional<Brand> findById(UUID id) {
-        return repository.findById(id).map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+        return repository.findById(id).map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 }

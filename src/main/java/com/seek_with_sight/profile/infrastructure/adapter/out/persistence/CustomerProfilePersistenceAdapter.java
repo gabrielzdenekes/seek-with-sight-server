@@ -29,6 +29,6 @@ public class CustomerProfilePersistenceAdapter
     public Optional<CustomerProfile> findByUserEmail(String email) {
         return repository
                 .findByUserEmail(email)
-                .map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 }

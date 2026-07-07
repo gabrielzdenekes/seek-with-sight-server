@@ -1,14 +1,11 @@
 package com.seek_with_sight.user.infrastructure.adapter.out.persistence.mapper;
 
-import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import com.seek_with_sight.user.domain.model.User;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.entity.UserEntity;
 import org.mapstruct.CollectionMappingStrategy;
-import org.mapstruct.Context;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingTarget;
 
 @Mapper(
         componentModel = "spring",
@@ -16,15 +13,4 @@ import org.mapstruct.MappingTarget;
         collectionMappingStrategy = CollectionMappingStrategy.ACCESSOR_ONLY
 )
 public interface UserPersistenceMapper extends PersistenceMapper<User, UserEntity> {
-    @Override
-    User toDomain(UserEntity entity, @Context CycleAvoidingMappingContext context);
-
-    @Override
-    UserEntity toEntity(User domain, @Context CycleAvoidingMappingContext context);
-
-    @Override
-    void updateEntityFromDomain(
-            User domain,
-            @MappingTarget UserEntity entity,
-            @Context CycleAvoidingMappingContext context);
 }

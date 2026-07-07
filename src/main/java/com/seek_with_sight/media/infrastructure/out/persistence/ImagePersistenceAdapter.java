@@ -27,7 +27,7 @@ public class ImagePersistenceAdapter
     public List<Image> findAllById(Iterable<UUID> ids) {
         return repository.findAllById(ids)
                 .stream()
-                .map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()))
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()))
                 .toList();
     }
 }

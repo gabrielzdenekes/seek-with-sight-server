@@ -9,15 +9,11 @@ import java.util.List;
 @Getter
 @Setter
 public class ProductResponseWithDetails extends ProductResponse {
-    private CategoryResponse category;
-
     private BrandResponse brand;
 
-    private ProductSeoResponse seo;
+    private CategoryResponse category;
 
     private List<ImageResponse> images;
-
-    private List<ProductAttributeResponse> attributes;
 
     private List<ProductVariantResponse> variants;
 }

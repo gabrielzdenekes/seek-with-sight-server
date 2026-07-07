@@ -23,6 +23,6 @@ public class CategoryPersistenceAdapter
 
     @Override
     public Optional<Category> findById(UUID categoryId) {
-        return repository.findById(categoryId).map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+        return repository.findById(categoryId).map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 }

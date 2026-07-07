@@ -5,13 +5,14 @@ import org.mapstruct.MappingTarget;
 import org.mapstruct.TargetType;
 
 import java.util.IdentityHashMap;
+import java.util.Map;
 
 public class CycleAvoidingMappingContext {
-    private final IdentityHashMap<Object, Object> knownInstances = new IdentityHashMap<>();
+    private final Map<Object, Object> knownInstances = new IdentityHashMap<>();
 
     @BeforeMapping
     public <T> T getMappedInstance(Object source, @TargetType Class<T> targetType) {
-        return (T) knownInstances.get(source);
+        return targetType.cast(knownInstances.get(source));
     }
 
     @BeforeMapping

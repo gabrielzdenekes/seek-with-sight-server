@@ -1,43 +1,43 @@
 package com.seek_with_sight.product.application.service.product;
 
 import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
-import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
-import com.seek_with_sight.product.application.port.in.product.command.CreateProductCommand;
+import com.seek_with_sight.product.application.port.in.product.UpdateProductUseCase;
+import com.seek_with_sight.product.application.port.in.product.command.UpdateProductCommand;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
-import com.seek_with_sight.product.domain.ProductCreatedEvent;
+import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import com.seek_with_sight.product.domain.model.Product;
-import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
-import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
 @RequiredArgsConstructor
-public class CreateProductService implements CreateProductUseCase {
+public class UpdateProductService implements UpdateProductUseCase {
     private final ProductRepositoryPort productRepo;
     private final CategoryRepositoryPort categoryRepo;
     private final BrandRepositoryPort brandRepository;
     private final ProductAppMapper mapper;
-    private final DomainEventPublisher publisher;
     private final ImageRepositoryPort imagesRepo;
 
     @Override
     @Transactional
-    public Product create(CreateProductCommand command) {
-        var product = mapper.fromCreateCommand(command);
+    public Product update(UUID productId, UpdateProductCommand command) {
+        var product = productRepo.findById(productId)
+                .orElseThrow(() -> new ProductNotFoundException(new Object[]{productId}));
 
-        setCategory(product, command.categoryId());
-        setBrand(product, command.brandId());
+        mapper.updateProductFromCommand(command, product);
 
-        var createdProduct = productRepo.save(product);
+        if (command.categoryId() != null) {
+            setCategory(product, command.categoryId());
+        }
 
-        publisher.publish(
-                new ProductCreatedEvent(createdProduct.getId())
-        );
+        if (command.brandId() != null) {
+            setBrand(product, command.brandId());
+        }
 
-        return createdProduct;
+        return productRepo.save(product);
     }
 
     private void setBrand(Product product, UUID brandId) {

@@ -35,13 +35,13 @@ public class UserPersistenceAdapter
     public Optional<User> findByEmailIgnoreCase(String email) {
         return repository
                 .findByEmailIgnoreCase(email)
-                .map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 
     @Override
     public Optional<User> findById(UUID id) {
         return repository
                 .findById(id)
-                .map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+                .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 }

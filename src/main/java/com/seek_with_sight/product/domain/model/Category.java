@@ -19,6 +19,8 @@ public class Category extends BaseDomainModel {
 
     private Boolean isActive;
 
+    private List<Product> products;
+
     public String getName() {
         return name;
     }
@@ -73,5 +75,13 @@ public class Category extends BaseDomainModel {
 
     public void setActive(Boolean active) {
         isActive = active;
+    }
+
+    public List<Product> getProduct() {
+        return products;
+    }
+
+    public void setProduct(List<Product> products) {
+        this.products = products;
     }
 }

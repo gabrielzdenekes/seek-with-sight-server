@@ -1,11 +1,12 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity;
 
-import com.seek_with_sight.media.infrastructure.out.persistence.entity.ImageEntity;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -23,71 +24,24 @@ public class ProductVariantEntity extends BaseEntity {
     @Column(nullable = false, length = 300)
     private String title;
 
-    @Column(unique = true, nullable = false, length = 100)
+    @Column(nullable = false, unique = true, length = 100)
     private String sku;
 
-    @Column(length = 100)
-    private String barcode;
-
-    @Column(name = "price", precision = 19, scale = 4)
+    @Column(nullable = false, precision = 19, scale = 4)
     private BigDecimal price;
 
-    @Column(name = "compare_at_price", precision = 19, scale = 4)
-    private BigDecimal compareAtPrice;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "product_id", nullable = false)
+    private ProductEntity product;
 
-    @Column(name = "is_active")
-    private Boolean isActive;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "variant")
+    private List<ProductImageEntity> images = new ArrayList<>();
 
-    @Column(name = "sort_order")
-    private Integer sortOrder = 0;
-
-    @Column(precision = 10, scale = 3)
-    private BigDecimal weight;
-
-    @Column(name = "weight_unit", length = 10)
-    private String weightUnit;
-
-    @Column(name = "dimension_unit", length = 10)
-    private String dimensionUnit;
-
-    @Column(precision = 10, scale = 2)
-    private BigDecimal length;
-
-    @Column(precision = 10, scale = 2)
-    private BigDecimal width;
-
-    @Column(precision = 10, scale = 2)
-    private BigDecimal height;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "variant_id")
-    private List<ProductVariantOptionEntity> selectedOptions;
-
-    @OneToMany()
-    @JoinColumn(name = "variant_id")
-    private List<ImageEntity> images;
-
-    public void setSelectedOptions(List<ProductVariantOptionEntity> newOptions) {
-        if (this.selectedOptions == null) {
-            this.selectedOptions = new ArrayList<>();
-        }
-
-        this.selectedOptions.clear();
-
-        if (newOptions != null) {
-            this.selectedOptions.addAll(newOptions);
-        }
-    }
-
-    public void setImages(List<ImageEntity> newImages) {
-        if (this.images == null) {
-            this.images = new ArrayList<>();
-        }
-
+    public void setImages(List<ProductImageEntity> images) {
         this.images.clear();
 
-        if (newImages != null) {
-            this.images.addAll(newImages);
+        if (images != null) {
+            this.images.addAll(images);
         }
     }
 }

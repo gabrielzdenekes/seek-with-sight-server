@@ -27,6 +27,6 @@ public class SellerProfilePersistenceAdapter
 
     @Override
     public Optional<SellerProfile> findByUserEmail(String email) {
-        return repository.findByUserEmail(email).map(e -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+        return repository.findByUserEmail(email).map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
     }
 }
