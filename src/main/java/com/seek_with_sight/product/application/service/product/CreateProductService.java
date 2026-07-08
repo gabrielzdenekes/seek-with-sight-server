@@ -8,10 +8,13 @@ import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.ProductCreatedEvent;
 import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
+import java.math.BigDecimal;
+import java.text.Normalizer;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -32,12 +35,26 @@ public class CreateProductService implements CreateProductUseCase {
         setBrand(product, command.brandId());
 
         var createdProduct = productRepo.save(product);
+        var productWithVariant = createDefaultVariant(createdProduct, command.price());
 
         publisher.publish(
-                new ProductCreatedEvent(createdProduct.getId())
+                new ProductCreatedEvent(productWithVariant.getId())
         );
 
-        return createdProduct;
+        return productWithVariant;
+    }
+
+    private Product createDefaultVariant(Product product, BigDecimal price) {
+        var variant = new ProductVariant();
+
+        variant.setTitle(product.getName());
+        variant.setSku(generateVariantSku(product, variant, 1));
+        variant.setPrice(price);
+
+        product.addVariant(variant);
+        product.setDefaultVariant(variant);
+
+        return productRepo.save(product);
     }
 
     private void setBrand(Product product, UUID brandId) {
@@ -54,5 +71,36 @@ public class CreateProductService implements CreateProductUseCase {
                 .orElseThrow();
 
         product.setCategory(category);
+    }
+
+    public String generateVariantSku(Product product, ProductVariant variant, long nextId) {
+        var categoryName = product.getCategory().getName();
+        var catCode = sanitize(categoryName)
+                .substring(0, Math.min(4, categoryName.length()));
+
+        var brandName = product.getBrand().getName();
+        var brandCode = sanitize(brandName)
+                .substring(0, Math.min(3, brandName.length()));
+
+        var variantCode = generateVariantCode(variant.getTitle());
+
+        var sequence = String.format("%03d", nextId);
+
+        return String.format("%s-%s-%s-%s", catCode, brandCode, variantCode, sequence).toUpperCase();
+    }
+
+    private String sanitize(String input) {
+        if (input == null) return "";
+        return Normalizer.normalize(input, Normalizer.Form.NFD)
+                .replaceAll("[^\\p{ASCII}]", "")
+                .replaceAll("[^a-zA-Z0-9]", "")
+                .toUpperCase();
+    }
+
+    private String generateVariantCode(String title) {
+        String clean = sanitize(title);
+        if (clean.isEmpty()) return "DEF";
+        // Si es muy corto, lo dejamos tal cual, si es largo tomamos las primeras 4 letras
+        return clean.substring(0, Math.min(4, clean.length()));
     }
 }

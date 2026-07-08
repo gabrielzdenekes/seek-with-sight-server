@@ -1,11 +1,14 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product;
 
 import com.seek_with_sight.product.domain.model.ProductStatus;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 public record ProductRequest(
@@ -38,6 +41,18 @@ public record ProductRequest(
         UUID categoryId,
 
         @NotNull(message = "{product.brand.required}")
-        UUID brandId
+        UUID brandId,
+
+        @NotNull(message = "{product.base-price.required}")
+        @DecimalMin(
+                value = "0.00",
+                message = "{product.base-price.positive-value}"
+        )
+        @Digits(
+                integer = 19,
+                fraction = 4,
+                message = "{product.base-price.format}"
+        )
+        BigDecimal price
 ) {
 }

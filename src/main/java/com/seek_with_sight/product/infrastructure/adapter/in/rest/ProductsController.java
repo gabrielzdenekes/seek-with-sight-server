@@ -14,7 +14,6 @@ import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.pr
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.UpdateVariantRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductVariantResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.mapper.ProductRestMapper;
@@ -54,11 +53,11 @@ public class ProductsController {
     private final AddVariantImageUseCase addVariantImageUseCase;
 
     @PostMapping
-    public ProductResponse create(@RequestBody @Valid ProductRequest request) {
+    public ProductResponseWithDetails create(@RequestBody @Valid ProductRequest request) {
         var createCommand = mapper.toCreateProductCommand(request);
         var createdProduct = createProductUseCase.create(createCommand);
 
-        return mapper.toResponse(createdProduct);
+        return mapper.toResponseWithDetails(createdProduct);
     }
 
     @GetMapping("/{productId}")

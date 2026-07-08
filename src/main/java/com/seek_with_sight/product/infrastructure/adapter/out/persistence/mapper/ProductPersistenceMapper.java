@@ -25,7 +25,7 @@ public interface ProductPersistenceMapper extends PersistenceMapper<Product, Pro
     @Mapping(target = "category", ignore = true)
     @Mapping(target = "brand", ignore = true)
     @Mapping(target = "images", ignore = true)
-    ProductEntity toEntity(Product domain, CycleAvoidingMappingContext context);
+    ProductEntity toEntity(Product domain, @Context CycleAvoidingMappingContext context);
 
     @Override
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
