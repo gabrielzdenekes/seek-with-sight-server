@@ -4,6 +4,7 @@ import com.seek_with_sight.media.domain.model.Image;
 import com.seek_with_sight.product.domain.exception.ProductVariantNotFoundException;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,9 +23,11 @@ public class Product extends BaseDomainModel {
 
     private Category category;
 
-    private List<ProductImage> images;
+    private ProductVariant defaultVariant;
 
-    private List<ProductVariant> variants;
+    private List<ProductImage> images = new ArrayList<>();
+
+    private List<ProductVariant> variants = new ArrayList<>();
 
     public void addImage(Image image) {
         var productImage = new ProductImage();
@@ -117,5 +120,13 @@ public class Product extends BaseDomainModel {
 
     public void setImages(List<ProductImage> images) {
         this.images = images;
+    }
+
+    public ProductVariant getDefaultVariant() {
+        return defaultVariant;
+    }
+
+    public void setDefaultVariant(ProductVariant defaultVariant) {
+        this.defaultVariant = defaultVariant;
     }
 }
