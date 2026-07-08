@@ -90,7 +90,10 @@ public class CreateProductService implements CreateProductUseCase {
     }
 
     private String sanitize(String input) {
-        if (input == null) return "";
+        if (input == null) {
+            return "";
+        }
+
         return Normalizer.normalize(input, Normalizer.Form.NFD)
                 .replaceAll("[^\\p{ASCII}]", "")
                 .replaceAll("[^a-zA-Z0-9]", "")
@@ -98,9 +101,12 @@ public class CreateProductService implements CreateProductUseCase {
     }
 
     private String generateVariantCode(String title) {
-        String clean = sanitize(title);
-        if (clean.isEmpty()) return "DEF";
-        // Si es muy corto, lo dejamos tal cual, si es largo tomamos las primeras 4 letras
+        var clean = sanitize(title);
+
+        if (clean.isEmpty()) {
+            return "DEF";
+        }
+
         return clean.substring(0, Math.min(4, clean.length()));
     }
 }
