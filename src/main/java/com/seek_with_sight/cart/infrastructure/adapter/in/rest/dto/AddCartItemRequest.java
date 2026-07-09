@@ -10,6 +10,9 @@ public record AddCartItemRequest(
         @NotNull(message = "{add-cart-item.product-id.required}")
         UUID productId,
 
+        @NotNull(message = "{add-cart-item.product-variant-id.required}")
+        UUID productVariantId,
+
         @Min(value = 1, message = "{add-cart-item.quantity.min}")
         @Max(value = 99, message = "{add-cart-item.quantity.max}")
         int quantity

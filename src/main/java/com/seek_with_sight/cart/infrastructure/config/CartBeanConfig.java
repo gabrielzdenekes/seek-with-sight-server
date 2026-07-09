@@ -41,12 +41,13 @@ public class CartBeanConfig {
     public AddItemToCartUseCase addItemToCartUseCase(
             CurrentUserPort currentUserPort,
             ProductRepositoryPort productRepo,
-            CartRepositoryPort cartRepo
+            CartRepositoryPort cartRepo,
+            FindCartForCurrentUserUseCase findCartForCurrentUserUseCase
     ) {
         return new AddItemToCartService(
-                currentUserPort,
                 productRepo,
-                cartRepo
+                cartRepo,
+                findCartForCurrentUserUseCase
         );
     }
 

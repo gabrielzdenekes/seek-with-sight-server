@@ -16,33 +16,35 @@ public class Cart extends BaseDomainModel {
 
     private List<CartItem> items = new ArrayList<>();
 
-    private BigDecimal totalPrice;
+    private BigDecimal totalPrice = BigDecimal.valueOf(0.0);
 
     private String currency;
 
     public void addItem(CartItem item) {
         var existingItem = items.stream()
-                .filter(i -> i.getProductId() == item.getProductId())
+                .filter(i -> i.getVariant().getId().equals(item.getVariant().getId()))
                 .findFirst();
 
         if (existingItem.isPresent()) {
-            throw new ItemAlreadyAddedToCartException(new Object[]{ "Existing productId=" + item.getProductId() });
+            throw new ItemAlreadyAddedToCartException(
+                    new Object[]{ "Existing productId=" + item.getVariant().getId() }
+            );
         }
 
         items.add(item);
         recalculateTotal();
     }
 
-    public void updateItemQuantity(UUID productId, int quantity) {
-        var item = findItemByProductId(productId)
-                .orElseThrow(() -> new CartItemNotFoundException(new Object[]{ "productId=" + productId }));
+    public void updateItemQuantity(UUID variantId, int quantity) {
+        var item = findItemByProductId(variantId)
+                .orElseThrow(() -> new CartItemNotFoundException(new Object[]{ "variantId=" + variantId }));
 
         item.setQuantity(quantity);
         recalculateTotal();
     }
 
-    public void removeItem(UUID productId) {
-        items.removeIf(i -> i.getProductId().equals(productId));
+    public void removeItem(UUID variantId) {
+        items.removeIf(i -> i.getVariant().getId().equals(variantId));
         recalculateTotal();
     }
 
@@ -51,9 +53,9 @@ public class Cart extends BaseDomainModel {
         recalculateTotal();
     }
 
-    private Optional<CartItem> findItemByProductId(UUID productId) {
+    private Optional<CartItem> findItemByProductId(UUID variantId) {
         return items.stream()
-                .filter(item -> item.getProductId().equals(productId))
+                .filter(item -> item.getVariant().getId().equals(variantId))
                 .findFirst();
     }
 
