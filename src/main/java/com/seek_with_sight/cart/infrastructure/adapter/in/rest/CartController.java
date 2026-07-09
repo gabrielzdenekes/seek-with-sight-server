@@ -48,20 +48,20 @@ public class CartController {
         addItemToCartUseCase.add(addItemCommand);
     }
 
-    @PatchMapping("/items/{productId}")
+    @PatchMapping("/items/{variantId}")
     @ApiResponseDetails(messageCode = "update-cart-item.success")
     public void updateItemQuantity(
             @Valid @RequestBody UpdateItemQuantityRequest request,
-            @PathVariable UUID productId) {
+            @PathVariable UUID variantId) {
 
-        updateItemQuantityUseCase.update(productId, request.quantity());
+        updateItemQuantityUseCase.update(variantId, request.quantity());
     }
 
-    @DeleteMapping("/items/{productId}")
+    @DeleteMapping("/items/{variantId}")
     @ApiResponseDetails(messageCode = "remove-cart-item.success")
-    public void removeItem(@PathVariable UUID productId) {
+    public void removeItem(@PathVariable UUID variantId) {
 
-        removeItemFromCartUseCase.remove(productId);
+        removeItemFromCartUseCase.remove(variantId);
     }
 
     @DeleteMapping("/items")

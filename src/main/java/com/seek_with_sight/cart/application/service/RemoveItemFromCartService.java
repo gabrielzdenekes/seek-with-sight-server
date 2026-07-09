@@ -15,11 +15,11 @@ public class RemoveItemFromCartService implements RemoveItemFromCartUseCase {
 
     @Override
     @Transactional
-    public void remove(UUID productId) {
+    public void remove(UUID variantId) {
         var user = currentUserPort.getCurrentUser();
         var cart = cartRepositoryPort.findWithItemsByUserId(user.getId()).get();
 
-        cart.removeItem(productId);
+        cart.removeItem(variantId);
 
         cartRepositoryPort.save(cart);
     }

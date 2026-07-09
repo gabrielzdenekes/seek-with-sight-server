@@ -36,7 +36,7 @@ public class Cart extends BaseDomainModel {
     }
 
     public void updateItemQuantity(UUID variantId, int quantity) {
-        var item = findItemByProductId(variantId)
+        var item = findItemByVariantId(variantId)
                 .orElseThrow(() -> new CartItemNotFoundException(new Object[]{ "variantId=" + variantId }));
 
         item.setQuantity(quantity);
@@ -53,7 +53,7 @@ public class Cart extends BaseDomainModel {
         recalculateTotal();
     }
 
-    private Optional<CartItem> findItemByProductId(UUID variantId) {
+    private Optional<CartItem> findItemByVariantId(UUID variantId) {
         return items.stream()
                 .filter(item -> item.getVariant().getId().equals(variantId))
                 .findFirst();
