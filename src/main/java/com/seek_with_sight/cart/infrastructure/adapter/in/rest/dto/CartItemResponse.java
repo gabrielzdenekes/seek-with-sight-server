@@ -4,7 +4,6 @@ import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.P
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductVariantResponse;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 public record CartItemResponse(
         ProductResponse product,

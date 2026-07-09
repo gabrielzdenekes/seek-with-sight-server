@@ -5,7 +5,6 @@ import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 public class CartItem extends BaseDomainModel {
     private Product product;
