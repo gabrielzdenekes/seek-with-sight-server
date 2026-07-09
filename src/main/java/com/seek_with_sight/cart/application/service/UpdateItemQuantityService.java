@@ -15,11 +15,11 @@ public class UpdateItemQuantityService implements UpdateItemQuantityUseCase {
 
     @Override
     @Transactional
-    public void update(UUID productId, int quantity) {
+    public void update(UUID variantId, int quantity) {
         var user = currentUserPort.getCurrentUser();
         var cart = cartRepo.findWithItemsByUserId(user.getId()).get();
 
-        cart.updateItemQuantity(productId, quantity);
+        cart.updateItemQuantity(variantId, quantity);
 
         cartRepo.save(cart);
     }

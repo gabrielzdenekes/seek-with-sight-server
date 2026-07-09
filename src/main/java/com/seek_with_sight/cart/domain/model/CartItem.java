@@ -1,29 +1,24 @@
 package com.seek_with_sight.cart.domain.model;
 
+import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 public class CartItem extends BaseDomainModel {
-    private UUID productId;
+    private Product product;
+
+    private ProductVariant variant;
 
     private Integer quantity;
 
     private BigDecimal price;
 
-    private String currencyCode;
+    private String currencyCode = "EUR";
 
     public BigDecimal getTotalPrice() {
         return price.multiply(BigDecimal.valueOf(quantity));
-    }
-
-    public UUID getProductId() {
-        return productId;
-    }
-
-    public void setProductId(UUID productId) {
-        this.productId = productId;
     }
 
     public Integer getQuantity() {
@@ -48,5 +43,21 @@ public class CartItem extends BaseDomainModel {
 
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
+    }
+
+    public ProductVariant getVariant() {
+        return variant;
+    }
+
+    public void setVariant(ProductVariant variant) {
+        this.variant = variant;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

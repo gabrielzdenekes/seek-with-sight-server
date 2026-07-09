@@ -1,15 +1,15 @@
 package com.seek_with_sight.cart.infrastructure.adapter.in.rest.dto;
 
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductVariantResponse;
+
 import java.math.BigDecimal;
-import java.util.UUID;
 
 public record CartItemResponse(
-        UUID productId,
-        String productName,
-        String productSlug,
-        String productImageUrl,
+        ProductResponse product,
+        ProductVariantResponse variant,
         int quantity,
-        BigDecimal unitPrice,
+        String currencyCode,
         BigDecimal totalPrice
 ) {
 }

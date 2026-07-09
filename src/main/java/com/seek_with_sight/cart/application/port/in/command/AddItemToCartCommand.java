@@ -5,6 +5,8 @@ import java.util.UUID;
 public record AddItemToCartCommand(
         UUID productId,
 
+        UUID productVariantId,
+
         int quantity
 ) {
 }

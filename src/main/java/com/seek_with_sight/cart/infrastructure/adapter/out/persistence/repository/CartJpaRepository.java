@@ -13,7 +13,8 @@ public interface CartJpaRepository extends JpaRepository<CartEntity, UUID> {
     Optional<CartEntity> findByUserId(UUID userId);
 
     @EntityGraph(attributePaths = {
-            "items"
+            "items.variant",
+            "items.product"
     })
     Optional<CartEntity> findWithItemsByUserId(UUID userId);
 
