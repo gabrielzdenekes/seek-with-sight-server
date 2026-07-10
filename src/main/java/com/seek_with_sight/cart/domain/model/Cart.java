@@ -53,7 +53,7 @@ public class Cart extends BaseDomainModel {
         recalculateTotal();
     }
 
-    private Optional<CartItem> findItemByVariantId(UUID variantId) {
+    public Optional<CartItem> findItemByVariantId(UUID variantId) {
         return items.stream()
                 .filter(item -> item.getVariant().getId().equals(variantId))
                 .findFirst();

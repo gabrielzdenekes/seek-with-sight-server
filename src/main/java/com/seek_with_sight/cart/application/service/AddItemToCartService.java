@@ -4,6 +4,7 @@ import com.seek_with_sight.cart.application.port.in.AddItemToCartUseCase;
 import com.seek_with_sight.cart.application.port.in.FindCartForCurrentUserUseCase;
 import com.seek_with_sight.cart.application.port.in.command.AddItemToCartCommand;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
+import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import com.seek_with_sight.cart.domain.model.CartItem;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
@@ -15,6 +16,7 @@ public class AddItemToCartService implements AddItemToCartUseCase {
     private final ProductRepositoryPort productRepo;
     private final CartRepositoryPort cartRepo;
     private final FindCartForCurrentUserUseCase findCartForCurrentUserUseCase;
+    private final ReserveStockUseCase reserveStockUseCase;
 
     @Override
     @Transactional
@@ -24,6 +26,8 @@ public class AddItemToCartService implements AddItemToCartUseCase {
         var cart = findCartForCurrentUserUseCase.find();
         var cartItem = new CartItem();
         var variant = product.findVariantById(command.productVariantId());
+
+        reserveStockUseCase.reserve(variant.getId(), cartItem.getQuantity());
 
         cartItem.setPrice(variant.getPrice());
         cartItem.setQuantity(command.quantity());

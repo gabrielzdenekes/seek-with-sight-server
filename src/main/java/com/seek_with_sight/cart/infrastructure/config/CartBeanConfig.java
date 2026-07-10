@@ -14,6 +14,8 @@ import com.seek_with_sight.cart.application.service.UpdateItemQuantityService;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.CartPersistenceAdapter;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.mapper.CartPersistenceMapper;
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.repository.CartJpaRepository;
+import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
+import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import org.springframework.context.annotation.Bean;
@@ -42,36 +44,47 @@ public class CartBeanConfig {
             CurrentUserPort currentUserPort,
             ProductRepositoryPort productRepo,
             CartRepositoryPort cartRepo,
-            FindCartForCurrentUserUseCase findCartForCurrentUserUseCase
+            FindCartForCurrentUserUseCase findCartForCurrentUserUseCase,
+            ReserveStockUseCase reserveStockUseCase
     ) {
         return new AddItemToCartService(
                 productRepo,
                 cartRepo,
-                findCartForCurrentUserUseCase
+                findCartForCurrentUserUseCase,
+                reserveStockUseCase
         );
     }
 
     @Bean
     public UpdateItemQuantityUseCase updateItemQuantityUseCase(
             CurrentUserPort currentUserPort,
-            CartRepositoryPort cartRepo
+            CartRepositoryPort cartRepo,
+            ReleaseStockUseCase releaseStockUseCase,
+            ReserveStockUseCase reserveStockUseCase
     ) {
-        return new UpdateItemQuantityService(cartRepo, currentUserPort);
+        return new UpdateItemQuantityService(
+                cartRepo,
+                currentUserPort,
+                releaseStockUseCase,
+                reserveStockUseCase
+        );
     }
 
     @Bean
     public RemoveItemFromCartUseCase removeItemFromCartUseCase(
             CurrentUserPort currentUserPort,
-            CartRepositoryPort cartRepo
+            CartRepositoryPort cartRepo,
+            ReleaseStockUseCase releaseStockUseCase
     ) {
-        return new RemoveItemFromCartService(currentUserPort, cartRepo);
+        return new RemoveItemFromCartService(currentUserPort, cartRepo, releaseStockUseCase);
     }
 
     @Bean
     public ClearCartUseCase clearCartUseCase(
             CurrentUserPort currentUserPort,
-            CartRepositoryPort cartRepo
+            CartRepositoryPort cartRepo,
+            ReleaseStockUseCase releaseStockUseCase
     ) {
-        return new ClearCartService(currentUserPort, cartRepo);
+        return new ClearCartService(currentUserPort, cartRepo, releaseStockUseCase);
     }
 }
