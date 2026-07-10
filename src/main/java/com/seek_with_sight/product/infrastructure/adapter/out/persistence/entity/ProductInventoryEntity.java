@@ -22,4 +22,7 @@ public class ProductInventoryEntity extends BaseEntity {
 
     @Column(nullable = false)
     private Integer quantity;
+
+    @Column(name = "reserved_quantity", nullable = false)
+    private Integer reservedQuantity = 0;
 }

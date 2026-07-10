@@ -7,6 +7,7 @@ import com.seek_with_sight.product.application.port.in.product.CreateProductUseC
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
@@ -20,6 +21,7 @@ import com.seek_with_sight.product.application.service.product.CreateProductVari
 import com.seek_with_sight.product.application.service.product.GetProductByIdService;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.application.service.product.RemoveProductVariantService;
+import com.seek_with_sight.product.application.service.product.ReserveStockService;
 import com.seek_with_sight.product.application.service.product.UpdateProductService;
 import com.seek_with_sight.product.application.service.product.UpdateProductVariantService;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;
@@ -166,5 +168,10 @@ public class ProductBeanConfig {
                 repo,
                 mapper
         );
+    }
+
+    @Bean
+    public ReserveStockUseCase reserveStockUseCase(ProductInventoryRepositoryPort repo) {
+        return new ReserveStockService(repo);
     }
 }

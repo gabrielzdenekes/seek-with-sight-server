@@ -8,6 +8,12 @@ public class ProductInventory extends BaseDomainModel {
 
     private Integer quantity = 0;
 
+    private Integer reservedQuantity = 0;
+
+    public Integer getAvailableStock() {
+        return quantity - reservedQuantity;
+    }
+
     public ProductVariantEntity getVariant() {
         return variant;
     }
@@ -22,5 +28,13 @@ public class ProductInventory extends BaseDomainModel {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public Integer getReservedQuantity() {
+        return reservedQuantity;
+    }
+
+    public void setReservedQuantity(Integer reservedQuantity) {
+        this.reservedQuantity = reservedQuantity;
     }
 }
