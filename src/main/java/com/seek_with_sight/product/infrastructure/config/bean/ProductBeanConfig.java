@@ -11,6 +11,7 @@ import com.seek_with_sight.product.application.port.in.product.UpdateProductUseC
 import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
+import com.seek_with_sight.product.application.port.out.ProductInventoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.service.product.AddProductImageService;
 import com.seek_with_sight.product.application.service.product.AddVariantImageService;
@@ -23,14 +24,17 @@ import com.seek_with_sight.product.application.service.product.UpdateProductServ
 import com.seek_with_sight.product.application.service.product.UpdateProductVariantService;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.CategoryPersistenceAdapter;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductInventoryPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.BrandPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductImagePersistenceMapper;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductInventoryPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductInventoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
 import jakarta.persistence.EntityManager;
@@ -151,5 +155,16 @@ public class ProductBeanConfig {
             ProductRepositoryPort productsRepo
     ) {
         return new AddVariantImageService(productsRepo);
+    }
+
+    @Bean
+    public ProductInventoryRepositoryPort productInventoryRepositoryPort(
+            ProductInventoryJpaRepository repo,
+            ProductInventoryPersistenceMapper mapper
+    ) {
+        return new ProductInventoryPersistenceAdapter(
+                repo,
+                mapper
+        );
     }
 }
