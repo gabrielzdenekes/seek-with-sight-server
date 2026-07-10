@@ -5,7 +5,7 @@ import com.seek_with_sight.cart.application.port.in.ClearCartUseCase;
 import com.seek_with_sight.cart.application.port.in.FindCartForCurrentUserUseCase;
 import com.seek_with_sight.cart.application.port.in.RemoveItemFromCartUseCase;
 import com.seek_with_sight.cart.application.port.in.UpdateItemQuantityUseCase;
-import com.seek_with_sight.cart.application.port.out.AddItemToCartService;
+import com.seek_with_sight.cart.application.service.AddItemToCartService;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
 import com.seek_with_sight.cart.application.service.ClearCartService;
 import com.seek_with_sight.cart.application.service.FindCartByUserEmailService;
