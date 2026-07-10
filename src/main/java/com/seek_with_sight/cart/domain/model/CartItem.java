@@ -9,6 +9,8 @@ import java.math.BigDecimal;
 public class CartItem extends BaseDomainModel {
     private Product product;
 
+    private Cart cart;
+
     private ProductVariant variant;
 
     private Integer quantity;
@@ -59,5 +61,13 @@ public class CartItem extends BaseDomainModel {
 
     public void setProduct(Product product) {
         this.product = product;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 }

@@ -25,7 +25,7 @@ public class CartEntity extends BaseEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private UserEntity user;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "cart")
     private List<CartItemEntity> items = new ArrayList<>();
 
     @Column(name = "total_price", nullable = false, precision = 19, scale = 4)

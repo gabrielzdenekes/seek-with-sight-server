@@ -27,6 +27,10 @@ public class CartItemEntity extends BaseEntity {
     @JoinColumn(name = "product_id", nullable = false)
     private ProductEntity product;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "cart_id", nullable = false)
+    private CartEntity cart;
+
     @Column(nullable = false)
     private Integer quantity;
 

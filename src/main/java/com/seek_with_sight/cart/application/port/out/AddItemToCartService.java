@@ -28,6 +28,7 @@ public class AddItemToCartService implements AddItemToCartUseCase {
         cartItem.setQuantity(command.quantity());
         cartItem.setVariant(variant);
         cartItem.setProduct(product);
+        cartItem.setCart(cart);
 
         cart.addItem(cartItem);
 
