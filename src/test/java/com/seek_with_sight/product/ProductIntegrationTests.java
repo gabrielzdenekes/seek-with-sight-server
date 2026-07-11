@@ -10,6 +10,7 @@ import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
 import org.springframework.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -85,6 +86,24 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         var productResponseData = (ProductResponseWithDetails) createResult.response().getData();
 
         assertThat(productResponseData.getVariants().size()).isEqualTo(1);
+    }
+
+    @Test
+    @Transactional
+    public void getProductByIdUseCase_shouldMakeFetchAllRelationshipsWithOneQuery() throws Exception {
+        var createResult = productTestFixture.createProduct();
+        var productId = ((ProductResponse) createResult.response().getData()).getId();
+
+        sqlCounterUtils.assertSelectQueriesCount(
+                () -> {
+                    try {
+                        productTestFixture.getProductById(productId);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                },
+                4
+        );
     }
 
     private void assertBaseProperties(ProductResponseWithDetails result, ProductRequest request) {
