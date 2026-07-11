@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -31,13 +32,29 @@ public class GlobalExceptionHandler {
     @Value("${app.errors.include-stacktrace:false}")
     private boolean includeStacktrace;
 
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ApiResponse<?>> handleHttpMessageNotReadable(
+            HttpMessageNotReadableException ex,
+            HttpServletRequest request
+    ) {
+        var status = HttpStatus.BAD_REQUEST;
+        var errorResponse = ApiErrorResponse.create(
+                "Malformed or missing request body",
+                null,
+                ErrorType.VALIDATION.name(),
+                status.value()
+        );
+
+        return new ResponseEntity<>(errorResponse, status);
+    }
+
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<?>> handleBadCredentials(BadCredentialsException ex) {
         var errorResponse = ApiErrorResponse.create(
                 getLocalizedErrorMessage("auth.error.unauthorized"),
                 null,
                 ErrorType.UNAUTHORIZED.name(),
-                HttpStatus.UNAUTHORIZED
+                HttpStatus.UNAUTHORIZED.value()
         );
 
         return ResponseEntity
@@ -55,7 +72,7 @@ public class GlobalExceptionHandler {
                 getLocalizedErrorMessage(ex.getLocalizedMessageCode()),
                 null,
                 ex.getErrorCode(),
-                status
+                status.value()
         );
 
         return new ResponseEntity<>(errorResponse, status);
@@ -78,7 +95,7 @@ public class GlobalExceptionHandler {
                 getLocalizedErrorMessage("validation.failed"),
                 errors,
                 ErrorType.VALIDATION.name(),
-                status
+                status.value()
         );
 
         return new ResponseEntity<>(errorResponse, status);
@@ -101,7 +118,7 @@ public class GlobalExceptionHandler {
                 getLocalizedErrorMessage("validation.failed"),
                 details,
                 ErrorType.VALIDATION.name(),
-                status
+                status.value()
         );
 
         return new ResponseEntity<>(errorResponse, status);
@@ -116,7 +133,8 @@ public class GlobalExceptionHandler {
         var response = ApiErrorResponse.create(
                 ex.getMessage(),
                 null,
-                status
+                ErrorType.INTERNAL.name(),
+                status.value()
         );
 
         return new ResponseEntity<>(response, status);
@@ -143,7 +161,7 @@ public class GlobalExceptionHandler {
                 message,
                 data,
                 ErrorType.INTERNAL.name(),
-                status
+                status.value()
         );
 
         log.error("Unhandled exception: method={} path={}",

@@ -3,22 +3,27 @@ package com.seek_with_sight.product;
 import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.BrandEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.utils.data.RequestResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestComponent;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +31,10 @@ import java.util.Locale;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 
 @TestComponent
 public class ProductTestFixture {
@@ -46,23 +53,71 @@ public class ProductTestFixture {
     @Autowired
     private ImageTestFixture imageTestFixture;
 
-    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProductWithNumberOfRelationships(int numberOfRelationships) throws Exception {
-        var dto = createProductRequest(numberOfRelationships);
+    @Value("classpath:test-images/test_image_01.jpg")
+    private Resource imageResource;
+
+    public ApiResponse<ProductResponseWithDetails> uploadProductImage(UUID productId) throws Exception {
+        var multipartFile = getImageMultipart();
+        var result = mockMvc
+                .perform(
+                        multipart("/api/products/" + productId + "/images")
+                                .file(multipartFile)
+                )
+                .andReturn();
+
+        var apiResponse = objectMapper.readValue(
+                result.getResponse().getContentAsString(),
+                new TypeReference<ApiResponse<ProductResponseWithDetails>>() {
+                }
+        );
+
+        return apiResponse;
+    }
+
+    public RequestResponseData<UpdateProductRequest, ApiResponse<ProductResponseWithDetails>> updateProduct(UUID productId, UpdateProductRequest dto) throws Exception {
         var payload = objectMapper.writeValueAsString(dto);
-        var request = post("/api/products")
+        var request = put("/api/products/" + productId)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(payload);
         var result = mockMvc.perform(request).andReturn();
+
         var apiResponse = objectMapper.readValue(
                 result.getResponse().getContentAsString(),
-                new TypeReference<ApiResponse<ProductResponse>>() {}
+                new TypeReference<ApiResponse<ProductResponseWithDetails>>() {
+                }
         );
 
         return new RequestResponseData<>(dto, apiResponse);
     }
 
-    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProduct() throws Exception {
-        return createProductWithNumberOfRelationships(3);
+    public RequestResponseData<ProductRequest, ApiResponse<?>> createProduct(ProductRequest dto) throws Exception {
+        var payload = objectMapper.writeValueAsString(dto);
+        var request = post("/api/products")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(payload);
+        var result = mockMvc.perform(request).andReturn();
+        ApiResponse<?> apiResponse;
+
+        if (result.getResponse().getStatus() >= 200 && result.getResponse().getStatus() < 300) {
+            apiResponse = objectMapper.readValue(
+                    result.getResponse().getContentAsString(),
+                    new TypeReference<ApiResponse<ProductResponseWithDetails>>() {
+                    }
+            );
+        } else {
+            apiResponse = objectMapper.readValue(
+                    result.getResponse().getContentAsString(),
+                    new TypeReference<ApiErrorResponse<?>>() {
+                    }
+            );
+        }
+
+        return new RequestResponseData<>(dto, apiResponse);
+    }
+
+    public RequestResponseData<ProductRequest, ApiResponse<?>> createProduct() throws Exception {
+        var dto = createProductRequest();
+        return createProduct(dto);
     }
 
     public ApiResponse<ProductResponseWithDetails> getProductById(UUID id) throws Exception {
@@ -75,7 +130,16 @@ public class ProductTestFixture {
         );
     }
 
-    private ProductRequest createProductRequest(int numberOfRelationships) {
+    private MockMultipartFile getImageMultipart() throws IOException {
+        return new MockMultipartFile(
+                "file",
+                "test_image_01.jpg",
+                "image/jpeg",
+                imageResource.getInputStream()
+        );
+    }
+
+    private ProductRequest createProductRequest() {
         var productName = ProductTestDataUtils.productName();
         var categories = categoryRepo
                 .findAll(Pageable.ofSize(1))
