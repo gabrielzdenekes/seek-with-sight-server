@@ -98,6 +98,14 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         );
     }
 
+    @Test
+    public void whenCreateNewProduct_DefaultVariantShouldBeCreated() throws Exception {
+        var createResult = productTestFixture.createProduct();
+        var productResponseData = (ProductResponseWithDetails) createResult.response().getData();
+
+        assertThat(productResponseData.getVariants().size()).isEqualTo(1);
+    }
+
     private void assertBaseProperties(ProductResponseWithDetails result, ProductRequest request) {
         assertThat(result.getId()).isNotNull();
         assertThat(result.getName()).isEqualTo(request.name());
