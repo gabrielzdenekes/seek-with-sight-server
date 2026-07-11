@@ -3,7 +3,7 @@ package com.seek_with_sight.product;
 import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
-import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.BrandEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
@@ -15,7 +15,6 @@ import com.seek_with_sight.utils.data.RequestResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.core.type.TypeReference;
@@ -30,6 +29,7 @@ import java.util.regex.Pattern;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 
 @TestComponent
 public class ProductTestFixture {
@@ -48,18 +48,43 @@ public class ProductTestFixture {
     @Autowired
     private ImageTestFixture imageTestFixture;
 
-    public RequestResponseData<ProductRequest, ApiResponse<?>> createProduct(ProductRequest dto) throws Exception {
+    public RequestResponseData<UpdateProductRequest, ApiResponse<ProductResponseWithDetails>> updateProduct(UUID productId, UpdateProductRequest dto) throws Exception {
         var payload = objectMapper.writeValueAsString(dto);
-        var request = post("/api/products")
+        var request = put("/api/products/" + productId)
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(payload);
         var result = mockMvc.perform(request).andReturn();
 
         var apiResponse = objectMapper.readValue(
                 result.getResponse().getContentAsString(),
-                new TypeReference<ApiResponse<?>>() {
+                new TypeReference<ApiResponse<ProductResponseWithDetails>>() {
                 }
         );
+
+        return new RequestResponseData<>(dto, apiResponse);
+    }
+
+    public RequestResponseData<ProductRequest, ApiResponse<?>> createProduct(ProductRequest dto) throws Exception {
+        var payload = objectMapper.writeValueAsString(dto);
+        var request = post("/api/products")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(payload);
+        var result = mockMvc.perform(request).andReturn();
+        ApiResponse<?> apiResponse;
+
+        if (result.getResponse().getStatus() >= 200 && result.getResponse().getStatus() < 300) {
+            apiResponse = objectMapper.readValue(
+                    result.getResponse().getContentAsString(),
+                    new TypeReference<ApiResponse<ProductResponseWithDetails>>() {
+                    }
+            );
+        } else {
+            apiResponse = objectMapper.readValue(
+                    result.getResponse().getContentAsString(),
+                    new TypeReference<ApiErrorResponse<?>>() {
+                    }
+            );
+        }
 
         return new RequestResponseData<>(dto, apiResponse);
     }

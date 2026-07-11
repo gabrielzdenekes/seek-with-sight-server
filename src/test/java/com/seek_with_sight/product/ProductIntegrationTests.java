@@ -2,6 +2,7 @@ package com.seek_with_sight.product;
 
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
@@ -27,7 +28,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
     @Test
     public void withValidData_productShouldBeCreatedAndRetrievedSuccessfully() throws Exception {
         var createResult = productTestFixture.createProduct();
-        var responseData = (ProductResponse)createResult.response().getData();
+        var responseData = (ProductResponse) createResult.response().getData();
         var requestData = createResult.request();
         var getResult = productTestFixture.getProductById(responseData.getId());
         var productResponse = getResult.getData();
@@ -50,10 +51,26 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
     }
 
     @Test
+    public void shouldUpdateProductSuccessfully() throws Exception {
+        var createResult = productTestFixture.createProduct();
+        var responseData = (ProductResponseWithDetails) createResult.response().getData();
+
+        var newName = responseData.getName() + "1";
+        var updateRequest = new UpdateProductRequest();
+
+        updateRequest.setName(newName);
+
+        var updatedProductResult = productTestFixture.updateProduct(responseData.getId(), updateRequest);
+        var updatedProductData = updatedProductResult.response().getData();
+
+        assertThat(updatedProductData.getName()).isEqualTo(newName);
+    }
+
+    @Test
     @Transactional
     public void getProductByIdUseCase_shouldMakeFetchAllRelationshipsWithOneQuery() throws Exception {
         var createResult = productTestFixture.createProduct();
-        var productId = ((ProductResponse)createResult.response().getData()).getId();
+        var productId = ((ProductResponse) createResult.response().getData()).getId();
 
         sqlCounterUtils.assertSelectQueriesCount(
                 () -> {
