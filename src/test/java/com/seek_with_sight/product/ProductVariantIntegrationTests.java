@@ -48,4 +48,21 @@ public class ProductVariantIntegrationTests extends IntegrationTestsBase {
 
         assertThat(updatedProductData.response().getData().title()).isEqualTo(updateRequest.title());
     }
+
+    @Test
+    public void shouldUploadVariantImageSuccessfully() throws Exception {
+        var productData = productTestFixture.createProduct();
+        var responseData = ((ProductResponse)productData.response().getData());
+        var productId = responseData.getId();
+        var productVariant = productVariantTestFixture.createProductVariant(productId);
+        var productVariantId = productVariant.response().getData().id();
+
+        var uploadImageResult = productVariantTestFixture.uploadImage(productId, productVariantId);
+
+        assertThat(uploadImageResult.getData().images().size()).isEqualTo(1);
+
+        uploadImageResult = productVariantTestFixture.uploadImage(productId, productVariantId);
+
+        assertThat(uploadImageResult.getData().images().size()).isEqualTo(2);
+    }
 }

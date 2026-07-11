@@ -13,13 +13,17 @@ import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorRes
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.utils.data.RequestResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestComponent;
+import org.springframework.core.io.Resource;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
+import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
 
+import java.io.IOException;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +31,7 @@ import java.util.Locale;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -47,6 +52,27 @@ public class ProductTestFixture {
 
     @Autowired
     private ImageTestFixture imageTestFixture;
+
+    @Value("classpath:test-images/test_image_01.jpg")
+    private Resource imageResource;
+
+    public ApiResponse<ProductResponseWithDetails> uploadProductImage(UUID productId) throws Exception {
+        var multipartFile = getImageMultipart();
+        var result = mockMvc
+                .perform(
+                        multipart("/api/products/" + productId + "/images")
+                                .file(multipartFile)
+                )
+                .andReturn();
+
+        var apiResponse = objectMapper.readValue(
+                result.getResponse().getContentAsString(),
+                new TypeReference<ApiResponse<ProductResponseWithDetails>>() {
+                }
+        );
+
+        return apiResponse;
+    }
 
     public RequestResponseData<UpdateProductRequest, ApiResponse<ProductResponseWithDetails>> updateProduct(UUID productId, UpdateProductRequest dto) throws Exception {
         var payload = objectMapper.writeValueAsString(dto);
@@ -101,6 +127,15 @@ public class ProductTestFixture {
                 result.getResponse().getContentAsString(),
                 new TypeReference<>() {
                 }
+        );
+    }
+
+    private MockMultipartFile getImageMultipart() throws IOException {
+        return new MockMultipartFile(
+                "file",
+                "test_image_01.jpg",
+                "image/jpeg",
+                imageResource.getInputStream()
         );
     }
 

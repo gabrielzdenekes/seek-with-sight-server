@@ -66,6 +66,21 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
     }
 
     @Test
+    public void shouldUploadProductImageSuccessfully() throws Exception {
+        var createResult = productTestFixture.createProduct();
+        var responseData = (ProductResponseWithDetails) createResult.response().getData();
+        var productId = responseData.getId();
+
+        var uploadImageResult = productTestFixture.uploadProductImage(productId);
+
+        assertThat(uploadImageResult.getData().getImages().size()).isEqualTo(1);
+
+        uploadImageResult = productTestFixture.uploadProductImage(productId);
+
+        assertThat(uploadImageResult.getData().getImages().size()).isEqualTo(2);
+    }
+
+    @Test
     @Transactional
     public void getProductByIdUseCase_shouldMakeFetchAllRelationshipsWithOneQuery() throws Exception {
         var createResult = productTestFixture.createProduct();
