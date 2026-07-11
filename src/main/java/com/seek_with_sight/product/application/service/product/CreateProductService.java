@@ -86,7 +86,9 @@ public class CreateProductService implements CreateProductUseCase {
 
         var sequence = String.format("%03d", nextId);
 
-        return String.format("%s-%s-%s-%s-%s", catCode, brandCode, variantCode, sequence, UUID.randomUUID()).toUpperCase();
+        return String
+                .format("%s-%s-%s-%s-%s", catCode, brandCode, variantCode, sequence, UUID.randomUUID())
+                .toUpperCase();
     }
 
     private String sanitize(String input) {
