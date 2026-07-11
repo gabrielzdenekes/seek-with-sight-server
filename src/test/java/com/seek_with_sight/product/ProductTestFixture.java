@@ -9,11 +9,13 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.utils.data.RequestResponseData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import tools.jackson.core.type.TypeReference;
@@ -46,23 +48,25 @@ public class ProductTestFixture {
     @Autowired
     private ImageTestFixture imageTestFixture;
 
-    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProductWithNumberOfRelationships(int numberOfRelationships) throws Exception {
-        var dto = createProductRequest(numberOfRelationships);
+    public RequestResponseData<ProductRequest, ApiResponse<?>> createProduct(ProductRequest dto) throws Exception {
         var payload = objectMapper.writeValueAsString(dto);
         var request = post("/api/products")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(payload);
         var result = mockMvc.perform(request).andReturn();
+
         var apiResponse = objectMapper.readValue(
                 result.getResponse().getContentAsString(),
-                new TypeReference<ApiResponse<ProductResponse>>() {}
+                new TypeReference<ApiResponse<?>>() {
+                }
         );
 
         return new RequestResponseData<>(dto, apiResponse);
     }
 
-    public RequestResponseData<ProductRequest, ApiResponse<ProductResponse>> createProduct() throws Exception {
-        return createProductWithNumberOfRelationships(3);
+    public RequestResponseData<ProductRequest, ApiResponse<?>> createProduct() throws Exception {
+        var dto = createProductRequest();
+        return createProduct(dto);
     }
 
     public ApiResponse<ProductResponseWithDetails> getProductById(UUID id) throws Exception {
@@ -75,7 +79,7 @@ public class ProductTestFixture {
         );
     }
 
-    private ProductRequest createProductRequest(int numberOfRelationships) {
+    private ProductRequest createProductRequest() {
         var productName = ProductTestDataUtils.productName();
         var categories = categoryRepo
                 .findAll(Pageable.ofSize(1))

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -30,6 +31,22 @@ public class GlobalExceptionHandler {
 
     @Value("${app.errors.include-stacktrace:false}")
     private boolean includeStacktrace;
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<ApiResponse<?>> handleHttpMessageNotReadable(
+            HttpMessageNotReadableException ex,
+            HttpServletRequest request
+    ) {
+        var status = HttpStatus.BAD_REQUEST;
+        var errorResponse = ApiErrorResponse.create(
+                "Malformed or missing request body",
+                null,
+                ErrorType.VALIDATION.name(),
+                status
+        );
+
+        return new ResponseEntity<>(errorResponse, status);
+    }
 
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<?>> handleBadCredentials(BadCredentialsException ex) {

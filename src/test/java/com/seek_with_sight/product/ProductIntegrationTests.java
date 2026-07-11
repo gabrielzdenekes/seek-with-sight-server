@@ -2,9 +2,12 @@ package com.seek_with_sight.product;
 
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.transaction.annotation.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +27,7 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
     @Test
     public void withValidData_productShouldBeCreatedAndRetrievedSuccessfully() throws Exception {
         var createResult = productTestFixture.createProduct();
-        var responseData = createResult.response().getData();
+        var responseData = (ProductResponse)createResult.response().getData();
         var requestData = createResult.request();
         var getResult = productTestFixture.getProductById(responseData.getId());
         var productResponse = getResult.getData();
@@ -35,15 +38,27 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
     }
 
     @Test
+    public void withInvalidData_ShouldReturnBadRequest() throws Exception {
+        var createResult = productTestFixture.createProduct(null);
+
+        assertThat(createResult.response().getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
+
+        var productRequest = new ProductRequest(null, null, null, null, null, null, null, null);
+        createResult = productTestFixture.createProduct(productRequest);
+
+        assertThat(createResult.response().getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
+    }
+
+    @Test
     @Transactional
     public void getProductByIdUseCase_shouldMakeFetchAllRelationshipsWithOneQuery() throws Exception {
         var createResult = productTestFixture.createProduct();
-        var productId = createResult.response().getData().getId();
+        var productId = ((ProductResponse)createResult.response().getData()).getId();
 
         sqlCounterUtils.assertSelectQueriesCount(
                 () -> {
                     try {
-                        productTestFixture.getProductById(createResult.response().getData().getId());
+                        productTestFixture.getProductById(productId);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
