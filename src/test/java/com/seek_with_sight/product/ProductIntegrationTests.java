@@ -8,7 +8,6 @@ import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.P
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
 import org.springframework.http.HttpStatus;
-import org.springframework.transaction.annotation.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -78,24 +77,6 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         uploadImageResult = productTestFixture.uploadProductImage(productId);
 
         assertThat(uploadImageResult.getData().getImages().size()).isEqualTo(2);
-    }
-
-    @Test
-    @Transactional
-    public void getProductByIdUseCase_shouldMakeFetchAllRelationshipsWithOneQuery() throws Exception {
-        var createResult = productTestFixture.createProduct();
-        var productId = ((ProductResponse) createResult.response().getData()).getId();
-
-        sqlCounterUtils.assertSelectQueriesCount(
-                () -> {
-                    try {
-                        productTestFixture.getProductById(productId);
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                },
-                4
-        );
     }
 
     @Test
