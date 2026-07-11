@@ -2,6 +2,7 @@ package com.seek_with_sight.product;
 
 import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.UpdateVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductVariantResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.utils.data.RequestResponseData;
@@ -28,7 +29,27 @@ public class ProductVariantTestFixture {
     @Autowired
     private ImageTestFixture imageTestFixture;
 
-    public RequestResponseData<ProductVariantRequest, ApiResponse<ProductVariantResponse>> createProductVariant(UUID productId) throws Exception {
+    public RequestResponseData<UpdateVariantRequest, ApiResponse<ProductVariantResponse>> updateProductVariant(
+            UUID productId,
+            UUID variantId,
+            UpdateVariantRequest dto
+    ) throws Exception {
+        var request = put("/api/products/" + productId + "/variants/" + variantId)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(dto));
+        var result = mockMvc.perform(request).andReturn();
+        var apiResponse = objectMapper.readValue(
+                result.getResponse().getContentAsString(),
+                new TypeReference<ApiResponse<ProductVariantResponse>>() {
+                }
+        );
+
+        return new RequestResponseData<>(dto, apiResponse);
+    }
+
+    public RequestResponseData<ProductVariantRequest, ApiResponse<ProductVariantResponse>> createProductVariant(
+            UUID productId
+    ) throws Exception {
         var dto = createProductVariantRequest();
         var request = post("/api/products/" + productId + "/variants")
                 .contentType(MediaType.APPLICATION_JSON)
