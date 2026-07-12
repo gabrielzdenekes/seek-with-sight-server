@@ -1,4 +1,11 @@
 package com.seek_with_sight.email.infrastructure.in.rest.dto;
 
-public record ResendRequest(String email) {
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+public record ResendRequest(
+        @NotBlank
+        @Email
+        String email
+) {
 }

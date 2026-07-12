@@ -5,6 +5,6 @@ import com.seek_with_sight.shared.domain.exception.ErrorType;
 
 public class EmailTokenExpiredException extends BusinessException {
     public EmailTokenExpiredException(Object... args) {
-        super("EMAIL_TOKEN_EXPIRED", "email.error.token-expired", ErrorType.BUSINESS_RULE, args);
+        super("EMAIL_TOKEN_EXPIRED", ErrorType.BUSINESS, "Email token expired", args);
     }
 }

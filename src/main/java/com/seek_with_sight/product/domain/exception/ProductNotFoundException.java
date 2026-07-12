@@ -8,7 +8,7 @@ public class ProductNotFoundException extends BusinessException {
         this(new Object[0]);
     }
 
-    public ProductNotFoundException(Object[] args) {
-        super("PRODUCT_NOT_FOUND", "product.error.not-found", ErrorType.NOT_FOUND, args);
+    public ProductNotFoundException(Object... args) {
+        super("PRODUCT_NOT_FOUND", ErrorType.NOT_FOUND, "Product with ID %s not found", args);
     }
 }

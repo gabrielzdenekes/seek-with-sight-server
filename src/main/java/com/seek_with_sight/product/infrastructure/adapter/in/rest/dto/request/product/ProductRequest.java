@@ -12,46 +12,42 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public record ProductRequest(
-        @NotBlank(message = "{product.name.required}")
+        @NotBlank
         @Size(
                 min = 2,
-                max = 300,
-                message = "{product.name.length}"
+                max = 300
         )
         String name,
 
-        @NotBlank(message = "{product.slug.required}")
-        @Size(max = 180, message = "{product.slug.max-length}")
+        @NotBlank
+        @Size(max = 180)
         @Pattern(
-                regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-                message = "{product.slug.format}"
+                regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$"
         )
         String slug,
 
-        @Size(max = 500, message = "{product.short-description.max-length}")
+        @Size(max = 500)
         String shortDescription,
 
-        @Size(max = 20000, message = "{product.description.max-length}")
+        @Size(max = 20000)
         String description,
 
-        @NotNull(message = "{product.status.required}")
+        @NotNull
         ProductStatus status,
 
-        @NotNull(message = "{product.category.required}")
+        @NotNull
         UUID categoryId,
 
-        @NotNull(message = "{product.brand.required}")
+        @NotNull
         UUID brandId,
 
-        @NotNull(message = "{product.base-price.required}")
+        @NotNull
         @DecimalMin(
-                value = "0.00",
-                message = "{product.base-price.positive-value}"
+                value = "0.00"
         )
         @Digits(
                 integer = 19,
-                fraction = 4,
-                message = "{product.base-price.format}"
+                fraction = 4
         )
         BigDecimal price
 ) {

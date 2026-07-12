@@ -9,7 +9,6 @@ import com.seek_with_sight.cart.infrastructure.adapter.in.rest.dto.AddCartItemRe
 import com.seek_with_sight.cart.infrastructure.adapter.in.rest.dto.CartResponse;
 import com.seek_with_sight.cart.infrastructure.adapter.in.rest.dto.UpdateItemQuantityRequest;
 import com.seek_with_sight.cart.infrastructure.adapter.in.rest.mapper.CartRestMapper;
-import com.seek_with_sight.shared.infrastructure.adapter.in.rest.annotation.ApiResponseDetails;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -42,14 +41,12 @@ public class CartController {
     }
 
     @PostMapping("/items")
-    @ApiResponseDetails(messageCode = "add-cart-item.success")
     public void addItemToCart(@Valid @RequestBody AddCartItemRequest request) {
         var addItemCommand = mapper.toAddItemToCartCommand(request);
         addItemToCartUseCase.add(addItemCommand);
     }
 
     @PatchMapping("/items/{variantId}")
-    @ApiResponseDetails(messageCode = "update-cart-item.success")
     public void updateItemQuantity(
             @Valid @RequestBody UpdateItemQuantityRequest request,
             @PathVariable UUID variantId) {
@@ -58,14 +55,12 @@ public class CartController {
     }
 
     @DeleteMapping("/items/{variantId}")
-    @ApiResponseDetails(messageCode = "remove-cart-item.success")
     public void removeItem(@PathVariable UUID variantId) {
 
         removeItemFromCartUseCase.remove(variantId);
     }
 
     @DeleteMapping("/items")
-    @ApiResponseDetails(messageCode = "clear-cart.success")
     public void clearCart() {
 
         clearCartUseCase.clear();

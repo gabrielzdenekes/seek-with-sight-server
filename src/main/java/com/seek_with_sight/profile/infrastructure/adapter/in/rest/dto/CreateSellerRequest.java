@@ -9,16 +9,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateSellerRequest extends CreateUserRequest {
-    @NotBlank(message = "{seller.business-name.required}")
-    @Size(max = 200, message = "{seller.business-name.max-length}")
+    @NotBlank
+    @Size(max = 200)
     private String businessName;
 
-    @NotBlank(message = "{seller.business-address.required}")
-    @Size(max = 500, message = "{seller.business-address.max-length}")
+    @NotBlank
+    @Size(max = 500)
     private String businessAddress;
 
-    @NotBlank(message = "{seller.tax-id.required}")
-    @Size(max = 50, message = "{seller.tax-id.max-length}")
+    @NotBlank
+    @Size(max = 50)
     private String taxId;
 
     public CreateSellerRequest(String email, String password) {

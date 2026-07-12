@@ -7,14 +7,14 @@ import jakarta.validation.constraints.NotNull;
 import java.util.UUID;
 
 public record AddCartItemRequest(
-        @NotNull(message = "{add-cart-item.product-id.required}")
+        @NotNull
         UUID productId,
 
-        @NotNull(message = "{add-cart-item.product-variant-id.required}")
+        @NotNull
         UUID productVariantId,
 
-        @Min(value = 1, message = "{add-cart-item.quantity.min}")
-        @Max(value = 99, message = "{add-cart-item.quantity.max}")
+        @Min(value = 1)
+        @Max(value = 99)
         int quantity
 ) {
 }

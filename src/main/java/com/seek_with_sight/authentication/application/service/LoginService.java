@@ -40,11 +40,11 @@ public class LoginService implements LoginUseCase {
         var user = userRepository.findByEmailIgnoreCase(loginCommand.email())
                 .orElseThrow(() -> {
                     log.warn("User not found for email={}", loginCommand.email());
-                    return new UnauthorizedException(loginCommand.email());
+                    return new UnauthorizedException("User with email %s is not authorized", loginCommand.email());
                 });
 
         if (!user.getEmailVerified()) {
-            throw new EmailNotVerifiedException();
+            throw new EmailNotVerifiedException(loginCommand.email());
         }
 
         log.info("Token generation started for userId: {}", user.getId());

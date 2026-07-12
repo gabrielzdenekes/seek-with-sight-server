@@ -5,6 +5,6 @@ import com.seek_with_sight.shared.domain.exception.ErrorType;
 
 public class EmailTokenAlreadyUsedException extends BusinessException {
     public EmailTokenAlreadyUsedException(Object... args) {
-        super("EMAIL_TOKEN_ALREADY_USED", "email.error.token-already-used", ErrorType.BUSINESS_RULE, args);
+        super("EMAIL_TOKEN_ALREADY_USED", ErrorType.BUSINESS, "Email token already used", args);
     }
 }

@@ -6,16 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 
-import java.util.List;
-import java.util.Locale;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @Import({UserTestFixture.class})
 public class UserIntegrationTests extends IntegrationTestsBase {
     private static final String USER_CREATED_KEY = "user.created";
-    private static final String PASSWORD_VALID_FORMAT_KEY = "user.validation.password.validFormat";
-    private static final String VALIDATION_FAILED_KEY = "validation.failed";
 
     @Autowired
     private LocalizedMessageService messageService;
@@ -24,45 +19,16 @@ public class UserIntegrationTests extends IntegrationTestsBase {
     private UserTestFixture userFixture;
 
     @Test
-    void whenSpanishLanguageIsRequired_userCreatedMessageShouldBeInSpanish() throws Exception {
-        var userRequest = userFixture.createUserRequest();
-        var jsonPayload = objectMapper.writeValueAsString(userRequest);
-        var locale = Locale.forLanguageTag("es");
-        var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
-        var expectedMessageInSpanish = messageService.getMessage(USER_CREATED_KEY, locale);
-
-        mockMvc.perform(request).andExpect(
-                jsonPath("$.message").value(expectedMessageInSpanish)
-        );
-    }
-
-    @Test
-    void whenNonExistingLanguageIsRequired_userCreatedMessageShouldFallbackToDefaultEN() throws Exception {
-        var userRequest = userFixture.createUserRequest();
-        var jsonPayload = objectMapper.writeValueAsString(userRequest);
-        var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, Locale.forLanguageTag("bg"));
-        var expectedMessageInDefaultLang = messageService.getMessage(USER_CREATED_KEY, Locale.forLanguageTag("en"));
-
-        mockMvc.perform(request).andExpect(
-                jsonPath("$.message").value(expectedMessageInDefaultLang)
-        );
-    }
-
-    @Test
-    void whenPasswordHasInvalidFormat_ValidationMessageShouldBeDisplayedInCorrectLanguage() throws Exception {
+    void whenPasswordHasInvalidFormat_ValidationMessageShouldBeDisplayed() throws Exception {
         var userRequest = userFixture.createUserRequestInvalidPassword();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
-        var locales = List.of(Locale.forLanguageTag("es"),  Locale.forLanguageTag("en"));
 
-        for (var loc : locales) {
-            var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, loc);
-            var globalValidationMessage = messageService.getMessage(VALIDATION_FAILED_KEY, loc);
-            var expectedFieldErrorMessage = messageService.getMessage(PASSWORD_VALID_FORMAT_KEY, loc);
+        var request = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload);
 
-            mockMvc.perform(request)
-                    .andExpect(jsonPath("$.message").value(globalValidationMessage))
-                    .andExpect(jsonPath("$.data[0].fieldName").value("password"))
-                    .andExpect(jsonPath("$.data[0].errorMessage").value(expectedFieldErrorMessage));
-        }
+        mockMvc.perform(request)
+                .andExpect(jsonPath("$.message").value("Validation failed"))
+                .andExpect(jsonPath("$.data[0].fieldName").value("password"))
+                .andExpect(jsonPath("$.data[0].errorMessage")
+                        .value("Password must include at least one uppercase letter, one lowercase letter, one number, and one special character"));
     }
 }

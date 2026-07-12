@@ -1,12 +1,10 @@
 package com.seek_with_sight.shared.infrastructure.adapter.in.rest;
 
-import com.seek_with_sight.shared.infrastructure.adapter.in.rest.annotation.ApiResponseDetails;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.service.base.LocalizedMessageService;
 import jakarta.annotation.Nullable;
 import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.NonNull;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -44,21 +42,11 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
             @NonNull Class<? extends HttpMessageConverter<?>> selectedConverterType,
             @NonNull ServerHttpRequest request,
             @NonNull ServerHttpResponse response) {
-        String responseMessage = null;
         var statusCode = ((ServletServerHttpResponse) response).getServletResponse().getStatus();
-
-        var responseDetails = returnType.getMethodAnnotation(ApiResponseDetails.class);
-        if (responseDetails != null) {
-            var messageCode = responseDetails.messageCode();
-            var locale = LocaleContextHolder.getLocale();
-            responseMessage = this.messageService.getMessage(messageCode, locale);
-            statusCode = responseDetails.status().value();
-        }
-
         var status = HttpStatus.resolve(statusCode);
 
         response.setStatusCode(status);
-        return ApiResponse.create(responseMessage, body, status);
+        return ApiResponse.create(null, body, status);
     }
 
     private boolean isSpringDocPackage(MethodParameter returnType) {
