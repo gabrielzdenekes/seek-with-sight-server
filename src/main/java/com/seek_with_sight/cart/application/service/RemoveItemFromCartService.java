@@ -22,7 +22,7 @@ public class RemoveItemFromCartService implements RemoveItemFromCartUseCase {
         var cart = cartRepositoryPort.findWithItemsByUserId(user.getId()).get();
         var cartItem = cart.findItemByVariantId(variantId).get();
 
-        releaseStockUseCase.release(variantId, cartItem.getQuantity());
+//        releaseStockUseCase.release(variantId, cartItem.getQuantity());
         cart.removeItem(variantId);
 
         cartRepositoryPort.save(cart);

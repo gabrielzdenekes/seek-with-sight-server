@@ -19,9 +19,9 @@ public class ClearCartService implements ClearCartUseCase {
         var user = currentUserPort.getCurrentUser();
         var cart = cartRepo.findWithItemsByUserId(user.getId()).get();
 
-        for (var item : cart.getItems()) {
-            releaseStockUseCase.release(item.getVariant().getId(), item.getQuantity());
-        }
+//        for (var item : cart.getItems()) {
+//            releaseStockUseCase.release(item.getVariant().getId(), item.getQuantity());
+//        }
 
         cart.clear();
 
