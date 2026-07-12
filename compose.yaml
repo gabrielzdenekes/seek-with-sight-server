@@ -7,19 +7,24 @@ services:
       - 'POSTGRES_USER=${POSTGRES_USER}'
     ports:
       - '5432'
+
+
   redis:
     image: 'redis:8.2'
     ports:
       - '6379'
 
-  libretranslate:
-    image: libretranslate/libretranslate:latest
-    ports:
-      - "5000:5000"
+
+  elasticsearch:
+    image: 'docker.elastic.co/elasticsearch/elasticsearch:9.4.3'
     environment:
-      LT_LOAD_ONLY: "en,es"
-    healthcheck:
-      test: ["CMD-SHELL", "curl -sf http://localhost:5000/languages"]
-      interval: 20s
-      timeout: 10s
-      retries: 20
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+volumes:
+  es_data:
