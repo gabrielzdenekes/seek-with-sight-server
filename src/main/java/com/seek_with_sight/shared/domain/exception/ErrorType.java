@@ -6,6 +6,6 @@ public enum ErrorType {
     CONFLICT,
     FORBIDDEN,
     UNAUTHORIZED,
-    BUSINESS_RULE,
+    BUSINESS,
     INTERNAL
 }
