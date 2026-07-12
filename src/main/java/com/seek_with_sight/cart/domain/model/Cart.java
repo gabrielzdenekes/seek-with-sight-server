@@ -27,7 +27,7 @@ public class Cart extends BaseDomainModel {
 
         if (existingItem.isPresent()) {
             throw new ItemAlreadyAddedToCartException(
-                    new Object[]{ "Existing productId=" + item.getVariant().getId() }
+                    new Object[]{"Existing productId=" + item.getVariant().getId()}
             );
         }
 
@@ -37,7 +37,7 @@ public class Cart extends BaseDomainModel {
 
     public void updateItemQuantity(UUID variantId, int quantity) {
         var item = findItemByVariantId(variantId)
-                .orElseThrow(() -> new CartItemNotFoundException(new Object[]{ "variantId=" + variantId }));
+                .orElseThrow(() -> new CartItemNotFoundException("variantId=" + variantId));
 
         item.setQuantity(quantity);
         recalculateTotal();
