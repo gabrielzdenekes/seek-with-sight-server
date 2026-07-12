@@ -5,7 +5,6 @@ import com.seek_with_sight.shared.domain.exception.ErrorType;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ValidationErrorDto;
-import com.seek_with_sight.shared.infrastructure.adapter.in.rest.service.base.LocalizedMessageService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
@@ -27,8 +26,6 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 @Slf4j
 public class GlobalExceptionHandler {
-    private final LocalizedMessageService messageService;
-
     @Value("${app.errors.include-stacktrace:false}")
     private boolean includeStacktrace;
 
@@ -51,7 +48,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BadCredentialsException.class)
     public ResponseEntity<ApiResponse<?>> handleBadCredentials(BadCredentialsException ex) {
         var errorResponse = ApiErrorResponse.create(
-                getLocalizedErrorMessage("auth.error.unauthorized"),
+                ex.getMessage(),
                 null,
                 ErrorType.UNAUTHORIZED.name(),
                 HttpStatus.UNAUTHORIZED.value()
@@ -69,7 +66,7 @@ public class GlobalExceptionHandler {
         log.warn(ex.toString());
 
         var errorResponse = ApiErrorResponse.create(
-                getLocalizedErrorMessage(ex.getLocalizedMessageCode()),
+                ex.getMessage(),
                 null,
                 ex.getErrorCode(),
                 status.value()
@@ -92,7 +89,7 @@ public class GlobalExceptionHandler {
 
         var status = HttpStatus.BAD_REQUEST;
         var errorResponse = ApiErrorResponse.create(
-                getLocalizedErrorMessage("validation.failed"),
+                "Validation failed",
                 errors,
                 ErrorType.VALIDATION.name(),
                 status.value()
@@ -115,7 +112,7 @@ public class GlobalExceptionHandler {
 
         var status = HttpStatus.BAD_REQUEST;
         var errorResponse = ApiErrorResponse.create(
-                getLocalizedErrorMessage("validation.failed"),
+                "Validation failed",
                 details,
                 ErrorType.VALIDATION.name(),
                 status.value()
@@ -147,7 +144,7 @@ public class GlobalExceptionHandler {
     ) {
         var status = HttpStatus.INTERNAL_SERVER_ERROR;
         Object data = null;
-        var message = getLocalizedErrorMessage("generic.error");
+        var message = "Something went wrong";
 
         if (includeStacktrace) {
             data = Arrays.stream(ex.getStackTrace())
@@ -170,11 +167,6 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errorResponse, status);
     }
 
-    private String getLocalizedErrorMessage(String key) {
-        var locale = LocaleContextHolder.getLocale();
-        return messageService.getMessage(key, locale);
-    }
-
     private HttpStatus mapErrorTypeToHttpStatus(ErrorType errorType) {
         return switch (errorType) {
             case VALIDATION -> HttpStatus.BAD_REQUEST;
@@ -182,7 +174,7 @@ public class GlobalExceptionHandler {
             case CONFLICT -> HttpStatus.CONFLICT;
             case FORBIDDEN -> HttpStatus.FORBIDDEN;
             case UNAUTHORIZED -> HttpStatus.UNAUTHORIZED;
-            case BUSINESS_RULE -> HttpStatus.UNPROCESSABLE_CONTENT;
+            case BUSINESS -> HttpStatus.UNPROCESSABLE_CONTENT;
             default -> HttpStatus.INTERNAL_SERVER_ERROR;
         };
     }

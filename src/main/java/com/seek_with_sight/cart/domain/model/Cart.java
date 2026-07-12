@@ -26,9 +26,7 @@ public class Cart extends BaseDomainModel {
                 .findFirst();
 
         if (existingItem.isPresent()) {
-            throw new ItemAlreadyAddedToCartException(
-                    new Object[]{"Existing productId=" + item.getVariant().getId()}
-            );
+            throw new ItemAlreadyAddedToCartException(item.getVariant().getId());
         }
 
         items.add(item);

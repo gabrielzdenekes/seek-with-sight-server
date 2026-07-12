@@ -21,7 +21,7 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
     @Transactional
     public ProductVariant create(CreateProductVariantCommand command, UUID productId) {
         var product = productRepo.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException(new Object[]{ "productId", productId }));
+                .orElseThrow(() -> new ProductNotFoundException(productId));
 
         var productVariant = productAppMapper.fromCreateCommand(command);
 

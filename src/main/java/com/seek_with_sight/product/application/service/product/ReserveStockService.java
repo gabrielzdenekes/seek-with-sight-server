@@ -17,10 +17,10 @@ public class ReserveStockService implements ReserveStockUseCase {
     @Transactional
     public void reserve(UUID variantId, int quantityToReserve) {
         var inventory = inventoryRepo.findByVariantIdForUpdate(variantId)
-                .orElseThrow(() -> new InventoryNotFoundException(new Object[] { variantId }));
+                .orElseThrow(() -> new InventoryNotFoundException(variantId));
 
         if (inventory.getAvailableStock() < quantityToReserve) {
-            throw new InsufficientStockException(new Object[] { variantId });
+            throw new InsufficientStockException(variantId, inventory.getAvailableStock(), quantityToReserve);
         }
 
         var newReservedQuantity = inventory.getReservedQuantity() + quantityToReserve;

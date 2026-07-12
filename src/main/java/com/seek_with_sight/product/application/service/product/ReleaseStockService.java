@@ -16,7 +16,7 @@ public class ReleaseStockService implements ReleaseStockUseCase {
     @Transactional
     public void release(UUID variantId, int quantityToRelease) {
         var inventory = repo.findByVariantIdForUpdate(variantId)
-                .orElseThrow(() -> new InventoryNotFoundException(new Object[] { variantId }));
+                .orElseThrow(() -> new InventoryNotFoundException(variantId));
 
         var newReservedQuantity = inventory.getReservedQuantity() - quantityToRelease;
         inventory.setReservedQuantity(Math.max(0, newReservedQuantity));

@@ -18,7 +18,7 @@ public class SecurityCurrentUserAdapter implements CurrentUserPort {
                 .getAuthentication();
 
         if (authentication == null) {
-            throw new UnauthorizedException();
+            throw new UnauthorizedException("Unauthorized current user");
         }
 
         return userRepo

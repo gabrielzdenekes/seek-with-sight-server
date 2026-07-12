@@ -47,7 +47,7 @@ public class Product extends BaseDomainModel {
         return variants.stream()
                 .filter(v -> v.getId().equals(variantId))
                 .findFirst()
-                .orElseThrow(() -> new ProductVariantNotFoundException(new Object[]{ variantId }));
+                .orElseThrow(() -> new ProductVariantNotFoundException(variantId));
     }
 
     public String getName() {

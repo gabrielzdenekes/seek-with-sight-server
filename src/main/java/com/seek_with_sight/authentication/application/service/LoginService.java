@@ -44,7 +44,7 @@ public class LoginService implements LoginUseCase {
                 });
 
         if (!user.getEmailVerified()) {
-            throw new EmailNotVerifiedException();
+            throw new EmailNotVerifiedException(loginCommand.email());
         }
 
         log.info("Token generation started for userId: {}", user.getId());
