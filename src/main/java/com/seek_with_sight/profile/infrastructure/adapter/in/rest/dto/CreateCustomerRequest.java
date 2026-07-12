@@ -10,15 +10,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CreateCustomerRequest extends CreateUserRequest {
-    @NotBlank(message = "{customer.first-name.required}")
-    @Size(max = 100, message = "{customer.first-name.max-length}")
+    @NotBlank
+    @Size(max = 100)
     private String firstName;
 
-    @NotBlank(message = "{customer.phone-number.required}")
-    @Pattern(
-            regexp = "^\\d{1,16}$",
-            message = "{customer.phone-number.invalid-format}"
-    )
+    @NotBlank
+    @Pattern(regexp = "^\\d{1,16}$")
     private String phone;
 
     public CreateCustomerRequest(String email, String password) {

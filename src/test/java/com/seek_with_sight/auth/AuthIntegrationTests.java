@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.HttpStatus;
 
-import java.util.List;
 import java.util.Locale;
 
 import static org.hamcrest.Matchers.allOf;
@@ -76,25 +75,21 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
     void whenEmptyEmailAndPassword_shouldTriggerValidation() throws Exception {
         var userRequest = userFixture.createUserRequestEmptyFields();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
-        var locales = List.of(Locale.forLanguageTag("es"),  Locale.forLanguageTag("en"));
+        var request = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload);
 
-        for (var loc : locales) {
-            var request = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload);
-
-            mockMvc.perform(request)
-                    .andExpect(jsonPath("$.data", hasItem(
-                            allOf(
-                                    hasEntry("fieldName", "email"),
-                                    hasEntry("errorMessage", "Email is required")
-                            )
-                    )))
-                    .andExpect(jsonPath("$.data", hasItem(
-                            allOf(
-                                    hasEntry("fieldName", "password"),
-                                    hasEntry("errorMessage", "Password is required")
-                            )
-                    )));
-        }
+        mockMvc.perform(request)
+                .andExpect(jsonPath("$.data", hasItem(
+                        allOf(
+                                hasEntry("fieldName", "email"),
+                                hasEntry("errorMessage", "Email is required")
+                        )
+                )))
+                .andExpect(jsonPath("$.data", hasItem(
+                        allOf(
+                                hasEntry("fieldName", "password"),
+                                hasEntry("errorMessage", "Password is required")
+                        )
+                )));
     }
 
     private void makeUserVerified(String email) {

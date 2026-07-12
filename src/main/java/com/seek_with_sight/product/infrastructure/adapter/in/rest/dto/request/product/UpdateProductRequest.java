@@ -13,22 +13,18 @@ import java.util.UUID;
 public class UpdateProductRequest {
     @Size(
             min = 2,
-            max = 300,
-            message = "{product.name.length}"
+            max = 300
     )
     private String name;
 
-    @Size(max = 180, message = "{product.slug.max-length}")
-    @Pattern(
-            regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$",
-            message = "{product.slug.format}"
-    )
+    @Size(max = 180)
+    @Pattern(regexp = "^[a-z0-9]+(?:-[a-z0-9]+)*$")
     private String slug;
 
-    @Size(max = 500, message = "{product.short-description.max-length}")
+    @Size(max = 500)
     private String shortDescription;
 
-    @Size(max = 20000, message = "{product.description.max-length}")
+    @Size(max = 20000)
     private String description;
 
     private ProductStatus status;

@@ -10,31 +10,20 @@ import jakarta.validation.constraints.Size;
 import java.math.BigDecimal;
 
 public record ProductVariantRequest(
-        @NotBlank(message = "{product-variant.title.required}")
+        @NotBlank
         @Size(
                 min = 2,
-                max = 300,
-                message = "{product-variant.title.size}"
+                max = 300
         )
         String title,
 
-        @NotBlank(message = "{product-variant.sku.required}")
-        @Pattern(
-                regexp = "^[A-Z0-9_\\-]+$",
-                message = "{product-variant.sku.format}"
-        )
+        @NotBlank
+        @Pattern(regexp = "^[A-Z0-9_\\-]+$")
         String sku,
 
-        @NotNull(message = "{product.base-price.required}")
-        @DecimalMin(
-                value = "0.00",
-                message = "{product.base-price.positive-value}"
-        )
-        @Digits(
-                integer = 19,
-                fraction = 4,
-                message = "{product.base-price.format}"
-        )
+        @NotNull
+        @DecimalMin(value = "0.00")
+        @Digits(integer = 19, fraction = 4)
         BigDecimal price
 ) {
 }

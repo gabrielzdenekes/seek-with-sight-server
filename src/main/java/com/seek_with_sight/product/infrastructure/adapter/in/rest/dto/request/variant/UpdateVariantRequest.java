@@ -10,25 +10,17 @@ import java.math.BigDecimal;
 public record UpdateVariantRequest(
         @Size(
                 min = 2,
-                max = 300,
-                message = "{product-variant.title.size}"
+                max = 300
         )
         String title,
 
-        @Pattern(
-                regexp = "^[A-Z0-9_\\-]+$",
-                message = "{product-variant.sku.format}"
-        )
+        @Pattern(regexp = "^[A-Z0-9_\\-]+$")
         String sku,
 
-        @DecimalMin(
-                value = "0.00",
-                message = "{product.base-price.positive-value}"
-        )
+        @DecimalMin(value = "0.00")
         @Digits(
                 integer = 19,
-                fraction = 4,
-                message = "{product.base-price.format}"
+                fraction = 4
         )
         BigDecimal price
 ) {
