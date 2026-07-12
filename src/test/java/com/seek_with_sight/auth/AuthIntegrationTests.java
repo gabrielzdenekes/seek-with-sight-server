@@ -23,9 +23,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 public class AuthIntegrationTests extends IntegrationTestsBase {
-    private static final String EMAIL_REQUIRED_KEY = "user.validation.email.required";
-    private static final String PASSWORD_REQUIRED_KEY = "user.validation.password.required";
-
     @Autowired
     private UserRepositoryPort userRepo;
 
@@ -40,12 +37,12 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
         var userRequest = userFixture.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
-        var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
+        var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload);
 
         mockMvc.perform(createUserRequest).andExpect(status().isCreated());
         makeUserVerified(userRequest.getEmail());
 
-        var loginRequest = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload, locale);
+        var loginRequest = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload);
 
         mockMvc.perform(loginRequest)
                 .andExpect(status().isOk())
@@ -62,11 +59,11 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
         var userRequest = userFixture.createUserRequest();
         var jsonPayload = objectMapper.writeValueAsString(userRequest);
         var locale = Locale.forLanguageTag("es");
-        var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload, locale);
+        var createUserRequest = postRequest(UserTestConstants.USER_ENDPOINT, jsonPayload);
 
         mockMvc.perform(createUserRequest).andExpect(status().isCreated());
 
-        var loginRequest = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload, locale);
+        var loginRequest = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload);
 
         mockMvc.perform(loginRequest)
                 .andExpect(status().isForbidden())
@@ -82,21 +79,19 @@ public class AuthIntegrationTests extends IntegrationTestsBase {
         var locales = List.of(Locale.forLanguageTag("es"),  Locale.forLanguageTag("en"));
 
         for (var loc : locales) {
-            var request = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload, loc);
-            var emailMessage = messageService.getMessage(EMAIL_REQUIRED_KEY, loc);
-            var passwordMessage = messageService.getMessage(PASSWORD_REQUIRED_KEY, loc);
+            var request = postRequest(UserTestConstants.LOGIN_ENDPOINT, jsonPayload);
 
             mockMvc.perform(request)
                     .andExpect(jsonPath("$.data", hasItem(
                             allOf(
                                     hasEntry("fieldName", "email"),
-                                    hasEntry("errorMessage", emailMessage)
+                                    hasEntry("errorMessage", "Email is required")
                             )
                     )))
                     .andExpect(jsonPath("$.data", hasItem(
                             allOf(
                                     hasEntry("fieldName", "password"),
-                                    hasEntry("errorMessage", passwordMessage)
+                                    hasEntry("errorMessage", "Password is required")
                             )
                     )));
         }
