@@ -24,8 +24,8 @@ public class UpdateItemQuantityService implements UpdateItemQuantityUseCase {
         var cart = cartRepo.findWithItemsByUserId(user.getId()).get();
         var cartItem = cart.findItemByVariantId(variantId).get();
 
-        releaseStockUseCase.release(variantId, cartItem.getQuantity());
-        reserveStockUseCase.reserve(variantId, quantity);
+//        releaseStockUseCase.release(variantId, cartItem.getQuantity());
+//        reserveStockUseCase.reserve(variantId, quantity);
         cart.updateItemQuantity(variantId, quantity);
 
         cartRepo.save(cart);

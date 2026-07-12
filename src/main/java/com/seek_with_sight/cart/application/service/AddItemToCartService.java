@@ -27,7 +27,7 @@ public class AddItemToCartService implements AddItemToCartUseCase {
         var cartItem = new CartItem();
         var variant = product.findVariantById(command.productVariantId());
 
-        reserveStockUseCase.reserve(variant.getId(), cartItem.getQuantity());
+//        reserveStockUseCase.reserve(variant.getId(), command.quantity());
 
         cartItem.setPrice(variant.getPrice());
         cartItem.setQuantity(command.quantity());
