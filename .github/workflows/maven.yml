@@ -59,16 +59,28 @@ jobs:
     needs: unit-tests
     steps:
       - uses: actions/checkout@v4
+
+      - name: Create 4GB Swap Space
+        run: |
+          sudo fallocate -l 4G /swapfile
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          sudo sysctl vm.swappiness=10
+          free -h
+
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
           java-version: '25'
           distribution: 'temurin'
           cache: maven
+
       - name: Configure Testcontainers Reuse
         run: |
           mkdir -p ~/.testcontainers
           echo "testcontainers.reuse.enable=true" > ~/.testcontainers/.testcontainers.properties
+
       - name: Run Integration Tests
         env:
           JWT_SECRET: ${{ secrets.JWT_SECRET }}

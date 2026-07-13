@@ -20,9 +20,9 @@ public class TestsConfiguration {
     protected static final ElasticsearchContainer elasticsearchContainer =
             new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:9.4.3"))
                     .withEnv("xpack.security.enabled", "false")
-                    .withEnv("ES_JAVA_OPTS", "-Xms512m -Xmx512m")
+                    .withEnv("ES_JAVA_OPTS", "-Xms256m -Xmx256m")
                     .withEnv("discovery.type", "single-node")
-                    .withStartupTimeout(Duration.ofMinutes(3))
+                    .withStartupTimeout(Duration.ofMinutes(10))
                     .withReuse(true);
 
     static {
