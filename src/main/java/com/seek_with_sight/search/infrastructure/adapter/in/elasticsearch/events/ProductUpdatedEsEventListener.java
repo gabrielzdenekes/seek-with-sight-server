@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class ProductCreatedEsEventListener {
+public class ProductUpdatedEsEventListener {
     private final GetProductByIdUseCase getProductByIdUseCase;
     private final ProductDocumentMapper productDocumentMapper;
     private final ElasticSearchProductRepository elasticSearchProductRepository;

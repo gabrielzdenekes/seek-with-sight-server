@@ -6,8 +6,10 @@ import com.seek_with_sight.product.application.port.in.product.command.UpdatePro
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
+import com.seek_with_sight.product.domain.events.ProductUpdatedEvent;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +22,7 @@ public class UpdateProductService implements UpdateProductUseCase {
     private final BrandRepositoryPort brandRepository;
     private final ProductAppMapper mapper;
     private final ImageRepositoryPort imagesRepo;
+    private final DomainEventPublisher publisher;
 
     @Override
     @Transactional
@@ -37,7 +40,13 @@ public class UpdateProductService implements UpdateProductUseCase {
             setBrand(product, command.brandId());
         }
 
-        return productRepo.save(product);
+        var updatedProduct = productRepo.save(product);
+
+        publisher.publish(
+                new ProductUpdatedEvent(updatedProduct.getId())
+        );
+
+        return updatedProduct;
     }
 
     private void setBrand(Product product, UUID brandId) {

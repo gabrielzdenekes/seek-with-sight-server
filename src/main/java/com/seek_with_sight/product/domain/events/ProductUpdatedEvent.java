@@ -1,13 +1,13 @@
-package com.seek_with_sight.product.domain;
+package com.seek_with_sight.product.domain.events;
 
 import com.seek_with_sight.shared.domain.event.DomainEvent;
 
 import java.util.UUID;
 
-public class ProductCreatedEvent extends DomainEvent {
+public class ProductUpdatedEvent extends DomainEvent {
     private final UUID productId;
 
-    public ProductCreatedEvent(UUID productId) {
+    public ProductUpdatedEvent(UUID productId) {
         this.productId = productId;
     }
 
