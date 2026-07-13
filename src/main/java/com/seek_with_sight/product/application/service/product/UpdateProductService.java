@@ -28,7 +28,7 @@ public class UpdateProductService implements UpdateProductUseCase {
     @Transactional
     public Product update(UUID productId, UpdateProductCommand command) {
         var product = productRepo.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException(new Object[]{productId}));
+                .orElseThrow(() -> new ProductNotFoundException(productId));
 
         mapper.updateProductFromCommand(command, product);
 
