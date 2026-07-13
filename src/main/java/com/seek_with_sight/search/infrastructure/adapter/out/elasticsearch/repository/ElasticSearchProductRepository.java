@@ -3,6 +3,6 @@ package com.seek_with_sight.search.infrastructure.adapter.out.elasticsearch.repo
 import com.seek_with_sight.search.infrastructure.adapter.out.elasticsearch.documents.ProductDocument;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
-public interface SpringDataElasticsearchProductRepository
+public interface ElasticSearchProductRepository
     extends ElasticsearchRepository<ProductDocument, String> {
 }
