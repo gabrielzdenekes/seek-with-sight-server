@@ -3,6 +3,7 @@ package com.seek_with_sight;
 import net.ttddyy.dsproxy.support.ProxyDataSourceBuilder;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.testcontainers.context.ImportTestcontainers;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,7 @@ import javax.sql.DataSource;
 import java.time.Duration;
 
 @TestConfiguration(proxyBeanMethods = false)
+@ImportTestcontainers(TestsConfiguration.class)
 public class TestsConfiguration {
     @ServiceConnection
     protected static final ElasticsearchContainer elasticsearchContainer =
