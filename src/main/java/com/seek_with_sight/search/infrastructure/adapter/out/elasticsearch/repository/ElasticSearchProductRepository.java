@@ -4,5 +4,5 @@ import com.seek_with_sight.search.infrastructure.adapter.out.elasticsearch.docum
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 public interface ElasticSearchProductRepository
-    extends ElasticsearchRepository<ProductDocument, String> {
+        extends ElasticsearchRepository<ProductDocument, String> {
 }
