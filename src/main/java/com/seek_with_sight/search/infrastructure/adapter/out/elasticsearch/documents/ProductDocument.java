@@ -7,14 +7,12 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import java.util.UUID;
-
 @Document(indexName = "products")
 @Getter
 @Setter
 public class ProductDocument {
     @Id
-    private UUID id;
+    private String id;
 
     @Field(type = FieldType.Text)
     private String name;
