@@ -16,6 +16,10 @@ public interface ProductDocumentMapper {
     @Mapping(target = "brandName", source = "brand.name")
     ProductDocument toDocument(Product product);
 
+    @Mapping(target = "category.name", source = "categoryName")
+    @Mapping(target = "brand.name", source = "brandName")
+    Product toDomain(ProductDocument document);
+
     @Named("uuidToString")
     default String uuidToString(UUID id) {
         return id != null ? id.toString() : null;

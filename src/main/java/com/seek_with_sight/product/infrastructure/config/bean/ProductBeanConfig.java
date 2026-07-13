@@ -136,14 +136,16 @@ public class ProductBeanConfig {
             CategoryRepositoryPort categoriesRepo,
             BrandRepositoryPort brandsRepo,
             ProductAppMapper productAppMapper,
-            ImageRepositoryPort imagesRepo
+            ImageRepositoryPort imagesRepo,
+            DomainEventPublisher domainEventPublisher
     ) {
         return new UpdateProductService(
                 productsRepo,
                 categoriesRepo,
                 brandsRepo,
                 productAppMapper,
-                imagesRepo
+                imagesRepo,
+                domainEventPublisher
         );
     }
 
