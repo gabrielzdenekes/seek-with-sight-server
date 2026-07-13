@@ -7,13 +7,27 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.testcontainers.containers.GenericContainer;
+import org.testcontainers.elasticsearch.ElasticsearchContainer;
 import org.testcontainers.postgresql.PostgreSQLContainer;
 import org.testcontainers.utility.DockerImageName;
 
 import javax.sql.DataSource;
+import java.time.Duration;
 
 @TestConfiguration(proxyBeanMethods = false)
 public class TestsConfiguration {
+    @ServiceConnection
+    protected static final ElasticsearchContainer elasticsearchContainer =
+            new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:9.4.3"))
+                    .withEnv("xpack.security.enabled", "false")
+                    .withEnv("ES_JAVA_OPTS", "-Xms512m -Xmx512m")
+                    .withEnv("discovery.type", "single-node")
+                    .withStartupTimeout(Duration.ofMinutes(3))
+                    .withReuse(true);
+
+    static {
+        elasticsearchContainer.start();
+    }
 
     @Bean
     @ServiceConnection
@@ -29,6 +43,16 @@ public class TestsConfiguration {
                 .withExposedPorts(6379)
                 .withReuse(true);
     }
+//
+//    @Bean
+//    @ServiceConnection
+//    public ElasticsearchContainer elasticsearchContainer() {
+//        return new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:9.4.3"))
+//                .withEnv("ES_JAVA_OPTS", "-Xms512m -Xmx512m")
+//                .withEnv("xpack.security.enabled", "false")
+//                .withEnv("discovery.type", "single-node")
+//                .withStartupTimeout(Duration.ofMinutes(5));
+//    }
 
     @Configuration
     static class DataSourcePostProcessorConfiguration {
