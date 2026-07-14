@@ -116,7 +116,7 @@ public class ProductTestFixture {
     }
 
     public RequestResponseData<ProductRequest, ApiResponse<?>> createProduct() throws Exception {
-        var dto = createProductRequest();
+        var dto = createProductRequest(null);
         return createProduct(dto);
     }
 
@@ -139,8 +139,8 @@ public class ProductTestFixture {
         );
     }
 
-    private ProductRequest createProductRequest() {
-        var productName = ProductTestDataUtils.productName();
+    public ProductRequest createProductRequest(String name) {
+        var productName = name != null ? name : ProductTestDataUtils.productName();
         var categories = categoryRepo
                 .findAll(Pageable.ofSize(1))
                 .get()
