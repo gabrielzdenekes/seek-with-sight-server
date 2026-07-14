@@ -5,6 +5,9 @@ spring:
   cache:
     type: caffeine
 
+  elasticsearch:
+    uris: http://localhost:9200
+
   application:
     name: seek-with-sight
     security:
@@ -23,7 +26,7 @@ spring:
         expire-after-write: 10 # In minutes
         entry-ttl: 1 # In hours
       client-config:
-          static-resource-duration: 365 # In days
+        static-resource-duration: 365 # In days
 
   datasource:
     url: ${SWS_DB_URL}

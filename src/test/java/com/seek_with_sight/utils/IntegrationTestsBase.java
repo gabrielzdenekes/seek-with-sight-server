@@ -8,6 +8,7 @@ import com.seek_with_sight.auth.AuthTestFixture;
 import com.seek_with_sight.product.ProductVariantTestFixture;
 import com.seek_with_sight.profile.CustomerProfileTestFixture;
 import com.seek_with_sight.profile.SellerProfileTestFixture;
+import com.seek_with_sight.search.ProductSearchTestFixture;
 import com.seek_with_sight.user.UserTestFixture;
 import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
 import org.junit.jupiter.api.Tag;
@@ -33,7 +34,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
         CustomerProfileTestFixture.class,
         ImageTestFixture.class,
         ProductVariantTestFixture.class,
-        CartTestFixture.class
+        CartTestFixture.class,
+        ProductSearchTestFixture.class
 })
 @SpringBootTest
 @Tag("integration-tests")

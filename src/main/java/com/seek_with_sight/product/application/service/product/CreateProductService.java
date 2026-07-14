@@ -6,7 +6,7 @@ import com.seek_with_sight.product.application.port.in.product.command.CreatePro
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
-import com.seek_with_sight.product.domain.ProductCreatedEvent;
+import com.seek_with_sight.product.domain.events.ProductCreatedEvent;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
