@@ -45,16 +45,6 @@ public class TestsConfiguration {
                 .withExposedPorts(6379)
                 .withReuse(true);
     }
-//
-//    @Bean
-//    @ServiceConnection
-//    public ElasticsearchContainer elasticsearchContainer() {
-//        return new ElasticsearchContainer(DockerImageName.parse("docker.elastic.co/elasticsearch/elasticsearch:9.4.3"))
-//                .withEnv("ES_JAVA_OPTS", "-Xms512m -Xmx512m")
-//                .withEnv("xpack.security.enabled", "false")
-//                .withEnv("discovery.type", "single-node")
-//                .withStartupTimeout(Duration.ofMinutes(5));
-//    }
 
     @Configuration
     static class DataSourcePostProcessorConfiguration {

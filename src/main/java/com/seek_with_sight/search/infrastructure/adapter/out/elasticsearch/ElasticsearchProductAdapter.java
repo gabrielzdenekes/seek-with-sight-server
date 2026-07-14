@@ -2,6 +2,7 @@ package com.seek_with_sight.search.infrastructure.adapter.out.elasticsearch;
 
 import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
+import co.elastic.clients.elasticsearch._types.query_dsl.TextQueryType;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.search.application.port.out.ProductSearchPort;
 import com.seek_with_sight.search.infrastructure.adapter.out.elasticsearch.documents.ProductDocument;
@@ -47,6 +48,7 @@ public class ElasticsearchProductAdapter implements ProductSearchPort {
                             mm -> mm
                                     .fields("name^3", "description")
                                     .query(text)
+                                    .type(TextQueryType.BoolPrefix)
                                     .fuzziness("AUTO")
                     )
             );
