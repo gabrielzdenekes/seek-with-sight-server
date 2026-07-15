@@ -1,17 +1,21 @@
 package com.seek_with_sight.product;
 
+import com.seek_with_sight.auth.AuthTestFixture;
 import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.AddProductReviewRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.BrandEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.profile.CustomerProfileTestFixture;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.utils.data.RequestResponseData;
+import com.seek_with_sight.utils.data.TestDataUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.TestComponent;
@@ -52,6 +56,12 @@ public class ProductTestFixture {
 
     @Autowired
     private ImageTestFixture imageTestFixture;
+
+    @Autowired
+    private CustomerProfileTestFixture customerFixture;
+
+    @Autowired
+    private AuthTestFixture authTestFixture;
 
     @Value("classpath:test-images/test_image_01.jpg")
     private Resource imageResource;
@@ -160,6 +170,34 @@ public class ProductTestFixture {
                 brand[0].getId(),
                 ProductTestDataUtils.price()
         );
+    }
+
+    public List<AddProductReviewRequest> addReviewsToProduct(int reviewsCount, UUID productId) throws Exception {
+        var reviewsRequests = new ArrayList<AddProductReviewRequest>();
+
+        for (var i = 0; i < reviewsCount; i++) {
+            var user = customerFixture.createVerifiedCustomerProfile();
+            var loginData = authTestFixture.loginUser(user.getEmail(), user.getPassword());
+
+            var reviewRequest = new AddProductReviewRequest(
+                    TestDataUtils.randomIntegerBetween(1, 5),
+                    TestDataUtils.word(),
+                    TestDataUtils.word()
+            );
+
+            reviewsRequests.add(reviewRequest);
+
+            var payload = objectMapper.writeValueAsString(reviewRequest);
+
+            mockMvc.perform(
+                    post(String.format("/api/products/%s/reviews", productId))
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .header("Authorization", String.format("Bearer %s", loginData.accessToken()))
+                            .content(payload)
+            );
+        }
+
+        return reviewsRequests;
     }
 
     private List<UUID> getImageIds(int count) throws Exception {
