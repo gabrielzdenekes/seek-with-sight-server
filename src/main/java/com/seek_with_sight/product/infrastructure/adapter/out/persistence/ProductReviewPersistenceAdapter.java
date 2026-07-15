@@ -20,7 +20,10 @@ public class ProductReviewPersistenceAdapter
         ProductReviewPersistenceMapper>
         implements ProductReviewRepositoryPort {
 
-    public ProductReviewPersistenceAdapter(ProductReviewJpaRepository repository, ProductReviewPersistenceMapper mapper) {
+    public ProductReviewPersistenceAdapter(
+            ProductReviewJpaRepository repository,
+            ProductReviewPersistenceMapper mapper
+    ) {
         super(repository, mapper, ProductReviewEntity::new);
     }
 
