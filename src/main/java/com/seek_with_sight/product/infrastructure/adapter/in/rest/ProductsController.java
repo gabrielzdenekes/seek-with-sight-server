@@ -3,6 +3,7 @@ package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 import com.seek_with_sight.media.application.port.in.UploadImageUseCase;
 import com.seek_with_sight.media.application.port.in.command.UploadImageCommand;
 import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
+import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
@@ -12,6 +13,8 @@ import com.seek_with_sight.product.application.port.in.product.UpdateProductUseC
 import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.AddProductReviewRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.ProductReviewResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.UpdateVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
@@ -51,6 +54,7 @@ public class ProductsController {
     private final UploadImageUseCase uploadImageUseCase;
     private final AddProductImageUseCase addProductImageUseCase;
     private final AddVariantImageUseCase addVariantImageUseCase;
+    private final AddProductReviewUseCase addProductReviewUseCase;
 
     @PostMapping
     public ProductResponseWithDetails create(@RequestBody @Valid ProductRequest request) {
@@ -144,6 +148,17 @@ public class ProductsController {
         } catch (IOException e) {
             throw new UncheckedIOException("Failed to read uploaded file", e);
         }
+    }
+
+    @PostMapping("/{productId}/reviews")
+    public ProductReviewResponse addReview(
+            @PathVariable UUID productId,
+            @Valid @RequestBody AddProductReviewRequest request
+    ) {
+        var command = mapper.toAddProductReviewCommand(request);
+        var addedReview = addProductReviewUseCase.add(productId, command);
+
+        return mapper.toProductReviewResponse(addedReview);
     }
 
     private UploadImageCommand getUploadImageCommand(MultipartFile file) throws IOException {

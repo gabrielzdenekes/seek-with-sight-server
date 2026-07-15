@@ -1,15 +1,19 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest.mapper;
 
 import com.seek_with_sight.media.infrastructure.in.rest.dto.ImageResponse;
+import com.seek_with_sight.product.application.port.in.product.command.AddProductReviewCommand;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductCommand;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.application.port.in.product.command.UpdateProductCommand;
 import com.seek_with_sight.product.application.port.in.product.command.UpdateProductVariantCommand;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.domain.model.ProductImage;
+import com.seek_with_sight.product.domain.model.ProductReview;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.AddProductReviewRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.ProductReviewResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.UpdateVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
@@ -41,4 +45,8 @@ public interface ProductRestMapper {
     ProductVariantResponse toVariantResponse(ProductVariant variant);
 
     UpdateProductVariantCommand toUpdateProductVariantCommand(UpdateVariantRequest request);
+
+    AddProductReviewCommand toAddProductReviewCommand(AddProductReviewRequest request);
+
+    ProductReviewResponse toProductReviewResponse(ProductReview review);
 }
