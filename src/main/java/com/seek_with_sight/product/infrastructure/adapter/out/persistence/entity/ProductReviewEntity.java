@@ -30,7 +30,7 @@ public class ProductReviewEntity extends BaseEntity {
     private UUID userId;
 
     @Column(nullable = false)
-    private Integer count;
+    private Integer rating;
 
     @Column(length = 150)
     private String title;

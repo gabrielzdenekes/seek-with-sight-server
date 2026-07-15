@@ -9,7 +9,7 @@ public class ProductReview extends BaseDomainModel {
 
     private UUID userId;
 
-    private Integer count;
+    private Integer rating;
 
     private String title;
 
@@ -31,12 +31,12 @@ public class ProductReview extends BaseDomainModel {
         this.userId = userId;
     }
 
-    public Integer getCount() {
-        return count;
+    public Integer getRating() {
+        return rating;
     }
 
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setRating(Integer rating) {
+        this.rating = rating;
     }
 
     public String getTitle() {

@@ -2,6 +2,7 @@ package com.seek_with_sight.product.infrastructure.config.bean;
 
 import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
 import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
+import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
@@ -17,6 +18,7 @@ import com.seek_with_sight.product.application.port.out.ProductInventoryReposito
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryPort;
 import com.seek_with_sight.product.application.service.product.AddProductImageService;
+import com.seek_with_sight.product.application.service.product.AddProductReviewService;
 import com.seek_with_sight.product.application.service.product.AddVariantImageService;
 import com.seek_with_sight.product.application.service.product.CreateProductService;
 import com.seek_with_sight.product.application.service.product.CreateProductVariantService;
@@ -45,6 +47,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.reposi
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductReviewJpaRepository;
 import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
+import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import jakarta.persistence.EntityManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -194,5 +197,20 @@ public class ProductBeanConfig {
             ProductReviewPersistenceMapper mapper
     ) {
         return new ProductReviewPersistenceAdapter(repository, mapper);
+    }
+
+    @Bean
+    public AddProductReviewUseCase addProductReviewUseCase(
+            ProductReviewRepositoryPort reviewsRepo,
+            ProductRepositoryPort productsRepo,
+            CurrentUserPort currentUserPort,
+            ProductAppMapper mapper
+    ) {
+        return new AddProductReviewService(
+                reviewsRepo,
+                productsRepo,
+                currentUserPort,
+                mapper
+        );
     }
 }
