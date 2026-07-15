@@ -7,6 +7,7 @@ import com.seek_with_sight.product.application.port.in.product.AddVariantImageUs
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
+import com.seek_with_sight.product.application.port.in.product.GetProductReviewsUseCase;
 import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
 import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
@@ -23,6 +24,7 @@ import com.seek_with_sight.product.application.service.product.AddVariantImageSe
 import com.seek_with_sight.product.application.service.product.CreateProductService;
 import com.seek_with_sight.product.application.service.product.CreateProductVariantService;
 import com.seek_with_sight.product.application.service.product.GetProductByIdService;
+import com.seek_with_sight.product.application.service.product.GetProductReviewsService;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.application.service.product.ReleaseStockService;
 import com.seek_with_sight.product.application.service.product.RemoveProductVariantService;
@@ -212,5 +214,10 @@ public class ProductBeanConfig {
                 currentUserPort,
                 mapper
         );
+    }
+
+    @Bean
+    public GetProductReviewsUseCase getProductReviewsUseCase(ProductReviewRepositoryPort repo) {
+        return new GetProductReviewsService(repo);
     }
 }

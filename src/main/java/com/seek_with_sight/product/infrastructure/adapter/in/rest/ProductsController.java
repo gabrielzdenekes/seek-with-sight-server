@@ -8,6 +8,7 @@ import com.seek_with_sight.product.application.port.in.product.AddVariantImageUs
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
+import com.seek_with_sight.product.application.port.in.product.GetProductReviewsUseCase;
 import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
@@ -22,6 +23,10 @@ import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.P
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.mapper.ProductRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -56,6 +61,7 @@ public class ProductsController {
     private final AddProductImageUseCase addProductImageUseCase;
     private final AddVariantImageUseCase addVariantImageUseCase;
     private final AddProductReviewUseCase addProductReviewUseCase;
+    private final GetProductReviewsUseCase getProductReviewsUseCase;
 
     @PostMapping
     public ProductResponseWithDetails create(@RequestBody @Valid ProductRequest request) {
@@ -161,6 +167,16 @@ public class ProductsController {
         var addedReview = addProductReviewUseCase.add(productId, command);
 
         return mapper.toProductReviewResponse(addedReview);
+    }
+
+    @GetMapping("/{productId}/reviews")
+    public Page<ProductReviewResponse> getReviews(
+            @PathVariable UUID productId,
+            @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        var reviewsPage = getProductReviewsUseCase.get(productId, pageable);
+
+        return reviewsPage.map(mapper::toProductReviewResponse);
     }
 
     private UploadImageCommand getUploadImageCommand(MultipartFile file) throws IOException {
