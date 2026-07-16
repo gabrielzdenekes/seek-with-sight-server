@@ -4,6 +4,7 @@ import com.seek_with_sight.media.domain.model.Image;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,14 @@ public class ProductVariant extends BaseDomainModel {
 
     private BigDecimal price;
 
+    private BigDecimal salePrice;
+
+    private Instant saleStartDate;
+
+    private Instant saleEndDate;
+
+    private Integer discountPercentage = 0;
+
     private List<ProductImage> images = new ArrayList<>();
 
     public void addImage(Image image) {
@@ -25,6 +34,16 @@ public class ProductVariant extends BaseDomainModel {
         productImage.setVariant(this);
 
         images.add(productImage);
+    }
+
+    public boolean isDiscountActive() {
+        if (salePrice == null || saleStartDate == null || saleEndDate == null) {
+            return false;
+        }
+
+        var now = Instant.now();
+
+        return now.isAfter(saleStartDate) && now.isBefore(saleEndDate);
     }
 
     public Product getProduct() {
@@ -65,5 +84,37 @@ public class ProductVariant extends BaseDomainModel {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public BigDecimal getSalePrice() {
+        return salePrice;
+    }
+
+    public void setSalePrice(BigDecimal salePrice) {
+        this.salePrice = salePrice;
+    }
+
+    public Instant getSaleStartDate() {
+        return saleStartDate;
+    }
+
+    public void setSaleStartDate(Instant saleStartDate) {
+        this.saleStartDate = saleStartDate;
+    }
+
+    public Instant getSaleEndDate() {
+        return saleEndDate;
+    }
+
+    public void setSaleEndDate(Instant saleEndDate) {
+        this.saleEndDate = saleEndDate;
+    }
+
+    public Integer getDiscountPercentage() {
+        return discountPercentage;
+    }
+
+    public void setDiscountPercentage(Integer discountPercentage) {
+        this.discountPercentage = discountPercentage;
     }
 }
