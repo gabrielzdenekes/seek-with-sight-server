@@ -25,13 +25,13 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
     Optional<ProductEntity> findById(UUID uuid);
 
     @Query("""
-    SELECT DISTINCT p
-    FROM ProductEntity p
-    JOIN p.variants v
-    WHERE p.status = 'ACTIVE'
-      AND v.salePrice IS NOT NULL
-      AND :now BETWEEN v.saleStartDate AND v.saleEndDate
-    ORDER BY v.discountPercentage DESC
-    """)
+            SELECT DISTINCT p
+            FROM ProductEntity p
+            JOIN p.variants v
+            WHERE p.status = 'ACTIVE'
+              AND v.salePrice IS NOT NULL
+              AND :now BETWEEN v.saleStartDate AND v.saleEndDate
+            ORDER BY v.discountPercentage DESC
+            """)
     Page<ProductEntity> findTopDiscountedProducts(@Param("now") Instant now, Pageable pageable);
 }
