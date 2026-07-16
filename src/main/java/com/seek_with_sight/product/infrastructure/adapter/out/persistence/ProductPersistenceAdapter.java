@@ -14,7 +14,10 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.reposi
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import jakarta.persistence.EntityManager;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
+import java.time.Instant;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -50,6 +53,12 @@ public class ProductPersistenceAdapter
         return repository
                 .findById(id)
                 .map((e) -> mapper.toDomain(e, new CycleAvoidingMappingContext()));
+    }
+
+    @Override
+    public Page<Product> findTopDiscountedProducts(Pageable pageable) {
+        return repository.findTopDiscountedProducts(Instant.now(), pageable)
+                .map(p -> mapper.toDomain(p, new CycleAvoidingMappingContext()));
     }
 
     @Override
