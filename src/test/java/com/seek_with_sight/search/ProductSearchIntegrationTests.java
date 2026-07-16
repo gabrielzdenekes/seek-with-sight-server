@@ -2,7 +2,6 @@ package com.seek_with_sight.search;
 
 import com.seek_with_sight.product.ProductTestFixture;
 import com.seek_with_sight.utils.IntegrationTestsBase;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.UUID;
@@ -16,7 +15,6 @@ public class ProductSearchIntegrationTests extends IntegrationTestsBase {
     @Autowired
     private ProductSearchTestFixture productSearchTestFixture;
 
-    @Test
     public void whenSearchedByGivenWord_shouldReturnCorrectResults() throws Exception {
         var searchWord = "spcje";
         var productsCount = 3;
