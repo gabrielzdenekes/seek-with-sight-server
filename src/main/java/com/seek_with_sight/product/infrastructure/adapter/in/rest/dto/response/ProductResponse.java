@@ -20,4 +20,8 @@ public class ProductResponse {
     private String description;
 
     private ProductStatus status;
+
+    private double averageRating;
+
+    private int reviewCount;
 }

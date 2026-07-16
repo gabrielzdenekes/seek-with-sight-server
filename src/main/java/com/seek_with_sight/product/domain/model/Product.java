@@ -19,6 +19,10 @@ public class Product extends BaseDomainModel {
 
     private ProductStatus status;
 
+    private double averageRating;
+
+    private int reviewCount;
+
     private Brand brand;
 
     private Category category;
@@ -128,5 +132,21 @@ public class Product extends BaseDomainModel {
 
     public void setDefaultVariant(ProductVariant defaultVariant) {
         this.defaultVariant = defaultVariant;
+    }
+
+    public double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
+    }
+
+    public int getReviewCount() {
+        return reviewCount;
+    }
+
+    public void setReviewCount(int reviewCount) {
+        this.reviewCount = reviewCount;
     }
 }

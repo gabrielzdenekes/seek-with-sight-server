@@ -11,6 +11,7 @@ import com.seek_with_sight.profile.SellerProfileTestFixture;
 import com.seek_with_sight.search.ProductSearchTestFixture;
 import com.seek_with_sight.user.UserTestFixture;
 import com.seek_with_sight.utils.sql.SqlQueryCounterTestUtils;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -47,6 +48,14 @@ public abstract class IntegrationTestsBase {
 
     @Autowired
     protected ObjectMapper objectMapper;
+
+    @Autowired
+    private ProductTestFixture productTestFixture;
+
+    @BeforeEach
+    public void beforeEach() {
+        productTestFixture.deleteAllProducts();
+    }
 
     protected MockHttpServletRequestBuilder postRequest(String url, String jsonPayload) {
         return post(url)

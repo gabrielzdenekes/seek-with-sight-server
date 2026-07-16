@@ -3,15 +3,19 @@ package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 import com.seek_with_sight.media.application.port.in.UploadImageUseCase;
 import com.seek_with_sight.media.application.port.in.command.UploadImageCommand;
 import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
+import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
+import com.seek_with_sight.product.application.port.in.product.GetProductReviewsUseCase;
 import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.AddProductReviewRequest;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.ProductReviewResponse;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.UpdateVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
@@ -19,8 +23,13 @@ import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.P
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.mapper.ProductRestMapper;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,6 +60,8 @@ public class ProductsController {
     private final UploadImageUseCase uploadImageUseCase;
     private final AddProductImageUseCase addProductImageUseCase;
     private final AddVariantImageUseCase addVariantImageUseCase;
+    private final AddProductReviewUseCase addProductReviewUseCase;
+    private final GetProductReviewsUseCase getProductReviewsUseCase;
 
     @PostMapping
     public ProductResponseWithDetails create(@RequestBody @Valid ProductRequest request) {
@@ -144,6 +155,28 @@ public class ProductsController {
         } catch (IOException e) {
             throw new UncheckedIOException("Failed to read uploaded file", e);
         }
+    }
+
+    @PostMapping("/{productId}/reviews")
+    @PreAuthorize("isAuthenticated()")
+    public ProductReviewResponse addReview(
+            @PathVariable UUID productId,
+            @Valid @RequestBody AddProductReviewRequest request
+    ) {
+        var command = mapper.toAddProductReviewCommand(request);
+        var addedReview = addProductReviewUseCase.add(productId, command);
+
+        return mapper.toProductReviewResponse(addedReview);
+    }
+
+    @GetMapping("/{productId}/reviews")
+    public Page<ProductReviewResponse> getReviews(
+            @PathVariable UUID productId,
+            @PageableDefault(size = 10, sort = "createdAt", direction = Sort.Direction.DESC) Pageable pageable
+    ) {
+        var reviewsPage = getProductReviewsUseCase.get(productId, pageable);
+
+        return reviewsPage.map(mapper::toProductReviewResponse);
     }
 
     private UploadImageCommand getUploadImageCommand(MultipartFile file) throws IOException {

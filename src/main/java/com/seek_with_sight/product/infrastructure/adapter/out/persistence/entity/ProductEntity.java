@@ -63,6 +63,12 @@ public class ProductEntity extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "product")
     private List<ProductVariantEntity> variants = new ArrayList<>();
 
+    @Column(nullable = false)
+    private Double averageRating = 0.0;
+
+    @Column(nullable = false)
+    private Integer reviewCount = 0;
+
     public void setImages(List<ProductImageEntity> images) {
         this.images.clear();
 
