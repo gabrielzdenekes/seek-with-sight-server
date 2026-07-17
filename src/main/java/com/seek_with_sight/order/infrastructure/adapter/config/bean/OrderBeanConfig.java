@@ -9,6 +9,7 @@ import com.seek_with_sight.order.application.service.OrderAppMapper;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.OrderPersistenceAdapter;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.mapper.OrderPersistenceMapper;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.repository.OrderJpaRepository;
+import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -27,8 +28,9 @@ public class OrderBeanConfig {
             OrderRepositoryPort orderRepo,
             FindCartForCurrentUserUseCase findCartForCurrentUserUseCase,
             OrderAppMapper mapper,
-            CartRepositoryPort cartRepo
+            CartRepositoryPort cartRepo,
+            ReserveStockUseCase reserveStockUseCase
     ) {
-        return new CheckoutService(orderRepo, findCartForCurrentUserUseCase, mapper, cartRepo);
+        return new CheckoutService(orderRepo, findCartForCurrentUserUseCase, mapper, cartRepo, reserveStockUseCase);
     }
 }
