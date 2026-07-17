@@ -1,4 +1,4 @@
-package com.seek_with_sight.order.infrastructure.out.persistence.entity;
+package com.seek_with_sight.order.infrastructure.adapter.out.persistence.entity;
 
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;

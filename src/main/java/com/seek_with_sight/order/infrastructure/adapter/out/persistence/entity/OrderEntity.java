@@ -1,4 +1,4 @@
-package com.seek_with_sight.order.infrastructure.out.persistence.entity;
+package com.seek_with_sight.order.infrastructure.adapter.out.persistence.entity;
 
 import com.seek_with_sight.order.domain.model.OrderStatus;
 import com.seek_with_sight.order.domain.model.PaymentStatus;
