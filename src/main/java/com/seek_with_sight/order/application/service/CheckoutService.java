@@ -9,6 +9,7 @@ import com.seek_with_sight.order.domain.exception.EmptyCartException;
 import com.seek_with_sight.order.domain.model.Order;
 import com.seek_with_sight.order.domain.model.OrderStatus;
 import com.seek_with_sight.order.domain.model.PaymentStatus;
+import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +27,7 @@ public class CheckoutService implements CheckoutUseCase {
     private final FindCartForCurrentUserUseCase findCartForCurrentUserUseCase;
     private final OrderAppMapper mapper;
     private final CartRepositoryPort cartRepo;
+    private final ReserveStockUseCase reserveStockUseCase;
 
     @Override
     @Transactional
@@ -56,13 +58,17 @@ public class CheckoutService implements CheckoutUseCase {
         var totalAmount = BigDecimal.ZERO;
 
         for (var cartItem : cart.getItems()) {
+            var variant = cartItem.getVariant();
+
+            reserveStockUseCase.reserve(variant.getId(), cartItem.getQuantity());
+
             var orderItem = mapper.toOrderItemFromCartItem(cartItem);
 
             orderItem.setOrder(order);
-            orderItem.setVariant(cartItem.getVariant());
+            orderItem.setVariant(variant);
             orderItem.setProduct(cartItem.getProduct());
 
-            var unitPrice = getUnitPrice(cartItem.getVariant());
+            var unitPrice = getUnitPrice(variant);
             orderItem.setUnitPrice(unitPrice);
 
             var totalOrderItemPrice = unitPrice.multiply(BigDecimal.valueOf(cartItem.getQuantity()));
