@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.UUID;
 
 @RequiredArgsConstructor
@@ -21,9 +22,7 @@ public class CreatePaymentIntentService implements CreatePaymentIntentUseCase {
     public PaymentIntentResult create(UUID orderId) {
         var order = orderRepo.findById(orderId)
                 .orElseThrow(() -> new OrderNotFoundException(orderId));
-        var totalAmount = order.getTotalAmount()
-                .multiply(new BigDecimal("100"))
-                .longValue();
+        var totalAmount = convertAmountToStripeCentavos(order.getTotalAmount());
 
         try {
             var params = PaymentIntentCreateParams.builder()
@@ -39,5 +38,11 @@ public class CreatePaymentIntentService implements CreatePaymentIntentUseCase {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private long convertAmountToStripeCentavos(BigDecimal amount) {
+        return amount.multiply(new BigDecimal("100"))
+                .setScale(0, RoundingMode.HALF_UP)
+                .longValue();
     }
 }
