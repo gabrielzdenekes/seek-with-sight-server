@@ -1,6 +1,6 @@
-package com.seek_with_sight.product.application.service.product;
+package com.seek_with_sight.product.application.service.review;
 
-import com.seek_with_sight.product.application.port.in.product.GetProductReviewsUseCase;
+import com.seek_with_sight.product.application.port.in.review.GetProductReviewsUseCase;
 import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryPort;
 import com.seek_with_sight.product.domain.model.ProductReview;
 import lombok.RequiredArgsConstructor;

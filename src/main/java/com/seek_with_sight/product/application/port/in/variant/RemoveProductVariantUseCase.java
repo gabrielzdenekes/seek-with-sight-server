@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.application.port.in.product;
+package com.seek_with_sight.product.application.port.in.variant;
 
 import java.util.UUID;
 

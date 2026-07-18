@@ -2,7 +2,7 @@ package com.seek_with_sight.order.infrastructure.adapter.out.persistence.cleanup
 
 import com.seek_with_sight.order.domain.model.OrderStatus;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.repository.OrderJpaRepository;
-import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReleaseStockUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -25,7 +25,7 @@ public class OrdersCleanupService {
 
         for (var order : expiredOrders) {
             for (var item : order.getItems()) {
-//                releaseStockUseCase.release(item.getVariant().getId(), item.getQuantity());
+                releaseStockUseCase.release(item.getVariant().getId(), item.getQuantity());
             }
 
             order.setStatus(OrderStatus.CANCELLED);

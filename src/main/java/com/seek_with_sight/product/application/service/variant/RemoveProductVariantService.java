@@ -1,6 +1,6 @@
-package com.seek_with_sight.product.application.service.product;
+package com.seek_with_sight.product.application.service.variant;
 
-import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.variant.RemoveProductVariantUseCase;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ public class RemoveProductVariantService implements RemoveProductVariantUseCase 
     @Transactional
     public void remove(UUID productId, UUID variantId) {
         var product = productsRepo.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException(new Object[] { productId }));
+                .orElseThrow(() -> new ProductNotFoundException(productId));
 
 //        product.removeVariant(variantId);
 

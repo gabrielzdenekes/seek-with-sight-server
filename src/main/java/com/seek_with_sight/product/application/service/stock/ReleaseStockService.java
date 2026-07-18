@@ -1,6 +1,6 @@
-package com.seek_with_sight.product.application.service.product;
+package com.seek_with_sight.product.application.service.stock;
 
-import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReleaseStockUseCase;
 import com.seek_with_sight.product.application.port.out.ProductInventoryRepositoryPort;
 import com.seek_with_sight.product.domain.exception.InventoryNotFoundException;
 import lombok.RequiredArgsConstructor;

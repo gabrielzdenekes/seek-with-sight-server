@@ -1,7 +1,7 @@
 package com.seek_with_sight.cart.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.cart.infrastructure.adapter.out.persistence.repository.CartJpaRepository;
-import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReleaseStockUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

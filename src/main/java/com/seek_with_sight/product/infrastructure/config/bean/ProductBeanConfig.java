@@ -1,38 +1,42 @@
 package com.seek_with_sight.product.infrastructure.config.bean;
 
 import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
-import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
-import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
-import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
+import com.seek_with_sight.product.application.port.in.image.AddProductImageUseCase;
+import com.seek_with_sight.product.application.port.in.inventory.UpdateProductInventoryUseCase;
+import com.seek_with_sight.product.application.port.in.review.AddProductReviewUseCase;
+import com.seek_with_sight.product.application.port.in.image.AddVariantImageUseCase;
+import com.seek_with_sight.product.application.port.in.inventory.CreateProductInventoryUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
-import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.variant.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
-import com.seek_with_sight.product.application.port.in.product.GetProductReviewsUseCase;
+import com.seek_with_sight.product.application.port.in.review.GetProductReviewsUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetTopProductsOnSaleUseCase;
-import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
-import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
-import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReleaseStockUseCase;
+import com.seek_with_sight.product.application.port.in.variant.RemoveProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReserveStockUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductUseCase;
-import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.variant.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductInventoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryPort;
-import com.seek_with_sight.product.application.service.product.AddProductImageService;
-import com.seek_with_sight.product.application.service.product.AddProductReviewService;
-import com.seek_with_sight.product.application.service.product.AddVariantImageService;
+import com.seek_with_sight.product.application.service.image.AddProductImageService;
+import com.seek_with_sight.product.application.service.inventory.UpdateProductInventoryService;
+import com.seek_with_sight.product.application.service.review.AddProductReviewService;
+import com.seek_with_sight.product.application.service.image.AddVariantImageService;
+import com.seek_with_sight.product.application.service.inventory.CreateProductInventoryService;
 import com.seek_with_sight.product.application.service.product.CreateProductService;
-import com.seek_with_sight.product.application.service.product.CreateProductVariantService;
+import com.seek_with_sight.product.application.service.variant.CreateProductVariantService;
 import com.seek_with_sight.product.application.service.product.GetProductByIdService;
-import com.seek_with_sight.product.application.service.product.GetProductReviewsService;
+import com.seek_with_sight.product.application.service.review.GetProductReviewsService;
 import com.seek_with_sight.product.application.service.product.GetTopProductsOnSaleService;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
-import com.seek_with_sight.product.application.service.product.ReleaseStockService;
-import com.seek_with_sight.product.application.service.product.RemoveProductVariantService;
-import com.seek_with_sight.product.application.service.product.ReserveStockService;
+import com.seek_with_sight.product.application.service.stock.ReleaseStockService;
+import com.seek_with_sight.product.application.service.variant.RemoveProductVariantService;
+import com.seek_with_sight.product.application.service.stock.ReserveStockService;
 import com.seek_with_sight.product.application.service.product.UpdateProductService;
-import com.seek_with_sight.product.application.service.product.UpdateProductVariantService;
+import com.seek_with_sight.product.application.service.variant.UpdateProductVariantService;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.CategoryPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.ProductInventoryPersistenceAdapter;
@@ -101,7 +105,9 @@ public class ProductBeanConfig {
             BrandRepositoryPort brandRepository,
             ProductAppMapper mapper,
             DomainEventPublisher publisher,
-            ImageRepositoryPort imageRepo
+            ImageRepositoryPort imageRepo,
+            ProductInventoryRepositoryPort inventoryRepo,
+            CreateProductInventoryUseCase createProductInventoryUseCase
     ) {
         return new CreateProductService(
                 productRepo,
@@ -109,7 +115,9 @@ public class ProductBeanConfig {
                 brandRepository,
                 mapper,
                 publisher,
-                imageRepo);
+                imageRepo,
+                inventoryRepo,
+                createProductInventoryUseCase);
     }
 
     @Bean
@@ -121,9 +129,15 @@ public class ProductBeanConfig {
     public CreateProductVariantUseCase createProductVariantUseCase(
             ProductRepositoryPort repo,
             ProductAppMapper mapper,
-            ImageRepositoryPort imageRepo
+            ImageRepositoryPort imageRepo,
+            CreateProductInventoryUseCase createProductInventoryUseCase
     ) {
-        return new CreateProductVariantService(repo, mapper, imageRepo);
+        return new CreateProductVariantService(
+                repo,
+                mapper,
+                imageRepo,
+                createProductInventoryUseCase
+        );
     }
 
     @Bean
@@ -226,5 +240,17 @@ public class ProductBeanConfig {
     @Bean
     public GetTopProductsOnSaleUseCase getTopProductsOnSaleUseCase(ProductRepositoryPort repo) {
         return new GetTopProductsOnSaleService(repo);
+    }
+
+    @Bean
+    public CreateProductInventoryUseCase createProductInventoryUseCase(
+            ProductInventoryRepositoryPort repo
+    ) {
+        return new CreateProductInventoryService(repo);
+    }
+
+    @Bean
+    public UpdateProductInventoryUseCase updateProductInventoryUseCase(ProductInventoryRepositoryPort repo) {
+        return new UpdateProductInventoryService(repo);
     }
 }

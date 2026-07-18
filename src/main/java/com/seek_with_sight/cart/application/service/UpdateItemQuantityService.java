@@ -2,8 +2,8 @@ package com.seek_with_sight.cart.application.service;
 
 import com.seek_with_sight.cart.application.port.in.UpdateItemQuantityUseCase;
 import com.seek_with_sight.cart.application.port.out.CartRepositoryPort;
-import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
-import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReleaseStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReserveStockUseCase;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;

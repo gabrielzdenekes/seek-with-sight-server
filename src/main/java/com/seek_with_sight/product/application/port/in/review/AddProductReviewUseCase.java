@@ -1,6 +1,6 @@
-package com.seek_with_sight.product.application.port.in.product;
+package com.seek_with_sight.product.application.port.in.review;
 
-import com.seek_with_sight.product.application.port.in.product.command.AddProductReviewCommand;
+import com.seek_with_sight.product.application.port.in.review.command.AddProductReviewCommand;
 import com.seek_with_sight.product.domain.model.ProductReview;
 
 import java.util.UUID;

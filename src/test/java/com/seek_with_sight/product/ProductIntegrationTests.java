@@ -43,7 +43,16 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
 
         assertThat(createResult.response().getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());
 
-        var productRequest = new ProductRequest(null, null, null, null, null, null, null, null);
+        var productRequest = new ProductRequest(
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null);
         createResult = productTestFixture.createProduct(productRequest);
 
         assertThat(createResult.response().getStatus()).isEqualTo(HttpStatus.BAD_REQUEST.value());

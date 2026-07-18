@@ -1,10 +1,10 @@
 package com.seek_with_sight.product.application.service.product;
 
-import com.seek_with_sight.product.application.port.in.product.command.AddProductReviewCommand;
+import com.seek_with_sight.product.application.port.in.review.command.AddProductReviewCommand;
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductCommand;
-import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
+import com.seek_with_sight.product.application.port.in.variant.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.application.port.in.product.command.UpdateProductCommand;
-import com.seek_with_sight.product.application.port.in.product.command.UpdateProductVariantCommand;
+import com.seek_with_sight.product.application.port.in.variant.command.UpdateProductVariantCommand;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.domain.model.ProductReview;
 import com.seek_with_sight.product.domain.model.ProductVariant;

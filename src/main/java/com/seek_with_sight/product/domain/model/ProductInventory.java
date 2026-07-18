@@ -1,10 +1,9 @@
 package com.seek_with_sight.product.domain.model;
 
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 public class ProductInventory extends BaseDomainModel {
-    private ProductVariantEntity variant;
+    private ProductVariant variant;
 
     private Integer quantity = 0;
 
@@ -14,11 +13,11 @@ public class ProductInventory extends BaseDomainModel {
         return quantity - reservedQuantity;
     }
 
-    public ProductVariantEntity getVariant() {
+    public ProductVariant getVariant() {
         return variant;
     }
 
-    public void setVariant(ProductVariantEntity variant) {
+    public void setVariant(ProductVariant variant) {
         this.variant = variant;
     }
 

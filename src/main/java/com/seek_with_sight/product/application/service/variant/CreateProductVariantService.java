@@ -1,9 +1,11 @@
-package com.seek_with_sight.product.application.service.product;
+package com.seek_with_sight.product.application.service.variant;
 
 import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
-import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
-import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
+import com.seek_with_sight.product.application.port.in.inventory.CreateProductInventoryUseCase;
+import com.seek_with_sight.product.application.port.in.variant.CreateProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.variant.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
+import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,7 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
     private final ProductRepositoryPort productRepo;
     private final ProductAppMapper productAppMapper;
     private final ImageRepositoryPort imagesRepo;
+    private final CreateProductInventoryUseCase createProductInventoryUseCase;
 
     @Override
     @Transactional
@@ -34,6 +37,8 @@ public class CreateProductVariantService implements CreateProductVariantUseCase 
                 .filter(v -> v.getSku().equals(command.sku()))
                 .findFirst()
                 .get();
+
+        createProductInventoryUseCase.create(updatedVariant, command.quantity());
 
         return updatedVariant;
     }

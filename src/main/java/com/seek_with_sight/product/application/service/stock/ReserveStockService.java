@@ -1,6 +1,6 @@
-package com.seek_with_sight.product.application.service.product;
+package com.seek_with_sight.product.application.service.stock;
 
-import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReserveStockUseCase;
 import com.seek_with_sight.product.application.port.out.ProductInventoryRepositoryPort;
 import com.seek_with_sight.product.domain.exception.InsufficientStockException;
 import com.seek_with_sight.product.domain.exception.InventoryNotFoundException;
