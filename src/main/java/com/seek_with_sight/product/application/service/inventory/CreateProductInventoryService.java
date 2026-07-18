@@ -1,6 +1,6 @@
-package com.seek_with_sight.product.application.service.product;
+package com.seek_with_sight.product.application.service.inventory;
 
-import com.seek_with_sight.product.application.port.in.product.CreateProductInventoryUseCase;
+import com.seek_with_sight.product.application.port.in.inventory.CreateProductInventoryUseCase;
 import com.seek_with_sight.product.application.port.out.ProductInventoryRepositoryPort;
 import com.seek_with_sight.product.domain.model.ProductInventory;
 import com.seek_with_sight.product.domain.model.ProductVariant;

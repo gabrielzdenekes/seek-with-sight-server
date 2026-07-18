@@ -1,9 +1,10 @@
-package com.seek_with_sight.product.application.service.product;
+package com.seek_with_sight.product.application.service.review;
 
-import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
+import com.seek_with_sight.product.application.port.in.review.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.product.command.AddProductReviewCommand;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryPort;
+import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.domain.exception.ProductAlreadyReviewedException;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
 import com.seek_with_sight.product.domain.model.Product;

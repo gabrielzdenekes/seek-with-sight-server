@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.application.port.in.product;
+package com.seek_with_sight.product.application.port.in.review;
 
 import com.seek_with_sight.product.domain.model.ProductReview;
 import org.springframework.data.domain.Page;
