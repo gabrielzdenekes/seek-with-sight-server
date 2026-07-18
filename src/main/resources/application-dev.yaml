@@ -32,3 +32,9 @@ app:
   storage:
     root-dir: uploads
     public-base-url: ${app.base-url}/${app.storage.root-dir}
+
+stripe:
+  api:
+    key: ${STRIPE_API_KEY}
+  webhook:
+    secret: ${STRIPE_WEBHOOK_SECRET}
