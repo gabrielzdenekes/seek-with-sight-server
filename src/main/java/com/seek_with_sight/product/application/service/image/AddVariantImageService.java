@@ -18,7 +18,7 @@ public class AddVariantImageService implements AddVariantImageUseCase {
     @Transactional
     public ProductVariant add(UUID productId, UUID variantId, Image image) {
         var product = productsRepo.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException(new Object[] { productId }));
+                .orElseThrow(() -> new ProductNotFoundException(productId));
 
         var variant = product.findVariantById(variantId);
 

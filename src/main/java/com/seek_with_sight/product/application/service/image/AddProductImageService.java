@@ -18,7 +18,7 @@ public class AddProductImageService implements AddProductImageUseCase {
     @Transactional
     public Product add(UUID productId, Image image) {
         var product = productsRepo.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException(new Object[] { productId }));
+                .orElseThrow(() -> new ProductNotFoundException(productId));
 
         product.addImage(image);
 

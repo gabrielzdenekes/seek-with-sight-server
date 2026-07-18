@@ -24,7 +24,7 @@ public class UpdateProductVariantService implements UpdateProductVariantUseCase 
             UpdateProductVariantCommand command
     ) {
         var product = productsRepo.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException(new Object[]{productId}));
+                .orElseThrow(() -> new ProductNotFoundException(productId));
 
         var variant = product.findVariantById(variantId);
 

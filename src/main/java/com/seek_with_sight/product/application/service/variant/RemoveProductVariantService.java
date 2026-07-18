@@ -16,7 +16,7 @@ public class RemoveProductVariantService implements RemoveProductVariantUseCase 
     @Transactional
     public void remove(UUID productId, UUID variantId) {
         var product = productsRepo.findById(productId)
-                .orElseThrow(() -> new ProductNotFoundException(new Object[] { productId }));
+                .orElseThrow(() -> new ProductNotFoundException(productId));
 
 //        product.removeVariant(variantId);
 
