@@ -1,9 +1,9 @@
 package com.seek_with_sight.product.infrastructure.config.bean;
 
 import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
-import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
+import com.seek_with_sight.product.application.port.in.image.AddProductImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
-import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
+import com.seek_with_sight.product.application.port.in.image.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductInventoryUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.variant.CreateProductVariantUseCase;
@@ -20,9 +20,9 @@ import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductInventoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryPort;
-import com.seek_with_sight.product.application.service.product.AddProductImageService;
+import com.seek_with_sight.product.application.service.image.AddProductImageService;
 import com.seek_with_sight.product.application.service.product.AddProductReviewService;
-import com.seek_with_sight.product.application.service.product.AddVariantImageService;
+import com.seek_with_sight.product.application.service.image.AddVariantImageService;
 import com.seek_with_sight.product.application.service.product.CreateProductInventoryService;
 import com.seek_with_sight.product.application.service.product.CreateProductService;
 import com.seek_with_sight.product.application.service.variant.CreateProductVariantService;

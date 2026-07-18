@@ -2,9 +2,9 @@ package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.media.application.port.in.UploadImageUseCase;
 import com.seek_with_sight.media.application.port.in.command.UploadImageCommand;
-import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
+import com.seek_with_sight.product.application.port.in.image.AddProductImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
-import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
+import com.seek_with_sight.product.application.port.in.image.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.variant.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
