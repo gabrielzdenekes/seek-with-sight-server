@@ -9,5 +9,6 @@ import org.mapstruct.Mapping;
 public interface OrderAppMapper {
     @Mapping(target = "product", ignore = true)
     @Mapping(target = "variant", ignore = true)
+    @Mapping(target = "id", ignore = true)
     OrderItem toOrderItemFromCartItem(CartItem item);
 }
