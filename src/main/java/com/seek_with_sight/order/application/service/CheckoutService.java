@@ -60,7 +60,7 @@ public class CheckoutService implements CheckoutUseCase {
         for (var cartItem : cart.getItems()) {
             var variant = cartItem.getVariant();
 
-//            reserveStockUseCase.reserve(variant.getId(), cartItem.getQuantity());
+            reserveStockUseCase.reserve(variant.getId(), cartItem.getQuantity());
 
             var orderItem = mapper.toOrderItemFromCartItem(cartItem);
 

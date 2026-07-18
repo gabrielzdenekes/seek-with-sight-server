@@ -25,7 +25,7 @@ public class OrdersCleanupService {
 
         for (var order : expiredOrders) {
             for (var item : order.getItems()) {
-//                releaseStockUseCase.release(item.getVariant().getId(), item.getQuantity());
+                releaseStockUseCase.release(item.getVariant().getId(), item.getQuantity());
             }
 
             order.setStatus(OrderStatus.CANCELLED);
