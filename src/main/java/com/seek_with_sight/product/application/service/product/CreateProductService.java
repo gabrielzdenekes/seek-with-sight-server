@@ -5,9 +5,11 @@ import com.seek_with_sight.product.application.port.in.product.CreateProductUseC
 import com.seek_with_sight.product.application.port.in.product.command.CreateProductCommand;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
+import com.seek_with_sight.product.application.port.out.ProductInventoryRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.events.ProductCreatedEvent;
 import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.ProductInventory;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +27,7 @@ public class CreateProductService implements CreateProductUseCase {
     private final ProductAppMapper mapper;
     private final DomainEventPublisher publisher;
     private final ImageRepositoryPort imagesRepo;
+    private final ProductInventoryRepositoryPort inventoryRepo;
 
     @Override
     @Transactional
@@ -37,11 +40,23 @@ public class CreateProductService implements CreateProductUseCase {
         var createdProduct = productRepo.save(product);
         var productWithVariant = createDefaultVariant(createdProduct, command.price());
 
+        createInventory(productWithVariant, command.quantity());
+
         publisher.publish(
                 new ProductCreatedEvent(productWithVariant.getId())
         );
 
         return productWithVariant;
+    }
+
+    private void createInventory(Product product, Integer quantity) {
+        var variant = product.getDefaultVariant();
+        var inventory = new ProductInventory();
+
+        inventory.setVariant(variant);
+        inventory.setQuantity(quantity != null ? quantity : 0);
+
+        inventoryRepo.save(inventory);
     }
 
     private Product createDefaultVariant(Product product, BigDecimal price) {

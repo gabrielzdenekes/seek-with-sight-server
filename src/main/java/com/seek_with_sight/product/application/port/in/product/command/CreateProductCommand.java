@@ -13,6 +13,7 @@ public record CreateProductCommand(
         ProductStatus status,
         BigDecimal price,
         UUID categoryId,
-        UUID brandId
+        UUID brandId,
+        Integer quantity
 ) {
 }

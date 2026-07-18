@@ -101,7 +101,8 @@ public class ProductBeanConfig {
             BrandRepositoryPort brandRepository,
             ProductAppMapper mapper,
             DomainEventPublisher publisher,
-            ImageRepositoryPort imageRepo
+            ImageRepositoryPort imageRepo,
+            ProductInventoryRepositoryPort inventoryRepo
     ) {
         return new CreateProductService(
                 productRepo,
@@ -109,7 +110,8 @@ public class ProductBeanConfig {
                 brandRepository,
                 mapper,
                 publisher,
-                imageRepo);
+                imageRepo,
+                inventoryRepo);
     }
 
     @Bean
