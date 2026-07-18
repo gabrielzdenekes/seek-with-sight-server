@@ -176,7 +176,8 @@ public class ProductTestFixture {
                 ProductStatus.ACTIVE,
                 categories[0].getId(),
                 brand[0].getId(),
-                ProductTestDataUtils.price()
+                ProductTestDataUtils.price(),
+                null
         );
     }
 

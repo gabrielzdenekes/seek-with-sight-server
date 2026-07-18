@@ -122,7 +122,8 @@ public class ProductVariantTestFixture {
         return new ProductVariantRequest(
                 ProductTestDataUtils.productName(),
                 ProductTestDataUtils.sku(),
-                ProductTestDataUtils.price()
+                ProductTestDataUtils.price(),
+                null
         );
     }
 }
