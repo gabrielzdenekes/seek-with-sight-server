@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public record CreateProductVariantCommand(
         String title,
         String sku,
-        BigDecimal price
+        BigDecimal price,
+        Integer quantity
 ) {
 }

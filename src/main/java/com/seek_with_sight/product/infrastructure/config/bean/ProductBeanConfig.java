@@ -4,6 +4,7 @@ import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
 import com.seek_with_sight.product.application.port.in.product.AddProductImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
+import com.seek_with_sight.product.application.port.in.product.CreateProductInventoryUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
@@ -22,6 +23,7 @@ import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryP
 import com.seek_with_sight.product.application.service.product.AddProductImageService;
 import com.seek_with_sight.product.application.service.product.AddProductReviewService;
 import com.seek_with_sight.product.application.service.product.AddVariantImageService;
+import com.seek_with_sight.product.application.service.product.CreateProductInventoryService;
 import com.seek_with_sight.product.application.service.product.CreateProductService;
 import com.seek_with_sight.product.application.service.product.CreateProductVariantService;
 import com.seek_with_sight.product.application.service.product.GetProductByIdService;
@@ -102,7 +104,8 @@ public class ProductBeanConfig {
             ProductAppMapper mapper,
             DomainEventPublisher publisher,
             ImageRepositoryPort imageRepo,
-            ProductInventoryRepositoryPort inventoryRepo
+            ProductInventoryRepositoryPort inventoryRepo,
+            CreateProductInventoryUseCase createProductInventoryUseCase
     ) {
         return new CreateProductService(
                 productRepo,
@@ -111,7 +114,8 @@ public class ProductBeanConfig {
                 mapper,
                 publisher,
                 imageRepo,
-                inventoryRepo);
+                inventoryRepo,
+                createProductInventoryUseCase);
     }
 
     @Bean
@@ -123,9 +127,15 @@ public class ProductBeanConfig {
     public CreateProductVariantUseCase createProductVariantUseCase(
             ProductRepositoryPort repo,
             ProductAppMapper mapper,
-            ImageRepositoryPort imageRepo
+            ImageRepositoryPort imageRepo,
+            CreateProductInventoryUseCase createProductInventoryUseCase
     ) {
-        return new CreateProductVariantService(repo, mapper, imageRepo);
+        return new CreateProductVariantService(
+                repo,
+                mapper,
+                imageRepo,
+                createProductInventoryUseCase
+        );
     }
 
     @Bean
@@ -228,5 +238,12 @@ public class ProductBeanConfig {
     @Bean
     public GetTopProductsOnSaleUseCase getTopProductsOnSaleUseCase(ProductRepositoryPort repo) {
         return new GetTopProductsOnSaleService(repo);
+    }
+
+    @Bean
+    public CreateProductInventoryUseCase createProductInventoryUseCase(
+            ProductInventoryRepositoryPort repo
+    ) {
+        return new CreateProductInventoryService(repo);
     }
 }

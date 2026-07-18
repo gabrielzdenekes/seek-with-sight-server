@@ -2,6 +2,7 @@ package com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.v
 
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -24,6 +25,9 @@ public record ProductVariantRequest(
         @NotNull
         @DecimalMin(value = "0.00")
         @Digits(integer = 19, fraction = 4)
-        BigDecimal price
+        BigDecimal price,
+
+        @Min(1)
+        Integer quantity
 ) {
 }
