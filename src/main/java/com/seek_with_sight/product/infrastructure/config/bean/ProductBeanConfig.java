@@ -10,9 +10,9 @@ import com.seek_with_sight.product.application.port.in.variant.CreateProductVari
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductReviewsUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetTopProductsOnSaleUseCase;
-import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReleaseStockUseCase;
 import com.seek_with_sight.product.application.port.in.variant.RemoveProductVariantUseCase;
-import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReserveStockUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductUseCase;
 import com.seek_with_sight.product.application.port.in.variant.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.out.BrandRepositoryPort;
@@ -30,9 +30,9 @@ import com.seek_with_sight.product.application.service.product.GetProductByIdSer
 import com.seek_with_sight.product.application.service.product.GetProductReviewsService;
 import com.seek_with_sight.product.application.service.product.GetTopProductsOnSaleService;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
-import com.seek_with_sight.product.application.service.product.ReleaseStockService;
+import com.seek_with_sight.product.application.service.stock.ReleaseStockService;
 import com.seek_with_sight.product.application.service.variant.RemoveProductVariantService;
-import com.seek_with_sight.product.application.service.product.ReserveStockService;
+import com.seek_with_sight.product.application.service.stock.ReserveStockService;
 import com.seek_with_sight.product.application.service.product.UpdateProductService;
 import com.seek_with_sight.product.application.service.variant.UpdateProductVariantService;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;

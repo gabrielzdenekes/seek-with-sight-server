@@ -9,7 +9,7 @@ import com.seek_with_sight.order.domain.exception.EmptyCartException;
 import com.seek_with_sight.order.domain.model.Order;
 import com.seek_with_sight.order.domain.model.OrderStatus;
 import com.seek_with_sight.order.domain.model.PaymentStatus;
-import com.seek_with_sight.product.application.port.in.product.ReserveStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReserveStockUseCase;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;

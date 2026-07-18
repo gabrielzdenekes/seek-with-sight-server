@@ -2,7 +2,7 @@ package com.seek_with_sight.order.infrastructure.adapter.out.persistence.cleanup
 
 import com.seek_with_sight.order.domain.model.OrderStatus;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.repository.OrderJpaRepository;
-import com.seek_with_sight.product.application.port.in.product.ReleaseStockUseCase;
+import com.seek_with_sight.product.application.port.in.stock.ReleaseStockUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
