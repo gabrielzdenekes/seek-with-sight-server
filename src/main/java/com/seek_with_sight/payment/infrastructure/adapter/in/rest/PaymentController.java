@@ -3,6 +3,7 @@ package com.seek_with_sight.payment.infrastructure.adapter.in.rest;
 import com.seek_with_sight.payment.application.port.in.CreatePaymentIntentUseCase;
 import com.seek_with_sight.payment.application.port.in.PaymentIntentResult;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +17,7 @@ public class PaymentController {
     private final CreatePaymentIntentUseCase createPaymentIntentUseCase;
 
     @PostMapping("/create-intent/{orderId}")
-    public PaymentIntentResult createIntent(UUID orderId) {
+    public PaymentIntentResult createIntent(@PathVariable UUID orderId) {
         return createPaymentIntentUseCase.create(orderId);
     }
 }
