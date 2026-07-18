@@ -1,4 +1,4 @@
-package com.seek_with_sight.product.application.port.in.product.command;
+package com.seek_with_sight.product.application.port.in.review.command;
 
 public record AddProductReviewCommand(
         Integer rating,

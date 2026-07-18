@@ -3,7 +3,7 @@ package com.seek_with_sight.product.application.service.variant;
 import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
 import com.seek_with_sight.product.application.port.in.inventory.CreateProductInventoryUseCase;
 import com.seek_with_sight.product.application.port.in.variant.CreateProductVariantUseCase;
-import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
+import com.seek_with_sight.product.application.port.in.variant.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;

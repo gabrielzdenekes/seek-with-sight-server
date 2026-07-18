@@ -1,7 +1,7 @@
 package com.seek_with_sight.product.application.service.review;
 
 import com.seek_with_sight.product.application.port.in.review.AddProductReviewUseCase;
-import com.seek_with_sight.product.application.port.in.product.command.AddProductReviewCommand;
+import com.seek_with_sight.product.application.port.in.review.command.AddProductReviewCommand;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryPort;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;

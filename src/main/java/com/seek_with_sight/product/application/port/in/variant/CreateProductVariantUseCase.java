@@ -1,6 +1,6 @@
 package com.seek_with_sight.product.application.port.in.variant;
 
-import com.seek_with_sight.product.application.port.in.product.command.CreateProductVariantCommand;
+import com.seek_with_sight.product.application.port.in.variant.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 
 import java.util.UUID;
