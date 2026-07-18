@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -17,4 +18,11 @@ public interface OrderJpaRepository extends JpaRepository<OrderEntity, UUID> {
             "items.product"
     })
     List<OrderEntity> findByStatusAndCreatedAtBefore(OrderStatus status, Instant createdAtBefore);
+
+    @Override
+    @EntityGraph(attributePaths = {
+            "items.variant",
+            "items.product"
+    })
+    Optional<OrderEntity> findById(UUID variantId);
 }
