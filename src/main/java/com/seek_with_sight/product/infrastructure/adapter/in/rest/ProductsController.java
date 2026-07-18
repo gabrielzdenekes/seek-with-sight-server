@@ -6,12 +6,12 @@ import com.seek_with_sight.product.application.port.in.product.AddProductImageUs
 import com.seek_with_sight.product.application.port.in.product.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.product.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
-import com.seek_with_sight.product.application.port.in.product.CreateProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.variant.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductReviewsUseCase;
-import com.seek_with_sight.product.application.port.in.product.RemoveProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.variant.RemoveProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.UpdateProductUseCase;
-import com.seek_with_sight.product.application.port.in.product.UpdateProductVariantUseCase;
+import com.seek_with_sight.product.application.port.in.variant.UpdateProductVariantUseCase;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.AddProductReviewRequest;
