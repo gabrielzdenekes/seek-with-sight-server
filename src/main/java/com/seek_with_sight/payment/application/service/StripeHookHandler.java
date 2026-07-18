@@ -14,7 +14,7 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class StripeHookHandler {
-    private final String SUCCESS_EVENT_TYPE = "payment_intent.succeeded";
+    private static final String SUCCESS_EVENT_TYPE = "payment_intent.succeeded";
 
     private final StripeProperties stripeProps;
     private final DomainEventPublisher publisher;
@@ -27,7 +27,7 @@ public class StripeHookHandler {
                 var paymentObject = event.getDataObjectDeserializer().getObject();
 
                 if (paymentObject.isPresent()) {
-                    var intent = (PaymentIntent)paymentObject.get();
+                    var intent = (PaymentIntent) paymentObject.get();
                     var orderId = UUID.fromString(intent.getMetadata().get("order_id"));
 
                     publisher.publish(

@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.bind.Name;
 
 @ConfigurationProperties(prefix = "stripe")
 public record StripeProperties(
-       @Name("api.key") String apiKey,
-       @Name("webhook.secret") String webhookSecret
+        @Name("api.key") String apiKey,
+        @Name("webhook.secret") String webhookSecret
 ) {
 }
