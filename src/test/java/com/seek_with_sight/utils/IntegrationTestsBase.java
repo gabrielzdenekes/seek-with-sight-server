@@ -3,6 +3,7 @@ package com.seek_with_sight.utils;
 import com.seek_with_sight.TestsConfiguration;
 import com.seek_with_sight.cart.CartTestFixture;
 import com.seek_with_sight.media.ImageTestFixture;
+import com.seek_with_sight.order.fixture.OrderTestFixture;
 import com.seek_with_sight.product.fixtures.InventoryTestFixture;
 import com.seek_with_sight.product.fixtures.ProductTestFixture;
 import com.seek_with_sight.auth.AuthTestFixture;
@@ -38,7 +39,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
         ProductVariantTestFixture.class,
         CartTestFixture.class,
         ProductSearchTestFixture.class,
-        InventoryTestFixture.class
+        InventoryTestFixture.class,
+        OrderTestFixture.class
 })
 @SpringBootTest
 @Tag("integration-tests")
