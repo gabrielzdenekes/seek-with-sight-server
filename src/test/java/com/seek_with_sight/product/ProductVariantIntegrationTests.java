@@ -19,7 +19,7 @@ public class ProductVariantIntegrationTests extends IntegrationTestsBase {
     public void createProductVariant_withValidData_shouldBeSuccessful() throws Exception {
         var productData = productTestFixture.createProduct();
         var productId = ((ProductResponse)productData.response().getData()).getId();
-        var productVariant = productVariantTestFixture.createProductVariant(productId);
+        var productVariant = productVariantTestFixture.createProductVariant(productId, null);
 
         var createRequestData = productVariant.request();
         var responseData = productVariant.response().getData();
@@ -32,7 +32,7 @@ public class ProductVariantIntegrationTests extends IntegrationTestsBase {
         var productData = productTestFixture.createProduct();
         var responseData = ((ProductResponse)productData.response().getData());
         var productId = responseData.getId();
-        var productVariant = productVariantTestFixture.createProductVariant(productId);
+        var productVariant = productVariantTestFixture.createProductVariant(productId, 0);
 
         var updateRequest = new UpdateVariantRequest(
                 productVariant.response().getData().title(),
@@ -54,7 +54,7 @@ public class ProductVariantIntegrationTests extends IntegrationTestsBase {
         var productData = productTestFixture.createProduct();
         var responseData = ((ProductResponse)productData.response().getData());
         var productId = responseData.getId();
-        var productVariant = productVariantTestFixture.createProductVariant(productId);
+        var productVariant = productVariantTestFixture.createProductVariant(productId, 10);
         var productVariantId = productVariant.response().getData().id();
 
         var uploadImageResult = productVariantTestFixture.uploadImage(productId, productVariantId);

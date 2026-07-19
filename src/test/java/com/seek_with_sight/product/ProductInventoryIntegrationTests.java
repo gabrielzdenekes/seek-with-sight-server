@@ -38,4 +38,24 @@ public class ProductInventoryIntegrationTests extends IntegrationTestsBase {
 
         assertThat(inventory.getQuantity()).isEqualTo(initialQuantity);
     }
+
+    @Test
+    @Transactional
+    public void createProductVariantWithInitialQuantity_shouldCreateInventory() throws Exception {
+        var productResult = (ProductResponseWithDetails) productTestFixture
+                .createProduct()
+                .response()
+                .getData();
+
+        var initialQuantity = 15;
+
+        var variantResult = variantTestFixture
+                .createProductVariant(productResult.getId(), initialQuantity)
+                .response()
+                .getData();
+
+        var inventory = inventoryRepo.findByVariantIdForUpdate(variantResult.id()).get();
+
+        assertThat(inventory.getQuantity()).isEqualTo(initialQuantity);
+    }
 }
