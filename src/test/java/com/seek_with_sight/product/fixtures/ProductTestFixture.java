@@ -11,9 +11,6 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductInventoryJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductReviewJpaRepository;
 import com.seek_with_sight.profile.CustomerProfileTestFixture;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
@@ -65,15 +62,6 @@ public class ProductTestFixture {
 
     @Autowired
     private AuthTestFixture authTestFixture;
-
-    @Autowired
-    private ProductJpaRepository productJpaRepository;
-
-    @Autowired
-    private ProductReviewJpaRepository productReviewJpaRepository;
-
-    @Autowired
-    private ProductInventoryJpaRepository inventoryJpaRepository;
 
     @Value("classpath:test-images/test_image_01.jpg")
     private Resource imageResource;
@@ -211,12 +199,6 @@ public class ProductTestFixture {
         }
 
         return reviewsRequests;
-    }
-
-    public void deleteAllProducts() {
-        inventoryJpaRepository.deleteAll();
-        productReviewJpaRepository.deleteAll();
-        productJpaRepository.deleteAll();
     }
 
     private List<UUID> getImageIds(int count) throws Exception {
