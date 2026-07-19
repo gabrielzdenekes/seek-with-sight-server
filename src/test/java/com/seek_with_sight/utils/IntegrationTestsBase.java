@@ -40,7 +40,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
         CartTestFixture.class,
         ProductSearchTestFixture.class,
         InventoryTestFixture.class,
-        OrderTestFixture.class
+        OrderTestFixture.class,
+        TestDataCleanupService.class
 })
 @SpringBootTest
 @Tag("integration-tests")
@@ -56,9 +57,12 @@ public abstract class IntegrationTestsBase {
     @Autowired
     private ProductTestFixture productTestFixture;
 
+    @Autowired
+    private TestDataCleanupService cleanupService;
+
     @BeforeEach
     public void beforeEach() {
-        productTestFixture.deleteAllProducts();
+        cleanupService.cleanup();
     }
 
     protected MockHttpServletRequestBuilder postRequest(String url, String jsonPayload) {
