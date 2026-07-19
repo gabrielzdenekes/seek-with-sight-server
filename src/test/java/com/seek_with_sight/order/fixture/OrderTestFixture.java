@@ -1,6 +1,7 @@
 package com.seek_with_sight.order.fixture;
 
 import com.seek_with_sight.order.infrastructure.adapter.in.rest.dto.OrderResponse;
+import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +19,7 @@ public class OrderTestFixture {
     @Autowired
     private ObjectMapper objectMapper;
 
-    public ApiResponse<OrderResponse> checkout(String accessToken) throws Exception {
+    public ApiResponse<?> checkout(String accessToken) throws Exception {
         var result = mockMvc
                 .perform(
                         post("/api/orders/checkout")
@@ -26,11 +27,21 @@ public class OrderTestFixture {
                 )
                 .andReturn();
 
-        var apiResponse = objectMapper.readValue(
-                result.getResponse().getContentAsString(),
-                new TypeReference<ApiResponse<OrderResponse>>() {
-                }
-        );
+        ApiResponse<?> apiResponse;
+
+        if (result.getResponse().getStatus() >= 200 && result.getResponse().getStatus() < 300) {
+            apiResponse = objectMapper.readValue(
+                    result.getResponse().getContentAsString(),
+                    new TypeReference<ApiResponse<OrderResponse>>() {
+                    }
+            );
+        } else {
+            apiResponse = objectMapper.readValue(
+                    result.getResponse().getContentAsString(),
+                    new TypeReference<ApiErrorResponse<?>>() {
+                    }
+            );
+        }
 
         return apiResponse;
     }
