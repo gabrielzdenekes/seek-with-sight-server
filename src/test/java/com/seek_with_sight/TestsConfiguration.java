@@ -27,23 +27,21 @@ public class TestsConfiguration {
                     .withStartupTimeout(Duration.ofMinutes(10))
                     .withReuse(true);
 
+    @ServiceConnection
+    public static final PostgreSQLContainer postgresContainer =
+            new PostgreSQLContainer(DockerImageName.parse("postgres:18"))
+                    .withReuse(true);
+
+    @ServiceConnection(name = "redis")
+    public static GenericContainer<?> redisContainer =
+            new GenericContainer<>(DockerImageName.parse("redis:8.2"))
+                    .withExposedPorts(6379)
+                    .withReuse(true);
+
     static {
         elasticsearchContainer.start();
-    }
-
-    @Bean
-    @ServiceConnection
-    public PostgreSQLContainer postgresContainer() {
-        return new PostgreSQLContainer(DockerImageName.parse("postgres:18"))
-                .withReuse(true);
-    }
-
-    @Bean
-    @ServiceConnection(name = "redis")
-    public GenericContainer<?> redisContainer() {
-        return new GenericContainer<>(DockerImageName.parse("redis:8.2"))
-                .withExposedPorts(6379)
-                .withReuse(true);
+        postgresContainer.start();
+        redisContainer.start();
     }
 
     @Configuration
@@ -60,6 +58,7 @@ public class TestsConfiguration {
                                 .logQueryToSysOut()
                                 .build();
                     }
+
                     return bean;
                 }
             };
