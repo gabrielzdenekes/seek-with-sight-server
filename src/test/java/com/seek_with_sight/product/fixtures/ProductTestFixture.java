@@ -1,4 +1,4 @@
-package com.seek_with_sight.product;
+package com.seek_with_sight.product.fixtures;
 
 import com.seek_with_sight.auth.AuthTestFixture;
 import com.seek_with_sight.media.ImageTestFixture;
@@ -138,7 +138,7 @@ public class ProductTestFixture {
     }
 
     public RequestResponseData<ProductRequest, ApiResponse<?>> createProduct() throws Exception {
-        var dto = createProductRequest(null);
+        var dto = createProductRequest(null, null);
         return createProduct(dto);
     }
 
@@ -161,7 +161,7 @@ public class ProductTestFixture {
         );
     }
 
-    public ProductRequest createProductRequest(String name) {
+    public ProductRequest createProductRequest(String name, Integer quantity) {
         var productName = name != null ? name : ProductTestDataUtils.productName();
         var categories = categoryRepo
                 .findAll(Pageable.ofSize(1))
@@ -181,7 +181,7 @@ public class ProductTestFixture {
                 categories[0].getId(),
                 brand[0].getId(),
                 ProductTestDataUtils.price(),
-                null
+                quantity
         );
     }
 

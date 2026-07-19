@@ -1,6 +1,6 @@
 package com.seek_with_sight.search;
 
-import com.seek_with_sight.product.ProductTestFixture;
+import com.seek_with_sight.product.fixtures.ProductTestFixture;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -33,7 +33,7 @@ public class ProductSearchIntegrationTests extends IntegrationTestsBase {
 
     private void createProductsWithNameToSearchFor(String keyword, int productsCount) throws Exception {
         for (var i = 0; i < productsCount; i++) {
-            var request = productTestFixture.createProductRequest("Product " + keyword + " " + UUID.randomUUID());
+            var request = productTestFixture.createProductRequest("Product " + keyword + " " + UUID.randomUUID(), null);
 
             productTestFixture.createProduct(request);
         }

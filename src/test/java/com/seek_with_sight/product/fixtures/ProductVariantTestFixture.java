@@ -1,4 +1,4 @@
-package com.seek_with_sight.product;
+package com.seek_with_sight.product.fixtures;
 
 import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
@@ -75,9 +75,10 @@ public class ProductVariantTestFixture {
     }
 
     public RequestResponseData<ProductVariantRequest, ApiResponse<ProductVariantResponse>> createProductVariant(
-            UUID productId
+            UUID productId,
+            Integer quantity
     ) throws Exception {
-        var dto = createProductVariantRequest();
+        var dto = createProductVariantRequest(quantity);
         var request = post("/api/products/" + productId + "/variants")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(dto));
@@ -118,12 +119,12 @@ public class ProductVariantTestFixture {
         );
     }
 
-    private ProductVariantRequest createProductVariantRequest() throws Exception {
+    private ProductVariantRequest createProductVariantRequest(Integer quantity) {
         return new ProductVariantRequest(
                 ProductTestDataUtils.productName(),
                 ProductTestDataUtils.sku(),
                 ProductTestDataUtils.price(),
-                null
+                quantity
         );
     }
 }
