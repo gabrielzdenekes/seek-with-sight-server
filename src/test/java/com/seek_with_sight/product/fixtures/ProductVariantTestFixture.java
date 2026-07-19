@@ -1,4 +1,4 @@
-package com.seek_with_sight.product;
+package com.seek_with_sight.product.fixtures;
 
 import com.seek_with_sight.media.ImageTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.ProductVariantRequest;
@@ -119,7 +119,7 @@ public class ProductVariantTestFixture {
         );
     }
 
-    private ProductVariantRequest createProductVariantRequest(Integer quantity) throws Exception {
+    private ProductVariantRequest createProductVariantRequest(Integer quantity) {
         return new ProductVariantRequest(
                 ProductTestDataUtils.productName(),
                 ProductTestDataUtils.sku(),

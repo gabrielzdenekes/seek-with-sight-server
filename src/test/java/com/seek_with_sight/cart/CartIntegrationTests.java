@@ -2,7 +2,7 @@ package com.seek_with_sight.cart;
 
 import com.seek_with_sight.auth.AuthTestFixture;
 import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.dto.LoginResponse;
-import com.seek_with_sight.product.ProductTestFixture;
+import com.seek_with_sight.product.fixtures.ProductTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.profile.CustomerProfileTestFixture;
 import com.seek_with_sight.utils.IntegrationTestsBase;

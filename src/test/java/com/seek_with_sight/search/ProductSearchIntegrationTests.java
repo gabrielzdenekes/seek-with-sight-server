@@ -1,6 +1,6 @@
 package com.seek_with_sight.search;
 
-import com.seek_with_sight.product.ProductTestFixture;
+import com.seek_with_sight.product.fixtures.ProductTestFixture;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import org.springframework.beans.factory.annotation.Autowired;
 

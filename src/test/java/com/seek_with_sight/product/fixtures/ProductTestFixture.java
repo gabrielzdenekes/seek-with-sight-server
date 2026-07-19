@@ -1,4 +1,4 @@
-package com.seek_with_sight.product;
+package com.seek_with_sight.product.fixtures;
 
 import com.seek_with_sight.auth.AuthTestFixture;
 import com.seek_with_sight.media.ImageTestFixture;

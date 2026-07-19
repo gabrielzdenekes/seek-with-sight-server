@@ -1,5 +1,6 @@
 package com.seek_with_sight.product;
 
+import com.seek_with_sight.product.fixtures.ProductTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.review.AddProductReviewRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.utils.IntegrationTestsBase;

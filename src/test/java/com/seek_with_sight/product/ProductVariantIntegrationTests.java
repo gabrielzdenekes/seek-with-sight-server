@@ -1,5 +1,7 @@
 package com.seek_with_sight.product;
 
+import com.seek_with_sight.product.fixtures.ProductTestFixture;
+import com.seek_with_sight.product.fixtures.ProductVariantTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.variant.UpdateVariantRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
 import com.seek_with_sight.utils.IntegrationTestsBase;
@@ -32,7 +34,7 @@ public class ProductVariantIntegrationTests extends IntegrationTestsBase {
         var productData = productTestFixture.createProduct();
         var responseData = ((ProductResponse)productData.response().getData());
         var productId = responseData.getId();
-        var productVariant = productVariantTestFixture.createProductVariant(productId, 0);
+        var productVariant = productVariantTestFixture.createProductVariant(productId, null);
 
         var updateRequest = new UpdateVariantRequest(
                 productVariant.response().getData().title(),

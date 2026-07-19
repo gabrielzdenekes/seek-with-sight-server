@@ -1,6 +1,7 @@
 package com.seek_with_sight.product;
 
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
+import com.seek_with_sight.product.fixtures.ProductTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponse;
