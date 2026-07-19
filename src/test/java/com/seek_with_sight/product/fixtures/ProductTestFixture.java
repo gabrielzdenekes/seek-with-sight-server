@@ -2,6 +2,7 @@ package com.seek_with_sight.product.fixtures;
 
 import com.seek_with_sight.auth.AuthTestFixture;
 import com.seek_with_sight.media.ImageTestFixture;
+import com.seek_with_sight.order.infrastructure.adapter.out.persistence.repository.OrderJpaRepository;
 import com.seek_with_sight.product.domain.model.ProductStatus;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.ProductRequest;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.request.product.UpdateProductRequest;
@@ -74,6 +75,9 @@ public class ProductTestFixture {
 
     @Autowired
     private ProductInventoryJpaRepository inventoryJpaRepository;
+
+    @Autowired
+    private OrderJpaRepository orderJpaRepository;
 
     @Value("classpath:test-images/test_image_01.jpg")
     private Resource imageResource;
@@ -214,6 +218,7 @@ public class ProductTestFixture {
     }
 
     public void deleteAllProducts() {
+        orderJpaRepository.deleteAll();
         inventoryJpaRepository.deleteAll();
         productReviewJpaRepository.deleteAll();
         productJpaRepository.deleteAll();
