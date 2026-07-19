@@ -1,0 +1,41 @@
+package com.seek_with_sight.product;
+
+import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
+import com.seek_with_sight.product.application.port.out.ProductInventoryRepositoryPort;
+import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
+import com.seek_with_sight.utils.IntegrationTestsBase;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+public class ProductInventoryIntegrationTests extends IntegrationTestsBase {
+    @Autowired
+    private ProductTestFixture productTestFixture;
+
+    @Autowired
+    private GetProductByIdUseCase getProductByIdUseCase;
+
+    @Autowired
+    private ProductInventoryRepositoryPort inventoryRepo;
+
+    @Autowired
+    private ProductVariantTestFixture variantTestFixture;
+
+    @Test
+    @Transactional
+    public void createProductWithInitialQuantity_shouldCreateDefaultVariantWithInitialInventory() throws Exception {
+        var initialQuantity = 10;
+        var productRequest = productTestFixture.createProductRequest(null, initialQuantity);
+        var productResult = (ProductResponseWithDetails) productTestFixture
+                .createProduct(productRequest)
+                .response()
+                .getData();
+        var defaultVariant = productResult.getVariants().getFirst();
+
+        var inventory = inventoryRepo.findByVariantIdForUpdate(defaultVariant.id()).get();
+
+        assertThat(inventory.getQuantity()).isEqualTo(initialQuantity);
+    }
+}

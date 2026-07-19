@@ -33,7 +33,7 @@ public class ProductSearchIntegrationTests extends IntegrationTestsBase {
 
     private void createProductsWithNameToSearchFor(String keyword, int productsCount) throws Exception {
         for (var i = 0; i < productsCount; i++) {
-            var request = productTestFixture.createProductRequest("Product " + keyword + " " + UUID.randomUUID());
+            var request = productTestFixture.createProductRequest("Product " + keyword + " " + UUID.randomUUID(), null);
 
             productTestFixture.createProduct(request);
         }
