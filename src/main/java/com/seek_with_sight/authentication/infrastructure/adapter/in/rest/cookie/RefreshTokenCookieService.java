@@ -19,7 +19,7 @@ public class RefreshTokenCookieService {
                 .secure(true)
                 .path(jwtProperties.refreshCookiePath())
                 .maxAge(jwtProperties.refreshTokenExpiration())
-                .sameSite("Strict")
+                .sameSite("None")
                 .build();
 
         response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
