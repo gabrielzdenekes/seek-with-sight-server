@@ -15,6 +15,8 @@ import org.jspecify.annotations.NonNull;
 
 @RequiredArgsConstructor
 public class GoogleAuthService implements GoogleAuthUseCase {
+    private static final String GOOGLE_PROVIDER_NAME = "Google";
+
     private final GoogleTokenVerifierPort tokenVerifier;
     private final CreateCustomerProfileUseCase createCustomerProfileUseCase;
     private final JwtTokenPort jwtTokenPort;
@@ -26,13 +28,12 @@ public class GoogleAuthService implements GoogleAuthUseCase {
         
         try {
             idToken = tokenVerifier.verify(idCode);
-        }
-        catch (Exception e) {
-            throw new ExternalAuthProviderVerificationException(e, "Google");
+        } catch (Exception e) {
+            throw new ExternalAuthProviderVerificationException(e, GOOGLE_PROVIDER_NAME);
         }
         
         if (idToken == null) {
-            throw new ExternalAuthProviderVerificationException("Google");
+            throw new ExternalAuthProviderVerificationException(GOOGLE_PROVIDER_NAME);
         }
 
         var user = getUser(idToken.getPayload());
