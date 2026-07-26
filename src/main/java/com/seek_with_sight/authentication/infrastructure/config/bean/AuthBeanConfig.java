@@ -1,5 +1,7 @@
 package com.seek_with_sight.authentication.infrastructure.config.bean;
 
+import com.seek_with_sight.authentication.application.port.in.GoogleAuthUseCase;
+import com.seek_with_sight.authentication.application.service.GoogleAuthService;
 import com.seek_with_sight.authentication.application.service.LoginService;
 import com.seek_with_sight.authentication.application.service.LogoutService;
 import com.seek_with_sight.authentication.application.service.RefreshTokenService;
@@ -68,5 +70,10 @@ public class AuthBeanConfig {
             RefreshTokenPersistenceMapper mapper
     ) {
         return new RefreshTokenPersistenceAdapter(repository, mapper);
+    }
+
+    @Bean
+    public GoogleAuthUseCase googleAuthUseCase() {
+        return new GoogleAuthService();
     }
 }

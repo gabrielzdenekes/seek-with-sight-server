@@ -1,5 +1,6 @@
 package com.seek_with_sight.authentication.infrastructure.adapter.in.rest;
 
+import com.seek_with_sight.authentication.application.port.in.GoogleAuthUseCase;
 import com.seek_with_sight.authentication.application.port.in.LoginUseCase;
 import com.seek_with_sight.authentication.application.port.in.LogoutUseCase;
 import com.seek_with_sight.authentication.application.port.in.RefreshTokenUseCase;
@@ -26,6 +27,7 @@ public class AuthController {
     private final LogoutUseCase logoutUseCase;
     private final AuthRestMapper authMapper;
     private final RefreshTokenCookieService cookieService;
+    private final GoogleAuthUseCase googleAuthUseCase;
 
     @PostMapping("/login")
     public LoginResponse login(
