@@ -1,6 +1,7 @@
 package com.seek_with_sight.authentication.infrastructure.config.bean;
 
 import com.seek_with_sight.authentication.application.port.in.GoogleAuthUseCase;
+import com.seek_with_sight.authentication.application.port.out.GoogleTokenVerifierPort;
 import com.seek_with_sight.authentication.application.service.GoogleAuthService;
 import com.seek_with_sight.authentication.application.service.LoginService;
 import com.seek_with_sight.authentication.application.service.LogoutService;
@@ -11,6 +12,7 @@ import com.seek_with_sight.authentication.application.port.in.RefreshTokenUseCas
 import com.seek_with_sight.authentication.application.port.out.JwtTokenPort;
 import com.seek_with_sight.authentication.application.port.out.PasswordEncoderPort;
 import com.seek_with_sight.authentication.application.port.out.RefreshTokenPort;
+import com.seek_with_sight.authentication.infrastructure.adapter.out.provider.GoogleTokenVerifierProvider;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.authentication.infrastructure.adapter.out.persistence.RefreshTokenPersistenceAdapter;
 import com.seek_with_sight.authentication.infrastructure.adapter.out.persistence.mapper.RefreshTokenPersistenceMapper;
@@ -76,7 +78,14 @@ public class AuthBeanConfig {
     }
 
     @Bean
-    public GoogleAuthUseCase googleAuthUseCase() {
-        return new GoogleAuthService();
+    public GoogleAuthUseCase googleAuthUseCase(GoogleTokenVerifierPort verifier) {
+        return new GoogleAuthService(verifier);
+    }
+
+    @Bean
+    public GoogleTokenVerifierPort googleTokenVerifierPort(
+            GoogleAuthProperties authProps
+    ) {
+        return new GoogleTokenVerifierProvider(authProps);
     }
 }
