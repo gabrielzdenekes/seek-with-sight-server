@@ -28,7 +28,7 @@ public class UserEntity extends BaseEntity {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(name = "pass_hash", nullable = false, length = 60)
+    @Column(name = "pass_hash", length = 60)
     private String passHash;
 
     @ManyToMany(fetch = FetchType.EAGER)

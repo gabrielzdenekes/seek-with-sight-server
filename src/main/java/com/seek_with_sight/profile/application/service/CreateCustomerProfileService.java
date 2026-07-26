@@ -23,8 +23,9 @@ public class CreateCustomerProfileService implements CreateCustomerProfileUseCas
     @Transactional
     public User createCustomerProfile(CreateCustomerProfileCommand createCustomerProfileCommand) {
         var createUserCommand = new CreateUserCommand(
-                createCustomerProfileCommand.email(),
-                createCustomerProfileCommand.password()
+                createCustomerProfileCommand.getEmail(),
+                createCustomerProfileCommand.getPassword(),
+                createCustomerProfileCommand.getVerifyEmail()
         );
 
         var customerRoles = List.of(RoleName.ROLE_CUSTOMER);

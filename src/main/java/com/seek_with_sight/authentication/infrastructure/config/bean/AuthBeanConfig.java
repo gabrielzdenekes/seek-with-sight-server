@@ -1,5 +1,8 @@
 package com.seek_with_sight.authentication.infrastructure.config.bean;
 
+import com.seek_with_sight.authentication.application.port.in.GoogleAuthUseCase;
+import com.seek_with_sight.authentication.application.port.out.GoogleTokenVerifierPort;
+import com.seek_with_sight.authentication.application.service.GoogleAuthService;
 import com.seek_with_sight.authentication.application.service.LoginService;
 import com.seek_with_sight.authentication.application.service.LogoutService;
 import com.seek_with_sight.authentication.application.service.RefreshTokenService;
@@ -9,6 +12,8 @@ import com.seek_with_sight.authentication.application.port.in.RefreshTokenUseCas
 import com.seek_with_sight.authentication.application.port.out.JwtTokenPort;
 import com.seek_with_sight.authentication.application.port.out.PasswordEncoderPort;
 import com.seek_with_sight.authentication.application.port.out.RefreshTokenPort;
+import com.seek_with_sight.authentication.infrastructure.adapter.out.provider.GoogleTokenVerifierProvider;
+import com.seek_with_sight.profile.application.port.in.CreateCustomerProfileUseCase;
 import com.seek_with_sight.user.application.port.out.UserRepositoryPort;
 import com.seek_with_sight.authentication.infrastructure.adapter.out.persistence.RefreshTokenPersistenceAdapter;
 import com.seek_with_sight.authentication.infrastructure.adapter.out.persistence.mapper.RefreshTokenPersistenceMapper;
@@ -22,7 +27,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableConfigurationProperties(JwtProperties.class)
+@EnableConfigurationProperties({
+        JwtProperties.class,
+        GoogleAuthProperties.class
+})
 public class AuthBeanConfig {
     @Bean
     public PasswordEncoderPort passwordEncoderPort(PasswordEncoder passwordEncoder) {
@@ -68,5 +76,22 @@ public class AuthBeanConfig {
             RefreshTokenPersistenceMapper mapper
     ) {
         return new RefreshTokenPersistenceAdapter(repository, mapper);
+    }
+
+    @Bean
+    public GoogleAuthUseCase googleAuthUseCase(
+            GoogleTokenVerifierPort verifier,
+            CreateCustomerProfileUseCase createCustomerProfileUseCase,
+            JwtTokenPort jwtTokenPort,
+            UserRepositoryPort userRepositoryPort
+    ) {
+        return new GoogleAuthService(verifier, createCustomerProfileUseCase, jwtTokenPort, userRepositoryPort);
+    }
+
+    @Bean
+    public GoogleTokenVerifierPort googleTokenVerifierPort(
+            GoogleAuthProperties authProps
+    ) {
+        return new GoogleTokenVerifierProvider(authProps);
     }
 }
