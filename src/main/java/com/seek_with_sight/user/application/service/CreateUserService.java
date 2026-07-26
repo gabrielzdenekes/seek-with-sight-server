@@ -34,10 +34,13 @@ public class CreateUserService implements CreateUserUseCase {
         user.setEmail(normalizedEmail);
         user.setPassHash(encodedPassword);
         user.setRoles(new HashSet<>(userRoles));
+        user.setEmailVerified(createUserCommand.verifyEmail());
 
         var createdUser = this.userRepository.save(user);
 
-        emailService.sendVerificationEmail(createdUser);
+        if (createUserCommand.verifyEmail()) {
+            emailService.sendVerificationEmail(createdUser);
+        }
 
         return createdUser;
     }

@@ -25,7 +25,8 @@ public class CreateSellerProfileService implements CreateSellerProfileUseCase {
     public User createSellerProfile(CreateSellerProfileCommand createSellerProfileCommand) {
         var createUserCommand = new CreateUserCommand(
                 createSellerProfileCommand.email(),
-                createSellerProfileCommand.password()
+                createSellerProfileCommand.password(),
+                true
         );
 
         var sellerRoles = List.of(RoleName.ROLE_SELLER);

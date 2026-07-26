@@ -49,8 +49,15 @@ public class AuthController {
     }
 
     @PostMapping("/google")
-    public LoginResponse googleAuth(@RequestBody GoogleAuthRequest request) {
-        return null;
+    public LoginResponse googleAuth(
+            @Valid @RequestBody GoogleAuthRequest request,
+            HttpServletResponse response
+    ) {
+        var loginData = googleAuthUseCase.authenticate(request.authCode());
+
+        cookieService.addRefreshToken(response, loginData.getRefreshToken());
+
+        return authMapper.fromJwtLoginDataToLoginResponse(loginData);
     }
 
     @PostMapping("/logout")
