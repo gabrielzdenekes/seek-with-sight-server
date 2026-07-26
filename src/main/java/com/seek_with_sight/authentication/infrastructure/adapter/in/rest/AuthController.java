@@ -4,6 +4,7 @@ import com.seek_with_sight.authentication.application.port.in.LoginUseCase;
 import com.seek_with_sight.authentication.application.port.in.LogoutUseCase;
 import com.seek_with_sight.authentication.application.port.in.RefreshTokenUseCase;
 import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.cookie.RefreshTokenCookieService;
+import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.dto.GoogleAuthRequest;
 import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.dto.LoginRequest;
 import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.dto.LoginResponse;
 import com.seek_with_sight.authentication.infrastructure.adapter.in.rest.mapper.AuthRestMapper;
@@ -43,6 +44,11 @@ public class AuthController {
     public LoginResponse refresh(@CookieValue(name = "refresh_token") String refreshToken) {
         var loginData = refreshTokenUseCase.refreshToken(refreshToken);
         return authMapper.fromJwtLoginDataToLoginResponse(loginData);
+    }
+
+    @PostMapping("/google")
+    public LoginResponse googleAuth(@RequestBody GoogleAuthRequest request) {
+        return null;
     }
 
     @PostMapping("/logout")
