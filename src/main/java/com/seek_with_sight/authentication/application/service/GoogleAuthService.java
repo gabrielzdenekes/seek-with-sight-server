@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class GoogleAuthService implements GoogleAuthUseCase {
-
     @Override
     public JwtLoginData authenticate(String googleAuthToken) {
         return null;

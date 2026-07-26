@@ -64,3 +64,6 @@ server:
 app:
   errors:
     include-stacktrace: false
+
+google:
+  client-id: ${GOOGLE_CLIENT_ID}

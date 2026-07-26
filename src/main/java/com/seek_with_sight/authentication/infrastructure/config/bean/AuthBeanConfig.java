@@ -24,7 +24,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-@EnableConfigurationProperties(JwtProperties.class)
+@EnableConfigurationProperties({
+        JwtProperties.class,
+        GoogleAuthProperties.class
+})
 public class AuthBeanConfig {
     @Bean
     public PasswordEncoderPort passwordEncoderPort(PasswordEncoder passwordEncoder) {
