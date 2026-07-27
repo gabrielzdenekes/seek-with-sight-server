@@ -12,7 +12,13 @@ public class BusinessException extends RuntimeException {
         setFields(errorCode, errorType, args);
     }
 
-    public BusinessException(Throwable cause, ErrorCode errorCode, ErrorType errorType, String message, Object... args) {
+    public BusinessException(
+            Throwable cause,
+            ErrorCode errorCode,
+            ErrorType errorType,
+            String message,
+            Object... args
+    ) {
         super(String.format(message, args), cause);
         setFields(errorCode, errorType, args);
     }
