@@ -43,6 +43,11 @@ public enum ErrorCode {
     PRODUCT_VARIANT_NOT_FOUND,
 
     /*
+        Payment
+     */
+    STRIPE_HOOK_FAILED,
+
+    /*
         USER
      */
     EMAIL_NOT_VERIFIED
