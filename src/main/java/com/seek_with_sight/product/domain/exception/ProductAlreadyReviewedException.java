@@ -8,7 +8,7 @@ import java.util.UUID;
 public class ProductAlreadyReviewedException extends BusinessException {
     public ProductAlreadyReviewedException(UUID productId, UUID userId) {
         super(
-                "PRODUCT_ALREADY_REVIEWD",
+                "PRODUCT_ALREADY_REVIEWED",
                 ErrorType.BUSINESS,
                 "Product with ID %s is already reviewed by user with ID %s",
                 productId,
