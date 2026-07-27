@@ -2,6 +2,12 @@ package com.seek_with_sight.shared.domain.exception;
 
 public enum ErrorCode {
     /*
+        General
+     */
+    VALIDATION,
+    INTERNAL,
+
+    /*
         Authentication
      */
     EXTERNAL_AUTH_PROVIDER_VERIFICATION,

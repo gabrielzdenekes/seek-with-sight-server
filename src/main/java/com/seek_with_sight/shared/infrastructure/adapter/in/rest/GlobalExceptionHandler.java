@@ -1,6 +1,7 @@
 package com.seek_with_sight.shared.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.shared.domain.exception.BusinessException;
+import com.seek_with_sight.shared.domain.exception.ErrorCode;
 import com.seek_with_sight.shared.domain.exception.ErrorType;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
@@ -37,7 +38,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 "Malformed or missing request body",
                 null,
-                ErrorType.VALIDATION.name(),
+                ErrorCode.VALIDATION,
                 status.value()
         );
 
@@ -49,7 +50,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 ex.getMessage(),
                 null,
-                ErrorType.UNAUTHORIZED.name(),
+                ErrorCode.UNAUTHORIZED,
                 HttpStatus.UNAUTHORIZED.value()
         );
 
@@ -90,7 +91,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 "Validation failed",
                 errors,
-                ErrorType.VALIDATION.name(),
+                ErrorCode.VALIDATION,
                 status.value()
         );
 
@@ -113,7 +114,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 "Validation failed",
                 details,
-                ErrorType.VALIDATION.name(),
+                ErrorCode.VALIDATION,
                 status.value()
         );
 
@@ -129,7 +130,7 @@ public class GlobalExceptionHandler {
         var response = ApiErrorResponse.create(
                 ex.getMessage(),
                 null,
-                ErrorType.INTERNAL.name(),
+                ErrorCode.INTERNAL,
                 status.value()
         );
 
@@ -156,7 +157,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 message,
                 data,
-                ErrorType.INTERNAL.name(),
+                ErrorCode.INTERNAL,
                 status.value()
         );
 
