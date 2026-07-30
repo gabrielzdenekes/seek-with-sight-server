@@ -104,6 +104,10 @@ public class ProductIntegrationTests extends IntegrationTestsBase {
         var createResult = productTestFixture.createProduct();
         var productId = ((ProductResponse) createResult.response().getData()).getId();
 
+        /**
+         *
+         * TODO: fix problem with query
+         */
         sqlCounterUtils.assertSelectQueriesCount(
                 () -> {
                     try {

@@ -31,7 +31,7 @@ public class CategoriesInitializer implements ApplicationRunner {
             return;
         }
 
-        var resource = new ClassPathResource("seed/categories-2.json");
+        var resource = new ClassPathResource("seed/categories.json");
         var serializedCategories = objectMapper.readValue(
                 resource.getInputStream(),
                 new TypeReference<List<Category>>() {
