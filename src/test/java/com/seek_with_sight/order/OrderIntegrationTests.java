@@ -11,6 +11,7 @@ import com.seek_with_sight.product.application.port.in.stock.ReserveStockUseCase
 import com.seek_with_sight.product.fixtures.ProductTestFixture;
 import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.ProductResponseWithDetails;
 import com.seek_with_sight.profile.CustomerProfileTestFixture;
+import com.seek_with_sight.shared.domain.exception.ErrorCode;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.utils.IntegrationTestsBase;
 import org.junit.jupiter.api.AfterEach;
@@ -89,7 +90,7 @@ public class OrderIntegrationTests extends IntegrationTestsBase {
         var checkoutResult = (ApiErrorResponse<?>) orderTestFixture.checkout(loginData.accessToken());
 
         assertThat(checkoutResult.isSuccess()).isFalse();
-        assertThat(checkoutResult.getErrorCode()).isEqualTo("INSUFFICIENT_STOCK");
+        assertThat(checkoutResult.getErrorCode()).isEqualTo(ErrorCode.INSUFFICIENT_STOCK);
     }
 
     private void reserveStock(List<ProductResponseWithDetails> products, int stockToReserve) {

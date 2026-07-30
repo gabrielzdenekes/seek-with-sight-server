@@ -1,10 +1,14 @@
 package com.seek_with_sight.shared.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.shared.domain.exception.BusinessException;
+import com.seek_with_sight.shared.domain.exception.ErrorCode;
 import com.seek_with_sight.shared.domain.exception.ErrorType;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ValidationErrorDto;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolationException;
 import lombok.RequiredArgsConstructor;
@@ -25,10 +29,16 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 @Slf4j
 public class GlobalExceptionHandler {
+
     @Value("${app.errors.include-stacktrace:false}")
     private boolean includeStacktrace;
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+            responseCode = "400",
+            description = "Malformed or missing HTTP request body",
+            content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+    )
     public ResponseEntity<ApiResponse<?>> handleHttpMessageNotReadable(
             HttpMessageNotReadableException ex,
             HttpServletRequest request
@@ -37,7 +47,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 "Malformed or missing request body",
                 null,
-                ErrorType.VALIDATION.name(),
+                ErrorCode.VALIDATION,
                 status.value()
         );
 
@@ -45,11 +55,16 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(BadCredentialsException.class)
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+            responseCode = "401",
+            description = "Invalid or missing authentication credentials",
+            content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+    )
     public ResponseEntity<ApiResponse<?>> handleBadCredentials(BadCredentialsException ex) {
         var errorResponse = ApiErrorResponse.create(
                 ex.getMessage(),
                 null,
-                ErrorType.UNAUTHORIZED.name(),
+                ErrorCode.UNAUTHORIZED,
                 HttpStatus.UNAUTHORIZED.value()
         );
 
@@ -59,6 +74,38 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(BusinessException.class)
+    @ApiResponses({
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "400",
+                    description = "Bad request business error",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "401",
+                    description = "Unauthorized business error",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "403",
+                    description = "Forbidden business error",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "404",
+                    description = "Resource not found business error",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "409",
+                    description = "Resource conflict business error",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            ),
+            @io.swagger.v3.oas.annotations.responses.ApiResponse(
+                    responseCode = "422",
+                    description = "Unprocessable domain rule violation",
+                    content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+            )
+    })
     public ResponseEntity<ApiResponse<?>> handleBusinessException(BusinessException ex) {
         var status = mapErrorTypeToHttpStatus(ex.getErrorType());
 
@@ -75,6 +122,11 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+            responseCode = "400",
+            description = "DTO validation error",
+            content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+    )
     public ResponseEntity<ApiResponse<ValidationErrorDto[]>> handleValidationException(
             MethodArgumentNotValidException ex
     ) {
@@ -90,7 +142,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 "Validation failed",
                 errors,
-                ErrorType.VALIDATION.name(),
+                ErrorCode.VALIDATION,
                 status.value()
         );
 
@@ -98,6 +150,11 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+            responseCode = "400",
+            description = "Constraint violation error",
+            content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+    )
     public ResponseEntity<ApiResponse<?>> handleConstraintViolation(
             ConstraintViolationException ex,
             HttpServletRequest request
@@ -113,7 +170,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 "Validation failed",
                 details,
-                ErrorType.VALIDATION.name(),
+                ErrorCode.VALIDATION,
                 status.value()
         );
 
@@ -121,6 +178,11 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ResponseStatusException.class)
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+            responseCode = "500",
+            description = "Application status exception error",
+            content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+    )
     public ResponseEntity<ApiResponse<?>> handleResponseStatusException(
             ResponseStatusException ex
     ) {
@@ -129,7 +191,7 @@ public class GlobalExceptionHandler {
         var response = ApiErrorResponse.create(
                 ex.getMessage(),
                 null,
-                ErrorType.INTERNAL.name(),
+                ErrorCode.INTERNAL,
                 status.value()
         );
 
@@ -137,6 +199,11 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
+    @io.swagger.v3.oas.annotations.responses.ApiResponse(
+            responseCode = "500",
+            description = "Internal server error",
+            content = @Content(schema = @Schema(implementation = ApiErrorResponse.class))
+    )
     public ResponseEntity<ApiResponse<?>> handleGenericException(
             Exception ex,
             HttpServletRequest request
@@ -156,7 +223,7 @@ public class GlobalExceptionHandler {
         var errorResponse = ApiErrorResponse.create(
                 message,
                 data,
-                ErrorType.INTERNAL.name(),
+                ErrorCode.INTERNAL,
                 status.value()
         );
 
