@@ -52,6 +52,7 @@ public class CategoriesInitializer implements ApplicationRunner {
             categoryEntity.setDescription(cat.getDescription());
             categoryEntity.setIsActive(true);
             categoryEntity.setSortOrder(cat.getSortOrder());
+            categoryEntity.setParent(parent);
 
             var savedEntity = repo.save(categoryEntity);
 

@@ -4,6 +4,9 @@ import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BaseEnt
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OrderBy;
 import jakarta.persistence.Table;
@@ -30,7 +33,11 @@ public class CategoryEntity extends BaseEntity {
     @Column(name = "image_url")
     private String imageUrl;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id")
+    private CategoryEntity parent;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "parent")
     @OrderBy("sortOrder ASC")
     private List<CategoryEntity> children = new ArrayList<>();
 
