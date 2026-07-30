@@ -30,7 +30,8 @@ public class CacheConfig {
         var cacheManager = new CaffeineCacheManager(
                 CacheNames.PRODUCTS,
                 CacheNames.CART,
-                CacheNames.USER
+                CacheNames.USER,
+                CacheNames.CATEGORIES_TREE
         );
 
         cacheManager.setCaffeine(
