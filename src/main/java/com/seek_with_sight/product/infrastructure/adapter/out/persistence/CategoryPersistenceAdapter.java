@@ -29,7 +29,7 @@ public class CategoryPersistenceAdapter
     }
 
     @Override
-    public List<CategoryListItem> findAll() {
+    public List<CategoryListItem> getCategoryTree() {
         return repository.findAllProjectedBy();
     }
 }

@@ -11,5 +11,5 @@ import java.util.UUID;
 public interface CategoryRepositoryPort extends BaseRepositoryPort<Category> {
     Optional<Category> findById(UUID categoryId);
 
-    List<CategoryListItem> findAll();
+    List<CategoryListItem> getCategoryTree();
 }

@@ -1,7 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.product.application.port.in.category.CategoryListItem;
-import com.seek_with_sight.product.application.port.in.category.GetCategoriesUseCase;
+import com.seek_with_sight.product.application.port.in.category.GetCategoryTreeUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +13,11 @@ import java.util.List;
 @RequestMapping("/api/categories")
 @RequiredArgsConstructor
 public class CategoriesController {
-    private final GetCategoriesUseCase getCategoriesUseCase;
+    private final GetCategoryTreeUseCase getCategoryTreeUseCase;
 
     @GetMapping
     public List<CategoryListItem> getCategoryTree() {
-        var tree = getCategoriesUseCase.get();
+        var tree = getCategoryTreeUseCase.get();
         return tree;
     }
 }
