@@ -30,6 +30,6 @@ public class CategoryPersistenceAdapter
 
     @Override
     public List<CategoryListItem> getCategoryTree() {
-        return repository.findAllProjectedBy();
+        return repository.findAllByParentIsNullOrderBySortOrderAsc();
     }
 }
