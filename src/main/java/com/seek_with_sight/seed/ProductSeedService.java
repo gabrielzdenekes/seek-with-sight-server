@@ -124,7 +124,10 @@ public class ProductSeedService {
     private ProductVariantEntity createRandomVariant(ProductEntity product) {
         ProductVariantEntity variant = new ProductVariantEntity();
         variant.setProduct(product);
-        variant.setTitle(faker.color().name() + " / " + faker.options().option("Small", "Medium", "Large", "OS"));
+        variant.setTitle(
+                faker.color().name() +
+                        " / " + faker.options().option("Small", "Medium", "Large", "OS")
+        );
         variant.setSku(UUID.randomUUID().toString().substring(0, 10).toUpperCase());
 
         double basePrice = faker.number().randomDouble(2, 10, 500);
@@ -145,7 +148,10 @@ public class ProductSeedService {
         return variant;
     }
 
-    private ProductImageEntity createRandomProductImage(ProductEntity product, ProductVariantEntity variant, int sortOrder) {
+    private ProductImageEntity createRandomProductImage(
+            ProductEntity product,
+            ProductVariantEntity variant,
+            int sortOrder) {
         // Create base Image Entity
         ImageEntity image = new ImageEntity();
         image.setKey(UUID.randomUUID().toString());
