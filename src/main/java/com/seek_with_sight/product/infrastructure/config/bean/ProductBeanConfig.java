@@ -4,6 +4,7 @@ import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
 import com.seek_with_sight.product.application.port.in.category.GetCategoryTreeUseCase;
 import com.seek_with_sight.product.application.port.in.image.AddProductImageUseCase;
 import com.seek_with_sight.product.application.port.in.inventory.UpdateProductInventoryUseCase;
+import com.seek_with_sight.product.application.port.in.product.GetLandingProductsUseCase;
 import com.seek_with_sight.product.application.port.in.review.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.image.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.inventory.CreateProductInventoryUseCase;
@@ -25,6 +26,7 @@ import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryP
 import com.seek_with_sight.product.application.service.category.GetCategoryTreeService;
 import com.seek_with_sight.product.application.service.image.AddProductImageService;
 import com.seek_with_sight.product.application.service.inventory.UpdateProductInventoryService;
+import com.seek_with_sight.product.application.service.product.GetLandingProductsService;
 import com.seek_with_sight.product.application.service.review.AddProductReviewService;
 import com.seek_with_sight.product.application.service.image.AddVariantImageService;
 import com.seek_with_sight.product.application.service.inventory.CreateProductInventoryService;
@@ -259,5 +261,10 @@ public class ProductBeanConfig {
     @Bean
     public GetCategoryTreeUseCase getCategoriesUseCase(CategoryRepositoryPort repo) {
         return new GetCategoryTreeService(repo);
+    }
+
+    @Bean
+    public GetLandingProductsUseCase getLandingProductsUseCase() {
+        return new GetLandingProductsService();
     }
 }
