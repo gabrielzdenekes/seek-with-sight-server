@@ -41,6 +41,7 @@ public enum ErrorCode {
     PRODUCT_ALREADY_REVIEWED,
     PRODUCT_NOT_FOUND,
     PRODUCT_VARIANT_NOT_FOUND,
+    INVALID_SALE_DATES,
 
     /*
         Payment

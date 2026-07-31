@@ -15,6 +15,7 @@ import java.util.UUID;
 public class UpdateProductVariantService implements UpdateProductVariantUseCase {
     private final ProductRepositoryPort productsRepo;
     private final ProductAppMapper mapper;
+    private final SalePriceService salePriceService;
 
     @Override
     @Transactional
@@ -29,6 +30,7 @@ public class UpdateProductVariantService implements UpdateProductVariantUseCase 
         var variant = product.findVariantById(variantId);
 
         mapper.updateVariantFromCommand(command, variant);
+        salePriceService.updateSalePrice(variant, command.salePrice(), command.saleStartDate(), command.saleEndDate());
 
         productsRepo.save(product);
 

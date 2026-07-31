@@ -40,6 +40,7 @@ import com.seek_with_sight.product.application.service.stock.ReleaseStockService
 import com.seek_with_sight.product.application.service.variant.RemoveProductVariantService;
 import com.seek_with_sight.product.application.service.stock.ReserveStockService;
 import com.seek_with_sight.product.application.service.product.UpdateProductService;
+import com.seek_with_sight.product.application.service.variant.SalePriceService;
 import com.seek_with_sight.product.application.service.variant.UpdateProductVariantService;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.BrandPersistenceAdapter;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.CategoryPersistenceAdapter;
@@ -154,9 +155,10 @@ public class ProductBeanConfig {
     @Bean
     public UpdateProductVariantUseCase updateProductVariantUseCase(
             ProductRepositoryPort repo,
-            ProductAppMapper mapper
+            ProductAppMapper mapper,
+            SalePriceService salePriceService
     ) {
-        return new UpdateProductVariantService(repo, mapper);
+        return new UpdateProductVariantService(repo, mapper, salePriceService);
     }
 
     @Bean
@@ -264,7 +266,9 @@ public class ProductBeanConfig {
     }
 
     @Bean
-    public GetLandingProductsUseCase getLandingProductsUseCase() {
-        return new GetLandingProductsService();
+    public GetLandingProductsUseCase getLandingProductsUseCase(
+            GetTopProductsOnSaleUseCase getTopProductsOnSaleUseCase
+    ) {
+        return new GetLandingProductsService(getTopProductsOnSaleUseCase);
     }
 }

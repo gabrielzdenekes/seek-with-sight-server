@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository;
 
+import com.seek_with_sight.product.application.port.in.product.dto.ProductListItem;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -33,5 +34,5 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
               AND :now BETWEEN v.saleStartDate AND v.saleEndDate
             ORDER BY v.discountPercentage DESC
             """)
-    Page<ProductEntity> findTopDiscountedProducts(@Param("now") Instant now, Pageable pageable);
+    Page<ProductListItem> findTopDiscountedProducts(@Param("now") Instant now, Pageable pageable);
 }

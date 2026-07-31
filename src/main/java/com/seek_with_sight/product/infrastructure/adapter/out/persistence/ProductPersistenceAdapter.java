@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
+import com.seek_with_sight.product.application.port.in.product.dto.ProductListItem;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
@@ -56,9 +57,8 @@ public class ProductPersistenceAdapter
     }
 
     @Override
-    public Page<Product> findTopDiscountedProducts(Pageable pageable) {
-        return repository.findTopDiscountedProducts(Instant.now(), pageable)
-                .map(p -> mapper.toDomain(p, new CycleAvoidingMappingContext()));
+    public Page<ProductListItem> findTopDiscountedProducts(Pageable pageable) {
+        return repository.findTopDiscountedProducts(Instant.now(), pageable);
     }
 
     @Override

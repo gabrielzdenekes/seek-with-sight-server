@@ -10,6 +10,7 @@ import com.seek_with_sight.product.domain.model.ProductReview;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
@@ -23,6 +24,9 @@ public interface ProductAppMapper {
     void updateProductFromCommand(UpdateProductCommand command, @MappingTarget Product product);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    @Mapping(target = "salePrice", ignore = true)
+    @Mapping(target = "saleStartDate", ignore = true)
+    @Mapping(target = "saleEndDate", ignore = true)
     void updateVariantFromCommand(UpdateProductVariantCommand command, @MappingTarget ProductVariant variant);
 
     ProductReview fromAddProductReviewCommand(AddProductReviewCommand command);

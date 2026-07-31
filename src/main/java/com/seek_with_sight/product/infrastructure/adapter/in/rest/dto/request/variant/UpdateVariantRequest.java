@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 
 public record UpdateVariantRequest(
         @Size(
@@ -22,6 +23,14 @@ public record UpdateVariantRequest(
                 integer = 19,
                 fraction = 4
         )
-        BigDecimal price
+        BigDecimal price,
+
+        @DecimalMin(value = "0.00")
+        @Digits(integer = 19, fraction = 4)
+        BigDecimal salePrice,
+
+        Instant saleStartDate,
+
+        Instant saleEndDate
 ) {
 }
