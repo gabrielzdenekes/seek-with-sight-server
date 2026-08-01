@@ -108,7 +108,7 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
             ORDER BY v.createdAt DESC
             """,
             countQuery = """
-            SELECT COUNT(v) 
+            SELECT COUNT(v)
             FROM ProductVariantEntity v 
             JOIN v.product p 
             WHERE p.status = 'ACTIVE'
