@@ -39,6 +39,9 @@ public class ProductVariantIntegrationTests extends IntegrationTestsBase {
         var updateRequest = new UpdateVariantRequest(
                 productVariant.response().getData().title(),
                 null,
+                null,
+                null,
+                null,
                 null
         );
 

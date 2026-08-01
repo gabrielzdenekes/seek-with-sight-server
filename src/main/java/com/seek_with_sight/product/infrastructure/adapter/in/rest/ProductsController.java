@@ -3,6 +3,8 @@ package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 import com.seek_with_sight.media.application.port.in.UploadImageUseCase;
 import com.seek_with_sight.media.application.port.in.command.UploadImageCommand;
 import com.seek_with_sight.product.application.port.in.image.AddProductImageUseCase;
+import com.seek_with_sight.product.application.port.in.product.GetLandingProductsUseCase;
+import com.seek_with_sight.product.application.port.in.product.dto.LandingProducts;
 import com.seek_with_sight.product.application.port.in.review.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.image.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.product.CreateProductUseCase;
@@ -62,6 +64,7 @@ public class ProductsController {
     private final AddVariantImageUseCase addVariantImageUseCase;
     private final AddProductReviewUseCase addProductReviewUseCase;
     private final GetProductReviewsUseCase getProductReviewsUseCase;
+    private final GetLandingProductsUseCase landingProductsUseCase;
 
     @PostMapping
     public ProductResponseWithDetails create(@RequestBody @Valid ProductRequest request) {
@@ -87,6 +90,12 @@ public class ProductsController {
         var updatedProduct = updateProductUseCase.update(productId, updateCommand);
 
         return mapper.toResponseWithDetails(updatedProduct);
+    }
+
+    @GetMapping("/landing")
+    public LandingProducts getLandingProducts() {
+        var products = landingProductsUseCase.get(8);
+        return products;
     }
 
     @PostMapping(
