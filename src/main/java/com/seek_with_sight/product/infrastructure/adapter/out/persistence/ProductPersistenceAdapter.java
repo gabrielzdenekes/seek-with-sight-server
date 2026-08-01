@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
+import com.seek_with_sight.product.application.port.in.product.dto.BestReviewedProduct;
 import com.seek_with_sight.product.application.port.in.product.dto.ProductListItem;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import com.seek_with_sight.product.domain.model.Product;
@@ -64,6 +65,11 @@ public class ProductPersistenceAdapter
     @Override
     public Page<ProductListItem> findNewArrivals(Pageable pageable) {
         return repository.findNewArrivals(pageable);
+    }
+
+    @Override
+    public Page<BestReviewedProduct> findBestReviewedProducts(Pageable pageable) {
+        return repository.findBestReviewedProducts(pageable);
     }
 
     @Override

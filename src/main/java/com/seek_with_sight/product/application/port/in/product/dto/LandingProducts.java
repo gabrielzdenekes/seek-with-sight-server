@@ -7,6 +7,7 @@ import java.util.List;
 public record LandingProducts(
         List<ProductListItem> onSale,
         List<ProductListItem> newArrivals,
-        List<BestSellingVariant> bestSelling
+        List<BestSellingVariant> bestSelling,
+        List<BestReviewedProduct> bestReviewed
 ) {
 }

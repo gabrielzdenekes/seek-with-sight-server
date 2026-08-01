@@ -1,5 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository;
 
+import com.seek_with_sight.product.application.port.in.product.dto.BestReviewedProduct;
 import com.seek_with_sight.product.application.port.in.product.dto.ProductListItem;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import org.springframework.data.domain.Page;
@@ -109,10 +110,31 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
             """,
             countQuery = """
             SELECT COUNT(v)
-            FROM ProductVariantEntity v 
-            JOIN v.product p 
+            FROM ProductVariantEntity v
+            JOIN v.product p
             WHERE p.status = 'ACTIVE'
             """
     )
     Page<ProductListItem> findNewArrivals(Pageable pageable);
+
+    @Query("""
+        SELECT
+            p.id AS id,
+            p.name AS name,
+            p.slug AS slug,
+            p.averageRating AS averageRating,
+            p.reviewCount AS reviewCount,
+            v.price AS price,
+            v.salePrice AS salePrice,
+            v.discountPercentage AS discountPercentage,
+            COALESCE(vi.image.url, pi.image.url) AS imageUrl
+        FROM ProductEntity p
+        LEFT JOIN p.defaultVariant v
+        LEFT JOIN v.images vi ON vi.sortOrder = 0
+        LEFT JOIN p.images pi ON pi.sortOrder = 0
+        WHERE p.status = 'ACTIVE'
+          AND p.reviewCount > 0
+        ORDER BY p.averageRating DESC, p.reviewCount DESC
+        """)
+    Page<BestReviewedProduct> findBestReviewedProducts(Pageable pageable);
 }

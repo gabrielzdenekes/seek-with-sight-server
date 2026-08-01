@@ -18,7 +18,8 @@ public class GetLandingProductsService implements GetLandingProductsUseCase {
         var landingProducts = new LandingProducts(
                 productsRepo.findTopDiscountedProducts(pageable).toList(),
                 productsRepo.findNewArrivals(pageable).toList(),
-                ordersRepo.findBestSellingVariants(pageable).toList()
+                ordersRepo.findBestSellingVariants(pageable).toList(),
+                productsRepo.findBestReviewedProducts(pageable).toList()
         );
 
         return landingProducts;
