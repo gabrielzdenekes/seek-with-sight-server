@@ -147,7 +147,8 @@ public class OrderSeedService {
         return switch (orderStatus) {
             case DELIVERED, SHIPPED, PROCESSING -> PaymentStatus.PAID;
             case REFUNDED -> PaymentStatus.REFUNDED;
-            case CANCELLED -> faker.options().option(PaymentStatus.FAILED, PaymentStatus.PENDING, PaymentStatus.REFUNDED);
+            case CANCELLED -> faker.options()
+                    .option(PaymentStatus.FAILED, PaymentStatus.PENDING, PaymentStatus.REFUNDED);
             case PENDING -> PaymentStatus.PENDING;
         };
     }
