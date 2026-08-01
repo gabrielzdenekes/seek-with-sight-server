@@ -1,6 +1,6 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository;
 
-import com.seek_with_sight.product.application.port.in.product.dto.DiscountedProductListItem;
+import com.seek_with_sight.product.application.port.in.product.dto.ProductListItem;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -87,5 +87,32 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
               AND :now BETWEEN v.saleStartDate AND v.saleEndDate
         """
     )
-    Page<DiscountedProductListItem> findTopDiscountedProducts(@Param("now") Instant now, Pageable pageable);
+    Page<ProductListItem> findTopDiscountedProducts(@Param("now") Instant now, Pageable pageable);
+
+    @Query(
+            value = """
+            SELECT
+                p.name AS name,
+                v.price AS price,
+                v.salePrice AS salePrice,
+                v.discountPercentage AS discountPercentage,
+                v.saleEndDate AS saleEndDate,
+                COALESCE(vImg.url, pImg.url) AS imageUrl
+            FROM ProductVariantEntity v
+            JOIN v.product p
+            LEFT JOIN v.images vi ON vi.sortOrder = 0
+            LEFT JOIN vi.image vImg
+            LEFT JOIN p.images pi ON pi.sortOrder = 0
+            LEFT JOIN pi.image pImg
+            WHERE p.status = 'ACTIVE'
+            ORDER BY v.createdAt DESC
+            """,
+            countQuery = """
+            SELECT COUNT(v) 
+            FROM ProductVariantEntity v 
+            JOIN v.product p 
+            WHERE p.status = 'ACTIVE'
+            """
+    )
+    Page<ProductListItem> findNewArrivals(Pageable pageable);
 }

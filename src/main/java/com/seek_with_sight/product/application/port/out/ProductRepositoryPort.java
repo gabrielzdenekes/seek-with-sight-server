@@ -1,6 +1,6 @@
 package com.seek_with_sight.product.application.port.out;
 
-import com.seek_with_sight.product.application.port.in.product.dto.DiscountedProductListItem;
+import com.seek_with_sight.product.application.port.in.product.dto.ProductListItem;
 import com.seek_with_sight.product.domain.model.Product;
 import com.seek_with_sight.shared.application.port.out.BaseRepositoryPort;
 import org.springframework.data.domain.Page;
@@ -12,5 +12,5 @@ import java.util.UUID;
 public interface ProductRepositoryPort extends BaseRepositoryPort<Product> {
     Optional<Product> findById(UUID id);
 
-    Page<DiscountedProductListItem> findTopDiscountedProducts(Pageable pageable);
+    Page<ProductListItem> findTopDiscountedProducts(Pageable pageable);
 }
