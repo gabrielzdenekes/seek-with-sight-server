@@ -5,6 +5,7 @@ import com.seek_with_sight.product.application.port.in.category.GetCategoryTreeU
 import com.seek_with_sight.product.application.port.in.image.AddProductImageUseCase;
 import com.seek_with_sight.product.application.port.in.inventory.UpdateProductInventoryUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetLandingProductsUseCase;
+import com.seek_with_sight.product.application.port.in.product.GetNewArrivalsUseCase;
 import com.seek_with_sight.product.application.port.in.review.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.image.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.inventory.CreateProductInventoryUseCase;
@@ -27,6 +28,7 @@ import com.seek_with_sight.product.application.service.category.GetCategoryTreeS
 import com.seek_with_sight.product.application.service.image.AddProductImageService;
 import com.seek_with_sight.product.application.service.inventory.UpdateProductInventoryService;
 import com.seek_with_sight.product.application.service.product.GetLandingProductsService;
+import com.seek_with_sight.product.application.service.product.GetNewArrivalsService;
 import com.seek_with_sight.product.application.service.review.AddProductReviewService;
 import com.seek_with_sight.product.application.service.image.AddVariantImageService;
 import com.seek_with_sight.product.application.service.inventory.CreateProductInventoryService;
@@ -267,8 +269,14 @@ public class ProductBeanConfig {
 
     @Bean
     public GetLandingProductsUseCase getLandingProductsUseCase(
-            GetTopProductsOnSaleUseCase getTopProductsOnSaleUseCase
+            GetTopProductsOnSaleUseCase getTopProductsOnSaleUseCase,
+            GetNewArrivalsUseCase getNewArrivalsUseCase
     ) {
-        return new GetLandingProductsService(getTopProductsOnSaleUseCase);
+        return new GetLandingProductsService(getTopProductsOnSaleUseCase, getNewArrivalsUseCase);
+    }
+
+    @Bean
+    public GetNewArrivalsUseCase getNewArrivalsUseCase(ProductRepositoryPort repo) {
+        return new GetNewArrivalsService(repo);
     }
 }

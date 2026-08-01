@@ -13,4 +13,6 @@ public interface ProductRepositoryPort extends BaseRepositoryPort<Product> {
     Optional<Product> findById(UUID id);
 
     Page<ProductListItem> findTopDiscountedProducts(Pageable pageable);
+
+    Page<ProductListItem> findNewArrivals(Pageable pageable);
 }

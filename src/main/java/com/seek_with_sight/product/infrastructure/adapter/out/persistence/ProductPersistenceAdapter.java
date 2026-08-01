@@ -62,6 +62,11 @@ public class ProductPersistenceAdapter
     }
 
     @Override
+    public Page<ProductListItem> findNewArrivals(Pageable pageable) {
+        return repository.findNewArrivals(pageable);
+    }
+
+    @Override
     public Product save(Product domain) {
         var updatedProduct = super.save(domain);
 
