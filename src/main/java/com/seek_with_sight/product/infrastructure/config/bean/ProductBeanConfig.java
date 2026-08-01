@@ -1,11 +1,11 @@
 package com.seek_with_sight.product.infrastructure.config.bean;
 
 import com.seek_with_sight.media.application.port.out.ImageRepositoryPort;
+import com.seek_with_sight.order.application.port.out.OrderRepositoryPort;
 import com.seek_with_sight.product.application.port.in.category.GetCategoryTreeUseCase;
 import com.seek_with_sight.product.application.port.in.image.AddProductImageUseCase;
 import com.seek_with_sight.product.application.port.in.inventory.UpdateProductInventoryUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetLandingProductsUseCase;
-import com.seek_with_sight.product.application.port.in.product.GetNewArrivalsUseCase;
 import com.seek_with_sight.product.application.port.in.review.AddProductReviewUseCase;
 import com.seek_with_sight.product.application.port.in.image.AddVariantImageUseCase;
 import com.seek_with_sight.product.application.port.in.inventory.CreateProductInventoryUseCase;
@@ -13,7 +13,6 @@ import com.seek_with_sight.product.application.port.in.product.CreateProductUseC
 import com.seek_with_sight.product.application.port.in.variant.CreateProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.product.GetProductByIdUseCase;
 import com.seek_with_sight.product.application.port.in.review.GetProductReviewsUseCase;
-import com.seek_with_sight.product.application.port.in.product.GetTopProductsOnSaleUseCase;
 import com.seek_with_sight.product.application.port.in.stock.ReleaseStockUseCase;
 import com.seek_with_sight.product.application.port.in.variant.RemoveProductVariantUseCase;
 import com.seek_with_sight.product.application.port.in.stock.ReserveStockUseCase;
@@ -28,7 +27,6 @@ import com.seek_with_sight.product.application.service.category.GetCategoryTreeS
 import com.seek_with_sight.product.application.service.image.AddProductImageService;
 import com.seek_with_sight.product.application.service.inventory.UpdateProductInventoryService;
 import com.seek_with_sight.product.application.service.product.GetLandingProductsService;
-import com.seek_with_sight.product.application.service.product.GetNewArrivalsService;
 import com.seek_with_sight.product.application.service.review.AddProductReviewService;
 import com.seek_with_sight.product.application.service.image.AddVariantImageService;
 import com.seek_with_sight.product.application.service.inventory.CreateProductInventoryService;
@@ -36,7 +34,6 @@ import com.seek_with_sight.product.application.service.product.CreateProductServ
 import com.seek_with_sight.product.application.service.variant.CreateProductVariantService;
 import com.seek_with_sight.product.application.service.product.GetProductByIdService;
 import com.seek_with_sight.product.application.service.review.GetProductReviewsService;
-import com.seek_with_sight.product.application.service.product.GetTopProductsOnSaleService;
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.application.service.stock.ReleaseStockService;
 import com.seek_with_sight.product.application.service.variant.RemoveProductVariantService;
@@ -246,11 +243,6 @@ public class ProductBeanConfig {
     }
 
     @Bean
-    public GetTopProductsOnSaleUseCase getTopProductsOnSaleUseCase(ProductRepositoryPort repo) {
-        return new GetTopProductsOnSaleService(repo);
-    }
-
-    @Bean
     public CreateProductInventoryUseCase createProductInventoryUseCase(
             ProductInventoryRepositoryPort repo
     ) {
@@ -269,14 +261,9 @@ public class ProductBeanConfig {
 
     @Bean
     public GetLandingProductsUseCase getLandingProductsUseCase(
-            GetTopProductsOnSaleUseCase getTopProductsOnSaleUseCase,
-            GetNewArrivalsUseCase getNewArrivalsUseCase
+            ProductRepositoryPort productsRepo,
+            OrderRepositoryPort ordersRepo
     ) {
-        return new GetLandingProductsService(getTopProductsOnSaleUseCase, getNewArrivalsUseCase);
-    }
-
-    @Bean
-    public GetNewArrivalsUseCase getNewArrivalsUseCase(ProductRepositoryPort repo) {
-        return new GetNewArrivalsService(repo);
+        return new GetLandingProductsService(productsRepo, ordersRepo);
     }
 }
