@@ -1,6 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.product.application.port.in.category.CategoryListItem;
+import com.seek_with_sight.product.application.port.in.category.CategorySearchItem;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.domain.model.Category;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
@@ -31,5 +32,10 @@ public class CategoryPersistenceAdapter
     @Override
     public List<CategoryListItem> getCategoryTree() {
         return repository.findAllByParentIsNullOrderBySortOrderAsc();
+    }
+
+    @Override
+    public List<CategorySearchItem> searchByName(String name) {
+        return repository.searchByName(name);
     }
 }
