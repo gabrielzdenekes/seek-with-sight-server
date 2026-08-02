@@ -48,6 +48,7 @@ public class BrandsInitializer implements ApplicationRunner {
             brandEntity.setName(brand.getName());
             brandEntity.setDescription(brand.getDescription());
             brandEntity.setSlug(brand.getSlug());
+            brandEntity.setIsActive(true);
 
             repo.save(brandEntity);
 
