@@ -1,6 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 
 import com.seek_with_sight.product.application.port.in.category.CategoryListItem;
+import com.seek_with_sight.product.application.port.in.category.CategorySearchItem;
 import com.seek_with_sight.product.application.port.in.category.GetCategoryTreeUseCase;
 import com.seek_with_sight.product.application.port.in.category.SearchCategoriesUseCase;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class CategoriesController {
     }
 
     @GetMapping("/search")
-    public List<CategoryListItem> search(
+    public List<CategorySearchItem> search(
             @RequestParam(name = "q") String name
     ) {
         return searchCategoriesUseCase.search(name);

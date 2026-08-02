@@ -1,6 +1,7 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository;
 
 import com.seek_with_sight.product.application.port.in.category.CategoryListItem;
+import com.seek_with_sight.product.application.port.in.category.CategorySearchItem;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,5 +22,5 @@ public interface CategoryJpaRepository extends JpaRepository<CategoryEntity, UUI
             WHERE LOWER(c.name) LIKE LOWER(CONCAT('%', :name, '%'))
             AND c.isActive = true
             ORDER BY c.name ASC""")
-    List<CategoryListItem> searchByName(@Param("name") String name);
+    List<CategorySearchItem> searchByName(@Param("name") String name);
 }

@@ -1,6 +1,7 @@
 package com.seek_with_sight.product.application.port.out;
 
 import com.seek_with_sight.product.application.port.in.category.CategoryListItem;
+import com.seek_with_sight.product.application.port.in.category.CategorySearchItem;
 import com.seek_with_sight.product.domain.model.Category;
 import com.seek_with_sight.shared.application.port.out.BaseRepositoryPort;
 
@@ -13,5 +14,5 @@ public interface CategoryRepositoryPort extends BaseRepositoryPort<Category> {
 
     List<CategoryListItem> getCategoryTree();
 
-    List<CategoryListItem> searchByName(String name);
+    List<CategorySearchItem> searchByName(String name);
 }
