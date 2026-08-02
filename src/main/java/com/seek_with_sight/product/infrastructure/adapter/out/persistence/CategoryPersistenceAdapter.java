@@ -32,4 +32,9 @@ public class CategoryPersistenceAdapter
     public List<CategoryListItem> getCategoryTree() {
         return repository.findAllByParentIsNullOrderBySortOrderAsc();
     }
+
+    @Override
+    public List<CategoryListItem> searchByName(String name) {
+        return repository.searchByName(name);
+    }
 }

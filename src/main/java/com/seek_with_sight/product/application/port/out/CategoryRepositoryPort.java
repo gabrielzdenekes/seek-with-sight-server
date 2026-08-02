@@ -12,4 +12,6 @@ public interface CategoryRepositoryPort extends BaseRepositoryPort<Category> {
     Optional<Category> findById(UUID categoryId);
 
     List<CategoryListItem> getCategoryTree();
+
+    List<CategoryListItem> searchByName(String name);
 }
