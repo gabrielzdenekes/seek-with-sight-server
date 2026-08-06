@@ -32,9 +32,10 @@ public interface OrderJpaRepository extends JpaRepository<OrderEntity, UUID> {
 
     @Query(
             value = """
-            SELECT 
+            SELECT
                 v.id AS variantId,
                 v.title AS variantTitle,
+                p.id AS id,
                 p.name AS productName,
                 v.sku AS sku,
                 v.price AS price,
@@ -52,7 +53,7 @@ public interface OrderJpaRepository extends JpaRepository<OrderEntity, UUID> {
             WHERE p.status = 'ACTIVE'
               AND o.status = 'PROCESSING' OR o.status = 'SHIPPED' OR o.status = 'DELIVERED'
             GROUP BY 
-                v.id, v.title, p.name, v.sku, v.price, v.salePrice, vImg.url, pImg.url
+                v.id, v.title, p.id, p.name, v.sku, v.price, v.salePrice, vImg.url, pImg.url
             ORDER BY totalSold DESC
             """
     )

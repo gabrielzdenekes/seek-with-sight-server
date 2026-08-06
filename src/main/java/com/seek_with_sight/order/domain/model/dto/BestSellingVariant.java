@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public interface BestSellingVariant {
+    UUID getId();
     UUID getVariantId();
     String getVariantTitle();
     String getProductName();

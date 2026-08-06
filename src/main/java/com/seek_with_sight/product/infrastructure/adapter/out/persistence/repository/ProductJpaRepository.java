@@ -49,6 +49,7 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
     @Query(
             value = """
                         SELECT
+                            p.id as id,
                             p.name AS name,
                             v.price AS price,
                             v.salePrice AS salePrice,
@@ -79,14 +80,6 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
                                 )
                           )
                         ORDER BY v.discountPercentage DESC
-                    """,
-            countQuery = """
-                        SELECT COUNT(DISTINCT p)
-                        FROM ProductEntity p
-                        JOIN p.variants v
-                        WHERE p.status = 'ACTIVE'
-                          AND v.salePrice IS NOT NULL
-                          AND :now BETWEEN v.saleStartDate AND v.saleEndDate
                     """
     )
     Page<ProductListItem> findTopDiscountedProducts(@Param("now") Instant now, Pageable pageable);
@@ -94,6 +87,7 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
     @Query(
             value = """
                     SELECT
+                        p.id AS id,
                         p.name AS name,
                         v.price AS price,
                         v.salePrice AS salePrice,
@@ -108,12 +102,6 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
                     LEFT JOIN pi.image pImg
                     WHERE p.status = 'ACTIVE'
                     ORDER BY v.createdAt DESC
-                    """,
-            countQuery = """
-                    SELECT COUNT(v)
-                    FROM ProductVariantEntity v
-                    JOIN v.product p
-                    WHERE p.status = 'ACTIVE'
                     """
     )
     Page<ProductListItem> findNewArrivals(Pageable pageable);
