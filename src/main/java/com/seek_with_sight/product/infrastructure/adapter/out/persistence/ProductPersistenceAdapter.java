@@ -1,9 +1,11 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
-import com.seek_with_sight.product.application.port.in.product.dto.BestReviewedProduct;
-import com.seek_with_sight.product.application.port.in.product.dto.ProductListItem;
+import com.seek_with_sight.product.domain.model.product.BestReviewedProductItem;
+import com.seek_with_sight.product.domain.model.product.ProductListItem;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.projection.BestReviewedProductProjection;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.projection.ProductListItemProjection;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
-import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.product.Product;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductImageEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
@@ -12,7 +14,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.CategoryJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import jakarta.persistence.EntityManager;
@@ -59,17 +61,22 @@ public class ProductPersistenceAdapter
 
     @Override
     public Page<ProductListItem> findTopDiscountedProducts(Pageable pageable) {
-        return repository.findTopDiscountedProducts(Instant.now(), pageable);
+        return repository.findTopDiscountedProducts(Instant.now(), pageable)
+                .map(p -> mapper.toProductListItem(p, new CycleAvoidingMappingContext()));
     }
 
     @Override
     public Page<ProductListItem> findNewArrivals(Pageable pageable) {
-        return repository.findNewArrivals(pageable);
+        return repository.findNewArrivals(pageable)
+                .map(p -> mapper.toProductListItem(p, new CycleAvoidingMappingContext()));
     }
 
     @Override
-    public Page<BestReviewedProduct> findBestReviewedProducts(Pageable pageable) {
-        return repository.findBestReviewedProducts(pageable);
+    public Page<BestReviewedProductItem> findBestReviewedProducts(Pageable pageable) {
+        return repository.findBestReviewedProducts(pageable)
+                .map(p ->
+                        mapper.toBestReviewedProductItem(p, new CycleAvoidingMappingContext())
+                );
     }
 
     @Override

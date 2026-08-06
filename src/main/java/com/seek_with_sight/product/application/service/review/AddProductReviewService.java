@@ -7,7 +7,7 @@ import com.seek_with_sight.product.application.port.out.ProductReviewRepositoryP
 import com.seek_with_sight.product.application.service.product.ProductAppMapper;
 import com.seek_with_sight.product.domain.exception.ProductAlreadyReviewedException;
 import com.seek_with_sight.product.domain.exception.ProductNotFoundException;
-import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.product.Product;
 import com.seek_with_sight.product.domain.model.ProductReview;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
 import lombok.RequiredArgsConstructor;

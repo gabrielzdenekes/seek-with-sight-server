@@ -3,7 +3,7 @@ package com.seek_with_sight.search.infrastructure.adapter.out.elasticsearch;
 import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery;
 import co.elastic.clients.elasticsearch._types.query_dsl.Query;
 import co.elastic.clients.elasticsearch._types.query_dsl.TextQueryType;
-import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.product.Product;
 import com.seek_with_sight.search.application.port.out.ProductSearchPort;
 import com.seek_with_sight.search.infrastructure.adapter.out.elasticsearch.documents.ProductDocument;
 import com.seek_with_sight.search.infrastructure.adapter.out.elasticsearch.mapper.ProductDocumentMapper;

@@ -1,6 +1,6 @@
 package com.seek_with_sight.product.domain.model.category;
 
-import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.product.Product;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.util.List;

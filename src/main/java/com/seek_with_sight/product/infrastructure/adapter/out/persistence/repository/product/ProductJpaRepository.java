@@ -1,8 +1,8 @@
-package com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository;
+package com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product;
 
-import com.seek_with_sight.product.application.port.in.product.dto.BestReviewedProduct;
-import com.seek_with_sight.product.application.port.in.product.dto.ProductListItem;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.projection.BestReviewedProductProjection;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.projection.ProductListItemProjection;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.EntityGraph;
@@ -82,7 +82,7 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
                         ORDER BY v.discountPercentage DESC
                     """
     )
-    Page<ProductListItem> findTopDiscountedProducts(@Param("now") Instant now, Pageable pageable);
+    Page<ProductListItemProjection> findTopDiscountedProducts(@Param("now") Instant now, Pageable pageable);
 
     @Query(
             value = """
@@ -104,7 +104,7 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
                     ORDER BY v.createdAt DESC
                     """
     )
-    Page<ProductListItem> findNewArrivals(Pageable pageable);
+    Page<ProductListItemProjection> findNewArrivals(Pageable pageable);
 
     @Query("""
             SELECT
@@ -125,5 +125,5 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, UUID>
               AND p.reviewCount > 0
             ORDER BY p.averageRating DESC, p.reviewCount DESC
             """)
-    Page<BestReviewedProduct> findBestReviewedProducts(Pageable pageable);
+    Page<BestReviewedProductProjection> findBestReviewedProducts(Pageable pageable);
 }

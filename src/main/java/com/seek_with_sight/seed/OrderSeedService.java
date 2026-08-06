@@ -7,7 +7,7 @@ import com.seek_with_sight.order.infrastructure.adapter.out.persistence.entity.O
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.repository.OrderJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.ProductJpaRepository;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.entity.UserEntity;
 import com.seek_with_sight.user.infrastructure.adapter.out.persistence.repository.UserJpaRepository;
 import lombok.RequiredArgsConstructor;

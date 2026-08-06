@@ -1,6 +1,7 @@
 package com.seek_with_sight.product.domain.model;
 
 import com.seek_with_sight.media.domain.model.Image;
+import com.seek_with_sight.product.domain.model.product.Product;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 
 import java.math.BigDecimal;

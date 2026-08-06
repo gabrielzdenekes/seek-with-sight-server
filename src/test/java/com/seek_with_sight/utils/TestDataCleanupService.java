@@ -2,7 +2,7 @@ package com.seek_with_sight.utils;
 
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.repository.OrderJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductInventoryJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.ProductJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductReviewJpaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.TestComponent;

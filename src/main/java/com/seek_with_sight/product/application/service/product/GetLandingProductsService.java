@@ -5,6 +5,7 @@ import com.seek_with_sight.product.application.port.in.product.GetLandingProduct
 import com.seek_with_sight.product.application.port.in.product.dto.LandingProducts;
 import com.seek_with_sight.product.application.port.out.ProductRepositoryPort;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
 
 @RequiredArgsConstructor
@@ -13,6 +14,7 @@ public class GetLandingProductsService implements GetLandingProductsUseCase {
     private final OrderRepositoryPort ordersRepo;
 
     @Override
+    @Cacheable(value = "landingProducts")
     public LandingProducts get(int productsCount) {
         var pageable = Pageable.ofSize(productsCount);
         var landingProducts = new LandingProducts(

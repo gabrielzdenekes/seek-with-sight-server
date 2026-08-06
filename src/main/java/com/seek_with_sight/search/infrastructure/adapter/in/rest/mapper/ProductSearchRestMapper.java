@@ -1,6 +1,6 @@
 package com.seek_with_sight.search.infrastructure.adapter.in.rest.mapper;
 
-import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.product.Product;
 import com.seek_with_sight.search.infrastructure.adapter.in.rest.dto.ProductSearchResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

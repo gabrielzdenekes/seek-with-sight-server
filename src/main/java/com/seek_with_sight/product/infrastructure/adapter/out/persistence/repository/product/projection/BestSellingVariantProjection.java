@@ -1,9 +1,9 @@
-package com.seek_with_sight.order.domain.model.dto;
+package com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.projection;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public interface BestSellingVariant {
+public interface BestSellingVariantProjection {
     UUID getId();
     UUID getVariantId();
     String getVariantTitle();

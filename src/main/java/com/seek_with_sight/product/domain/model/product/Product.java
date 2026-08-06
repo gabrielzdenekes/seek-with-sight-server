@@ -1,7 +1,11 @@
-package com.seek_with_sight.product.domain.model;
+package com.seek_with_sight.product.domain.model.product;
 
 import com.seek_with_sight.media.domain.model.Image;
 import com.seek_with_sight.product.domain.exception.ProductVariantNotFoundException;
+import com.seek_with_sight.product.domain.model.Brand;
+import com.seek_with_sight.product.domain.model.ProductImage;
+import com.seek_with_sight.product.domain.model.ProductStatus;
+import com.seek_with_sight.product.domain.model.ProductVariant;
 import com.seek_with_sight.product.domain.model.category.Category;
 import com.seek_with_sight.shared.domain.model.BaseDomainModel;
 

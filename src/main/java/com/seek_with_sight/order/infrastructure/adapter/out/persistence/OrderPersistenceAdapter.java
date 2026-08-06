@@ -2,7 +2,8 @@ package com.seek_with_sight.order.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.order.application.port.out.OrderRepositoryPort;
 import com.seek_with_sight.order.domain.model.Order;
-import com.seek_with_sight.order.domain.model.dto.BestSellingVariant;
+import com.seek_with_sight.product.domain.model.product.BestSellingVariantItem;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.projection.BestSellingVariantProjection;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.entity.OrderEntity;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.mapper.OrderPersistenceMapper;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.repository.OrderJpaRepository;
@@ -28,7 +29,10 @@ public class OrderPersistenceAdapter
     }
 
     @Override
-    public Page<BestSellingVariant> findBestSellingVariants(Pageable pageable) {
-        return repository.findBestSellingVariants(pageable);
+    public Page<BestSellingVariantItem> findBestSellingVariants(Pageable pageable) {
+        return repository.findBestSellingVariants(pageable)
+                .map(p ->
+                        mapper.toBestSellingVariantItem(p, new CycleAvoidingMappingContext())
+                );
     }
 }

@@ -8,4 +8,6 @@ public class CacheNames {
     public static final String USER = "user";
 
     public static final String CATEGORIES_TREE = "categoriesTree";
+
+    public static final String LANDING_PRODUCTS = "landingProducts";
 }

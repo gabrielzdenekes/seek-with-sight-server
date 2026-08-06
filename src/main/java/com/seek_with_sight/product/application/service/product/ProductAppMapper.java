@@ -5,7 +5,7 @@ import com.seek_with_sight.product.application.port.in.product.command.CreatePro
 import com.seek_with_sight.product.application.port.in.variant.command.CreateProductVariantCommand;
 import com.seek_with_sight.product.application.port.in.product.command.UpdateProductCommand;
 import com.seek_with_sight.product.application.port.in.variant.command.UpdateProductVariantCommand;
-import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.product.Product;
 import com.seek_with_sight.product.domain.model.ProductReview;
 import com.seek_with_sight.product.domain.model.ProductVariant;
 import org.mapstruct.BeanMapping;

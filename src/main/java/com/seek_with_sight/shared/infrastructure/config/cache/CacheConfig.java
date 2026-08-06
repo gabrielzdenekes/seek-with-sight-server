@@ -55,6 +55,16 @@ public class CacheConfig {
                         .build()
         );
 
+        cacheManager.registerCustomCache(
+                CacheNames.LANDING_PRODUCTS,
+                Caffeine.newBuilder()
+                        .initialCapacity(10)
+                        .maximumSize(50)
+                        .expireAfterWrite(Duration.ofMinutes(10))
+                        .recordStats()
+                        .build()
+        );
+
         return cacheManager;
     }
 
@@ -81,9 +91,15 @@ public class CacheConfig {
                 .entryTtl(Duration.ofHours(cacheProperties.entryTtl()));
 
         var customConfigurations = new HashMap<String, RedisCacheConfiguration>();
+
         customConfigurations.put(
                 CacheNames.CATEGORIES_TREE,
                 defaultConfig.entryTtl(Duration.ofDays(30))
+        );
+
+        customConfigurations.put(
+                CacheNames.LANDING_PRODUCTS,
+                defaultConfig.entryTtl(Duration.ofHours(1))
         );
 
         return RedisCacheManager.builder(connectionFactory)

@@ -1,6 +1,6 @@
 package com.seek_with_sight.search.application.service;
 
-import com.seek_with_sight.product.domain.model.Product;
+import com.seek_with_sight.product.domain.model.product.Product;
 import com.seek_with_sight.search.application.port.in.ProductSearchUseCase;
 import com.seek_with_sight.search.application.port.out.ProductSearchPort;
 import lombok.RequiredArgsConstructor;

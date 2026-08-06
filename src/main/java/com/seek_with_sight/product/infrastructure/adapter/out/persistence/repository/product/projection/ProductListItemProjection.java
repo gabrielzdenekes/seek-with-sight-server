@@ -1,10 +1,10 @@
-package com.seek_with_sight.product.application.port.in.product.dto;
+package com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.projection;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
-public interface ProductListItem {
+public interface ProductListItemProjection {
     UUID getId();
     String getName();
     BigDecimal getPrice();

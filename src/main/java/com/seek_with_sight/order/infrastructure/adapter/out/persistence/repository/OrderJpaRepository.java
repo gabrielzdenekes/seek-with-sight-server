@@ -1,7 +1,7 @@
 package com.seek_with_sight.order.infrastructure.adapter.out.persistence.repository;
 
 import com.seek_with_sight.order.domain.model.OrderStatus;
-import com.seek_with_sight.order.domain.model.dto.BestSellingVariant;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.projection.BestSellingVariantProjection;
 import com.seek_with_sight.order.infrastructure.adapter.out.persistence.entity.OrderEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -57,5 +57,5 @@ public interface OrderJpaRepository extends JpaRepository<OrderEntity, UUID> {
             ORDER BY totalSold DESC
             """
     )
-    Page<BestSellingVariant> findBestSellingVariants(Pageable pageable);
+    Page<BestSellingVariantProjection> findBestSellingVariants(Pageable pageable);
 }

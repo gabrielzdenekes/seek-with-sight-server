@@ -60,7 +60,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductInventoryJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.product.ProductJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductReviewJpaRepository;
 import com.seek_with_sight.shared.application.port.out.event.DomainEventPublisher;
 import com.seek_with_sight.user.application.port.out.CurrentUserPort;
