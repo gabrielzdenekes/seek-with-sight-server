@@ -52,7 +52,7 @@ public interface OrderJpaRepository extends JpaRepository<OrderEntity, UUID> {
             LEFT JOIN pi.image pImg
             WHERE p.status = 'ACTIVE'
               AND o.status = 'PROCESSING' OR o.status = 'SHIPPED' OR o.status = 'DELIVERED'
-            GROUP BY 
+            GROUP BY
                 v.id, v.title, p.id, p.name, v.sku, v.price, v.salePrice, vImg.url, pImg.url
             ORDER BY totalSold DESC
             """

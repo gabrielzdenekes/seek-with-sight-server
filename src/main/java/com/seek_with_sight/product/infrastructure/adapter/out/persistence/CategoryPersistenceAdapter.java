@@ -2,8 +2,6 @@ package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
 import com.seek_with_sight.product.domain.model.category.CategorySearchItem;
 import com.seek_with_sight.product.domain.model.category.CategoryTreeItem;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.projection.CategoryTreeProjection;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.projection.CategorySearchProjection;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
 import com.seek_with_sight.product.domain.model.category.Category;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
