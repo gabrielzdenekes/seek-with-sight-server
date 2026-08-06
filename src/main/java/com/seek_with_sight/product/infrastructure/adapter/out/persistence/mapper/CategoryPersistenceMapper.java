@@ -1,7 +1,11 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper;
 
-import com.seek_with_sight.product.domain.model.Category;
+import com.seek_with_sight.product.domain.model.category.Category;
+import com.seek_with_sight.product.domain.model.category.CategorySearchItem;
+import com.seek_with_sight.product.domain.model.category.CategoryTreeItem;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.projection.CategorySearchProjection;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.projection.CategoryTreeProjection;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.JpaEntityFactory;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.PersistenceMapper;
@@ -23,4 +27,8 @@ public interface CategoryPersistenceMapper
 
     @Override
     CategoryEntity toEntity(Category domain, @Context CycleAvoidingMappingContext context);
+
+    CategoryTreeItem toTreeItem(CategoryTreeProjection projection, @Context CycleAvoidingMappingContext context);
+
+    CategorySearchItem toSearchItem(CategorySearchProjection projection, @Context CycleAvoidingMappingContext context);
 }

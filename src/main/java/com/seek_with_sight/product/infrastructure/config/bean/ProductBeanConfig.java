@@ -58,7 +58,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductReviewPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductInventoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductReviewJpaRepository;

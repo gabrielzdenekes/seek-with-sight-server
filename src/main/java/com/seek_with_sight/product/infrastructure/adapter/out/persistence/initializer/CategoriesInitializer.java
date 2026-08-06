@@ -1,8 +1,8 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence.initializer;
 
-import com.seek_with_sight.product.domain.model.Category;
+import com.seek_with_sight.product.domain.model.category.Category;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.CategoryJpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

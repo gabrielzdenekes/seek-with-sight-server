@@ -1,7 +1,9 @@
 package com.seek_with_sight.product.infrastructure.adapter.in.rest;
 
-import com.seek_with_sight.product.application.port.in.category.CategoryListItem;
-import com.seek_with_sight.product.application.port.in.category.CategorySearchItem;
+import com.seek_with_sight.product.domain.model.category.CategorySearchItem;
+import com.seek_with_sight.product.domain.model.category.CategoryTreeItem;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.projection.CategoryTreeProjection;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.projection.CategorySearchProjection;
 import com.seek_with_sight.product.application.port.in.category.GetCategoryTreeUseCase;
 import com.seek_with_sight.product.application.port.in.category.SearchCategoriesUseCase;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +22,7 @@ public class CategoriesController {
     private final SearchCategoriesUseCase searchCategoriesUseCase;
 
     @GetMapping
-    public List<CategoryListItem> getCategoryTree() {
+    public List<CategoryTreeItem> getCategoryTree() {
         var tree = getCategoryTreeUseCase.get();
         return tree;
     }

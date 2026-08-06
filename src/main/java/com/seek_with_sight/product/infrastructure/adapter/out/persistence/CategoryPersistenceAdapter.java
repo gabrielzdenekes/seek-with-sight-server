@@ -1,12 +1,14 @@
 package com.seek_with_sight.product.infrastructure.adapter.out.persistence;
 
-import com.seek_with_sight.product.application.port.in.category.CategoryListItem;
-import com.seek_with_sight.product.application.port.in.category.CategorySearchItem;
+import com.seek_with_sight.product.domain.model.category.CategorySearchItem;
+import com.seek_with_sight.product.domain.model.category.CategoryTreeItem;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.projection.CategoryTreeProjection;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.projection.CategorySearchProjection;
 import com.seek_with_sight.product.application.port.out.CategoryRepositoryPort;
-import com.seek_with_sight.product.domain.model.Category;
+import com.seek_with_sight.product.domain.model.category.Category;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.CategoryPersistenceMapper;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.CategoryJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;
 
@@ -30,12 +32,16 @@ public class CategoryPersistenceAdapter
     }
 
     @Override
-    public List<CategoryListItem> getCategoryTree() {
-        return repository.findAllByParentIsNullOrderBySortOrderAsc();
+    public List<CategoryTreeItem> getCategoryTree() {
+        return repository.findAllByParentIsNullOrderBySortOrderAsc().stream()
+                .map(c -> mapper.toTreeItem(c, new CycleAvoidingMappingContext()))
+                .toList();
     }
 
     @Override
     public List<CategorySearchItem> searchByName(String name) {
-        return repository.searchByName(name);
+        return repository.searchByName(name).stream()
+                .map(c -> mapper.toSearchItem(c, new CycleAvoidingMappingContext()))
+                .toList();
     }
 }

@@ -9,7 +9,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductImageEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.ProductVariantEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import net.datafaker.Faker;
 import org.springframework.stereotype.Service;

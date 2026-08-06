@@ -11,7 +11,7 @@ import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.mapper.ProductVariantPersistenceMapper;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.CategoryJpaRepository;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.ProductJpaRepository;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.BasePersistenceAdapter;
 import com.seek_with_sight.shared.infrastructure.adapter.out.persistence.CycleAvoidingMappingContext;

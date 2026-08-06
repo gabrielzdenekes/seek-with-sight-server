@@ -10,7 +10,7 @@ import com.seek_with_sight.product.infrastructure.adapter.in.rest.dto.response.P
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.BrandEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.entity.CategoryEntity;
 import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.BrandJpaRepository;
-import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.CategoryJpaRepository;
+import com.seek_with_sight.product.infrastructure.adapter.out.persistence.repository.category.CategoryJpaRepository;
 import com.seek_with_sight.profile.CustomerProfileTestFixture;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiErrorResponse;
 import com.seek_with_sight.shared.infrastructure.adapter.in.rest.dto.ApiResponse;

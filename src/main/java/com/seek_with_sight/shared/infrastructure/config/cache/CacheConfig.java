@@ -20,26 +20,40 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.RedisSerializationContext;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Configuration
 @EnableCaching
-@EnableConfigurationProperties({ CacheProperties.class, ClientCacheProperties.class })
+@EnableConfigurationProperties({CacheProperties.class, ClientCacheProperties.class})
 public class CacheConfig {
     @Bean
     public CacheManager caffeineCacheManager(CacheProperties cacheProperties) {
-        var cacheManager = new CaffeineCacheManager(
-                CacheNames.PRODUCTS,
-                CacheNames.CART,
-                CacheNames.USER,
-                CacheNames.CATEGORIES_TREE
+        var cacheManager = new CaffeineCacheManager();
+
+        var defaultSpec = String.format(
+                "initialCapacity=%d,maximumSize=%d,expireAfterWrite=%dm,recordStats",
+                cacheProperties.initialCapacity(),
+                cacheProperties.maximumSize(),
+                cacheProperties.expireAfterWrite()
         );
 
-        cacheManager.setCaffeine(
+        for (var cacheName : List.of(CacheNames.PRODUCTS, CacheNames.CART, CacheNames.USER)) {
+            cacheManager.registerCustomCache(
+                    cacheName,
+                    Caffeine.from(defaultSpec).build()
+            );
+        }
+
+        cacheManager.registerCustomCache(
+                CacheNames.CATEGORIES_TREE,
                 Caffeine.newBuilder()
-                        .initialCapacity(cacheProperties.initialCapacity())
-                        .maximumSize(cacheProperties.maximumSize())
-                        .expireAfterWrite(Duration.ofMinutes(cacheProperties.expireAfterWrite()))
+                        .initialCapacity(10)
+                        .maximumSize(100)
+                        .expireAfterWrite(Duration.ofDays(7))
                         .recordStats()
+                        .build()
         );
 
         return cacheManager;
@@ -51,9 +65,7 @@ public class CacheConfig {
             CacheProperties cacheProperties
     ) {
         var objectMapper = new ObjectMapper();
-
         objectMapper.registerModule(new JavaTimeModule());
-
         objectMapper.activateDefaultTyping(
                 objectMapper.getPolymorphicTypeValidator(),
                 ObjectMapper.DefaultTyping.NON_FINAL,
@@ -62,18 +74,22 @@ public class CacheConfig {
 
         var serializer = new GenericJackson2JsonRedisSerializer(objectMapper);
 
-        var config = RedisCacheConfiguration
-                .defaultCacheConfig()
+        var defaultConfig = RedisCacheConfiguration.defaultCacheConfig()
                 .serializeValuesWith(
-                        RedisSerializationContext
-                                .SerializationPair
-                                .fromSerializer(serializer)
+                        RedisSerializationContext.SerializationPair.fromSerializer(serializer)
                 )
                 .disableCachingNullValues()
                 .entryTtl(Duration.ofHours(cacheProperties.entryTtl()));
 
+        var customConfigurations = new HashMap<String, RedisCacheConfiguration>();
+        customConfigurations.put(
+                CacheNames.CATEGORIES_TREE,
+                defaultConfig.entryTtl(Duration.ofDays(30))
+        );
+
         return RedisCacheManager.builder(connectionFactory)
-                .cacheDefaults(config)
+                .cacheDefaults(defaultConfig)
+                .withInitialCacheConfigurations(customConfigurations)
                 .build();
     }
 
