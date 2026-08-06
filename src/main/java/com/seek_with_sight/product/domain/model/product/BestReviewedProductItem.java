@@ -4,22 +4,22 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public record BestReviewedProductItem(
-        UUID getId,
+        UUID id,
 
-        String getName,
+        String name,
 
-        String getSlug,
+        String slug,
 
-        Double getAverageRating,
+        Double averageRating,
 
-        Integer getReviewCount,
+        Integer reviewCount,
 
-        BigDecimal getPrice,
+        BigDecimal price,
 
-        BigDecimal getSalePrice,
+        BigDecimal salePrice,
 
-        Integer getDiscountPercentage,
+        Integer discountPercentage,
 
-        String getImageUrl
+        String imageUrl
 ) {
 }
